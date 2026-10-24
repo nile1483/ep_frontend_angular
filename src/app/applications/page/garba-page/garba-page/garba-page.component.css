@@ -1,0 +1,157 @@
+.garba-background {
+    background-image: url(/assets/page/garba/garba-banner.png);
+    padding: 35rem 0 0 0;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+.partner-btn.btn-primary:before {
+    background: transparent !important;
+}
+
+.partner-btn .btn {
+    font-size: 18px;
+    padding: 13px 26px;
+}
+
+.bg-gray {
+    background-color: #f3f2f4
+}
+
+.box-section .border {
+    border-radius: 1.3rem !important;
+    border: 1px solid #dddada !important;
+    background-color: #dddada;
+}
+
+.box-section.offer-card {
+    border-radius: 1.3rem !important;
+    border: 1px solid #f3f2f4 !important;
+    background-color: #f3f2f4;
+}
+
+.box-section p {
+    color: #000;
+}
+
+span.border-top {
+    border-top: 2px solid #000 !important;
+    padding-top: 5px;
+}
+
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+    background-image: url(/assets/page/garba/border.png);
+    background-repeat: no-repeat;
+}
+
+.contact.btn-primary:before {
+    background: transparent !important;
+}
+
+.contact.btn-primary:hover,
+.contact.btn-primary:focus,
+.contact.btn-primary:active {
+    background-color:  #f3f2f4 !important;
+    color: var(--bs-black) !important;
+}
+
+
+@media (min-width:1200.9px) and (max-width:1439.9px) {
+    .garba-background {
+        padding: 30rem 0 0 0;
+        background-position: center center;
+        background-repeat: no-repeat
+    }
+}
+
+
+@media (max-width:1200px) {
+    .garba-background {
+        padding: 28.2rem 0 0 0;
+        background-position: center center;
+        background-repeat: no-repeat
+    }
+}
+
+@media (max-width:991px) {
+    .garba-background {
+        padding: 23rem 0 0 0
+    }
+}
+
+@media (max-width:768px) {
+    .garba-background {
+        padding: 19rem 0 0 0
+    }
+}
+
+@media (max-width:575px) {
+    .garba-background {
+        padding: 15rem 0 0 0;
+        background-position: center
+    }
+}
+
+@media (max-width:425px) {
+    .garba-background {
+        padding: 9rem 0 0 0;
+        background-position: center center
+    }
+}
+
+
+
+
+
+
+.phone-number-with-country .drop-down-link {
+    text-align: center;
+    min-width: 90px;
+    display: block;
+    width: 100%;
+    padding: 13px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #818691;
+    background: rgba(122, 141, 159, .08);
+    border: 1px solid rgba(122, 141, 159, .08);
+    border-radius: 5px 0 0 5px
+  }
+  
+  .phone-number {
+    border-radius: 0 5px 5px 0
+  }
+  
+  .phone-number-with-country .dropdown-menu {
+    font-size: 14px;
+    color: var(--gray-3);
+    padding: 8px 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, .06);
+    border-radius: 10px;
+    background-color: var(--bs-white);
+    border: 0;
+    min-width: 280px
+  }
+  
+  .phone-number-with-country .dropdown-menu .country-list {
+    max-height: 110px;
+    overflow-y: auto
+  }
+  
+  .phone-number-with-country .dropdown-menu li {
+    cursor: pointer;
+    border-radius: 4px;
+    white-space: normal
+  }
+  
+  .phone-number-with-country .dropdown-menu .dropdown-item:active {
+    color: #fff;
+    background-color: var(--gray-3)
+  }
+  
+  .country-search {
+    padding: 5px 10px !important
+  }

@@ -1,0 +1,85 @@
+.list-background {
+    background-image: url("/assets/media/digital/bg-digital.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+button.accordion-button,.media-filter-title .dropdown .dropdown-toggle{
+    background-color: var(--bs-primary);
+}
+
+.media-filter .accordion-button.collapsed,.media-filter-title .dropdown .dropdown-toggle,.media-filter-title .sort-label{
+    color: var(--bs-white);
+}
+
+.media-filter .accordion-button.collapsed::after, .media-filter-title .dropdown .dropdown-toggle::after {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' style='&%2310; fill: %23fff;&%2310;'%3E%3Cpath d='M2.652 162.1c1.531-1.376 3.438-2.048 5.344-2.048c2.188 0 4.375 .891 5.938 2.642L224 396.2l210.1-233.5c2.906-3.283 8-3.58 11.28-.594c3.281 2.97 3.563 8.019 .5938 11.32l-216 240.1c-3 3.345-8.875 3.345-11.88 0L2.058 173.4C-.9104 170.1-.6292 165 2.652 162.1z'/%3E%3C/svg%3E");
+}
+
+.media-filter .accordion-button,.media-filter-title .dropdown .dropdown-toggle.show,.media-filter-title .dropdown-toggle.show .sort-label{
+    color: var(--bs-body-color);
+}
+
+.media-filter-title .dropdown .dropdown-toggle.show{
+    background-color: var(--bs-white);
+}
+
+.media-filter-title .dropdown .dropdown-toggle.show::after{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M2.652 162.1c1.531-1.376 3.438-2.048 5.344-2.048c2.188 0 4.375 .891 5.938 2.642L224 396.2l210.1-233.5c2.906-3.283 8-3.58 11.28-.594c3.281 2.97 3.563 8.019 .5938 11.32l-216 240.1c-3 3.345-8.875 3.345-11.88 0L2.058 173.4C-.9104 170.1-.6292 165 2.652 162.1z'/%3E%3C/svg%3E");
+}
+
+
+
+/* CASE STUDIES */
+
+.separator-blue,
+.separator-left {
+  background-color: #c01625;
+  display: block;
+  height: 2px;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.separator-left {
+  width: 100px;
+  margin: 0.3rem 0rem 1rem;
+}
+
+flip-container {
+  position: relative;
+}
+
+.flip-img {
+  transform-style: preserve-3d;
+  transition: 0.95s;
+  cursor: pointer;
+}
+.flip-img:hover {
+  transform: rotateY(180deg);
+}
+
+.front {
+  position: relative;
+}
+
+.back {
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  top: -0.5px;
+  left: -1.5px;
+}
+
+.case-studies .btn {
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 6px;
+  padding: 8px 12px;
+  outline: 0;
+  box-shadow: none;
+  color: #fff;
+}

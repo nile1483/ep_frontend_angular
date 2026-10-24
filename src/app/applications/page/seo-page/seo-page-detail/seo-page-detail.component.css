@@ -1,0 +1,11 @@
+::ng-deep .section-heading {
+    margin: 0 auto 30px !important;
+}
+
+::ng-deep  .cart-card .cart-img-box {
+    height: 150px !important;     
+}
+
+::ng-deep .cart-card .cart-img-box .cart-image {
+    max-height: fit-content;
+}

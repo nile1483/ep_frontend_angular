@@ -1,0 +1,301 @@
+<!-- background -->
+<section class="section-featured-services radioadcost-background common-padding">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
+    </div>
+</section>
+
+<!--- Calculator --->
+<section class="common-padding shadow">
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Revenue</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Revenue is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Revenue must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">COGS</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    COGS is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    COGS must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
+                    </div>
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">Gross Profit Margin</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detail -->
+
+<section class="common-padding shadow">
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/radio-ad-cost/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
+
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0">Radio Ad Cost </h2>
+                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+                <p class="fs-5">
+                    Accurately measure the cost of your radio ads and plan your budgets accordingly. Now you can easily calculate your radio ads. 
+                </p>
+                <p class="fs-5">
+                    The Radio Ad Cost Calculator helps in calculating the expenses which are related to running Radio ad campaigns. This calculator helps in planning the advertising budget of the brand. This calculator provides the approximate cost of airing radio ads on varied time slots and various radio stations. 
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Formula to calculate the Radio Ad cost
+            </li>
+        </ul>
+        <div class="ms-4">
+            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                Total Cost = Rate per Second x Ad Length x Spots Per Day x Number of Days
+            </h2>
+            <ul class="p-0">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Total Cost – </strong>
+                    The final cost of running the radio ad campaign.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Rate per Second – </strong>
+                    The cost of airing the ad per second, set by the radio station.   
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Ad Length – </strong>
+                    The duration of the ad in seconds (e.g., 10, 20, 30 seconds).
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Spots Per Day – </strong>
+                    The number of times the ad is played daily.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                    <span class="ms-2">
+                      <strong>●	Number of Days – </strong>
+                      The total number of days the ad will run.
+                    </span>
+                  </li>
+            </ul>  
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Tips for Cost-Effective Radio Advertising
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Radio advertising has proven to be one of the most effective ways for reaching a wide audience, but it is important to maximize the ROI. Here is the list of tips for making your radio campaigns cost-effective and keeping the Radio advertising cost in India within your budget. 
+            </p>
+            <ul class="p-0">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Plan your campaigns based on audience and time slots </strong>
+                    In radio, not all time slots are priced equally. Prime times like morning and evening, which are also known as drive hours, are expensive, while the off hours can be cheaper. Use our radio ad cost calculator India to compare the cost and choose the best slot for your audience.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Choose the right station and regions </strong>
+                    Instead of advertising on national stations, focus on local or regional radio where your target audience is more engaged. This helps lower the radio advertising cost while improving effectiveness. 
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Keep your ad short and impactful</strong>
+                    The longer the ad, the higher the cost. A 15-30 second ad with a strong message can be just as effective as a 60-second one, reducing expenses while keeping the audience engaged.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Use Package Deals & Bulk Booking</strong>
+                    Many radio stations offer discounts on bulk bookings. Instead of running a one-time ad, opt for multiple spots at negotiated rates to save money on your radio ad campaigns.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                    <span class="ms-2">
+                      <strong>Leverage Sponsorships & RJ Mentions</strong>
+                      Rather than a standard ad, consider RJ endorsements or sponsorships of shows. Listeners trust their favorite RJs, and these mentions can have a higher impact at a lower cost.
+                    </span>
+                </li>
+                <li class="d-flex align-items-start">
+                    <span class="ms-2">
+                      <strong>Repurpose Ads Across Different Radio Networks</strong>
+                      Instead of creating multiple versions of your ad, use the same ad script across different stations. This helps maximize reach without increasing production costs.
+                    </span>
+                </li>
+                <li class="d-flex align-items-start">
+                    <span class="ms-2">
+                      <strong>Track & Optimize with Data</strong>
+                      Use the radio ad cost calculator India tools to analyze performance. Check which time slots and stations give the best ROI, and adjust your radio advertising cost strategy accordingly.
+                    </span>
+                </li>
+            </ul> 
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Cost of Radio vs Other Types of Ads
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                When radio advertising in India is compared with other types of advertisements, radio generally offers a more cost-effective and efficient means to target a given audience. While TV commercials are expensive to produce and buy time for, radio advertising campaigns can be produced for a fraction of the expense, yet still have effective brand recall. Just as print newspaper and magazine ads are of limited duration, radio advertising has the capacity to reach its audience several times a day and hence gain better engagement. Companies can plan campaigns more effectively using tools such as our radio ad cost calculator and make better use of their budget.
+            </p>
+            <p>
+                On the other hand, online advertising provides a focus on specific targets and measurable outcomes, but may need to be continuously optimised with a higher financial investment for highly competitive sectors. Although online advertisements are based upon user action, radio advertising reaches out to a more personal, immersive audience, particularly in the routine commute and relaxation times. Radio also provides geographical coverage and is therefore best for local firms wishing to reach a precise target group. By pairing radio with digital and other media, companies can develop an affordable, multi-channel campaign that optimizes brand awareness.
+            </p>       
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Factors Affecting Radio Ad Spot Costs
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                <strong>Time Slot</strong>
+            </p>
+            <p>
+                Ad rates vary significantly based on the time of day. Prime time slots like morning drive (7-10 AM) and evening drive (5-8 PM) are costlier due to higher listenership.
+            </p> 
+            <p>
+                <strong>Radio Station Popularity & Reach</strong>
+            </p>
+            <p>
+                Stations with a larger audience base or strong brand value charge more. Top-tier FM stations in metro cities are more expensive than local or regional stations.
+            </p>  
+            <p>
+                <strong>Ad Duration & Frequency</strong>
+            </p>
+            <p>
+                Longer ads (e.g., 30 or 60 seconds) cost more than shorter ones (10 or 15 seconds). Also, buying more ad spots often comes with discounted bulk rates.
+            </p>
+            <p>
+                <strong>Geographic Location</strong>
+            </p>
+            <p>
+                Costs are higher in Tier 1 cities (Mumbai, Delhi, Bangalore) compared to Tier 2 or Tier 3 cities, due to differences in audience size and purchasing power.
+            </p>   
+            <p>
+                <strong>Ad Placement Type</strong>
+            </p>
+            <p>
+                Premium placements like first ad in a break, exclusive sponsorships, or RJ mentions/integrations come at a higher cost compared to standard commercial breaks.
+            </p>  
+        </div>
+
+    </div>
+</section>
+
+<!-- FAQs -->
+<section class="bg-gradient-gray common-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Calculator start -->
+<section class="media-list">
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <!-- Related Calculator -->
+    </div>
+</section>

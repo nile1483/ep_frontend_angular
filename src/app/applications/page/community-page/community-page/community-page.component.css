@@ -1,0 +1,325 @@
+/*-------------------------*/
+.community-page {
+  background-image: url("/assets/page/community/community-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.community-content {
+  color: #000;
+  padding: 7rem 20px;
+}
+
+.community-content h1 {
+  font-size: 80px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1A1A1A;
+}
+
+.community-content h1 span {
+  color: #B4272B;
+}
+
+.community-content p {
+  font-size: 30px;
+  color: #545454;
+  margin-bottom: 35px;
+}
+
+.apply-btn {
+  display: inline-block;
+  background-color: #B4272B;
+  color: #fff;
+  font-weight: 600;
+  padding: 14px 36px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: #8b1a1a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .community-content {
+    padding: 4rem;
+  }
+
+  .community-content h1 {
+    font-size: 60px;
+  }
+
+  .community-content p {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .community-content {
+    padding: 2rem;
+  }
+
+  .community-page {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .community-content h1 {
+    font-size: 40px;
+  }
+
+  .community-content p {
+    font-size: 18px;
+  }
+
+  .apply-btn {
+    padding: 12px 28px;
+    font-size: 15px;
+  }
+}
+
+.text-red {
+  color: #c01625 !important;
+}
+
+/*-------------------------*/
+
+/* what we offer */
+.about-community h3,
+.terms-condition h3,
+.form-section h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #c01625;
+}
+
+.card-icon-session {
+  /* height: 60px;       */
+  width: 23%;
+  padding: 0.5rem 0rem 0rem 1rem;
+}
+
+.about-community .heading-text,
+.terms-condition .heading-text,
+.form-section .heading-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.about-community span.text-clr,
+.terms-condition span.text-clr,
+.term-condition span.text-clr {
+  font-weight: 500;
+  color: #000;
+  font-size: 18px;
+}
+
+.about-community h6.card-text {
+  font-size: 20px !important;
+  color: #000 !important;
+}
+
+/* Make row children equal height */
+.about-community .card-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.side-card {
+  display: flex;
+}
+
+.side-card .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-card .card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.what-awaits p.card-text {
+  font-size: 16px !important;
+  color: #000;
+}
+
+.about-community p.card-text {
+  font-size: 20px;
+  color: #000;
+}
+
+/* terms-condition */
+.card-icon-session.terms-condition {
+  width: 96%;
+  height: 134px;
+  object-fit: contain;
+  flex: 1;
+}
+
+.terms-condition .partner-btn button.partner-btn,
+.term-condition .partner-btn button.partner-btn {
+  padding: 8px 38px 8px 38px;
+}
+
+.terms-condition p.card-text {
+  color: #1A1A1A;
+  font-size: 16px;
+}
+
+/* Terms & Conditions */
+
+.term-condition h3,
+.faq h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000;
+}
+
+.term-condition h5 {
+  color: #000;
+}
+
+.bg-gray {
+  background-color: #f3f2f4
+}
+
+.card-body {
+  color: var(--bs-black)
+}
+
+.contact-item {
+  display: flex;
+  margin-bottom: 16px;
+  font-size: .95rem
+}
+
+.contact-item:last-child {
+  margin-bottom: 0
+}
+
+.contact-inquiry-card.inquiry-card {
+  max-width: 900px;
+  margin: 0 auto
+}
+
+.phone-number-with-country .drop-down-link {
+  text-align: center;
+  min-width: 90px;
+  display: block;
+  width: 100%;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #818691;
+  background: rgba(122, 141, 159, .08);
+  border: 1px solid rgba(122, 141, 159, .08);
+  border-radius: 5px 0 0 5px
+}
+
+.phone-number {
+  border-radius: 0 5px 5px 0
+}
+
+.phone-number-with-country .dropdown-menu {
+  font-size: 14px;
+  color: var(--gray-3);
+  padding: 8px 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .06);
+  border-radius: 10px;
+  background-color: var(--bs-white);
+  border: 0;
+  min-width: 280px
+}
+
+.phone-number-with-country .dropdown-menu .country-list {
+  max-height: 110px;
+  overflow-y: auto
+}
+
+.phone-number-with-country .dropdown-menu li {
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: normal
+}
+
+.phone-number-with-country .dropdown-menu .dropdown-item:active {
+  color: #fff;
+  background-color: var(--gray-3)
+}
+
+.country-search {
+  padding: 5px 10px !important
+}
+
+@media (min-width:1400px) {
+  .card.container {
+    max-width: 1320px !important
+  }
+}
+
+.col-md-3,
+.col-md-4 {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important
+}
+
+img {
+  max-width: 100%;
+  height: auto
+}
+
+h2 {
+  font-size: 1.7rem
+}
+
+.accordion-header button p {
+  color: #000 !important;
+}
+
+.terms-conditions-input{
+  margin-top: 36px;
+}
+
+.terms-conditions-input label {
+  font-size: 14px;
+  color: #1A1A1A;
+}
+
+.terms-conditions-input label span {
+  color: #B4272B;
+  font-weight: 500;
+}
+.form-check {
+  display: flex;
+  align-items: center; 
+  gap: 10px;
+  padding-left: 0;
+  margin-bottom: 8px;
+}
+
+.form-check-input {
+  width: 24px;
+  height: 24px;
+  margin: 0;          
+  flex-shrink: 0;   
+}
+
+.form-check-label {
+  line-height: 1.4;
+  margin-bottom: 0;
+}

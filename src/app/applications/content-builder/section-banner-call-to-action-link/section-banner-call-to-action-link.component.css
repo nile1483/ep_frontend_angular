@@ -1,0 +1,16 @@
+.c2a-contact a{
+    font-size: 1.3rem;
+    color: #000 !important;
+}
+
+::ng-deep .c2a-contact svg{
+    height: 1.5rem;
+}
+
+::ng-deep .c2a-contact a:hover span{
+     color:var(--bs-primary)
+}
+
+::ng-deep .c2a-contact a:hover svg{
+    fill:var(--bs-primary)
+}

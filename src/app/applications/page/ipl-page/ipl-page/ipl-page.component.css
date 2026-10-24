@@ -1,0 +1,860 @@
+::ng-deep html{
+  overflow-x: hidden !important;
+}
+
+.border-white {
+  border-color: var(--bs-white) !important
+}
+
+.service-logo {
+  height: 50px;
+  width: 50px
+}
+
+.section-featured-services .section-heading {
+  margin-bottom: 0px;
+  max-width: 1536px;
+  padding:15px;
+}
+
+.section-featured-services .section-heading h2 {
+  font-size: 1.8rem
+}
+
+@media (max-width:575px) {
+  .section-featured-services .section-heading h2 {
+    font-size: 1rem
+  }
+}
+
+.counter-row {
+  border-bottom: 1px solid var(--bs-white)
+}
+
+.counter-row:last-child {
+  border-bottom: 0
+}
+
+@media (max-width:767px) {
+  .counter-row {
+    border-bottom: 0
+  }
+}
+
+.counter-col {
+  border-right: 1px solid var(--bs-white)
+}
+
+@media (max-width:767px) {
+  .counter-col {
+    border-right: 0
+  }
+}
+
+.counter-col:nth-child(3n) {
+  border-right: 0
+}
+
+.advertising-section .img-col img {
+  max-width: 241px;
+  width: 100%
+}
+
+@media (max-width:767px) {
+  .advertising-section .img-col img {
+    max-width: 237px;
+    width: 100%
+  }
+}
+
+.h1,
+h1 {
+  font-size: 2.5rem
+}
+
+.separator-blue {
+  background-color: #c01625;
+  display: block;
+  height: 2px;
+  width: 20%;
+  margin: 0 auto
+}
+
+.blue-background {
+  color: var(--bs-white);
+  background-image: linear-gradient(to right bottom, #638fd011, #6ab6d611, #6ab6d620, #6ab6d620, #f5faff)
+}
+
+.card.portfolio-card {
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0
+}
+
+.card.portfolio-card .card-body {
+  padding: 3px
+}
+
+@media (max-width:991px) {
+  .custom-eventcard-border {
+    border-top: none
+  }
+}
+
+.p-color,
+.service-text {
+  color: #414141
+}
+
+/*----23-02-2026----------*/
+
+.sports-background {
+  background-image: url(/assets/page/ipl/ipl-banner.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 176px 0px;
+}
+.sports-background .section-heading h1 {
+  font-size: 100px;
+  /* padding-bottom: 27px; */
+  /* padding-bottom: 73px; */
+  padding-bottom: 34px;
+  font-weight: 700;
+  line-height: 52px;
+}
+.ipl-text {
+  /* font-size: 32px; */
+  font-size: 28px;
+  max-width: 1536px;
+  margin: 0 auto 33px !important;
+  line-height: 35px;
+}
+.active-btn{
+  font-size: 18px;
+  /* padding: 20px 39px 20px 39px; */
+  padding: 12px 47px 12px 47px;
+}
+.active-btn:before{
+  background: #EE3B41;
+}
+.ipl-advertise-btn {
+  background-color: #EE3B41;
+  color: #ffffff;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.ipl-advertise-btn:hover {
+  background-color: #d93237;
+  transform: translateY(-2px);
+  color: #fff;
+}
+.text-pink-shade{
+  color:#53003C;
+}
+.advertise-text{
+  color: #414141;
+}
+.bg-gradient-pink-shade{
+  background-color:#53003C;
+}
+.section-heading.big-ipl {
+  max-width: 1306px;
+  margin: 0 auto 70px;
+  padding: 0px 15px 0px 15px;
+}
+.big-ipl-card {
+  background-color: #6e2a5b;
+  border-radius: 14px;
+  padding: 20px 2px; /* better spacing */
+  text-align: center;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.big-ipl-card h6 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.big-ipl-card p {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+.ipl-schedule{
+  background-color: #EE3B41;
+  border-radius: 10px;
+}
+.ipl-schedule p{
+  padding: 10px 15px 10px 15px;
+  color: #fff;
+  text-align: center;
+  font-size: 60px !important;
+}
+.advertise-section {
+  background-image: url("/assets/page/ipl/pink-shade-bg.png");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding: 129px 30px;
+  display: flex;
+  align-items: center;
+}
+.advertise-section .container {
+  width: 100%;
+}
+.cta-contact-btn {
+  background-color: #EE3B41;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+.cta-contact-btn .arrow {
+  transition: transform 0.3s ease;
+}
+.cta-contact-btn:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(238,59,65,0.35);
+}
+.cta-contact-btn:hover .arrow {
+  transform: translateX(6px);
+}
+.doing-ipl-content {
+  margin: 20px auto 0;
+}
+.ipl-benefits-list {
+  list-style: disc;          
+  padding-left: 45px;     
+  margin: 20px 0;
+}
+.ipl-benefits-list li {
+  margin-bottom: 14px;
+  line-height: 1.7;
+  color: #333;
+}
+.ipl-benefits-list li strong {
+  color: #000;
+}
+.common-padding.ipl-ad-content{
+  padding: 32px 0px;
+}
+/*---faq-----*/
+.oc-box-section {
+  background: #f8f8f8;
+}
+.custom-oc-box .accordion-item {
+  border: none;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.custom-oc-box .accordion-button {
+  background: #fff;
+  font-weight: 600;
+  color: #222;
+  padding: 18px 20px;
+  box-shadow: none;
+}
+.custom-oc-box .accordion-button:focus {
+  box-shadow: none;
+}
+.custom-oc-box .accordion-body {
+  background: #fff;
+  padding: 18px 20px;
+  color: #555;
+  /* line-height: 1.7; */
+  line-height: 48px;
+  min-height: auto;
+  /* font-size: 30px; */
+  font-size: 32px;
+}
+.custom-oc-box .accordion-body ul li  {
+  font-size: 30px;
+}
+.custom-oc-box .accordion-button::after {
+  display: none; 
+}
+.custom-oc-box .accordion-button {
+  position: relative;
+  padding-right: 45px;
+  /* font-size: 42px; */
+  font-size: 36px;
+  line-height: 44px;
+}
+.custom-oc-box .accordion-button::before {
+  content: "^";
+  position: absolute;
+  right: 20px;
+  font-size: 42px;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+.custom-oc-box .accordion-button.collapsed::before {
+  transform: rotate(180deg);
+}
+.custom-oc-box .accordion-button:not(.collapsed)::before {
+  transform: rotate(0deg);
+}
+
+/*----23-02-2026----------*/
+/*-----------------------*/
+.heading-size{
+  font-size: 65px;
+  line-height: 52px;
+}
+.hp-size{
+  font-size: 32px;
+  line-height: 35px;
+}
+.hp-size.sb-margin{
+  margin-bottom: 60px;
+}
+.advertise-text{
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 9px;
+  margin-bottom: 9px;
+}
+.advertising-card p{
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 0px;
+}
+.advertising-col{
+  margin-top: 0px;
+  margin-bottom: 39px;
+}
+.big-ipl h2{
+  font-size: 65px;
+  line-height: 80px;
+  margin-bottom: 15px;
+}
+.big-ipl p{
+  font-size: 32px;
+  line-height: 37px;
+  margin-bottom: 0px;
+}
+.section-heading.ipl-year {
+  max-width: 1432px;
+  margin: 0 auto 100px;
+  padding: 0px 15px 0px 15px;
+}
+.ipl-year-advertising-col{
+  margin: 0px;
+}
+.section-heading.ipl-campaigns{
+  max-width: 1432px;
+  padding: 0px 15px 0px 15px;
+}
+.section-heading.ipl-ads-doing{
+  max-width: 1455px;
+  padding: 0px 15px 0px 15px;
+}
+.ipl-ad-content h3{
+  font-size: 36px;
+  line-height: 44px;
+}
+.ipl-ad-content p, .ipl-benefits-list li{
+  /* font-size: 38px;
+  line-height: 46px; */
+  font-size: 30px;
+  line-height: 49px;
+}
+.advertising-ep-col h3{
+  font-size: 50px;
+  line-height: 33px;
+  margin-bottom: 23px;
+}
+.advertising-ep-col p{
+  font-size: 30px;
+  line-height: 33px;
+}
+.get-in-btn{
+  padding: 24px 21px 24px 21px;
+  font-size: 19px;
+  color: white;
+}
+.get-in-btn::before{
+  background-color: #EE3B41 !important;
+}
+.common-margin.ipl-schedule-cs{
+  margin: 100px 0;
+}
+/*-----------------------*/
+/*---------------------------*/
+@media (max-width:1440px) {
+  .ipl-text{
+    font-size: 22px;
+    max-width: 1200px;
+  }
+  .sports-background {
+    padding: 104px 0px;
+  }
+  .sports-background .section-heading h1 {
+    font-size: 80px;
+    padding-bottom: 27px;
+  }
+  .heading-size{
+    font-size: 50px;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+  .hp-size{
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .section-heading.big-ipl {
+    max-width: 1200px;
+  }
+  .big-ipl h2{
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .big-ipl p{
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .section-heading.ipl-year {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+  .section-heading.ipl-campaigns{
+    max-width: 1200px;
+  }
+  .custom-oc-box .accordion-button {
+    font-size: 25px;
+  }
+  .custom-oc-box .accordion-button::before {
+    font-size: 30px;
+  }
+  .custom-oc-box .accordion-body, .custom-oc-box .accordion-body ul li  {
+    font-size: 22px;
+    line-height: 34px;
+}
+  .section-heading.ipl-ads-doing{
+    max-width: 1200px;
+    padding: 0px 15px 0px 15px;
+  }
+  .ipl-ad-content h3{
+    font-size: 30px;
+    line-height: 31px;
+  }
+  .ipl-ad-content p, .ipl-benefits-list li{
+    font-size: 22px;
+    line-height: 31px;
+  }
+  .advertising-ep-col h3{
+    font-size: 36px;
+    line-height: 33px;
+  }
+  .advertising-ep-col p{
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .advertise-section {
+    padding: 91px 30px;
+  }
+  .get-in-btn, .active-btn{
+    padding: 10px 23px;
+    font-size: 16px;
+  }
+  .ipl-schedule p {
+    font-size: 25px !important;
+}
+}
+@media (max-width: 1199px) {
+  .ipl-text{
+    font-size: 19px;
+    max-width: 1000px;
+  }
+  .sports-background{
+      padding: 65px 0px;
+  }
+  .sports-background .section-heading h1 {
+    font-size: 77px;
+  }
+  .active-btn {
+    font-size: 16px;
+  }
+  .heading-size{
+    font-size: 45px;
+    line-height: 48px;
+  }
+  .hp-size{
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .section-heading.big-ipl {
+    max-width: 1000px;
+  }
+  .big-ipl h2{
+    font-size: 45px;
+    line-height: 48px;
+  }
+  .big-ipl p{
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .section-heading.ipl-year {
+    max-width: 1000px;
+    margin: 0 auto 55px;
+  }
+  .section-heading.ipl-campaigns{
+    max-width: 1000px;
+  }
+  .section-heading.ipl-ads-doing{
+    max-width: 1000px;
+    padding: 0px 15px 0px 15px;
+  }
+  .ipl-ad-content h3{
+    font-size: 28px;
+  }
+  .ipl-ad-content p, .ipl-benefits-list li{
+    font-size: 22px;
+  }
+  .advertising-ep-col h3{
+    font-size: 34px;
+    line-height: 33px;
+  }
+  .advertising-ep-col p{
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 991px) {
+  .sports-background .section-heading h1 {
+      font-size: 64px;
+      margin-bottom: 0px;
+  }
+  .ipl-text {
+    font-size: 16px;
+    max-width: 850px;
+    line-height: 28px;
+  }
+  .heading-size{
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .hp-size{
+    font-size: 17px;
+    line-height: 25px;
+  }
+  .section-heading.big-ipl {
+    max-width: 850px;
+  }
+  .big-ipl h2{
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .big-ipl p{
+    font-size: 17px;
+    line-height: 25px;
+  }
+  .section-heading.ipl-year {
+    max-width: 850px;
+  }
+  .section-heading.ipl-campaigns{
+    max-width: 850px;
+  }
+  .section-heading.ipl-ads-doing{
+    max-width: 850px;
+    padding: 0px 15px 0px 15px;
+  }
+  .ipl-ad-content h3{
+    font-size: 22px;
+  }
+  .ipl-ad-content p, .ipl-benefits-list li{
+    font-size: 16px;
+  }
+  .custom-oc-box .accordion-button {
+    font-size: 22px;
+  }
+  .custom-oc-box .accordion-button::before {
+    font-size: 32px;
+  }
+  .custom-oc-box .accordion-body, .custom-oc-box .accordion-body ul li  {
+    font-size: 19px;
+  }
+  .advertising-ep-col h3{
+    font-size: 30px;
+    line-height: 33px;
+  }
+  .advertising-ep-col p{
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .heading-size{
+    font-size: 35px;
+    line-height: 42px;
+  }
+  .hp-size{
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .big-ipl h2{
+    font-size: 35px;
+    line-height: 42px;
+  }
+  .big-ipl p{
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .custom-oc-box .accordion-button {
+    font-size: 18px;
+  }
+  .custom-oc-box .accordion-button::before {
+    font-size: 20px;
+  }
+  .custom-oc-box .accordion-body, .custom-oc-box .accordion-body ul li {
+    font-size: 16px;
+  }
+  .advertising-ep-col h3{
+    font-size: 26px;
+    line-height: 33px;
+  }
+  .advertising-ep-col p{
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 466px) {
+  .ipl-schedule p {
+      font-size: 20px !important;
+  }
+}
+/*---------------------------*/
+
+@media (max-width:991px) {
+  .sports-background {
+    padding: 4rem 0 4rem 0
+  }
+}
+
+@media (max-width:768px) {
+  .sports-background {
+    padding: 4rem 0 4rem 0
+  }
+
+  .sports-background .section-heading h1 {
+    font-size: 3.5rem
+  }
+}
+
+@media (max-width:575px) {
+  .sports-background {
+    padding: 3rem 0 3rem 0
+  }
+
+  .sports-background .section-heading h1 {
+    font-size: 2.5rem
+  }
+}
+
+.nav-tabs .nav-link {
+  margin-bottom: -1px;
+  border: 1px solid transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  color: var(--gray-4);
+  height: 40px;
+  font-weight: 700;
+  text-align: center
+}
+
+.nav-tabs .nav-link:hover {
+  cursor: pointer
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--gray-3);
+  background-color: #faebd7;
+  border-color: var(--bs-primary)
+}
+
+::ng-deep .table>:not(caption)>*>* {
+  padding: .5rem;
+  background-color: #fff;
+  border-bottom-width: 0;
+  box-shadow: none;
+  font-size: 16px
+}
+
+@media (max-width:767px) {
+  .card.portfolio-card .card-body img {
+    height: 100% !important
+  }
+}
+
+.iframe-set {
+  aspect-ratio: 16/9
+}
+
+::ng-deep .blur td {
+  filter: blur(.5px);
+  background-color: var(--gray-9);
+  color: #b2b2b2 !important
+}
+
+
+
+/* IPL Match List */
+
+/* GRID */
+.match-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.match-card {
+  /* background: #3f3c5c; */
+  border-radius: 30px;
+  padding: 45px 20px 30px;
+  color: #fff;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* MATCH BADGE */
+.match-badge {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* background: #c62828; */
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* DATE TIME */
+.match-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  color: #d1d1d1;
+  margin-bottom: 25px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  width: 18px;
+}
+
+.pin-icon {
+  width: 12px;
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  background: #aaa;
+}
+
+/* TEAMS */
+.team-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.team {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-logo {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  background: #fff;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.team h5 {
+  margin: 0;
+  font-weight: 600;
+  color: #fff;
+}
+
+.vs-icon {
+  width: 35px;
+}
+
+/* LOCATION */
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #cfcfcf;
+  margin-top: 15px;
+}
+
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .team-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .match-card {
+    padding: 45px 15px 25px;
+  }
+}
+
+/* tablet */
+@media (max-width:1199.9px) {
+  .match-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* mobile */
+@media (max-width:767px) {
+  .match-card-grid {
+    grid-template-columns: 1fr;
+  }
+}

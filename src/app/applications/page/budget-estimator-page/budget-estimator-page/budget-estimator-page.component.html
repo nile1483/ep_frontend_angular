@@ -1,0 +1,208 @@
+<section class="section-featured-services">
+    <img src="./assets/page/budget-estimator/budget-roi-banner.jpg" alt="budget-roi-banner" class="w-100">
+</section>
+
+<div class="container my-5" style="max-width: 768px;">
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <div class="shadow-sm p-3 rounded-3 h-100" style="background-color: #f4f4f4;">
+                <div style="display: inline-block; width: 35px; height: 35px; border-radius: 50%; background-color: white; text-align: center; vertical-align: middle;">
+                    <img src="/assets/page/budget-estimator/building.png" alt="city" style="max-height: 20px; max-width: 20px; margin-top: 5px;">
+                </div>
+                <label style="vertical-align: middle; margin-left: 10px;">Select Your City (Max 2)</label>
+                <mat-form-field class="example-chip-list">
+                    <mat-chip-grid #chipGridLocation aria-label="Vertical selection">
+                    @for (location of selectedLocation; track location) {
+                        <mat-chip-row (removed)="removeLocation(location)">
+                        {{location.search_string}}
+                        <button matChipRemove type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </mat-chip-row>
+                    }
+                    </mat-chip-grid>
+                    <input placeholder="Search..." #locationInput [formControl]="locationSearchControl"
+                    [matChipInputFor]="chipGridLocation" [matAutocomplete]="autoLocation"
+                    />
+                    <mat-autocomplete #autoLocation="matAutocomplete" (optionSelected)="selectedLocationOption($event)">
+                        <mat-option *ngFor="let location of locationSearchResults" [value]="location">{{location.search_string}}</mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="shadow-sm p-3 rounded-3 h-100" style="background-color: #f4f4f4;">
+                <div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: white; text-align: center; vertical-align: middle;">
+                    <img src="/assets/page/budget-estimator/double-arrow-vertical-symbol.png" alt="double-arrow" style="max-height: 20px; max-width: 20px; margin-top: 5px;">
+                </div>
+                <label style="vertical-align: middle; margin-left: 10px;">Select Your Vertical</label>
+                 <mat-form-field class="example-chip-list">
+                    <mat-chip-grid #chipGrid aria-label="Vertical selection">
+                    @for (vertical of selectedVertical; track vertical) {
+                        <mat-chip-row (removed)="remove(vertical)">
+                        {{vertical}}
+                        <button matChipRemove type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </mat-chip-row>
+                    }
+                    </mat-chip-grid>
+                    <input placeholder="New Vertical..." #verticalInput [formControl]="verticalCtrl"
+                    [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                    />
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                    @for (vertical of filteredVerticals | async; track vertical) {
+                        <mat-option [value]="vertical">{{vertical}}</mat-option>
+                    }
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="shadow-sm p-4 rounded-3 mb-4" style="background-color: #f4f4f4;">
+        <h6 class="fw-bold mb-2">Tell Us About Your Brand</h6>
+        <p class="mb-2">Align your brand with the right budget.</p>
+        <div class="mb-4" *ngFor="let slider of sliderConfigs; let i = index">
+            <label class="fw-semibold">{{ slider.label }}</label>
+            <mat-slider min="0" max="5" step="1" class="w-100 red-slider" showTickMarks discrete [displayWith]="slider.formatter">
+                <input matSliderThumb [(ngModel)]="sliders[slider.key]" (ngModelChange)="updateBudget()" />
+            </mat-slider>
+            <div class="d-flex justify-content-between small text-muted">
+                <span>{{ slider.minLabel }}</span>
+                <span>{{ slider.maxLabel }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="shadow-sm p-3 rounded-3 text-center mb-3" style="background-color: #f4f4f4;">
+        <h6 class="fw-bold mb-2"> Suggested Budget: <span class="text-danger">{{ suggestedBudget | currency:'INR':'symbol':'1.2-2'}}</span> </h6>
+
+        <div class="chart-container" style="position: relative; height: 40vh; width: 100%;">
+            <canvas id="budgetChart"></canvas>
+        </div>
+
+        <p class="text-center fw-semibold mt-4">Suggested Budget</p>
+
+        <div class="plan-selector d-flex flex-row justify-content-between align-items-center mt-2">
+            <div class="plan-option" matTooltip="Pilot" matTooltipPosition="above">Launch Plan <span class="info">ⓘ</span></div>
+            <div class="divider"></div>
+            <div class="plan-option" matTooltip="Scale" matTooltipPosition="above">Scale Plan <span class="info">ⓘ</span></div>
+            <div class="divider"></div>
+            <div class="plan-option" matTooltip="Leadership" matTooltipPosition="above">Leadership Plan <span class="info">ⓘ</span></div>
+        </div>
+
+        <div class="alert alert-light mt-3 small p-3">
+            <div class="d-flex flex-wrap align-items-center justify-content-center text-center">
+                <a matTooltip="Get Plan" matTooltipPosition="above" class="btn text-white bg-transparent gap-1 mb-2 mb-md-0" href="/contact" rel="noopener" style="background-color: #dc3545 !important; padding: 6px 12px; border-radius: 5px;">
+                    Get Plan
+                </a>
+                <p class="mb-0 ms-md-3"> Powered by Excellent Publicity's smart, data driven, and expert media planning tools. </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Budget Calculator Description -->
+<section class="common-padding">
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="default-content pe-lg-4" style="text-align: justify;">
+                    <h1>What Is an Advertising Budget Calculator?</h1>
+                    <p>
+                        An advertising budget calculator is a potent tool assisting businesses, brands, and agencies in
+                        channeling their marketing spend into worthy avenues. Whether you are trying to plan for social
+                        media advertising or are trying to estimate ROAS, it just makes the choice easier. It takes into
+                        consideration a few very important channels like Facebook, Instagram, YouTube, and even
+                        traditional media such as radio or outdoor. A digital marketing budget calculator indeed becomes
+                        a blessing in disguise for advertisers who compete, say, an advertising agency in India. As
+                        influencer marketing finds increased acceptance, the calculator maintains budgeting integrity
+                        across platform-based campaigns. In brief, an advertising budget calculator puts structure
+                        behind your planning so every buck is brought to galvanized growth.
+                    </p>
+                    <h3>How to Effectively Use an Ad Budget Calculator</h3>
+                    <p>
+                        To maximize an ad budget calculator, establish marketing goals and the total dollar amount for
+                        your budget. Whether it's a YouTube ad spend calculator or Facebook ad budget-advertising, put
+                        in accurate data for realistic projections. Often, it comes with an integrated ROAS calculator
+                        so that you can gauge performance and tweak campaigns. It is possible to use a social media
+                        advertising budget calculator to put to use your funds to top platforms and use an influencer
+                        marketing budget tool to shed light on creator partnerships. Even traditional channels of
+                        advertising could be included, such as a radio ad cost estimator or an outdoor advertising
+                        agency input. Constantly monitoring will be the key, and the calculator will assist you in
+                        refining your strategy.
+                    </p>
+                    <h3>Essential Features of an Advertising Budget Calculator</h3>
+                    <p>A good advertising budget calculator should offer more than just number crunching. It should
+                        support a range of platforms, from Instagram ad budget planning to broader digital marketing
+                        budget strategies. Look for one that includes a return on ad spend (ROAS) calculator, allowing
+                        you to measure campaign success. Tools that let you estimate radio ad costs or collaborate with
+                        an outdoor advertising agency are especially valuable for mixed-media campaigns. For businesses
+                        working with an advertising agency in India or abroad, multilingual support and regional
+                        insights are a plus. The best calculators provide real-time insights, customizable templates,
+                        and easy integration with marketing tools.</p>
+                    <h3>Benefits of Using an Ad Budget Calculator</h3>
+                    <p>
+                        Utilizing an ad budget calculator will change the approach you take when it comes to marketing.
+                        It makes it clearer where your rupees are going, whether that is towards a Facebook ad budget or
+                        an influencer marketing budget. An accurate ROAS calculator shows what is performing and
+                        prevents wasteful spending. Through the ability to predict returns, the tool is invaluable for
+                        social media advertising and digital marketing initiatives. If you are working with an ad agency
+                        or running campaigns in-house, it holds everyone responsible. Whether planning radio spots or
+                        outdoor buys via an agency in India, it makes budgeting data-driven and allows you to optimize
+                        impact through all advertising channels.
+                    </p>
+                    <h3>Allocating Ad Budgets Across Different Advertising Channels</h3>
+                    <p>
+                        Smart advertising is all about balance. Allocating your budget across different channels, like
+                        Instagram, YouTube, radio, or influencer marketing, requires both strategy and tools. An
+                        advertising budget calculator simplifies this by breaking down projected returns per channel.
+                        Make use of a digital marketing budget calculator to allocate spend according to audience
+                        behavior, platform performance, and business objectives. Outdoor and classic media, such as
+                        radio, can also be included, facilitating easier alignment with your overall marketing vision.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs -->
+<section class="bg-gradient-gray common-padding">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-heading text-center mb-5">
+          <h2>FAQs</h2>
+          <span class="separator mb-2"></span>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="" itemscope itemtype="https://schema.org/FAQPage">
+          <div class="accordion faq-accordion" id="faqAccordion">
+            <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+              itemtype="https://schema.org/Question">
+              <h6 class="accordion-header" id="heading{{i}}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                  <p itemprop="name" class="m-0"> {{item?.question}} </p>
+                </button>
+              </h6>
+              <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div class="accordion-body default-content" itemprop="text">
+                  <p [innerHTML]="item?.answer"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- call to action media start -->
+<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
+</app-call-to-action-media>
+<!-- call to action media end -->

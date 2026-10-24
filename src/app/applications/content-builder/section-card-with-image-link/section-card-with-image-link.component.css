@@ -1,0 +1,15 @@
+.section-heading { 
+    margin: 0 auto 30px !important;
+}
+
+.country-card {
+    box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.08);
+    background-color: #fff !important;
+    border-radius: 20px;
+    border: 0;
+  }
+  
+  .country-card img {
+    border-radius: 20px;
+  }
+  

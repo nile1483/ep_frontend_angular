@@ -1,0 +1,84 @@
+import { APP_SVG_ICON_LIST } from "./svg-icons";
+
+
+const SVG_ICON_LIST = APP_SVG_ICON_LIST;
+export const COUNTRY_LIST: string[] = ['India', 'US'];
+export const GST_TYPE_LIST: string[] = ['IGST', 'CGST & SGST'];
+export const CURRENCY_LIST: string[] = ['Rupee', 'Dollar'];
+
+export const MEDIA_ICON_LIST: any = { "radio": "fa-radio-tuner", "cinema": "fa-camcorder", "transit": "fa-tire", "outdoor": "fa-airplay", "nontraditional": "fa-bullhorn", "newspaper": "fa-newspaper", "magazine": "fa-book-open", "television": "fa-tv", "mall": "fa-buildings", "digital": "fa-desktop", "digitalpr": "fa-volume", "influencer": "fa-camera-web", "inflight": "fa-plane", "premiumcorporategifting": "fa-user-vneck", "airport": "fa-plane-departure", "designsolutions": "fa-palette", "interactivemeets": "fa-people-group", "sportsmarketing": "fa-volleyball", "btl": "megaphone" };
+
+export const MENU_LIST: { "label": string, "icon": string, "url": string }[] = [{ "label": "Radio", "icon": "fa-radio-tuner", "url": "radio" }, { "label": "Cinema", "icon": "fa-camcorder", "url": "cinema" }, { "label": "Transit", "icon": "fa-tire", "url": "transit" }, { "label": "Outdoor", "icon": "fa-airplay", "url": "outdoor" }, { "label": "Non Traditional", "icon": "fa-bullhorn", "url": "nontraditional" }, { "label": "Newspaper", "icon": "fa-newspaper", "url": "newspaper" }, { "label": "Magazine", "icon": "fa-book-open", "url": "magazine" }, { "label": "Television", "icon": "fa-tv", "url": "television" }, { "label": "Mall", "icon": "fa-buildings", "url": "mall" }, { "label": "Digital", "icon": "fa-desktop", "url": "digital" }, { "label": "Digital PR", "icon": "fa-volume", "url": "digitalpr" }, { "label": "Influencer", "icon": "fa-camera-web", "url": "influencer" }, { "label": "Inflight", "icon": "fa-plane", "url": "inflight" }, { "label": "Corporate Gifting", "icon": "fa-user-vneck", "url": "corporate-gifting" }, { "label": "Airport", "icon": "fa-plane-departure", "url": "airport" }, { "label": "Design Solutions", "icon": "fa-palette", "url": "design-solutions" }, { "label": "Interactive Meets", "icon": "fa-people-group", "url": "interactive-meets" }, { "label": "Sports Marketing", "icon": "fa-volleyball", "url": "sportsmarketing" }];
+
+// { "label": "Channel Partner", "icon": "fa-people-group", "url": "channel-partner" }
+
+export const SERVICE_LIST: { "title": string, "icon": string, "reach": string, "subTitle": string, "url": string }[] = [{ "title": "Radio", "icon": "fa-radio-tuner", "reach": "900+", "subTitle": "Radio Stations", "url": "radio" }, { "title": "Cinema", "icon": "fa-camcorder", "reach": "10000+", "subTitle": "Cinema Screens", "url": "cinema" }, { "title": "Transit", "icon": "fa-tire", "reach": "200+", "subTitle": "Cities", "url": "transit" }, { "title": "Outdoor", "icon": "fa-airplay", "reach": "100000+", "subTitle": "Outdoor Options", "url": "outdoor" }, { "title": "Non Traditional", "icon": "fa-bullhorn", "reach": "500+", "subTitle": "Non traditional Options", "url": "nontraditional" }, { "title": "Newspaper", "icon": "fa-newspaper", "reach": "600+", "subTitle": "Newspapers", "url": "newspaper" }, { "title": "Magazine", "icon": "fa-book-open", "reach": "1800+", "subTitle": "Magazines", "url": "magazine" }, { "title": "Television", "icon": "fa-tv", "reach": "500+", "subTitle": "Channels", "url": "television" }, { "title": "Mall", "icon": "fa-buildings", "reach": "100+", "subTitle": "Cities", "url": "mall" }, { "title": "Digital", "icon": "fa-desktop", "reach": "1500+", "subTitle": "Platforms", "url": "digital" }, { "title": "Digital PR", "icon": "fa-volume", "reach": "300+", "subTitle": "Publications", "url": "digitalpr" }, { "title": "Influencer", "icon": "fa-camera-web", "reach": "3000+", "subTitle": "Influencers", "url": "influencer" }, { "title": "Inflight", "icon": "fa-plane", "reach": "10+", "subTitle": "Airlines", "url": "inflight" }, { "title": "Corporate Gifting", "icon": "fa-user-vneck", "reach": "1000+", "subTitle": "Gifting options", "url": "corporate-gifting" }, { "title": "Airport", "icon": "fa-plane-departure", "reach": "50+", "subTitle": "Airports", "url": "airport" }, { "title": "Design Solutions", "icon": "fa-palette", "reach": "3000+ ", "subTitle": "Designs made", "url": "design-solutions" }, { "title": "Interactive Meets", "icon": "fa-people-group", "reach": "50+", "subTitle": "Activations", "url": "interactive-meets" }, { "title": "Sports Marketing", "icon": "fa-volleyball", "reach": "100+", "subTitle": "Tournaments", "url": "sportsmarketing" }];
+
+
+export const SVG_ICON_FOR_MEDIA: any = { "radio": SVG_ICON_LIST["radio-tuner"], "cinema": SVG_ICON_LIST["camcorder"], "transit": SVG_ICON_LIST["tire"], "outdoor": SVG_ICON_LIST["airplay"], "nontraditional": SVG_ICON_LIST["bullhorn"], "newspaper": SVG_ICON_LIST["newspaper"], "magazine": SVG_ICON_LIST["book-open"], "television": SVG_ICON_LIST["tv"], "mall": SVG_ICON_LIST["buildings"], "digital": SVG_ICON_LIST["desktop"], "digitalpr": SVG_ICON_LIST["volume"], "influencer": SVG_ICON_LIST["camera-web"], "inflight": SVG_ICON_LIST["plane"], "premiumcorporategifting": SVG_ICON_LIST["user-vneck"], "airport": SVG_ICON_LIST["plane-departure"], "designsolutions": SVG_ICON_LIST["palette"], "interactivemeets": SVG_ICON_LIST["people-group"], "sportsmarketing": SVG_ICON_LIST["volleyball"], "iplmarketing": SVG_ICON_LIST["cricket-bat-ball"], "btl": SVG_ICON_LIST["megaphone"], "asiacup": SVG_ICON_LIST["trophy"], "worldcup": SVG_ICON_LIST["trophy"], "seoservice": SVG_ICON_LIST["seo"], "garba": SVG_ICON_LIST["garba"], "inflim": SVG_ICON_LIST["inflim"] };
+
+
+export const MENU_LIST_WITH_SVG_ICON: { "label": string, "icon": string, "url": string }[] = [{"label":"Radio","icon":SVG_ICON_FOR_MEDIA['radio'],"url":"radio"},{"label":"Cinema","icon":SVG_ICON_FOR_MEDIA['cinema'],"url":"cinema"},{"label":"Digital","icon":SVG_ICON_FOR_MEDIA['digital'],"url":"digital"},{"label":"Transit","icon":SVG_ICON_FOR_MEDIA['transit'],"url":"transit"},{"label":"Outdoor","icon":SVG_ICON_FOR_MEDIA['outdoor'],"url":"outdoor"},{"label":"Magazine","icon":SVG_ICON_FOR_MEDIA['magazine'],"url":"magazine"},{"label":"Television","icon":SVG_ICON_FOR_MEDIA['television'],"url":"television"},{"label":"Digital PR","icon":SVG_ICON_FOR_MEDIA['digitalpr'],"url":"digitalpr"},{"label":"Corporate Gifting","icon":SVG_ICON_FOR_MEDIA['premiumcorporategifting'],"url":"corporate-gifting"},{"label":"Sports Marketing","icon":SVG_ICON_FOR_MEDIA['sportsmarketing'],"url":"sportsmarketing"},{"label":"Infilm","icon":SVG_ICON_FOR_MEDIA['inflim'],"url":"in-film-advertising-and-cobranding"},{"label":"Non Traditional","icon":SVG_ICON_FOR_MEDIA['nontraditional'],"url":"nontraditional"},{"label":"Newspaper","icon":SVG_ICON_FOR_MEDIA['newspaper'],"url":"newspaper"},{"label":"Mall","icon":SVG_ICON_FOR_MEDIA['mall'],"url":"mall"},{"label":"Influencer","icon":SVG_ICON_FOR_MEDIA['influencer'],"url":"influencer"},{"label":"Inflight","icon":SVG_ICON_FOR_MEDIA['inflight'],"url":"inflight"},{"label":"BTL","icon":SVG_ICON_FOR_MEDIA['btl'],"url":"btl"},{"label":"Airport","icon":SVG_ICON_FOR_MEDIA['airport'],"url":"airport"},{"label":"Design Solutions","icon":SVG_ICON_FOR_MEDIA['designsolutions'],"url":"design-solutions"},{"label":"Interactive Meets","icon":SVG_ICON_FOR_MEDIA['interactivemeets'],"url":"interactive-meets"},{"label":"IPL Advertising","icon":SVG_ICON_FOR_MEDIA['iplmarketing'],"url":"ipl-advertising"},{"label":"Advertising in World Cup","icon":SVG_ICON_FOR_MEDIA['worldcup'],"url":"worldcup"},{"label":"SEO Service","icon":SVG_ICON_FOR_MEDIA['seoservice'],"url":"seo-service"},{"label":"Garba Sponsorships","icon":SVG_ICON_FOR_MEDIA['garba'],"url":"garba-sponsorships"}];
+
+// { "label": "Advertising in Asia Cup", "icon": SVG_ICON_FOR_MEDIA['asiacup'], "url": "asiacup" },
+
+
+export const SERVICE_LIST_WITH_SVG_ICON: { "title": string, "icon": string, "reach": string, "subTitle": string, "url": string }[] = [{ "title": "Radio", "icon": SVG_ICON_FOR_MEDIA['radio'], "reach": "900+", "subTitle": "Radio Stations", "url": "radio" }, { "title": "Cinema", "icon": SVG_ICON_FOR_MEDIA['cinema'], "reach": "10000+", "subTitle": "Cinema Screens", "url": "cinema" }, { "title": "Transit", "icon": SVG_ICON_FOR_MEDIA['transit'], "reach": "200+", "subTitle": "Transit Options", "url": "transit" }, { "title": "Outdoor", "icon": SVG_ICON_FOR_MEDIA['outdoor'], "reach": "100000+", "subTitle": "Outdoor Options", "url": "outdoor" }, { "title": "Non - traditional", "icon": SVG_ICON_FOR_MEDIA['nontraditional'], "reach": "500+", "subTitle": "Non traditional Options", "url": "nontraditional" }, { "title": "Newspaper", "icon": SVG_ICON_FOR_MEDIA['newspaper'], "reach": "600+", "subTitle": "Newspapers", "url": "newspaper" }, { "title": "Magazine", "icon": SVG_ICON_FOR_MEDIA['magazine'], "reach": "1800+", "subTitle": "Magazines", "url": "magazine" }, { "title": "Television", "icon": SVG_ICON_FOR_MEDIA['television'], "reach": "500+", "subTitle": "Channels", "url": "television" }, { "title": "Sports Marketing", "icon": SVG_ICON_FOR_MEDIA['sportsmarketing'], "reach": "100+", "subTitle": "Tournaments", "url": "sportsmarketing" }, { "title": "Mall", "icon": SVG_ICON_FOR_MEDIA['mall'], "reach": "300+", "subTitle": "Media in Malls", "url": "mall" }, { "title": "Digital", "icon": SVG_ICON_FOR_MEDIA['digital'], "reach": "3500+", "subTitle": "Platforms", "url": "digital" }, { "title": "Digital PR", "icon": SVG_ICON_FOR_MEDIA['digitalpr'], "reach": "600+", "subTitle": "Publications", "url": "digitalpr" }, { "title": "Influencer", "icon": SVG_ICON_FOR_MEDIA['influencer'], "reach": "10000+", "subTitle": "Influencers", "url": "influencer" }, { "title": "Inflight", "icon": SVG_ICON_FOR_MEDIA['inflight'], "reach": "10+", "subTitle": "Airlines", "url": "inflight" }, { "title": "Corporate Gifting", "icon": SVG_ICON_FOR_MEDIA['premiumcorporategifting'], "reach": "4500+", "subTitle": "Gifting options", "url": "corporate-gifting" }, { "title": "Airport", "icon": SVG_ICON_FOR_MEDIA['airport'], "reach": "50+", "subTitle": "Airports", "url": "airport" }, { "title": "BTL", "icon": SVG_ICON_FOR_MEDIA['btl'], "reach": "20+", "subTitle": "BTL Options", "url": "btl" }, { "title": "Interactive Meets", "icon": SVG_ICON_FOR_MEDIA['interactivemeets'], "reach": "200+", "subTitle": "Activations", "url": "interactive-meets" }];
+
+export const C2A_TITLE_DATA: any = {
+  "radio"                               : "Reach out to our Media Expert for more details about Radio Advertising",
+  "cinema"                              : "Reach out to our Media Expert for more details about Cinema Advertising",
+  "transit"                             : "Reach out to our Media Expert for more details about Transit Advertising",
+  "outdoor"                             : "Reach out to our Media Expert for more details about Outdoor Advertising",
+  "nontraditional"                      : "Reach out to our Media Expert for more details about Non -Traditional Advertising",
+  "newspaper"                           : "Reach out to our Media Expert for more details about Newspaper Advertising",
+  "magazine"                            : "Reach out to our Media Expert for more details about Magazine Advertising",
+  "television"                          : "Reach out to our Media Expert for more details about Television Advertising",
+  "mall"                                : "Reach out to our Media Expert for more details about Mall Advertising",
+  "digital"                             : "Reach out to our Media Expert for more details about Digital Advertising",
+  "digitalpr"                           : "Reach out to our Media Expert for more details about Digital PR Advertising",
+  "influencer"                          : "Reach out to our Media Expert for more details about Influencer Advertising",
+  "inflight"                            : "Reach out to our Media Expert for more details about Inflight Advertising",
+  "corporategifting"                    : "Reach out to our Media Expert for more details about Corporate Gifting",
+  "btl"                                 : "Reach out to our Media Expert for more details about BTL",
+  "sportsmarketing"                     : "Reach out to our Media Expert for more details about Sports Marketing Advertising",
+  "airport"                             : "Reach out to our Media Expert for more details about Airport Advertising",
+  "iplmarketing"                        : "Reach out to our Media Expert for more details about IPL Advertising",
+  "agencypartnershipprogram"            : "Reach out to our Media Expert for more details about Agency Partnership Program",
+  "asiacup"                             : "Reach out to our Media Expert for more details about Asia Cup",
+  "worldcup"                            : "Reach out to our Media Expert for more details about World Cup",
+  "seoservice"                          : "Reach out to our Media Expert for more details about SEO Service",
+  "jewelleryadvertising"                : "Reach out to our Media Expert for more details about Jewellery Advertising",
+  "educationadvertising"                : "Reach out to our Media Expert for more details about Education Advertising",
+  "realestateadvertising"               : "Reach out to our Media Expert for more details about Real Estate Advertising",
+  "fmcgadvertising"                     : "Reach out to our Media Expert for more details about FMCG Advertising",
+  "gamingadvertising"                   : "Reach out to our Media Expert for more details about Gaming Advertising",
+  "automobileadvertising"               : "Reach out to our Media Expert for more details about Auto Mobile Advertising",
+  "ecommerceadvertising"                : "Reach out to our Media Expert for more details about E-Commerce Advertising",
+  "digitaladvertising"                  : "Reach out to our Media Expert for more details about Digital Advertising",
+  "radioadvertising"                    : "Reach out to our Media Expert for more details about Radio Advertising",
+  "lifestyleandappareladvertising"      : "Reach out to our Media Expert for more details about Lifestyle & Apparel Advertising",
+  "financialservicesadvertising"        : "Reach out to our Media Expert for more details about Financial Services Advertising",
+  "televisionadvertising"               : "Reach out to our Media Expert for more details about Television Advertising",
+  "printadvertising"                    : "Reach out to our Media Expert for more details about Print Advertising",
+  "outdooradvertising"                  : "Reach out to our Media Expert for more details about Outdoor Advertising",
+  "ricepackagedadvertising"             : "Reach out to our Media Expert for more details about Rice Packaged Advertising",
+  "renewableenergyadvertising"          : "Reach out to our Media Expert for more details about Renewable Energy Advertising",
+  "tourismadvertising"                  : "Reach out to our Media Expert for more details about Travel & Tourism Advertising",
+  "hospitalityadvertising"              : "Reach out to our Media Expert for more details about Hospitality Advertising",
+  "personalcareadvertising"             : "Reach out to our Media Expert for more details about Personal Care Advertising",
+  "personalhealthcareadvertising"       : "Reach out to our Media Expert for more details about Personal Healthcare Advertising",
+  "pharmaceuticalsadvertising"          : "Reach out to our Media Expert for more details about Pharmaceuticals Advertising",
+  "agriculturefarmingadvertising"       : "Reach out to our Media Expert for more details about Agriculture Farming Advertising",
+  "foodsectoradvertising"               : "Reach out to our Media Expert for more details about Food Sector Advertising",
+  "ecomshoppingadvertising"             : "Reach out to our Media Expert for more details about Ecom-Shopping Advertising",
+  "petcaretamadvertising"               : "Reach out to our Media Expert for more details about Petcare Tam Advertising",
+  "ipladvertising"                      : "Reach out to our Media Expert for more details about IPL Tam Advertising",
+  "ai-tools"                            : "Reach out to our AI Expert for more details about AI Tools",
+  "infilm"                              : "Reach out to our Media Expert for more details about Infilm Advertising",
+  "events-and-sponsorship"              : "Reach out to our Events & Sponsorship Expert for more details about Events & Sponsorship Advertising",
+  "budgetestimator"                     : "Reach out to our Budget Estimator Expert for more details about Budget Estimator",
+  "monitoring-tools"                    : "Reach out to our AI Expert for more details about Monitoring Tools",
+  "imsreport"                           : "Reach out to our Expert for more details about IMS Report",
+
+} 

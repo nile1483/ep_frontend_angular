@@ -1,0 +1,10 @@
+<h6 class="text-center">
+        You are requesting latest price for <br>
+    "{{data?.name}} ({{data?.priceRequest?.name}})"
+</h6>
+<div class="row">
+    <div class="col-12-xs text-center">
+        <button class="btn btn-success btn-md m-2" (click)="closeDialog(true)">Confirm</button>
+        <button class="btn btn-dark btn-md m-2" (click)="closeDialog(false)">Cancel</button>
+    </div>
+</div>

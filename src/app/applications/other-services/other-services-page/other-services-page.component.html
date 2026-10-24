@@ -1,0 +1,107 @@
+<section class="common-padding bg-linear-gradient contact-page-header">
+    <div class="container">
+        <div class="section-heading text-center mb-0">
+            <h1>Inquiry {{ title }}</h1>
+            <p [innerHTML]="subTitle | safeHtml" ></p>
+        </div>
+    </div>
+</section>
+
+<section id="title" class="grey-background common-padding">
+    <div class="container">
+
+        <div class="card border-0 inquiry-card contact-inquiry-card">
+            <form class="row g-3" [formGroup]="userInquiryForm" (ngSubmit)="inquiryFormSubmit()" *ngIf="!inquirySubmit">
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Full Name<span>*</span></label>
+                    <input type="text" class="form-control" [formControl]="userInquiryForm.controls['name']"
+                        placeholder="Write your name">
+                     
+                    <div class="text-danger form-error">
+                        <span *ngIf="userInquiryForm.controls['name'].hasError('required') && userInquiryForm.controls['name'].touched"> Full name is required </span>
+                    </div>
+                </div>
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Email Address<span>*</span></label>
+                    <input type="email" class="form-control" [formControl]="userInquiryForm.controls['email']"
+                        placeholder="Write your email address">
+                     <div class="text-danger form-error">
+                        <span *ngIf="userInquiryForm.controls['email'].hasError('required') && userInquiryForm.controls['email'].touched"> Email address is required </span>
+                        <span *ngIf="userInquiryForm.controls['email'].hasError('email') && userInquiryForm.controls['email'].touched"> Invalid email address </span>
+                        <span *ngIf="userInquiryForm.controls['email'].hasError('isPersonal')"> Only business email account is valid.</span>
+                    </div>
+
+                </div>
+                <div class="col-md-6 m-0">
+                    <label class="form-label"> Phone no. <span>*</span></label>
+                    <div class="phone-number-with-country">
+                        <div class="d-flex">
+                            <div class="dropdown">
+                                <a class="drop-down-link dropdown-toggle" href="#" role="button"
+                                    id="countruCodeDropdown" data-bs-toggle="dropdown"
+                                    aria-expanded="false">{{selectedCountry?.dialCode}}</a>
+
+
+                                <ul class="dropdown-menu" aria-labelledby="countruCodeDropdown">
+                                    <div class="country-list-search mb-2">
+                                        <input type="search" class="form-control country-search" placeholder="Search..."
+                                            aria-label="Search" (input)="onSearchChange($event.target.value)">
+                                    </div>
+                                    <div class="country-list default-scroll">
+                                        <li class="dropdown-item" *ngFor="let country of countryFilteredList"
+                                            (click)="selectCountry(country)">
+                                            {{country?.name}}
+                                            <span>({{country?.dialCode}})</span>
+                                        </li>
+                                    </div>
+                                </ul>
+
+                            </div>
+
+                            <input type="number" class="form-control phone-number"
+                                [formControl]="userInquiryForm.controls['contact']" placeholder="Your Contact No."
+                                autocomplete="off">
+
+
+                        </div>
+                        <div class="text-danger form-error w-100">
+                            <span
+                                *ngIf="userInquiryForm.controls['contact'].hasError('required') && userInquiryForm.controls['contact'].touched">
+                                This field is Required </span>
+                            <!-- <span *ngIf="userRegistrationError?.hasError && userRegistrationError?.errors?.contact" class="error-msg-1"> {{userRegistrationError?.errors?.contact}} </span> -->
+                        </div>
+                    </div>
+
+                </div>
+                 
+                <div class="col-md-6 m-0">
+                    <label class="form-label">City<span>*</span></label>
+                    <input type="text" class="form-control" placeholder="Write your city"
+                        [formControl]="userInquiryForm.controls['city']">
+                     
+                    <div class="text-danger form-error">
+                        <span *ngIf="userInquiryForm.controls['city'].hasError('required') && userInquiryForm.controls['city'].touched"> City is required </span>
+                    </div>
+                </div>
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Company Name </label>
+                    <input type="text" class="form-control" id="company"
+                        [formControl]="userInquiryForm.controls['company']" placeholder="Write your company name">
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Message </label>
+                    <textarea class="form-control" rows="3" placeholder="Write your message here..."
+                        [formControl]="userInquiryForm.controls['comment']"></textarea>
+                </div>
+
+                <div class="col-12 text-md-start text-center">
+                    <button type="submit" class="btn btn-primary"> Submit </button>
+                </div>
+            </form>
+
+            <h5 *ngIf="inquirySubmit" class="text-center" [innerHTML]="inquiryMessage | safeHtml" > </h5>
+
+        </div>
+    </div>
+</section>
+<app-call-to-action></app-call-to-action>

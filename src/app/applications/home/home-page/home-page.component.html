@@ -1,0 +1,511 @@
+<section class="section-featured-services home-background mt-3">
+    <div class="container">
+        <div class="section-heading text-center">
+            <!-- <h1>360<sup>o</sup> Advertising Solutions</h1> -->
+            <!-- <img class="label-img" src="./assets/home/bg-home.webp" alt="Image" width="50%" height="auto" loading="lazy"> -->
+            <h1 class="mt-5">We create strategies that can make a difference</h1>
+            <h2> Offline | Digital | Sports | Gifting</h2>
+        </div>
+        <div class="featured-services-small-title d-flex justify-content-between">
+            <p>Trending media</p>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="trending-media-container">
+                    <swiper [config]="config">
+                        <ng-template data-swiper-autoplay="600" swiperSlide *ngFor="let media of trendingMediaList">
+                            <div class="tranding-card">
+                                <a aria-label="Link" href="{{media?.link}}" class="tranding-card-image-block">
+                                    <img alt="Excellent Publicity" width="233" height="150" loading="lazy"
+                                        src="{{media?.image}}" class="tranding-card-image" alt="{{media?.name}}"
+                                        title="{{media?.name}}">
+                                    <span class="tranding-icon" [innerHTML]="media_icons[media.media_type] | safeHtml">
+                                    </span>
+                                </a>
+                                <div class="tranding-card-body">
+                                    <div class="tranding-card-title">
+                                        <p><a aria-label="Link" class="text-ellipsis" href="{{media?.link}}"
+                                                title="{{media?.name}}">{{media?.name}} </a></p>
+                                        <div class="tranding-card-social">
+
+                                            <a aria-label="Link"
+                                                href="https://wa.me/91{{media.inquiryUser.contact}}?text=Hey%20Team%20Excellent%2C%20I%20am%20interested%20to%20know%20the%20rates%20for+{{media?.name}}"
+                                                class="c2atracking" [attr.data-c2a-type]="'Whatsapp'"
+                                                [attr.data-c2a-value]="media.inquiryUser.contact"
+                                                [attr.data-c2a-placement]="'Trending Media'" target="_blank"
+                                                rel="noreferrer">
+
+                                                <span [innerHTML]="app_svg_icon_list['whatsapp'] | safeHtml">
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tranding-card-bottom-price">
+                                        <div class="tranding-card-price">
+                                            <span class="starting-text">Starting from</span>
+                                            <div class="starting-price">
+                                                <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                                                <div class="d-inline-block"> {{media?.price | convertToExchange:
+                                                    selectedCurrency | number: '1.2-2' }}</div>
+                                            </div>
+                                        </div>
+                                        <a aria-label="Link" href="{{media?.link}}" class="more-link">
+                                            <span class="more-icon"
+                                                [innerHTML]="app_svg_icon_list['arrow-right-long'] | safeHtml">
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+
+                    </swiper>
+
+                    <div class="swiper-slider-action">
+                        <div class="left-swiper tranding-previous swiper-button" role="button"
+                            aria-label="Previous slide" [innerHTML]="app_svg_icon_list?.['angle-left'] | safeHtml">
+                            <!-- <i class="fa-regular fa-angle-left"></i> -->
+                        </div>
+                        <div class="tranding-pagination"></div>
+                        <div class="right-swiper tranding-next swiper-button" role="button" aria-label="Next slide"
+                            [innerHTML]="app_svg_icon_list?.['angle-right'] | safeHtml">
+                            <!-- <i class="fa-regular fa-angle-right" ></i> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="common-margin">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h2>What Media are you looking for?</h2>
+            <p>
+                Campaigns under 5,00,000 media options have been executed so far, and there’s always something new we
+                are adding under our belt.<br> Click on any of the media icons you are interested in to, know more about
+                them.
+            </p>
+
+        </div>
+        <div class="row g-md-3 g-2">
+            <div class="col-xl-2 col-lg-3 col-md-3 col-4 services-col" *ngFor="let service of serviceList">
+                <div class="services-card">
+
+                    <a aria-label="Link" [routerLink]="['/',service.url]"
+                        *ngIf="service?.title != 'Corporate Gifting'">
+                        <div class="services-icon" [innerHTML]="service.icon | safeHtml">
+
+                            <!-- <i class="fa-solid {{service?.icon}}"></i> -->
+                        </div>
+                        <div class="services-body">
+                            <h5>{{service?.title}}</h5>
+                            <p> {{service?.reach}}</p>
+                            <p> {{service?.subTitle}} </p>
+                        </div>
+                    </a>
+
+                    <a aria-label="Link" href="{{service.url}}" *ngIf="service?.title == 'Corporate Gifting'">
+                        <div class="services-icon" [innerHTML]="service.icon | safeHtml">
+                            <!-- <i class="fa-solid {{service?.icon}}"></i> -->
+                        </div>
+                        <div class="services-body">
+                            <h5>{{service?.title}}</h5>
+                            <p> {{service?.reach}}</p>
+                            <p> {{service?.subTitle}} </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="counter-section common-padding primary-background">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h2>Your Perfect Advertising Partner</h2>
+            <p class="opacity-75">Excellent Publicity is forever expanding your brand with high quality service that
+                combines creativity with value pricing. We enjoy our work because, first - we admire the advertising
+                world, and second, we know that our ideas and strategies
+                make a difference. We play to win, with the primary goal of assisting our customers in promoting their
+                successful brand campaigns.
+            </p>
+        </div>
+        <div class="counter-wrapper">
+            <div class="row counter-row g-0">
+                <div class="col-12 col-md-4 col-lg-4 counter-col">
+                    <div class="colunter-block">
+                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['user-tie'] | safeHtml">
+                            <!-- <i class="fa-solid fa-user-tie"></i> -->
+                        </div>
+                        <div class="colunter-numbers">5,000+</div>
+                        <div class="colunter-text">Happy Clients</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-4 counter-col">
+                    <div class="colunter-block">
+                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['people-group'] | safeHtml">
+                            <!-- <i class="fa-solid fa-people-group"></i> -->
+                        </div>
+                        <div class="colunter-numbers">100+</div>
+                        <div class="colunter-text">Qualified Team Members</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 counter-col">
+                    <div class="colunter-block">
+                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['photo-film-music'] | safeHtml">
+                            <!-- <i class="fa-solid fa-photo-film-music"></i> -->
+                        </div>
+                        <div class="colunter-numbers">5,00,000+</div>
+                        <div class="colunter-text">Media Options</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row counter-row g-0">
+                <div class="col-12 col-md-4 col-lg-4 counter-col">
+                    <div class="colunter-block">
+                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['people'] | safeHtml">
+                            <!-- <i class="fa-solid fa-people"></i> -->
+                        </div>
+                        <div class="colunter-numbers">50,000+</div>
+                        <div class="colunter-text">Vendor tie-ups</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 counter-col">
+                    <div class="colunter-block">
+                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['bullhorn'] | safeHtml">
+                            <!-- <i class="fa-solid fa-bullhorn"></i> -->
+                        </div>
+                        <div class="colunter-numbers">3,00,000+</div>
+                        <div class="colunter-text">Campaigns</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-4 counter-col">
+                    <div class="colunter-block">
+                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['chart-column'] | safeHtml">
+                            <!-- <i class="fa-solid fa-chart-column"></i> -->
+                        </div>
+                        <div class="colunter-numbers">4</div>
+                        <div class="colunter-text">Verticals</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="about-link text-center mt-5">
+            <a aria-label="Link" [routerLink]="['/about']" class="more-link white-link">
+                <span class="more-text">About us</span>
+                <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                    <!-- <i class="fa-light fa-arrow-right-long"></i> -->
+                </span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="common-padding" style="background-color: #f3f2f4;">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h2>Smarter Tools for <span>Bigger Brand Impact</span></h2>
+            <p>
+                Powered by data, technology and real-world insights, our ad-tech products help brands plan, execute and grow with confidence across every media channel.
+            </p>
+        </div>
+            
+        <div class="adtech-grid">
+
+            <!-- EPitch -->
+            <div class="adtech-card">
+                <div class="adtech-content">
+                    <h5>EPitch</h5>
+                    <p>
+                        EPitch uses 25 lakh+ live data points and 300,000+
+                        campaign benchmarks to analyze your category,
+                        decode competitors, and build a complete cross-channel
+                        media strategy, helping brands make faster,
+                        smarter investment decisions.
+                    </p>
+                    <a aria-label="Link" href="https://epitch.excellentpublicity.com" target="_blank" class="more-link white-link">
+                        <span class="more-text">Learn More</span>
+                    </a>
+                </div>
+                <div class="adtech-image">
+                    <img src="./assets/home/epitch.png" alt="EPitch Analytics" class="img-fluid" loading="lazy" />
+                </div>
+            </div>
+
+            <!-- EP Insights -->
+            <div class="adtech-card">
+                <div class="adtech-content">
+                    <h5>EP Insights</h5>
+                    <p>
+                        EP Insights lets you analyze top brands'
+                        advertising activities across TV, Radio,
+                        Digital, Print and Outdoor media.
+                    </p>
+                    <a aria-label="Link" href="https://www.excellentpublicity.com/insights" target="_blank" class="more-link white-link">
+                        <span class="more-text">Learn More</span>
+                    </a>
+                </div>
+                <div class="adtech-image">
+                    <img src="./assets/home/ep-insights.png" alt="EP Insights Analytics" class="img-fluid" loading="lazy" />
+                </div>
+            </div>
+
+            <!-- Atlas -->
+            <div class="adtech-card">
+                <div class="adtech-content">
+                    <h5>Atlas</h5>
+                    <p>
+                        Atlas verifies campaign execution through
+                        geo-verification, confirming whether ads
+                        were placed at the proposed locations
+                        according to the media plan.
+                    </p>
+                    <a aria-label="Link" href="https://atlas.excellentpublicity.com" target="_blank" class="more-link white-link">
+                        <span class="more-text">Learn More</span>
+                    </a>
+                </div>
+                <div class="adtech-image">
+                    <img src="./assets/home/atlas.png" alt="Atlas Geo Verification" class="img-fluid" loading="lazy" />
+                </div>
+            </div>
+
+            <!-- Outbound GTM Engine -->
+            <div class="adtech-card">
+                <div class="adtech-content">
+                    <h5>Outbound GTM Engine</h5>
+                    <p>
+                        Simplify cold outreach across Email,
+                        WhatsApp and LinkedIn with Outbound GTM
+                        Engine to connect businesses with
+                        interested prospects.
+                    </p>
+                    <a aria-label="Link" href="https://www.excellentpublicity.com/gtm-outreach" target="_blank" class="more-link white-link">
+                        <span class="more-text">Learn More</span>
+                    </a>
+                </div>
+                <div class="adtech-image">
+                    <img src="./assets/home/gtm-engine.png" alt="Outbound GTM Engine" class="img-fluid" loading="lazy" />
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="home-clientle-section common-margin">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xxl-6 col-xl-5 col-lg-4 col-md-4 col-12">
+                <div class="clientle-content" style="text-align: justify;">
+                    <h2>5,000+</h2>
+                    <p> Brands have chosen Excellent Publicity for successful marketing strategies. </p>
+                    <p> We have experienced different segments of clients right from Finance to Crypto, health sectors,
+                        automobiles, education, finance, construction, IT and many more. </p>
+                    <a aria-label="Link" [routerLink]="['/clientele']"
+                        class="more-link orange-link d-md-inline-block d-none">
+                        <!-- Hide For Mobile -->
+                        <span class="more-text"> Clientele </span>
+                        <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                            <!-- <i class="fa-light fa-arrow-right-long"></i> -->
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-8 col-12">
+                <div class="row clientle-logo-row g-3">
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/liebherr.png">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/hitachi.png">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/honda.png">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/google.png">
+                        </div>
+                    </div>
+                    <!------------------------------->
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/swiggy.png">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/hero.png">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/sophos.png">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/casio.png">
+                        </div>
+                    </div>
+
+                    <!------------------------------->
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/red-chillies-entertainment.png">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/flipkart.png">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/abfrl.png">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 clientle-logo-col">
+                        <div class="clientle-logo-box">
+                            <img alt="Client Logo" width="103" height="30" loading="lazy"
+                                src="/assets/clientele/wipro-enterprises-pvt-ltd.png">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 d-md-none text-center mt-4">
+                <!-- Show For Mobile -->
+                <a aria-label="Link" [routerLink]="['clientele']" class="more-link orange-link">
+                    <!-- Hide For Mobile -->
+                    <span class="more-text">Clientele</span>
+                    <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                        <!-- <i class="fa-light fa-arrow-right-long"></i> -->
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs -->
+<section class="bg-gradient-gray common-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion">
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope
+                            itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false"
+                                    aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer">
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a
+                                            style="color: white;"
+                                            href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-call-to-action></app-call-to-action>
+
+
+<div class="repx-container" [class.show]="showRepx">
+
+    <button class="repx-btn">
+        <span>
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 3a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1.5l3-1.5v10l-3-1.5V13a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3z"/>
+            </svg>
+        </span> 
+        <a target="_blank" href="/schedule-a-call" class="text-white py-2">
+            <span class="btn-title">Schedule a Meeting</span>
+        </a>
+    </button>
+
+    <div class="actions">
+        <div class="circle">
+            <a target="_blank" href="/schedule-a-call" class="text-white py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" class="icon-calendar"><path d="M10.3333 2.66602C10.8856 2.66602 11.3333 3.11373 11.3333 3.66602V5.33268H20.6667V3.66602C20.6667 3.11373 21.1144 2.66602 21.6667 2.66602C22.219 2.66602 22.6667 3.11373 22.6667 3.66602V5.33268H27C27.5523 5.33268 28 5.7804 28 6.33268V14.2084C25.3489 12.5395 21.9561 12.1385 18.8409 13.429C13.739 15.5423 11.3172 21.391 13.4291 26.4914C13.6497 27.0239 13.911 27.5273 14.2079 27.9993H5C4.44772 27.9993 4 27.5516 4 26.9993V6.33268C4 5.7804 4.44772 5.33268 5 5.33268H9.33333V3.66602C9.33333 3.11373 9.78105 2.66602 10.3333 2.66602Z" fill="currentColor"></path><path d="M22.6667 18.666C23.219 18.666 23.6667 19.1137 23.6667 19.666V22.2513L25.7072 24.2923C26.0977 24.6829 26.0976 25.3161 25.707 25.7065C25.3165 26.097 24.6833 26.0969 24.2928 25.7064L21.9595 23.3725C21.772 23.185 21.6667 22.9307 21.6667 22.6655V19.666C21.6667 19.1137 22.1144 18.666 22.6667 18.666Z" fill="currentColor"></path><path d="M22.6667 14.9993C18.4325 14.9993 15 18.4318 15 22.666C15 26.9002 18.4325 30.3327 22.6667 30.3327C26.9008 30.3327 30.3333 26.9002 30.3333 22.666C30.3333 18.4318 26.9008 14.9993 22.6667 14.9993ZM17 22.666C17 19.5364 19.5371 16.9993 22.6667 16.9993C25.7963 16.9993 28.3333 19.5364 28.3333 22.666C28.3333 25.7956 25.7963 28.3327 22.6667 28.3327C19.5371 28.3327 17 25.7956 17 22.666Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                <span class="custom-tooltip">
+                    Schedule a Meeting
+                </span>
+            </a>
+        </div>
+        <div class="circle">
+            <a href="/contact" class="text-white py-2">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" class="icon-call">
+                    <path d="M6.62 10.79C8.06 13.61 10.39 15.94 13.21 17.38L15.41 15.18C15.67 14.92 16.05 14.84 16.39 14.93C17.45 15.21 18.57 15.36 19.72 15.36C20.27 15.36 20.72 15.81 20.72 16.36V20C20.72 20.55 20.27 21 19.72 21C10.61 21 3 13.39 3 4.28C3 3.73 3.45 3.28 4 3.28H7.64C8.19 3.28 8.64 3.73 8.64 4.28C8.64 5.43 8.79 6.55 9.07 7.61C9.16 7.95 9.08 8.33 8.82 8.59L6.62 10.79Z" fill="currentColor">
+                    </path>
+                </svg>
+                <span class="custom-tooltip">
+                    Call Now
+                </span>
+            </a>
+        </div>
+        <div class="circle">
+            <a target="_blank" href="https://wa.me/919898946420?text=Hello%2C%20I'm%20interested%20in%20advertising." class="text-white py-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 448 512" class="icon-whatsapp">
+                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" fill="currentColor"/>
+                </svg>
+                <span class="custom-tooltip">
+                    Chat on WhatsApp
+                </span>
+            </a>
+        </div>
+    </div>
+
+</div>

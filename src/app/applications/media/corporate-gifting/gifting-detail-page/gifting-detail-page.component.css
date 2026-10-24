@@ -1,0 +1,32 @@
+::ng-deep .services-header-image {
+  height: 400px;
+  width: 400px;
+  min-width: 400px;
+}
+
+::ng-deep  .services-header-image img {
+  border-radius: 6px;
+  max-height: 100%;
+  max-width: 100%;
+  width: 400px;
+  height: 400px;
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .services-header-image {
+    height: 300px;
+    width: 300px;
+    min-width: 300px;
+  }
+}
+
+.text-color {
+  color: var(--bs-primary);
+}
+
+/* star */
+::ng-deep i svg {
+  height: 18px;
+  fill: #FDCC0D;
+  margin-right: 8px;
+}

@@ -1,0 +1,31 @@
+.custom.grey-background {
+  background-color: var(--gray-8);
+}
+
+.title h4,
+.job-summary h4 {
+  color: var(--bs-red);
+}
+
+.title h4 span {
+  color: var(--bs-body-color);
+  margin: 5px 0;
+}
+
+.roles ::ng-deep strong {
+  color: var(--bs-red);
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .roles ::ng-deep strong {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+}
+
+.career-page-header{
+  background-image: url('/assets/home/bg-career.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

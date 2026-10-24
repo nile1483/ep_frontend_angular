@@ -1,0 +1,55 @@
+::ng-deep .phone-number-with-country .drop-down-link {
+  text-align: center;
+  min-width: 90px;
+  display: block;
+  width: 100%;
+  padding: 17px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #818691;
+  background: rgba(122, 141, 159, 0.08);
+  border: 1px solid rgba(122, 141, 159, 0.08);
+  border-radius: 5px 0 0 5px;
+}
+::ng-deep .phone-number {
+  border-radius: 0 5px 5px 0;
+}
+::ng-deep .phone-number-with-country .dropdown-menu {
+  font-size: 14px;
+  color: var(--gray-3);
+  padding: 8px 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  background-color: var(--bs-white);
+  border: 0;
+  min-width: 280px;
+}
+::ng-deep .phone-number-with-country .dropdown-menu .country-list {
+  max-height: 110px;
+  overflow-y: auto;
+}
+::ng-deep .phone-number-with-country .dropdown-menu li {
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: normal;
+}
+::ng-deep .phone-number-with-country .dropdown-menu .dropdown-item:active {
+  color: #fff;
+  background-color: var(--gray-3);
+}
+::ng-deep .country-search {
+  padding: 5px 10px !important;
+}
+::ng-deep .btn-close:focus {
+  box-shadow: none;
+}
+::ng-deep
+  .form-floating
+  > .form-control:not(:placeholder-shown)
+  ~ label::after {
+  background: 0 0 !important;
+}
+::ng-deep .form-floating > .form-control:focus ~ label::after {
+  background-color: transparent !important;
+}

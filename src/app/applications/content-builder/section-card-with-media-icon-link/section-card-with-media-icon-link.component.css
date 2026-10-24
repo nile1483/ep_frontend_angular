@@ -1,0 +1,27 @@
+.services-card {
+  border: 0;
+}
+h3.title {
+  color: var(--bs-white);
+}
+.card {
+  background-color: #e3e3e3;
+}
+.card-body {
+  color: var(--bs-black);
+}
+.justify-text {
+  text-align: justify;
+}
+.services-card:hover {
+  cursor: pointer !important;
+}
+.services-card {
+  padding: 15px 0 5px;
+}
+
+
+::ng-deep .svgsize>svg{
+  width: 80px;
+  height: 80px;
+}

@@ -1,0 +1,284 @@
+<section class="get-media-plan-section secondory-background common-padding">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1>Get your Media Plan from us</h1>
+            <p> Our media planner will help you construct a strong and competitive media plan that your brand deserves </p>
+        </div>
+        <form [formGroup]="mediaPlanForm" (ngSubmit)="mediaPlanFormSubmit()">
+            <div class="search-with-select"> 
+                <div class="form-group">
+                    <label class="big-lable"> Category </label>
+                    <select class="form-control default-control" id="category" formControlName="category" (change)="selectValue('category',$event)" >
+                        <option selected disabled value="">Select Category</option>
+                        <option *ngFor="let category of mediaplanConfigs?.categories" [value]="category?.name"> {{category?.name}}
+                        </option>
+                    </select>
+                    <div class="text-danger form-error ps-3">
+                        <span  *ngIf="mediaPlanForm.controls['category'].hasError('required') && mediaPlanForm.controls['category'].touched" > Category is required  </span>
+                    </div> 
+                </div>
+                
+            </div>
+            <div class="sub-category">
+                <div class="row g-4">
+                    <div class="col-12 col-lg-6 m-0">
+                        <div class="form-group me-lg-5">
+                            <label class="medium-lable" for="subcategory">Sub Category</label>
+                            <select class="form-control default-control" id="subcategory" formControlName="subcategory">
+                                <option selected disabled value="">Select Sub Category</option>
+                                <option *ngFor="let subCategory of filteredSubCategories" [value]="subCategory.name">
+                                    {{subCategory?.name}} </option>
+
+                            </select>
+                             
+                            <div class="text-danger form-error ps-3">
+                                <span   *ngIf="mediaPlanForm.controls['subcategory'].hasError('required')  && mediaPlanForm.controls['subcategory'].touched" > Sub category is required  </span>
+                            </div> 
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 m-0">
+                        <div class="form-group me-lg-5">
+                            <label class="medium-lable" for="Geography"> Geography </label>
+                            <select class="form-control default-control" id="Geography" formControlName="geography">
+                                <option selected disabled value="">Select Geography</option>
+                                <option *ngFor="let geography of mediaplanConfigs?.geography" [value]="geography">
+                                    {{geography}} </option>
+
+                            </select>
+                            <div class="text-danger form-error ps-3">
+                                <span   *ngIf="mediaPlanForm.controls['geography'].hasError('required')  && mediaPlanForm.controls['geography'].touched"> Geography is required  </span>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 m-0">
+                        <div class="form-group me-lg-5">
+                            <label class="medium-lable" for="Age"> Age </label>
+                            <select class="form-control default-control" id="Age" formControlName="age">
+                                <option selected disabled value=""> Select Age </option>
+                                <option *ngFor="let age of mediaplanConfigs?.age" [value]="age"> {{age}} </option>
+                            </select>
+                            
+                            <div class="text-danger form-error ps-3">
+                                <span   *ngIf="mediaPlanForm.controls['age'].hasError('required')  && mediaPlanForm.controls['age'].touched"> Age is required  </span>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 m-0">
+                        <div class="form-group me-lg-5">
+                            <label class="medium-lable" for="Gender"> Gender </label>
+                            <select class="form-control default-control" id="Gender" formControlName="gender">
+                                <option selected disabled value=""> Select Gender </option>
+                                <option *ngFor="let gender of mediaplanConfigs?.gender" [value]="gender">
+                                    {{gender}}
+                                </option>
+
+                            </select> 
+
+                            <div class="text-danger form-error ps-3">
+                                <span    *ngIf="mediaPlanForm.controls['gender'].hasError('required')  && mediaPlanForm.controls['gender'].touched"> Gender is required  </span>
+                            </div> 
+                        </div>
+                    </div>
+
+                </div>
+                 
+                <div class="row g-4 justify-content-center mt-lg-1">
+                    <div class="col-12 col-lg-4">
+                        <div class="form-group">
+                            <label class="big-lable"> Select Budget Range </label>
+                            <select class="form-control default-control" id="budget" formControlName="budget">
+                                <option selected disabled value="">Select Budget Range</option>
+                                <option *ngFor="let budget of mediaplanConfigs?.budget" [value]="budget"> {{budget}}
+                                </option>
+                            </select>
+                             
+                            <div class="text-danger form-error ps-3">
+                                <span    *ngIf="mediaPlanForm.controls['budget'].hasError('required')  && mediaPlanForm.controls['budget'].touched"> Budget range is required  </span>
+                            </div> 
+
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-lg-5 pt-lg-4 mt-5 text-center">
+                    <button class="btn btn-primary"  type="submit">Generate Media Plan</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<section class="our-media-recomm-section grey-background common-padding" id="recommendation" *ngIf="mediaPlanData?.id">
+    <div class="container">
+        <div class="section-heading text-center"  >
+            <h2>Our Media Recommendation</h2>
+        </div>
+        <div class="row justify-content-center g-md-4 g-2">
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.radio">
+                <div class="card border-0 media-card">
+                    
+                    <i class="fa-solid {{MEDIA_ICON_LIST['radio']}}"></i>
+                    <h5>Radio</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.radio | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.cinema">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['cinema']}}"></i>
+                    <h5>Cinema</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.cinema | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.outdoor">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['outdoor']}}"></i>
+                    <h5>Outdoor</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.outdoor | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.newspaper">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['newspaper']}}"></i>
+                    <h5>Newspaper</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.newspaper | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.television">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['television']}}"></i>
+                    <h5>Television</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.television | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.transit">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['transit']}}"></i>
+                    <h5>Transit</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.transit | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.nontraditional">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['nontraditional']}}"></i>
+                    <h5>Non Traditional</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.nontraditional | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.magazine">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['magazine']}}"></i>
+                    <h5>Magazine</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.magazine | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.digital">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['digital']}}"></i>
+                    <h5>Digital</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.digital | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.digitalpr">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['digitalpr']}}"></i>
+                    <h5>Digitalpr</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.digitalpr | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.influencer">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['influencer']}}"></i>
+                    <h5>Influencer</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.influencer | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.inflight">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['inflight']}}"></i>
+                    <h5>Inflight</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.inflight | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3" *ngIf="mediaPlanData?.mall">
+                <div class="card border-0 media-card">
+                    <i class="fa-solid {{MEDIA_ICON_LIST['mall']}}"></i>
+                    <h5>Mall</h5>
+                    <div class="small-divider"></div>
+                    <span>Our Budget Recommendation</span>
+                    <h5 class="media-price">₹ {{mediaPlanData?.mall | number : '1.2-2'}}/-</h5>
+                    <span>Reach With Target Audience</span>
+                    <p>1 Million</p>
+                    <a aria-label="Link" href="#">Detail Analysis</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<app-call-to-action></app-call-to-action>

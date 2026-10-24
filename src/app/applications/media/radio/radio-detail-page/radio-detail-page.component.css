@@ -1,0 +1,119 @@
+.jingle{
+    height:  170px !important;
+}
+
+
+
+/* Footer Link Data */
+
+.footer-dropdown .btn {
+    border: none;
+    color: var(--bs-primary);
+  }
+  
+  .footer-dropdown .btn:before {
+    border-radius: 0;
+    background: #e7e7e7;
+    transition: none;
+  }
+  
+  .footer-dropdown .btn:hover:before,
+  .btn:focus:before,
+  .btn:active:before {
+    transform: none;
+  }
+  
+  /* Default state (chevron up) */
+  .btn.footer-dropdown-toggle::after {
+    content: "";
+    background-image: url("/assets/icon/chevron-up.png");
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background-size: contain;
+    position: absolute;
+    right: 3rem;
+  }
+  
+  /* Chevron up (open state) */
+  .btn.footer-dropdown-toggle.collapsed::after {
+    background-image: url("/assets/icon/chevron-down.png");
+  }
+  
+  /* Additional styles */
+  .btn.footer-dropdown-toggle {
+    position: relative;
+    display: inline-block;
+    padding-right: 5px; /* Ensure padding for the chevron */
+  }
+  
+  .footer-dropdown .card {
+    background: #e7e7e7;
+    box-shadow: none;
+    border-radius: 0px;
+    padding: 20px;
+    border: none;
+  }
+  
+  .footer-dropdown ul li a {
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #1b1b1b;
+    font-size: 14px;
+  }
+  
+  .footer-dropdown .card.card-body li {
+    padding: 4px;
+    text-align: center;
+  }
+  
+  .footer-dropdown .card.card-body li a:hover {
+    color: var(--bs-primary);
+  }
+  
+  @media (max-width: 1199.7px) {
+    .btn.footer-dropdown-toggle::after {
+      right: 1rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .footer-dropdown .col-md-6 {
+      flex: 0 0 auto;
+      width: 50% !important;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .footer-dropdown .col-lg-4 {
+      flex: 0 0 auto;
+      width: 33.33333333% !important;
+    }
+  }
+  
+  @media (max-width: 991.7px) {
+    .btn.footer-dropdown-toggle::after {
+      right: 2rem;
+    }
+  }
+  
+  @media (max-width: 991.7px) {
+    .footer-dropdown .btn {
+      border: none;
+      padding: 10px;
+      text-align: center;
+      max-width: 70%;
+    }
+  
+    .footer-dropdown .btn-group {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 425.7px) {
+    .btn.footer-dropdown-toggle::after {
+      right: 0rem;
+    }
+  }

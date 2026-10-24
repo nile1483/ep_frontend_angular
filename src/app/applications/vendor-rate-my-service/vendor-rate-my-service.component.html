@@ -1,0 +1,171 @@
+<div class="container">
+    <div class="row" *ngIf="hasServiceData && !rateSubmit">
+        <div class="col-12 col-lg-7 my-md-0 my-4 p-md-5 p-sm-3 p-2 mx-auto">
+            <div class="cart border-0 price-detail-card">
+                <div class="card-header px-0">
+                    <h6 class="mb-0">Rate our Partnership</h6>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="rateMyServiceForm">
+                        
+                        <div class="mt-2">
+                            <mat-form-field appearance="fill" class="mt-2 w-100">
+                                <mat-label>Associated team member of Excellent Publicity</mat-label>
+                                <input matInput type="text" [formControl]="rateMyServiceForm.controls['team_member_name']">
+                                <mat-error *ngIf="rateMyServiceForm.controls['team_member_name'].hasError('required') "> This is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- empty-star = full-star, full-star = empty-star -->
+
+                        <!-- Expertise Rating -->
+                        <!-- <div class="d-md-flex d-block justify-content-between align-items-center">
+                            <p style="margin: 0; font-weight:500;">Expertise:</p>
+                            <div class="ms-md-5 ms-0 mt-md-0 mt-2">
+                                <button class="star-rating-btn" mat-icon-button *ngFor="let ratingId of ratingArr; index as i" [id]="'star_' + i" (click)="onClickStarRating(i+1, 'expertise_rating')">
+                                    <ng-container *ngIf="i < rateMyServiceForm.controls['expertise_rating'].value; else emptyStar">
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"></p>
+                                    </ng-container>
+                                    <ng-template #emptyStar>
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"></p>
+                                    </ng-template>
+                                </button>
+                            </div>
+                        </div> -->
+
+                        <!-- Knowledge Rating -->
+                        <!-- <div class="mt-1 d-md-flex d-block justify-content-between align-items-center">
+                            <p style="margin: 0; font-weight:500;">Knowledge:</p>
+                            <div class="ms-md-5 ms-0 mt-md-0 mt-2">
+                                <button class="star-rating-btn" mat-icon-button *ngFor="let ratingId of ratingArr; index as i" [id]="'star_' + i" (click)="onClickStarRating(i+1, 'knowledge_rating')">
+                                    <ng-container *ngIf="i < rateMyServiceForm.controls['knowledge_rating'].value; else emptyStar">
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"></p>
+                                    </ng-container>
+                                    <ng-template #emptyStar>
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"></p>
+                                    </ng-template>
+                                </button>
+                            </div>
+                        </div> -->
+
+                        <!-- Understanding Rating -->
+                        <!-- <div class="mt-1 d-md-flex d-block justify-content-between align-items-center">
+                            <p style="margin: 0; font-weight:500;">Understanding:</p>
+                            <div class="ms-md-5 ms-0 mt-md-0 mt-2">
+                                <button class="star-rating-btn" mat-icon-button *ngFor="let ratingId of ratingArr; index as i" [id]="'star_' + i" (click)="onClickStarRating(i+1,'understanding_rating')">
+                                    <ng-container *ngIf="i < rateMyServiceForm.controls['understanding_rating'].value; else emptyStar">
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"></p>
+                                    </ng-container>
+                                    <ng-template #emptyStar>
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"></p>
+                                    </ng-template>
+                                </button>
+                            </div>
+                        </div> -->
+
+                        <!-- Turnaround Time Rating -->
+                        <!-- <div class="mt-1 d-md-flex d-block justify-content-between align-items-center">
+                            <p style="margin: 0; font-weight:500;">Turnaround time:</p>
+                            <div class="ms-md-5 ms-0 mt-md-0 mt-2">
+                                <button class="star-rating-btn" mat-icon-button *ngFor="let ratingId of ratingArr; index as i" [id]="'star_' + i" (click)="onClickStarRating(i+1,'turnaround_time_rating')">
+                                    <ng-container *ngIf="i < rateMyServiceForm.controls['turnaround_time_rating'].value; else emptyStar">
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"></p>
+                                    </ng-container>
+                                    <ng-template #emptyStar>
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"></p>
+                                    </ng-template>
+                                </button>
+                            </div>
+                        </div> -->
+
+                        <!-- Relationship Building Rating -->
+                        <!-- <div class="mt-1 d-md-flex d-block justify-content-between align-items-center">
+                            <p style="margin: 0; font-weight:500;">Relationship building:</p>
+                            <div class="ms-md-5 ms-0 mt-md-0 mt-2">
+                                <button class="star-rating-btn" mat-icon-button *ngFor="let ratingId of ratingArr; index as i" [id]="'star_' + i" (click)="onClickStarRating(i+1,'relationship_building_rating')">
+                                    <ng-container *ngIf="i < rateMyServiceForm.controls['relationship_building_rating'].value; else emptyStar">
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"></p>
+                                    </ng-container>
+                                    <ng-template #emptyStar>
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"></p>
+                                    </ng-template>
+                                </button>
+                            </div>
+                        </div> -->
+
+                        <!-- Proactiveness Rating -->
+                        <!-- <div class="mt-1 d-md-flex d-block justify-content-between align-items-center">
+                            <p style="margin: 0; font-weight:500;">Proactiveness:</p>
+                            <div class="ms-md-5 ms-0 mt-md-0 mt-2">
+                                <button class="star-rating-btn" mat-icon-button *ngFor="let ratingId of ratingArr; index as i" [id]="'star_' + i" (click)="onClickStarRating(i+1,'proactiveness_rating')">
+                                    <ng-container *ngIf="i < rateMyServiceForm.controls['proactiveness_rating'].value; else emptyStar">
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"></p>
+                                    </ng-container>
+                                    <ng-template #emptyStar>
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"></p>
+                                    </ng-template>
+                                </button>
+                            </div>
+                        </div> -->
+
+                        <!-- Overall Rating -->
+                        <div class="mt-1 d-md-flex d-block justify-content-between align-items-center">
+                            <p style="margin: 0; font-weight:500;">Overall Rating:</p>
+                            <div class="ms-md-5 ms-0 mt-md-0 mt-2">
+                                <button class="star-rating-btn" mat-icon-button *ngFor="let ratingId of ratingArr; index as i" [id]="'star_' + i" (click)="onClickStarRating(i+1,'overall_rating')">
+                                    <ng-container *ngIf="i < rateMyServiceForm.controls['overall_rating'].value; else emptyStar">
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"></p>
+                                    </ng-container>
+                                    <ng-template #emptyStar>
+                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"></p>
+                                    </ng-template>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Referral Question -->
+                        <div class="mt-2 d-md-flex d-block justify-content-between align-items-baseline">
+                            <p style="margin: 0; font-weight:500;">Whether you will refer us to your network:</p>
+                            <mat-radio-group class="d-flex align-items-center" [formControl]="rateMyServiceForm.controls['your_network']">
+                                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                                <mat-radio-button value="No">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+                        <!-- Additional Remarks -->
+                        <div class="mt-2">
+                            <p style="margin: 0; font-weight:500;">Additional remarks:</p>
+                            <mat-form-field appearance="fill" class="w-100 mt-2">
+                                <textarea matInput rows="3" placeholder="Your remarks" [formControl]="rateMyServiceForm.controls['additional_remarks']"></textarea>
+                            </mat-form-field>
+                        </div>
+                        
+                        <div class="text-center">
+                            <!-- <a class="btn btn-danger" href="javascript:void(0);" >Submit Review </a> -->
+                            <button type="submit" [disabled]="!rateMyServiceForm.valid" class="btn btn-danger" (click)="rateMyServiceSubmit()"> Submit Review </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center py-5" *ngIf="!hasServiceData">
+        <div class="card bg-white shadow-md p-5">
+            <div class="text-center">
+                <h2 class="text-danger">Oops !</h2>
+                <p>Your Token is Expired.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center py-5" *ngIf="rateSubmit">
+        <div class="card bg-white shadow-md p-5">
+            <div class="text-center">
+                <h2 class="text-success">Thank You !</h2>
+                <p>Your review has been submitted.</p>
+            </div>
+        </div>
+    </div>
+    
+</div>

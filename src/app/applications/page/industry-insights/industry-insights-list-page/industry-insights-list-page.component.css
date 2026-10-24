@@ -1,0 +1,72 @@
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.title-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.media-list-card {
+  box-shadow: none !important;
+  border: 0;
+}
+
+.media-list-card .card {
+  background-color: #ececec !important;
+  box-shadow: none !important;
+  border: 0;
+}
+
+.media-list-card .card:hover {
+  cursor: pointer;
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+/*----- 13-12-2025 -------*/
+
+.icon-with-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.icon-bg {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;        
+  background-color: #c01624;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-bg img {
+  width: 40px;           
+  height: 40px;
+  object-fit: contain;
+  background: none;       
+  padding: 0;
+}
+.bg-gray.card{
+  background-color: #ececec;
+}
+.icon-rect {
+  width: 12px;
+  height: 23px;
+  background-color: #c01624;
+  margin-bottom: -1px;
+}
+.insights-list li::before{
+  color:black;
+}

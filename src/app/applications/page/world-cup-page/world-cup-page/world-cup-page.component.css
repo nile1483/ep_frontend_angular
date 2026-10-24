@@ -1,0 +1,169 @@
+.section-featured-services .section-heading {
+  margin-bottom: 40px;
+  max-width: 950px
+}
+
+.section-featured-services .section-heading h2 {
+  font-size: 1.8rem
+}
+
+@media (max-width:575px) {
+  .section-featured-services .section-heading h2 {
+    font-size: 1rem
+  }
+}
+
+.advertising-section .img-col img {
+  max-width: 241px;
+  width: 100%
+}
+
+@media (max-width:767px) {
+  .advertising-section .img-col img {
+    max-width: 237px;
+    width: 100%
+  }
+}
+
+.h1,
+h1 {
+  font-size: 2.5rem
+}
+
+.event-card {
+  padding: 0;
+  margin: 0 -25%
+}
+
+.event-card .card-body {
+  padding: 0 10px;
+  position: relative;
+  top: -35px;
+  margin: 0 10px
+}
+
+.event-card .card-body p {
+  font-size: 13px;
+  margin-bottom: 10px
+}
+
+@media (max-width:991px) {
+  .event-card {
+    margin: 0
+  }
+}
+
+@media (max-width:500px) {
+  .row div:nth-child(2) .event-card {
+    margin-top: 3rem !important
+  }
+}
+
+.service-text {
+  color: #414141
+}
+
+.services-card:hover {
+  cursor: pointer !important
+}
+
+.services-card {
+  padding: 15px 0 5px
+}
+
+.worldcup-background {
+  background-image: url(/assets/page/worldcup/worldcup-page-banner.webp);
+  padding: 35rem 0 0 0;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
+@media (min-width:1200.9px) and (max-width:1439.9px) {
+  .worldcup-background {
+    padding: 25rem 0 0 0;
+    background-position: center left;
+    background-repeat: no-repeat
+  }
+}
+
+
+@media (max-width:1200px) {
+  .worldcup-background {
+    padding: 26.2rem 0 0 0;
+    background-position: center left;
+    background-repeat: no-repeat
+  }
+}
+
+@media (max-width:991px) {
+  .worldcup-background {
+    padding: 20rem 0 0 0
+  }
+}
+
+@media (max-width:768px) {
+  .worldcup-background {
+    padding: 15rem 0 0 0
+  }
+}
+
+@media (max-width:575px) {
+  .worldcup-background {
+    padding: 10rem 0 0 0;
+    background-position: center
+  }
+}
+
+@media (max-width:425px) {
+  .worldcup-background {
+    padding: 10rem 0 0 0;
+    background-position: left center
+  }
+}
+
+@media (max-width:668px) {
+  .event-banner img {
+    width: 100% !important
+  }
+}
+
+@media (max-width:1265px) {
+  .event-banner img {
+    width: 100% !important
+  }
+}
+
+.text-danger {
+  color: #c01625 !important;
+}
+
+.default-content ol li::marker {
+  color: var(--bs-gray-3);
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em
+}
+
+.services-card {
+  border: 1px solid rgba(15, 34, 64, .14);
+  border-radius: 10px;
+  padding: 0 0 14px 0;
+  text-align: center;
+  color: var(--bs-body-color);
+  transition: all .4s ease-in-out;
+  box-shadow: 0 4px 15px transparent;
+  height: 100%
+}
+
+.btn-primary:before {
+  background: transparent;
+}
+
+.btn{
+  border-radius: 70px;
+}
+
+span.text-danger a:hover{
+  color: #880B13 !important;
+}

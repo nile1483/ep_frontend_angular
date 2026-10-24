@@ -1,0 +1,337 @@
+<!--  header-top for desktop start  -->
+<section class="header-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-5 col-lg-3 d-flex align-items-center d-lg-none d-block order-0">
+                <!-- For Mobile Show-->
+                <a aria-label="Menu" href="javascript:void(0)" class="mobile-bar" data-bs-toggle="offcanvas"
+                    href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu">
+                    <span class="menu-icon-svg" [innerHTML]="app_svg_icon_list?.['bars'] | safeHtml"></span>
+                    <!-- <i class="fa-light fa-bars"></i> -->
+                </a>
+
+                <div class="header-right-link">
+                    <ul class="right-links ps-4">
+                        <li>
+                            <a aria-label="Link" target="_blank" href="https://excellentpublicity.ai" class="cart-link parent-link">
+                                <span class="d-xl-inline-block">AI Portal</span>
+                            </a>
+                        </li>
+                        <li>
+                            <span style="cursor: pointer;" id="currencyDropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false" class="login-link parent-link">
+                                <p class="d-xl-inline-block mt-3" *ngIf="selectedCurrency"> {{selectedCurrency?.code}}
+                                    ({{ selectedCurrency?.symbol}})</p>
+                            </span>
+                            <ul class="dropdown-menu currency-dropdown-menu" aria-labelledby="currencyDropdown ">
+                                <li *ngFor="let currency of currencies; ">
+                                    <button class="dropdown-item "
+                                        (click)="changeCurrency(currency) ">
+                                        <span> {{currency?.code}} ({{currency?.symbol}})</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-3 col-lg-3 order-1 text-lg-start text-center">
+                <a aria-label="Home Page Link" [routerLink]="['/']">
+                    <img alt="Excellent Publicity Main Logo" title="Excellent Publicity" width="92" height="70"
+                        loading="lazy" class="header-logo" src="assets/logo/excellent-logo-main.png">
+                </a>
+            </div>
+            <div class="col-12 col-lg-4 d-flex align-items-center order-lg-2 order-4 search-col">
+                <div class="search-area w-100">
+                    <div class="searchbox">
+                        <span [innerHTML]="app_svg_icon_list?.['magnifying-glass'] | safeHtml"></span>
+                        <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                        <input (focus)='onFocus()' (keyup.enter)="goToSearchSitePage()" name="siteSearch"
+                            [formControl]="siteSearchControl" type="text"
+                            class="form-control form-input header-search-bar" placeholder="{{placeHolder}}">
+                    </div>
+
+                    <div class="autocomplete-items" (clickOutside)="onSearchFocusOut()">
+                        <ul>
+                            <li *ngFor="let item of filteredOptions" (click)="gotoUrl(item)">
+                                {{item.term}}
+                                <small class="text-muted float-end text-capitalize"> {{item.media}} </small>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 col-lg-5 order-3 d-flex align-items-center justify-content-end">
+                <div class="header-right-link">
+                    <ul class="right-links">
+                        <li>
+                            <a aria-label="Link" target="_blank" href="https://excellentpublicity.ai" class="cart-link parent-link">
+                                <span class="d-lg-inline-block d-none" style="font-size: large;">AI Portal</span>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="d-lg-block d-none">
+                                <span style="cursor: pointer;" id="currencyDropdown" data-bs-toggle="dropdown"
+                                    aria-expanded="false" class="login-link parent-link">
+                                    <p class="d-xl-inline-block mt-3" *ngIf="selectedCurrency">
+                                        {{selectedCurrency?.code}} ({{ selectedCurrency?.symbol}})</p>
+                                </span>
+                                <ul class="dropdown-menu currency-dropdown-menu" aria-labelledby="currencyDropdown ">
+                                    <li *ngFor="let currency of currencies; ">
+                                        <button class="dropdown-item " 
+                                            (click)="changeCurrency(currency) ">
+                                            <span> {{currency?.code}} ({{currency?.symbol}})</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a aria-label="Link" href="javascript:void(0)" (click)="openLoginDialog()"
+                                *ngIf="!isAuthenticated" class="cart-link parent-link">
+                                <span class="svg-icon"
+                                    [innerHTML]="app_svg_icon_list?.['cart-shopping'] | safeHtml"></span>
+                                <span class="d-xl-inline-block d-none">Cart</span>
+                            </a>
+                            <a class="cart-link parent-link" [routerLink]="['/user/cart']" *ngIf="isAuthenticated">
+                                <span class="svg-icon"
+                                    [innerHTML]="app_svg_icon_list?.['cart-shopping'] | safeHtml"></span>
+                                <span class="header-cart-item">{{totalCartItem}}</span>
+                                <span class="d-xl-inline-block d-none">Cart</span>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <a aria-label="Link" href="javascript:void(0)" (click)="openLoginDialog()"
+                                    *ngIf="!isAuthenticated" class="parent-link">
+                                    <!-- <i class="fa-solid fa-circle-user"></i> -->
+                                    <span class="svg-icon"
+                                        [innerHTML]="app_svg_icon_list?.['circle-user'] | safeHtml"></span>
+                                    <span class="d-xl-inline-block d-none"> Login </span>
+                                </a>
+                                <a aria-label="Link" href="javascript:void(0)" *ngIf="isAuthenticated"
+                                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"
+                                    class="login-link parent-link">
+                                    <!-- <i class="fa-solid fa-circle-user"></i> -->
+                                    <span class="svg-icon"
+                                        [innerHTML]="app_svg_icon_list?.['circle-user'] | safeHtml"></span>
+                                    <span *ngIf="isAuthenticated" class="d-xl-inline-block d-none"> {{userInfo?.name}}
+                                    </span>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['/user/profile']">
+                                            <span class="svg-icon"
+                                                [innerHTML]="app_svg_icon_list?.['circle-user'] | safeHtml"></span>
+                                            <!-- <i class="fa-solid fa-circle-user"></i> -->
+                                            <span>View Profile</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['/user/campaign']">
+                                            <span class="svg-icon"
+                                                [innerHTML]="app_svg_icon_list?.['list'] | safeHtml"></span>
+                                            <!-- <i class="fa-solid fa-list"></i> -->
+                                            <span>View Campaign</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['/user/order']">
+                                            <span class="svg-icon"
+                                                [innerHTML]="app_svg_icon_list?.['square-list'] | safeHtml"></span>
+                                            <!-- <i class="fa-solid fa-square-list"></i> -->
+                                            <span>View Order</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="javascript:void(0)" (click)="signout()">
+                                            <span class="svg-icon"
+                                                [innerHTML]="app_svg_icon_list?.['arrow-right-from-bracket'] | safeHtml"></span>
+                                            <!-- <i class="fa-solid fa-arrow-right-from-bracket"></i> -->
+                                            <span>Sign Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="d-lg-inline-block d-none">
+                            <!-- Hide in Mobile-->
+                            <a aria-label="Link" href="javascript:void(0)" data-bs-toggle="offcanvas"
+                                href="#offcanvasMenu" role="button" class="parent-link" aria-controls="offcanvasMenu">
+                                <span class="svg-icon" [innerHTML]="app_svg_icon_list?.['bars'] | safeHtml"></span>
+                                <!-- <i class="fa-light fa-bars"></i> -->
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!--  header-top  end -->
+<app-header-menu *ngIf="isShowAppHeaderMenu"></app-header-menu>
+
+<router-outlet></router-outlet>
+
+
+<app-footer *ngIf="isShowAppFooterMenu"></app-footer>
+
+<!-- Sidebar  start -->
+<div class="offcanvas offcanvas-start offcanvas-menu" tabindex="-1" id="offcanvasMenu"
+    aria-labelledby="offcanvasMenuLabel">
+
+    <div class="offcanvas-body">
+        <div class="mega-menu">
+            <div class="row">
+                <div class="col-12 col-md-7">
+                    <ul class="mega-menu-links">
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" [routerLink]="['/contact']"> Contact
+                                Us </a> </li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" [routerLink]="['/about']"> About Us
+                            </a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" [routerLink]="['/team']"> Team
+                                Excellent </a> </li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/life-at-excellent']"> Life at Excellent </a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" [routerLink]="['/career']"> Career
+                            </a> </li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" [routerLink]="['/clientele']">
+                                Clientele </a> </li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" [routerLink]="['/testimonials']">
+                                Testimonials </a> </li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/hire-a-planner']">Hire a Planner</a></li>
+
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" [routerLink]="['/blog']"> Blog </a>
+                        </li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" [routerLink]="['/radio']">Radio</a>
+                        </li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" [routerLink]="['/cinema']">Cinema</a>
+                        </li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/transit']">Transit</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/outdoor']">Outdoor</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/nontraditional']">Non Traditional</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/newspaper']">Newspaper</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/magazine']">Magazine</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/television']">Television</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/mall']">Mall</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/digital']">Digital</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas" 
+                                [routerLink]="['/digitalpr']">Digital PR</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/influencer']">Influencer</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/inflight']">Inflight</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/btl']">BTL</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/corporate-gifting']">Corporate Gifting</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/airport']">Airport</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/design-solutions']">Design Solutions</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/interactive-meets']">Interactive Meets</a></li>
+                        <li><a aria-label="menu-links" data-bs-dismiss="offcanvas"
+                                [routerLink]="['/news']">News</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="menu-right-content">
+                        <div class="address-col mt-md-0 ">
+                            <h5>Headquarters</h5>
+                            <p>
+                                806, 8th floor,<br>
+                                Shiromani Complex,<br>
+                                Opposite Jhansi ki Rani BRTS Station,<br>
+                                Nehru Nagar to Shivranjani Road,<br>
+                                Satellite,<br>
+                                Ahmedabad – 380015,<br>
+                                Gujarat, India.
+                            </p>
+                            <p>
+                                <!-- Contact: <a aria-label="Link" href="tel:+{{footerData?.desktop?.call?.value}}"
+                                    class="c2atracking" [attr.data-c2a-type]="'Phone'"
+                                    [attr.data-c2a-value]="footerData?.desktop?.call?.value"
+                                    [attr.data-c2a-placement]="'Overlay'">
+                                    {{footerData?.desktop?.call?.show}}
+                                </a><br />  -->
+                                Email: <a aria-label="Link"
+                                    href="mailto:{{footerData?.desktop?.email?.value}}" class="c2atracking"
+                                    [attr.data-c2a-type]="'Email'"
+                                    [attr.data-c2a-value]="footerData?.desktop?.email?.value"
+                                    [attr.data-c2a-placement]="'Overlay'">{{footerData?.desktop?.email?.show}}</a>
+                            </p>
+                        </div>
+                        <div class="mega-menu-social">
+                            <h5>Connect with Us</h5>
+                            <ul class="social-links list-unstyled d-flex align-items-center mt-3">
+                                <li>
+                                    <a aria-label="social menu Link"
+                                        href="https://www.youtube.com/channel/UCy0nXadAHsfLsDxWuThbz4A" target="_blank"
+                                        rel="noreferrer" [innerHTML]="app_svg_icon_list?.['youtube'] | safeHtml">
+
+                                        <!-- <i class="fa-brands fa-youtube"></i> -->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a aria-label="social menu Link" href="https://x.com/EP_TALKIES"
+                                        target="_blank" rel="noreferrer"
+                                        [innerHTML]="app_svg_icon_list?.['twitter'] | safeHtml">
+                                        <!-- <i class="fa-brands fa-twitter"></i> -->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a aria-label="social menu Link"
+                                        href="https://in.linkedin.com/company/excellent-publicity" target="_blank"
+                                        rel="noreferrer" [innerHTML]="app_svg_icon_list?.['linkedin-in'] | safeHtml">
+                                        <!-- <i class="fa-brands fa-linkedin-in"></i> -->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a aria-label="social menu Link" href="https://www.facebook.com/ExcellentPublicity/"
+                                        target="_blank" rel="noreferrer"
+                                        [innerHTML]="app_svg_icon_list?.['facebook-f'] | safeHtml">
+                                        <!-- <i class="fa-brands fa-facebook-f"></i> -->
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a aria-label="social menu Link" href="https://www.instagram.com/excellentpublicity"
+                                        target="_blank" rel="noreferrer"
+                                        [innerHTML]="app_svg_icon_list?.['instagram'] | safeHtml">
+                                        <!-- <i class="fa-brands fa-facebook-f"></i> -->
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-lg-1 order-first order-md-2">
+                    <button type="button" class="btn-close text-reset float-end" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Sidebar  end -->

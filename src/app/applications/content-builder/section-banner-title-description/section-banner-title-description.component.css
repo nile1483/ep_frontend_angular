@@ -1,0 +1,110 @@
+.page-background {
+  padding: 35rem 0 0 0;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.page-background .page-title-text {
+  text-align: center;
+  margin-top: -250px;
+  padding: 15px 30px;
+  font-size: 25px;
+}
+h3.title {
+  color: var(--bs-white);
+}
+
+.page-title-text h1 {
+  font-size: 3rem;
+}
+.page-title-text p {
+  font-size: 30px;
+}
+
+@media (min-width: 1200.9px) and (max-width: 1439.9px) {
+  .page-background {
+    padding: 33rem 0 0 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .page-title-text h1 {
+    font-size: 2.7rem;
+  }
+  .page-title-text p {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .page-background {
+    padding: 28.2rem 0 0 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .page-title-text h1 {
+    font-size: 2.5rem;
+  }
+  .page-title-text p {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 991px) {
+  .page-background {
+    padding: 23rem 0 0 0;
+  }
+  .page-title-text h1 {
+    font-size: 2.3rem;
+  }
+  .page-title-text p {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-background {
+    padding: 18rem 0 0 0;
+  }
+  .page-background .page-title-text {
+    margin-top: -220px;
+  }
+  .page-title-text h1 {
+    font-size: 2.2rem;
+  }
+  .page-title-text p {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 575px) {
+  .page-background {
+    padding: 13rem 0 0 0;
+    background-position: center;
+  }
+  .page-background .page-title-text {
+    margin-top: -170px;
+  }
+  .page-title-text p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .page-background {
+    padding: 10rem 0 0 !important;
+    background-position: center center;
+  }
+  .page-background .page-title-text {
+    text-align: center;
+    padding: 30px 30px 15px;
+    margin-top: -155px;
+    font-size: 25px;
+  }
+
+  .page-title-text h1 {
+    font-size: 1.5rem;
+  }
+  .page-title-text p {
+    font-size: 16px;
+  }
+}

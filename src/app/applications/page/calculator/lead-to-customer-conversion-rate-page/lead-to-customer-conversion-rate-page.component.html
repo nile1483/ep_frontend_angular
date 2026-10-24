@@ -1,0 +1,197 @@
+<!-- background -->
+<section class="section-featured-services leadtocustomerconversionrate-background common-padding">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
+    </div>
+</section>
+
+<!--- Calculator --->
+<section class="common-padding shadow">
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Total Customers</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Total Customers is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Total Customers must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Total Leads</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Total Leads is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Total Leads must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
+                    </div>
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">Leads Conversion Rate</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detail -->
+
+<section class="common-padding shadow">
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/lead-to-customer-conversion-rate/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
+
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0">Lead to Customer Conversion Rate</h2>
+                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+                <p class="fs-5">
+                    A lead to customer conversion rate calculator, or Customer Acquisition Rate Calculator, measures how effective leads are in converting to customers. It is an easy conversion rate formula that divides the number of customers by the number of leads and multiplies it by 100. It is a good tool for the business to self-evaluate its marketing and sales strategy, determine weak points, and better its strategies for successful conversion. It provides a tremendous learning opportunity, allowing the business to make data-oriented decisions easily and therefore enhance its performance with much efficiency in the sales funnel.
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What is a Lead Conversion Rate?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Lead conversion rate means how many leads were turned into customers, usually commercial, and this completes the story of your actual sales efforts. It matters more because it effectively communicates to you how well your marketing and sales people are doing in terms of taking possible opportunities, sales and transforming them into actual sales. A higher conversion would mean you are successfully nurturing leads, and vice versa, in a much lower conversion area, deterring possible sales. Tracking the <strong>lead conversion rate</strong> helps identify bottlenecks, making it easier to refine the process and close more deals. The lead conversion percentage is thus even more present as a parameter to monitor business growth and sales optimization.
+            </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                How Do You Calculate Lead Conversion Rate?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                You can calculate the lead to <strong>customer conversion rate</strong> using the following equation: 
+            </p>
+            <p><strong>FORMULA</strong></p>
+            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                (Total number of customers ÷ Total number of leads) × 100
+            </h2>
+            <p>It will be the percentage of leads that became customers. For instance, if the total number of leads is 500 and 100 become customers, the lead conversion rate will be 20 percent. With proper analysis of lead conversion rates, any company can track the performance of its sales funnel, which points and to what degree, can then be improved. Knowing the lead conversion rate makes it possible to measure the success of lead generation efforts as well as make the right improvements to increase conversion rates. Constant monitoring leads to fine-tuning for better results.</p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Why Is Measuring Lead Conversion Rate Important for Your Business?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                The lead <strong>conversion rate formula</strong> is a critical metric that assesses how well your sales and marketing strategies are doing. When you measure it, you can identify the main touchpoints at which prospects were lost and focus on improving them. A sustained or upward trend in conversion will indicate that nurturing and converting leads are paying off. However, if conversion rates keep going down, it's time to revisit what you are doing. Ultimately, <strong>lead conversion rates</strong> spell out a lot concerning customer behavior and direct operations in decision making, so businesses can be more resource effective in terms of producing revenue and growth.
+            </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Why Use a Lead Conversion Rate Calculator?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                A <strong>lead to customer conversion rate calculator</strong> ultimately makes it possible a very simple way of determine how your sales strategies will be effective in turning leads into customers. In this way, one can measure results without doing manual calculations. The tool is meant for fast, accurate results with little effort on your part, and can be used to track performance over time to compare different campaigns or strategies. A <strong>lead to customer conversion rate calculator</strong> will help to understand and identify trends and tell what is working or what is not in your sales funnel. Businesses that use this tool can make data-driven decisions, streamline their processes, and pay attention to areas that need improvement to boost conversion rates.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FAQs -->
+<section class="bg-gradient-gray common-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Calculator start -->
+<section class="media-list">
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <!-- Related Calculator -->
+    </div>
+</section>

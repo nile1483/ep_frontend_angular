@@ -1,0 +1,332 @@
+<section class="common-padding bg-linear-gradient team-page-header">
+    <div class="container">
+        <div class="section-heading text-center mb-0">
+            <h1>Profile</h1>
+        </div>
+    </div>
+</section>
+
+<section class="profile-section common-padding grey-background">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-4 mb-lg-0">
+                <div class="card profile-card border-0 h-100">
+                    <div class="profile-image">
+                        <img loading="lazy" src="assets/profile/avatar.webp" class="prifile-pic"
+                            title="{{userInfo?.name}}" alt="prifile {{userInfo?.name}}">
+                        <h5>{{userInfo?.name}}</h5>
+                    </div>
+                    <div class="profile-tabs-link">
+                        <div class="nav flex-lg-column flex-lg-wrap flex-nowrap nav-pills" id="v-pills-tab"
+                            role="tablist" aria-orientation="vertical">
+
+                            <button class="nav-link active d-flex align-items-center" id="v-pills-home-tab"
+                                data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab"
+                                aria-controls="v-pills-home" aria-selected="true">
+                                <span class="prifile-tab-icon d-lg-inline-block d-none"
+                                    [innerHTML]="app_svg_icon_list?.['pen'] | safeHtml">
+                                </span>
+
+                                <!-- <i class="fa-solid fa-pen prifile-tab-icon d-lg-inline-block d-none"></i> -->
+                                <span class="pe-2">Edit Profile</span>
+                                <!-- <i class="fa-regular fa-chevron-right ms-auto d-lg-inline-block d-none"></i> -->
+                                <span class="ms-auto d-lg-inline-block d-none"
+                                    [innerHTML]="app_svg_icon_list?.['chevron-right'] | safeHtml">
+                                </span>
+                            </button>
+
+                            <button class="nav-link d-flex align-items-center" id="v-pills-profile-tab"
+                                data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab"
+                                aria-controls="v-pills-profile" aria-selected="false" (click)="getBillingAddress()">
+                                <!-- <i class="fa-solid fa-address-card prifile-tab-icon d-lg-inline-block d-none"></i> -->
+                                <span class="prifile-tab-icon d-lg-inline-block d-none"
+                                    [innerHTML]="app_svg_icon_list?.['address-card'] | safeHtml">
+                                </span>
+                                <span class="pe-2">Billing Address</span>
+                                <!-- <i class="fa-regular fa-chevron-right ms-auto d-lg-inline-block d-none"></i> -->
+                                <span class="ms-auto d-lg-inline-block d-none"
+                                    [innerHTML]="app_svg_icon_list?.['chevron-right'] | safeHtml">
+                                </span>
+                            </button>
+
+                            <button class="nav-link d-flex align-items-center" type="button"
+                                [routerLink]="['/contact']">
+                                <!-- <i class="fa-solid fa-circle-question prifile-tab-icon d-lg-inline-block d-none"></i> -->
+                                <span class="prifile-tab-icon d-lg-inline-block d-none"
+                                    [innerHTML]="app_svg_icon_list?.['circle-question'] | safeHtml">
+                                </span>
+
+                                <span class="pe-2">Help</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8">
+                <div class="tab-content profile-tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <div class="card card-with-header border-0 h-100">
+                            <div class="card-header px-0 bg-white d-lg-block d-none">
+                                <h5 class="mb-0">Edit Profile</h5>
+                            </div>
+                            <div class="card-body px-0 pb-0 pt-lg-3 pt-0">
+                                <form [formGroup]="profileForm" (ngSubmit)="updateProfileSubmit()">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="fullName" class="form-label"> Full Name <span
+                                                        class="text-danger">
+                                                        *</span></label>
+                                                <input type="text" class="form-control  border-0 bg-light"
+                                                    placeholder="Enter Name"
+                                                    [formControl]="profileForm.controls['name']" required id="fullName"
+                                                    aria-describedby="fullNameFeedback">
+
+                                                <div class="invalid" id="fullNameFeedback"
+                                                    *ngIf="profileForm.controls['name'].hasError('required')"> Please
+                                                    provide a valid Full Name </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label"> Email address <span
+                                                        class="text-danger">
+                                                        *</span></label>
+                                                <input type="email" class="form-control  border-0 bg-light" id="email"
+                                                    placeholder="Enter Email address"
+                                                    [formControl]="profileForm.controls['email']" required
+                                                    aria-describedby="emailFeedback">
+
+                                                <div class="invalid" id="emailFeedback"
+                                                    *ngIf="profileForm.controls['email'].hasError('required')"> Please
+                                                    provide a valid email. </div>
+
+                                                <div class="invalid" id="emailFeedback"
+                                                    *ngIf="profileForm.controls['email'].hasError('alredayExists')">
+                                                    Email alreday exists. </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label"> Phone No. <span
+                                                        class="text-danger"> *</span></label>
+                                                <input type="number" class="form-control border-0 bg-light"
+                                                    placeholder="Enter Phone No."
+                                                    [formControl]="profileForm.controls['contact']" required>
+
+                                                <div class="invalid" id="PhoneFeedback"
+                                                    *ngIf="profileForm.controls['contact'].hasError('required')"> Please
+                                                    provide a valid Phone No. </div>
+
+                                                <div class="invalid" id="PhoneFeedback"
+                                                    *ngIf="profileForm.controls['contact'].hasError('alredayExists')">
+                                                    Phone No. alreday exists. </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="city" class="form-label"> City <span class="text-danger">
+                                                        *</span></label>
+                                                <input type="text" class="form-control  border-0 bg-light"
+                                                    placeholder="Enter City"
+                                                    [formControl]="profileForm.controls['city']" required id="city"
+                                                    aria-describedby="cityFeedback">
+
+                                                <div class="invalid" id="cityFeedback"
+                                                    *ngIf="profileForm.controls['city'].hasError('required')"> Please
+                                                    provide City Name </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-2 mt-lg-3 text-lg-left text-center">
+                                            <button type="submit" class="btn btn-danger w-auto"> Update Profile</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab">
+                        <div class="card card-with-header border-0 h-100">
+                            <div class="card-header px-0 bg-white d-lg-block d-none billing-address">
+                                <h5 class="mb-0">
+                                    Billing Address
+                                    <button class="btn-sm btn btn-outline-dark  mt-md-0 mt-2 float-end"
+                                        (click)="addNewAddress(true)">
+                                        <!-- <i class="fa-solid fa-plus"></i> -->
+                                        <span [innerHTML]="app_svg_icon_list?.['plus'] | safeHtml"></span>
+                                        Add New Address
+                                    </button>
+                                </h5>
+                            </div>
+                            <div class="card-body px-0 pb-0 pt-lg-3 pt-0">
+                                <div *ngIf="showBillingAddress">
+                                    <div class="billing-address"
+                                        *ngFor="let address of billingAddressList; let i=index">
+                                        <div class="billing-address-heading d-flex">
+                                            <div class="form-check py-2 px-0" style="width: 85%;">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    <h5>{{address?.fullname}}</h5>
+                                                </label>
+                                                <div class="billing-address-detail">
+                                                    <p class="mb-0 fw-bold">{{address?.company_name}} </p>
+                                                    <p class="mb-0">
+                                                        <span *ngIf="address?.address">{{address?.address}}</span>
+                                                    </p>
+                                                    <p class="mb-0">
+                                                        <span *ngIf="address?.city"> {{address?.city}}</span>
+                                                        <span *ngIf="address?.state">, {{address?.state}}</span>
+                                                        <span *ngIf="address?.zipcode"> - {{address?.zipcode}}</span>
+                                                        <span *ngIf="address?.country">, {{address?.country}}</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="billing-address-action">
+                                                <button class="btn-sm btn btn-outline-dark icon-btn"
+                                                    (click)="editAddress(address?.id)">
+                                                    <span
+                                                        [innerHTML]="app_svg_icon_list?.['pen-line'] | safeHtml"></span>
+                                                    <!-- <i class="fa-solid fa-pen-line"></i> -->
+                                                </button>
+                                                <button
+                                                    class="btn-sm btn btn-outline-dark icon-btn ms-md-2 mt-md-0 mt-2"
+                                                    (click)="removeAddress(address?.id)">
+                                                    <span
+                                                        [innerHTML]="app_svg_icon_list?.['trash-can'] | safeHtml"></span>
+                                                    <!-- <i class="fa-solid fa-trash-can"></i> -->
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="isAddAddress">
+                                    <form [formGroup]="billingAddressForm" class="address-part">
+                                        <!-- <h4>Add a new address</h4> -->
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="company_name" class="form-label">
+                                                        Company Name
+                                                    </label>
+                                                    <input type="text" class="form-control  border-0 bg-light"
+                                                        placeholder="Enter Company Name"
+                                                        [formControl]="billingAddressForm.controls['company_name']"
+                                                        required id="company_name"
+                                                        aria-describedby="companyNameFeedback">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12  col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="full_name" class="form-label">
+                                                        Full Name <span class="text-danger">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control  border-0 bg-light"
+                                                        placeholder="Enter Full Name"
+                                                        [formControl]="billingAddressForm.controls['full_name']"
+                                                        required id="full_name" aria-describedby="full_nameFeedback">
+
+                                                    <div class="invalid" id="full_nameFeedback"
+                                                        *ngIf="billingAddressForm.controls['full_name'].hasError('required') && billingAddressForm.controls['full_name'].touched">
+                                                        This field is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12  col-md-5">
+                                                <div class="mb-3">
+                                                    <label for="city" class="form-label">
+                                                        City <span class="text-danger">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control  border-0 bg-light"
+                                                        placeholder="Enter City"
+                                                        [formControl]="billingAddressForm.controls['city']" required
+                                                        id="city" aria-describedby="cityFeedback">
+
+                                                    <div class="invalid" id="cityFeedback"
+                                                        *ngIf="billingAddressForm.controls['city'].hasError('required') && billingAddressForm.controls['city'].touched">
+                                                        This field is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12  col-md-4">
+                                                <div class="mb-3">
+                                                    <label for="state" class="form-label">
+                                                        State <span class="text-danger">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control  border-0 bg-light"
+                                                        placeholder="Enter State"
+                                                        [formControl]="billingAddressForm.controls['state']" required
+                                                        id="state" aria-describedby="stateFeedback">
+
+                                                    <div class="invalid" id="stateFeedback"
+                                                        *ngIf="billingAddressForm.controls['state'].hasError('required') && billingAddressForm.controls['state'].touched">
+                                                        This field is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12  col-md-3">
+                                                <div class="mb-3">
+                                                    <label for="zipcode" class="form-label">
+                                                        Pincode <span class="text-danger">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control  border-0 bg-light"
+                                                        placeholder="Enter Pincode"
+                                                        [formControl]="billingAddressForm.controls['zipcode']" required
+                                                        id="zipcode" aria-describedby="zipcodeFeedback">
+
+                                                    <div class="invalid" id="zipcodeFeedback"
+                                                        *ngIf="billingAddressForm.controls['zipcode'].hasError('required') && billingAddressForm.controls['zipcode'].touched">
+                                                        This field is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <label for="address" class="form-label">
+                                                        Address <span class="text-danger">*</span>
+                                                    </label>
+                                                    <textarea id="address" class="form-control" rows="3"
+                                                        [formControl]="billingAddressForm.controls['address']"
+                                                        placeholder="Enter text here..."
+                                                        aria-describedby="addressFeedback"></textarea>
+
+                                                    <div class="invalid" id="addressFeedback"
+                                                        *ngIf="billingAddressForm.controls['address'].hasError('required') && billingAddressForm.controls['address'].touched">
+                                                        This field is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                    <div class="action mt-3 d-flex align-items-center justify-content-center">
+                                        <button class="btn btn-primary" *ngIf="isEditAddress" type="button"
+                                            (click)="editAddressSubmit()"> Update </button>
+                                        <button class="btn btn-primary" *ngIf="!isEditAddress" type="submit"
+                                            (click)="addNewAddressSubmit()"> Save </button>
+                                        <button class="btn btn-dark ms-1" (click)="addNewAddress(false)">Cancel</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<app-call-to-action></app-call-to-action>

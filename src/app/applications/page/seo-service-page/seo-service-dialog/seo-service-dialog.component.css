@@ -1,0 +1,215 @@
+.message-box {
+    margin: 0rem;
+    min-height: 50px;
+    text-align: center!important;
+} 
+.message {
+    font-size: 90%;
+    line-height: 1.2rem;
+} 
+#login-register .login-box {
+    padding: 0 40px;
+    background: #ececec;
+}
+
+::ng-deep .mat-mdc-dialog-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.logo-card {
+    text-align: center;
+    margin: 50px 0 0;
+}
+
+.login-logo {
+    text-align: center;
+}
+ 
+
+#login-register .login-box {
+    padding: 0px;
+}
+
+#login-register .register-box {
+    padding: 10px 20px;
+    min-height: 410px;
+}
+
+#login-register .register-box form {
+    margin-top: 8px;
+}
+ 
+.forgot-pwd {
+    margin: 12px 0 10px !important;
+    text-decoration: underline;
+}
+
+
+#login-register {
+    border: 1px solid #000;
+    margin: 3px !important;
+    position: relative;
+}
+
+#login-register:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /* border-bottom: 8px solid #555555; */
+    height: 0;
+    width: 100%;
+}
+
+ 
+::ng-deep .mat-mdc-dialog-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-height: 100% !important;
+} 
+
+.login-sign .row {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+} 
+ 
+/* media query  */
+
+
+@media (max-width: 768px) {
+    #login-register .register-box {
+        padding: 0px 20px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    #login-register .register-box {
+        padding: 0px 15px 10px;
+    } 
+    .login-box .forgot-pwd {
+        margin: 10px 0 10px;
+    }
+}
+
+ 
+
+@media (max-width:720px) {
+    #login-register .login-box {
+        padding: 0;
+    }
+
+    #login-register .register-box {
+        padding: 0;
+        border-left: 0px solid #ccc;
+    }
+}
+
+.login-list li{
+    line-height: 1.4;
+    color: var(--gray-3);
+}
+::ng-deep .login-list li svg{
+    height: 18px;
+    fill: var(--gray-3);
+}
+
+.form-floating>.form-control, .form-select {
+    padding: 0;
+    height: 40px;
+    background-color: #fff;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    padding-top: 10px;
+}
+.form-floating>.form-control:focus, .form-select:focus {
+    color: var(--gray-3);
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+}
+.form-floating>label {
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+    color: var(--gray-4);
+    height: 48px;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--gray-3);
+    background-color: transparent;
+    border-color: var(--bs-primary);
+}
+
+.phone-number-with-country .drop-down-link{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 10px 23px;
+    color: var(--gray-3);
+    text-align: center;
+    padding: 10px;
+    min-width: 72px;
+    display: inline-block;
+    background-color: var(--gray-1);
+    vertical-align: text-top;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.phone-number-with-country .form-floating .form-control{
+    padding-left: 14px;
+}
+.phone-number-with-country .form-floating label{
+    padding-left: 14px;
+}
+.phone-number-with-country .dropdown-menu {
+    font-size: 14px;
+    color: var(--gray-3);
+    padding: 8px 5px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    background-color: var(--bs-white);
+    border: 0; 
+    min-width: 280px;
+}
+.phone-number-with-country .dropdown-menu .country-list{
+    max-height: 110px;
+    overflow-y: auto;  
+}
+.phone-number-with-country .dropdown-menu li{
+    cursor: pointer;
+    border-radius: 4px;
+    white-space: normal;
+}
+.phone-number-with-country .dropdown-menu .dropdown-item.active, .phone-number-with-country .dropdown-menu .dropdown-item:active {
+    color: #fff;
+    background-color: var(--gray-3);
+}
+
+.country-search{
+    padding: 5px 10px !important;
+}
+
+
+.btn-close:focus{
+    box-shadow: none;
+}
+
+
+::ng-deep .form-floating > .form-control:not(:placeholder-shown) ~ label::after {
+    background: transparent !important;
+}
+::ng-deep .form-floating > .form-control:focus ~ label::after {
+    background-color: transparent !important;
+}

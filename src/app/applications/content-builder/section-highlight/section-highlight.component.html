@@ -1,0 +1,15 @@
+<div class="section-heading text-center">
+    <h2 *ngIf="pageBlock?.title" >{{pageBlock?.title}}</h2>
+    <span class="separator mb-2" *ngIf="pageBlock?.title"></span>
+    <p *ngIf="pageBlock?.simple_description">{{pageBlock?.simple_description}}</p>
+</div>
+<div class="row g-4 justify-content-center" *ngIf="pageBlock?.icon_block?.length > 0">
+    <div class="col-12 col-md-6 col-lg-3 my-4" *ngFor="let block of pageBlock?.icon_block">
+        <div class="card border-0 h-100">
+            <div class="card-icon" [innerHTML]="block.icon?.code | safeHtml"> </div>
+            <h5>{{block?.title}}</h5>
+            <div class="small-divider"></div>
+            <p>{{block?.sub_title}}</p>
+        </div>
+    </div> 
+</div>

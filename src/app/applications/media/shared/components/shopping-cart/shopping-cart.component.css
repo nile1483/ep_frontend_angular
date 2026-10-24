@@ -1,0 +1,13 @@
+.min-billing {
+    color: red;
+    font-weight: 600;
+}
+
+::ng-deep .mat-mdc-dialog-container {
+    padding: 0px !important;
+}
+
+::ng-deep .option-price mat-label{
+    color: rgba(0,0,0,.54);
+    font-size: 12px;
+}

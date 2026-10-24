@@ -1,0 +1,205 @@
+/*-------------------------*/
+.newsletter-page {
+  background-image: url("/assets/page/newsletter/newsletter-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 300px; 
+  height: 70vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+@media(min-width:1580px) {
+   .newsletter-page {
+    height: 100vh;
+  }
+}
+@media (max-width: 1440px) {
+  .newsletter-page {
+    min-height: 485px;
+  }
+}
+@media (max-width: 1399px) {
+  .newsletter-page {
+    min-height: 385px;
+  }
+}
+@media (max-width: 992px) {
+    .newsletter-page{
+      min-height: 358px;
+      height: 25vh;
+    }
+}
+@media (max-width: 768px) {
+  .newsletter-page {
+    min-height: 285px;
+  }
+  
+}
+@media (max-width: 575px) {
+  .newsletter-page {
+    min-height: 208px;
+  }
+  
+}
+@media (max-width: 480px) {
+  .newsletter-page {
+    height: 25vh;
+    min-height: 117px;
+  }
+}
+
+/*-------------------------*/
+
+/* what we offer */
+.about-newsletter h3{
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #c01625;
+}
+
+.bg-gray {
+  background-color: #f3f2f4
+}
+
+@media (min-width:1400px) {
+  .card.container {
+    max-width: 1320px !important
+  }
+}
+
+.col-md-3,
+.col-md-4 {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important
+}
+
+img {
+  max-width: 100%;
+  height: auto
+}
+
+h2 {
+  font-size: 1.7rem
+}
+
+/*-------------23-04-2026------------*/
+.about-newsletter p {
+    font-size: 21px;
+}
+.newsletter-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #fff;
+  height: 100%;
+}
+.card-top {
+  background: #eee7e5;
+  padding: 30px 15px;
+}
+.card-top .logo {
+  max-width: 120px;
+}
+.card-bottom {
+  background: #c01625;
+  color: #fff;
+  padding: 25px 15px;
+}
+.card-bottom h5 {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #fff;
+}
+.view-btn {
+  background: #fff;
+  color: #c01625;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.view-btn .eye {
+  font-size: 16px;
+}
+.newsletter-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease;
+}
+
+/* What You’ll Find Inside */
+.section-title { 
+  color: #c01625;
+  font-weight: 700;
+  font-size: 36px;
+}
+.inside-box {
+  background: #f4efed;
+  border: 2px solid #c01625;
+  border-radius: 20px;
+  padding: 25px; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.inside-box h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.inside-box p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 195px; 
+}
+.inside-box img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media(max-width:767px){
+  .inside-box p {
+  margin-bottom: 290px; 
+  }
+  .about-newsletter p {
+    font-size: 16px;
+}
+}
+@media(max-width:575px){
+  .inside-box p {
+  margin-bottom: 305px; 
+  }
+}
+@media(max-width:480px){
+  .inside-box p {
+  margin-bottom: 260px; 
+  }
+}
+@media(max-width:425px){
+  .inside-box p {
+  margin-bottom: 224px; 
+  }
+}
+@media(max-width:375px){
+  .inside-box p {
+  margin-bottom: 192px; 
+  }
+}
+@media(max-width:360px){
+  .inside-box p {
+  margin-bottom: 166px; 
+  }
+}

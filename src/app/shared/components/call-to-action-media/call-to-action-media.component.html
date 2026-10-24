@@ -1,0 +1,32 @@
+<section class="cta-section common-padding">
+    <div cass="container">
+        <div class="section-heading text-center mb-0">
+            <h2>{{mediaCallToActionData?.title}}</h2>
+            <a aria-label="Rate Link" [routerLink]="['/contact']" class="btn btn-white" *ngIf="!mediaCallToActionData?.inquiryUser?.contact">
+                Get The Rate
+            </a>
+        </div>
+
+        <div class="cta-media-link d-flex justify-content-center align-items-cente">
+            <span class="user-name me-4">
+                <a target="_blank" href="/schedule-a-call" class="schedule-link text-white py-2">
+                    Schedule a Meeting
+                </a>
+            </span>
+        </div>
+        
+        <!-- <div class="cta-media-link d-flex justify-content-center align-items-cente" *ngIf="mediaCallToActionData?.inquiryUser?.contact ">
+            <span  class="user-name me-4">
+                {{mediaCallToActionData?.inquiryUser?.name}}
+            </span>
+            <br>
+            <a aria-label="Link" href="https://wa.me/91{{mediaCallToActionData.inquiryUser.contact}}?text=Hello%2C%20I'm%20interested%20in%20advertising." target="_blank" rel="noreferrer" class="c2atracking" [attr.data-c2a-type]="'Whatsapp'" [attr.data-c2a-value]="mediaCallToActionData.inquiryUser.contact" [attr.data-c2a-placement]="'Bottom C2A'" >
+                <span class="fa-whatsapp" [innerHTML]="app_svg_icon_list?.['whatsapp'] | safeHtml"></span>
+                 {{mediaCallToActionData?.inquiryUser?.contact}}
+            </a>
+            <a aria-label="Link" href="tel:{{mediaCallToActionData.inquiryUser.contact}}"  class="c2atracking" [attr.data-c2a-type]="'Phone'" [attr.data-c2a-value]="mediaCallToActionData.inquiryUser.contact" [attr.data-c2a-placement]="'Bottom C2A'">
+                <span class="fa-phone" [innerHTML]="app_svg_icon_list?.['phone'] | safeHtml"></span> {{mediaCallToActionData?.inquiryUser?.contact}}
+            </a>
+        </div> -->
+    </div>
+</section>

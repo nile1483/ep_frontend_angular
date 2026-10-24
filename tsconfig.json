@@ -1,0 +1,47 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "paths": {
+      "@app-company-services": ["src/app/applications/company/shared/services/index.ts"],      
+      "@app-company-components": ["src/app/applications/company/index.ts"],      
+      "@app-content-builder-components": ["src/app/applications/content-builder/index.ts"],      
+      "@app-shared-helpers": ["src/app/shared/helpers/index.ts"],
+      "@app-shared-services": ["src/app/shared/services/index.ts"],
+      "@app-shared-model": ["src/app/shared/model/index.ts"],
+      "@app-shared-constants": ["src/app/shared/constants/index.ts"],
+      "@app-shared-components": ["src/app/shared/components/index.ts"],
+      "@app-media-services": ["src/app/applications/media/shared/services/index"],
+      "@app-media-models": ["src/app/applications/media/shared/models/index"],
+      "@app-media-shared-components": ["src/app/applications/media/shared/components/index"],
+      "@app-page-services": ["src/app/shared/services/page/index"],
+    },
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": false
+  }
+}

@@ -1,0 +1,232 @@
+<section class="grey-background common-padding">
+    <div class="container">
+        <div class="section-heading text-center mb-lg-3 pb-lg-2">
+            <h2>Sales Deck</h2>
+        </div>
+        <div class="card border-0 salesdeck inquiry-card contact-inquiry-card">
+            <form class="row g-3" [formGroup]="salesDeckForm" (ngSubmit)="inquiryFormSubmit()" *ngIf="!inquirySubmit">
+
+                <!-- NAME -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Name<span>*</span></label>
+                    <input type="text" class="form-control" [formControl]="salesDeckForm.controls['name']" placeholder="Your Name">
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['name'].hasError('required') && salesDeckForm.controls['name'].touched">
+                            Name is required
+                        </span>
+                    </div>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Email address<span>*</span></label>
+                    <input type="email" class="form-control" [formControl]="salesDeckForm.controls['email']" placeholder="Your Email Id">
+
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['email'].hasError('required') && salesDeckForm.controls['email'].touched">
+                            Email address is required
+                        </span>
+                        <span *ngIf="salesDeckForm.controls['email'].hasError('email') && salesDeckForm.controls['email'].touched">
+                            Invalid email address
+                        </span>
+                        <span *ngIf="salesDeckForm.controls['email'].hasError('isPersonal')">
+                            Only business email account is valid.
+                        </span>
+                    </div>
+                </div>
+
+                <!-- BRAND NAME -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Brand Name<span>*</span></label>
+                    <input type="text" class="form-control" [formControl]="salesDeckForm.controls['brand_name']" placeholder="Your Brand Name">
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['brand_name'].hasError('required') && salesDeckForm.controls['brand_name'].touched">
+                            Brand Name is required
+                        </span>
+                        <span *ngIf="salesDeckForm.controls['brand_name'].hasError('maxlength')">
+                            Max Length is {{salesDeckForm.controls['brand_name']?.errors?.maxlength?.requiredLength}}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- BUDGET -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Budget<span>*</span></label>
+                    <mat-select class="form-control" formControlName="budget" placeholder="Select Budget" panelClass="salesdeck-select-panel">
+                        <mat-option value="50,000">50,000</mat-option>
+                        <mat-option value="1,00,000">1,00,000</mat-option>
+                        <mat-option value="2,00,000">2,00,000</mat-option>
+                        <mat-option value="3,00,000">3,00,000</mat-option>
+                        <mat-option value="5,00,000">5,00,000</mat-option>
+                        <mat-option value="7,50,000">7,50,000</mat-option>
+                        <mat-option value="10,00,000">10,00,000</mat-option>
+                        <mat-option value="15,00,000">15,00,000</mat-option>
+                        <mat-option value="20,00,000">20,00,000</mat-option>
+                        <mat-option value="30,00,000">30,00,000</mat-option>
+                        <mat-option value="40,00,000">40,00,000</mat-option>
+                        <mat-option value="50,00,000">50,00,000</mat-option>
+                        <mat-option value="75,00,000">75,00,000</mat-option>
+                        <mat-option value="1,00,00,000">1,00,00,000</mat-option>
+                        <mat-option value="2,00,00,000">2,00,00,000</mat-option>
+                        <mat-option value="10,00,00,000">10,00,00,000</mat-option>
+                    </mat-select>
+                </div>
+
+                <!-- Industry -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Industry<span>*</span></label>
+                    <mat-select class="form-control" id="supercategory" formControlName="super_category" placeholder="Select Industry" panelClass="salesdeck-select-panel">
+                        <mat-option *ngFor="let category of categories" [value]="category.super_category">
+                            {{ category.super_category }}
+                        </mat-option>
+                    </mat-select>
+                   
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['super_category'].hasError('required') && salesDeckForm.controls['super_category'].touched">
+                            Industry is required
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- PRODUCT GROUP-->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Product Group<span>*</span></label>
+                    <mat-select class="form-control" formControlName="product_group" placeholder="Select Product Group" panelClass="salesdeck-select-panel">
+                        <mat-option *ngFor="let pg of productGroups" [value]="pg">
+                            {{pg}}
+                        </mat-option>
+                    </mat-select>
+                   
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['product_group'].hasError('required') && salesDeckForm.controls['product_group'].touched">
+                            Product Group is required
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- TARGET AGE -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Target Age<span>*</span></label>
+                    <mat-select class="form-control" formControlName="target_age" multiple placeholder="Select Target Age" panelClass="salesdeck-select-panel">
+                        <mat-option value="25-30">25-30</mat-option>
+                        <mat-option value="30-35">30-35</mat-option>
+                        <mat-option value="35-40">35-40</mat-option>
+                        <mat-option value="40-45">40-45</mat-option>
+                        <mat-option value="45-50">45-50</mat-option>
+                        <mat-option value="50-55">50-55</mat-option>
+                    </mat-select>
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['target_age'].hasError('required') && salesDeckForm.controls['target_age'].touched">
+                            Target Age is required
+                        </span>
+                    </div>
+                </div>
+
+                <!-- TARGET GENDER -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Target Gender<span>*</span></label>
+                    <mat-select class="form-control" formControlName="target_gender" placeholder="Select Target Gender" panelClass="salesdeck-select-panel">
+                        <mat-option value="Male">Male</mat-option>
+                        <mat-option value="Female">Female</mat-option>
+                        <mat-option value="Male and Female">Both</mat-option>
+                    </mat-select>
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['target_gender'].hasError('required') && salesDeckForm.controls['target_gender'].touched">
+                            Target Gender is required
+                        </span>
+                    </div>
+                </div>
+
+
+                <!-- PRIMARY CHANNEL -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Primary Channel<span>*</span></label>
+                    <mat-select class="form-control" formControlName="primary_channel" placeholder="Select Primary Channel" multiple panelClass="salesdeck-select-panel">
+                        <mat-option value="Print">Print</mat-option>
+                        <mat-option value="TV">TV</mat-option>
+                        <mat-option value="Radio">Radio</mat-option>
+                        <mat-option value="Digital">Digital</mat-option>
+                        <mat-option value="Outdoor">Outdoor</mat-option>
+                    </mat-select>
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['primary_channel'].hasError('required') && salesDeckForm.controls['primary_channel'].touched">
+                            Primary Channel is required
+                        </span>
+                    </div>
+                </div>
+
+                <!-- KEY REGIONS -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Key Regions<span>*</span></label>
+                    <mat-select class="form-control" formControlName="key_regions" placeholder="Select Key Regions" multiple panelClass="salesdeck-select-panel">
+                        <mat-option value="Mumbai">Mumbai</mat-option>
+                        <mat-option value="Delhi">Delhi</mat-option>
+                        <mat-option value="Chennai">Chennai</mat-option>
+                    </mat-select>
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['key_regions'].hasError('required') && salesDeckForm.controls['key_regions'].touched">
+                            Key Regions is required
+                        </span>
+                    </div>
+                </div>
+
+                <!-- OBJECTIVE -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Objective<span>*</span></label>
+                    <mat-select class="form-control" formControlName="objective" placeholder="Select Objective" panelClass="salesdeck-select-panel">
+                        <mat-option value="Build brand awareness">Build brand awareness</mat-option>
+                        <mat-option value="Increase top-of-mind recall">Increase top-of-mind recall</mat-option>
+                        <mat-option value="Improve brand recognition (logo/pack recall)">Improve brand recognition (logo/pack recall)</mat-option>
+                        <mat-option value="Strengthen brand trust & credibility">Strengthen brand trust & credibility</mat-option>
+                        <mat-option value="Improve brand preference">Improve brand preference</mat-option>
+                        <mat-option value="Differentiate vs competitors">Differentiate vs competitors</mat-option>
+                        <mat-option value="Reposition the brand (change perception)">Reposition the brand (change perception)</mat-option>
+                        <mat-option value="Launch a new product/service">Launch a new product/service</mat-option>
+                        <mat-option value="Promote a key feature/innovation">Promote a key feature/innovation</mat-option>
+                        <mat-option value="Announce an offer/discount/festival campaign">Announce an offer/discount/festival campaign</mat-option>
+                        <mat-option value="Drive first-time trial/purchase">Drive first-time trial/purchase</mat-option>
+                        <mat-option value="Generate leads/inquiries (calls/forms)">Generate leads/inquiries (calls/forms)</mat-option>
+                        <mat-option value="Increase store footfall/walk-ins">Increase store footfall/walk-ins</mat-option>
+                        <mat-option value="Increase website/app traffic">Increase website/app traffic</mat-option>
+                        <mat-option value="Increase online sales/conversions">Increase online sales/conversions</mat-option>
+                        <mat-option value="Expand into a new geography/market">Expand into a new geography/market</mat-option>
+                        <mat-option value="Support dealer/distributor onboarding (B2B)">Support dealer/distributor onboarding (B2B)</mat-option>
+                        <mat-option value="Increase repeat purchases/retention">Increase repeat purchases/retention</mat-option>
+                        <mat-option value="Win back inactive customers">Win back inactive customers</mat-option>
+                        <mat-option value="Promote an event (registrations/attendance)">Promote an event (registrations/attendance)</mat-option>
+                    </mat-select>
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['objective'].hasError('required') && salesDeckForm.controls['objective'].touched">
+                            Objective is required
+                        </span>
+                    </div>
+                </div>
+
+                <!-- CAMPAIGN TIMELINE -->
+                <div class="col-md-6 m-0">
+                    <label class="form-label">Campaign Timeline<span>*</span></label>
+                    <mat-select class="form-control" formControlName="campaign_timeline" placeholder="Select Campaign Timeline" panelClass="salesdeck-select-panel">
+                        <mat-option value="15 Days">15 Days</mat-option>
+                            <mat-option value="1 Month">1 Month</mat-option>
+                            <mat-option value="2 Months">2 Months</mat-option>
+                            <mat-option value="3 Months">3 Months</mat-option>
+                            <mat-option value="6 Months">6 Months</mat-option>
+                            <mat-option value="9 Months">9 Months</mat-option>
+                            <mat-option value="1 Year">1 Year</mat-option>
+                    </mat-select>
+                    <div class="text-danger form-error">
+                        <span *ngIf="salesDeckForm.controls['campaign_timeline'].hasError('required') && salesDeckForm.controls['campaign_timeline'].touched">
+                            Campaign Timeline is required
+                        </span>
+                    </div>
+                </div>             
+
+                <div class="col-12 text-md-start text-center">
+                    <button type="submit" class="btn btn-primary"> Submit </button>
+                </div>
+            </form>
+
+            <h5 *ngIf="inquirySubmit" class="text-center" [innerHTML]="inquiryMessage | safeHtml"> </h5>
+        </div>
+    </div>
+</section>

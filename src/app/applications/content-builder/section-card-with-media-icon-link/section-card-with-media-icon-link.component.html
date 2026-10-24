@@ -1,0 +1,29 @@
+<div class="text-center">
+    <h2 *ngIf="pageBlock?.title" >{{pageBlock?.title}}</h2>
+    <span class="separator mb-2" *ngIf="pageBlock?.title"></span>
+    <p class="mt-4 text-start" *ngIf="pageBlock?.simple_description" [innerHTML]="pageBlock?.simple_description"></p>
+    <p class="mt-3 text-start" *ngIf="pageBlock?.description" [innerHTML]="pageBlock?.description"></p>
+</div>
+
+<div class="row g-md-3 g-2 mt-3 justify-content-left" *ngIf="pageBlock?.card_media_with_icon_block_data?.length > 0">
+    <div class="col-xl-3 col-lg-3 col-md-4 col-6 services-col" *ngFor="let block of pageBlock?.card_media_with_icon_block_data">
+        <ng-container *ngIf="block.option_type === 'link'">
+            <a [href]="block.link">
+                <div class="services-card">
+                    <ng-container *ngTemplateOutlet="imageAndCardBody"></ng-container>
+                </div>
+            </a>
+        </ng-container>
+        <ng-container *ngIf="block.option_type === 'form'">
+            <div class="services-card" (click)="openFormDialog()">
+                <ng-container *ngTemplateOutlet="imageAndCardBody"></ng-container>
+            </div>
+        </ng-container>
+        
+        <ng-template #imageAndCardBody>
+            <div [innerHTML]="block.icon.code | safeHtml" class="svgsize" ></div>
+            <h6 style="color: #c01625;" class="mt-3 text-center">{{block?.label}}</h6>
+        </ng-template>
+
+    </div>
+</div>

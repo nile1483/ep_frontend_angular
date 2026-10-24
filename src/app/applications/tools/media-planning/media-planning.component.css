@@ -1,0 +1,431 @@
+.get-media-plan-section .section-heading {
+    max-width: 1000px;
+}
+
+@media (max-width: 767px) {
+    .get-media-plan-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.search-with-select {
+    max-width: 600px;
+    margin: 50px auto 40px;
+    position: relative;
+}
+
+@media (max-width: 992px) {
+    .search-with-select {
+        max-width: 100%;
+        margin: 50px auto 24px;
+    }
+}
+
+.search-form-wrapper {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+}
+
+.search-with-select .search-form-wrapper>.form-control {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #818691;
+    border: 0;
+    padding: 10px 20px;
+    height: 60px;
+    background-image: url('../../../../assets/icon/chevron-down.svg');
+    background-position: right 20px center;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.search-with-select .search-button {
+    background-color: #FFFFFF;
+    height: 100%;
+    border: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.search-with-select .search-button:after {
+    content: "";
+    width: 1px;
+    height: 30px;
+    background-color: rgba(15, 34, 64, 0.2);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.search-with-select .category-list {
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 100%;
+    /* padding: 15px 0; */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+    top: -10000px;
+    display: block;
+    opacity: 0;
+    left: auto;
+    min-width: 200px;
+    z-index: 1000;
+    background-clip: padding-box;
+    transition: transform .2s ease-out;
+    transform: translate3d(0, -5px, 0);
+}
+
+.search-with-select:hover .category-list {
+    transform: translate3d(0, 0, 0);
+    top: auto;
+    display: block;
+    opacity: 1;
+}
+
+.search-with-select .category-list ul {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-with-select .category-list ul li {
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.search-with-select .category-list ul li:hover {
+    background-color: var(--gray-6);
+}
+
+label {
+    line-height: 1.2;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: var(--gray-3);
+}
+
+.big-lable {
+    font-size: 20px;
+}
+
+@media (max-width: 992px) {
+    .big-lable {
+        font-size: 16px;
+    }
+}
+
+.medium-lable {
+    font-size: 16px;
+}
+
+.default-control {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    border: 0;
+    height: 50px;
+    padding: 10px 20px;
+}
+
+select.default-control {
+    background-image: url('../../../../assets/icon/chevron-down.svg');
+    background-position: right 20px center;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    appearance: none;
+}
+
+.sub-category {
+    max-width: 910px;
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .target-block-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.target-card {
+    padding: 40px 32px;
+    text-align: center;
+    max-width: 300px;
+}
+
+@media (max-width: 767px) {
+    .target-card {
+        padding: 40px 20px;
+    }
+}
+
+.target-card i {
+    font-size: 50px;
+    color: var(--bs-orange);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.target-card h5 {
+    line-height: 1.4;
+    margin: 0;
+}
+
+.search-form-default .search-button {
+    background-color: #FFFFFF;
+    height: 100%;
+    border: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.search-form-default.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+}
+
+.selected-badge {
+    margin-top: 8px;
+}
+
+.selected-badge .badge {
+    font-size: 14px;
+    border: 1px solid rgba(15, 34, 64, 0.5);
+    border-radius: 6px;
+    color: var(--gray-3);
+    font-weight: 500;
+    padding: 6px 10px;
+}
+
+.selected-badge .badge>.btn-close {
+    margin-left: 0.3rem;
+    font-size: 8px;
+    height: 10px;
+    width: 10px;
+    vertical-align: middle;
+    color: var(--gray-3);
+    opacity: 1;
+}
+
+.selected-badged .badge>.btn-close {
+    vertical-align: bottom;
+    padding: 3px;
+}
+
+.our-media-recomm-section .media-card {
+    height: 100%;
+    align-items: flex-start;
+    transition: all 0.4s ease-in-out;
+}
+
+@media (max-width: 767px) {
+    .our-media-recomm-section .media-card {
+        padding: 16px;
+    }
+}
+
+.our-media-recomm-section .media-card:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease-in-out;
+}
+
+.our-media-recomm-section .media-card i {
+    color: var(--bs-orange);
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+    .our-media-recomm-section .media-card i {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+}
+
+.our-media-recomm-section .media-card .small-divider {
+    border: 1px solid var(--bs-orange);
+    width: 50px;
+    margin: 0 0 16px;
+}
+
+@media (max-width: 767px) {
+    .our-media-recomm-section .media-card .small-divider {
+        width: 30px;
+    }
+}
+
+.our-media-recomm-section .media-card span {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.our-media-recomm-section .media-card .media-price {
+    color: var(--bs-primary);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 767px) {
+    .our-media-recomm-section .media-card .media-price {
+        font-size: 16px;
+    }
+}
+
+.our-media-recomm-section .media-card p {
+    color: var(--gray-3);
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .our-media-recomm-section .media-card p {
+        margin-bottom: 10px;
+    }
+}
+
+.our-media-recomm-section .media-card a {
+    color: var(--bs-orange);
+    border-bottom: 1px solid var(--bs-orange);
+    position: relative;
+}
+
+@media (max-width: 767px) {
+    .our-media-recomm-section .media-card a {
+        font-size: 14px;
+    }
+}
+
+.our-media-recomm-section .media-card a::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 100%;
+    bottom: -1px;
+    background: var(--bs-primary);
+    height: 2px;
+    transition-property: right;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+}
+
+.our-media-recomm-section .media-card a:hover {
+    color: var(--bs-primary);
+}
+
+.our-media-recomm-section .media-card a:hover:after {
+    right: 0;
+}
+
+.cinema-advertising-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto 0;
+}
+
+@media (max-width: 767px) {
+    .cinema-advertising-card {
+        padding: 16px 14px;
+    }
+}
+
+.cinema-advertising-card hr {
+    margin: 0.8rem 0;
+    background-color: rgba(15, 34, 64, 0.3);
+}
+
+.cinema-advertising-card h4 {
+    font-size: 18px;
+}
+
+@media (max-width: 767px) {
+    .cinema-advertising-card h4 {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .cinema-advertising-card h5 {
+        font-size: 16px;
+    }
+}
+
+.cinema-advertising-card h6 {
+    font-size: 18px;
+}
+
+@media (max-width: 767px) {
+    .cinema-advertising-card h6 {
+        font-size: 14px;
+    }
+}
+
+.recc-advertising-list {
+    margin-bottom: 24px;
+}
+
+.recc-advertising-list:last-child {
+    margin-bottom: 0;
+}
+
+.recc-advertising-img {
+    max-width: 100px;
+    flex: 0 0 100px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+    .recc-advertising-img {
+        display: none;
+    }
+}
+
+.recc-advertising-img img {
+    width: 100%;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.recc-advertising-content {
+    flex: 1 1 auto;
+    max-width: 316px;
+    margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+    .recc-advertising-content {
+        max-width: calc(100% - 100px);
+    }
+}
+
+.recc-advertising-content .recc-advertising-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 310px;
+    font-size: 14px;
+}
+
+.recc-advertising-budget-edit {
+    margin-left: auto;
+}
+
+.invalid {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: .875em;
+    color: #dc3545;
+    padding-left: 10px;
+}

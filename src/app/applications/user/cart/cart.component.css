@@ -1,0 +1,44 @@
+.card-action {
+    transition: all 0.3s ease-in-out;
+}
+
+.card-action:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.50);
+
+}
+
+.cart-page-header .campaign-input {
+    padding: 8px 15px;
+}
+
+
+::ng-deep .button-action svg {
+    fill: var(--gray-5);
+    height: 16px;
+}
+
+::ng-deep .btn-outline-dark:hover svg,
+.btn-outline-dark:focus svg,
+.btn-outline-dark:active svg {
+    fill: var(--bs-white);
+}
+
+@media (max-width:767px) {
+    .custom-form .form-control {
+        width: auto;
+    }
+}
+
+.valid-feedback {
+    color: green;
+    padding-left: 13px !important;
+}
+
+.btn-succes::before {
+    background-color: #28a745 !important;
+}
+
+.btn.btn-succes {
+    color: #fff !important;
+}

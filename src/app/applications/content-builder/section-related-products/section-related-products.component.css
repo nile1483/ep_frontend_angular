@@ -1,0 +1,27 @@
+
+.related-product-links {
+    padding-left: 0;
+    list-style: none;
+    column-count: 2;
+    margin: 0 -15px;
+}
+
+.related-product-links li a {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    position: relative;
+    display:  contents;
+    padding: 5px 0 5px;
+}
+
+.related-product-links li:before {
+    content: "\2022";
+    color: var(--bs-orange);
+    font-weight: 700;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+ 

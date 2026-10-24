@@ -1,0 +1,247 @@
+@media (min-width: 992px) {
+    .order-process-section .order-process-details-col{
+        flex: 0 0 auto;
+        width: 60.666667%;
+    }
+    .order-process-section .order-process-price-detail-col{
+        flex: 0 0 auto;
+        width: 39.333333%;
+    }
+}
+.form-group .mat-mdc-form-field{
+    width: 50% !important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.form-100-width .mat-mdc-form-field {
+    width: 100% !important;
+}
+
+.place-color-1 {
+    border: 1px solid #afafaf;
+    margin: 5px 0;
+    padding: 10px 20px 10px 20px;
+    border-radius: 8px;
+}
+
+.address-button-pop button {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 3px 4px 7px -4px rgb(0 0 0 / 47%);
+    text-align: left;
+    padding-left: 15px;
+}
+
+.billing-information-title-card {
+    background-color: #dc3545;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.single-profile-data {
+    border: 1px solid #afafaf;
+    margin: 10px 0;
+    padding: 20px 20px 10px 20px;
+    border-radius: 8px;
+}
+
+.billing-address-card{
+    padding: 30px;
+    border-radius: 15px;
+}
+@media (max-width: 767px) {
+    .billing-address-card{
+        padding: 16px;
+        border-radius: 10px;
+    }
+}
+
+.billing-address-card .card-header{
+    padding-top: 0;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(15, 34, 64, 0.1);
+}
+@media (max-width: 767px) {
+    .billing-address-card .card-header{
+        padding-bottom: 16px;
+    }
+}
+.billing-address-card .card-header h6{
+    font-size: 18px;
+    font-weight: 500;
+}
+@media (max-width: 767px) {
+    .billing-address-card .card-header h6{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .billing-address-card .billing-address-heading .form-check h5{
+        font-size: 16px;
+    } 
+    .billing-address-card .billing-address-heading .billing-address-action{
+        width: 30px;   
+        margin-left: 10px;
+    }  
+}
+
+.billing-address-card .billing-address-detail {
+    padding-left: 8px;
+}
+@media (max-width: 767px) {
+    .billing-address-card .billing-address-detail {
+        padding-left: 12px;
+    } 
+}
+.billing-address-card .billing-address{
+    margin-bottom: 28px;
+}
+.billing-address-card .billing-address:last-child{
+    margin-bottom: 0;
+}
+
+.add-new-billing-add-btn{
+    padding: 30px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 15px;
+}
+@media (max-width: 767px) {
+    .add-new-billing-add-btn{
+        padding: 16px;
+        font-size: 16px;
+        border-radius: 10px;
+    } 
+}
+
+.billing-address-form{
+    padding: 30px;
+}
+
+.select-payment-card .select-payment-check{
+    padding: 0;
+    margin-bottom: 10px;
+}
+.select-payment-card .select-payment-check:last-child{
+    margin-bottom: 0;
+}
+.select-payment-card .select-payment-check .form-check-input{
+    margin-left: 0;
+}
+.select-payment-card .select-payment-check .form-check-label {
+    padding: 15px;
+    border: 1px solid rgba(15, 34, 64, 0.1);
+    border-radius: 10px;
+    font-weight: 500;
+    color: var(--gray-2);
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+@media (max-width: 767px) {
+    .select-payment-card .select-payment-check .form-check-label {
+        padding: 16px;
+    } 
+}
+
+.paymentmethod-proceed-btn .btn{
+    min-width: 120px;
+}
+.price-detail-card{
+    background-color: #ffffff;
+    box-shadow: 0px 10px 50px -5px rgba(0, 0, 0, 0.06);
+    border-radius: 15px;
+}
+@media (max-width: 767px) {
+    .price-detail-card{
+        border-radius: 10px;
+    }  
+}
+.price-detail-card .card-header{
+    background-color: var(--bs-orange);
+    color: #ffffff;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    padding: 14px 10px;
+}   
+@media (max-width: 767px) {
+    .price-detail-card .card-header{
+        border-radius: 10px 10px 0px 0px;
+    }  
+}
+.price-detail-card .card-header h6{
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 18px;
+} 
+.price-detail-card .card-body{
+    padding: 24px 30px;
+} 
+@media (max-width: 767px) {
+    .price-detail-card .card-body{
+        padding: 20px 16px;
+    }   
+}
+
+.order-process-price-block {
+    margin-top: 30px;
+}
+@media (max-width: 767px) {
+    .order-process-price-block {
+        margin-top: 20px;
+    }  
+}
+.order-process-price-block .order-process-price-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.order-process-price-block .order-process-price-list:last-child{
+    margin-bottom: 0;
+}
+.order-process-price-block .order-process-price-list .price-lable{
+    line-height: 1.6;
+}
+
+.order-process-price-block .order-process-price-list.total-amount{
+    border-top: 1px solid rgba(15, 34, 64, 0.1);
+    margin-top: 6px;
+    padding-top: 16px;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(15, 34, 64, 0.3);
+    margin-top: 2px;
+    margin-right: 12px;
+}
+
+.form-check-input:checked {
+    background-color: var(--bs-orange);
+    border-color: var(--bs-orange);
+}
+.form-check-input:focus {
+    border-color: var(--bs-orange);
+    box-shadow: 0 0 0 0.25rem rgb(241 131 98 / 30%);
+}
+
+::ng-deep .billing-address-action svg{
+    fill: var(--gray-5);
+    height: 16px;
+}
+
+::ng-deep .btn-outline-dark:hover svg, .btn-outline-dark:focus svg, .btn-outline-dark:active svg{
+    fill: var(--bs-white);
+}
+
+.sel-address:hover{
+    cursor: pointer;
+}

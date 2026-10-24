@@ -1,0 +1,194 @@
+<section class="py-5" *ngIf="!isAuthenticated">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
+                <p class="h4 m-4"> Login to see your products. </p>
+                <button type="button" class="btn btn-primary view-price" (click)="openUserLoginDialog()">Login</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="detail-page" *ngIf="isAuthenticated">
+    <section class="bg-linear-gradient service-detail-header" *ngIf="mediaDetail != false">
+        <div class="container">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a aria-label="Link" href="{{webURL}}" itemprop="item">
+                            <span itemprop="name"><b> Home</b></span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a aria-label="Link" href="{{webURL}}/corporategifting" itemprop="item">
+                            <span itemprop="name"> Corporate Gifting </span>
+                        </a>
+                        <meta itemprop="position " content="2" />
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <span itemprop="name">{{mediaDetail?.name}}</span>
+                        <meta itemprop="position" content="3" />
+                    </li>
+                </ol>
+            </nav>
+
+            <div class="services-detail-header-card">
+                <div class="services-header-image-content">
+                    <div class="services-header-image" *ngIf="mediaDetail?.image_gallery == false">
+                        <img loading="lazy" src="{{mediaDetail?.image}}" class=""
+                            alt="{{mediaDetail?.name}}" title="{{mediaDetail?.name}}">
+                    </div>
+
+                    <!-- <div class="services-header-image" > -->
+                       <!-- slider -->
+                        <div id="carouselExampleControls" class="services-header-image carousel slide" data-bs-ride="carousel" *ngIf="mediaDetail?.image_gallery != false">
+                              
+                            <!-- <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" [data-bs-slide-to]="i" class="active" [class.active]="i === 0" *ngFor="let gallery of mediaDetail?.image_gallery; let i=index"></button>
+                            </div> -->
+
+                            <div class="carousel-inner">
+                                <div class="carousel-item " [class.active]="i === 0" *ngFor="let gallery of mediaDetail?.image_gallery; let i=index">
+                                    <img src="{{gallery}}" class="d-block w-100" alt="..." loading="lazy">
+                                </div>
+                            </div>
+                          
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <!-- slider end -->
+                    <!-- </div> -->
+
+                    <div class="services-header-content">
+                        <h1> {{mediaDetail?.name}} </h1>
+                        <!-- 
+                            //empty-star - far fa-star
+                            //half-star - fa-solid fa-star-half-stroke
+                            //full-star - fa-solid fa-star
+                        -->
+                        <p *ngIf="mediaDetail?.review_stars">
+                            <!-- 1 star  -->
+                            <!-- <i [class]="(mediaDetail?.review_stars == 0) ? 'far fa-star' : (mediaDetail?.review_stars > 0 && mediaDetail?.review_stars < 1) ? 'fa-solid fa-star-half-stroke' : 'fa-solid fa-star'"></i> -->
+                            <i *ngIf="(mediaDetail?.review_stars == 0)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars > 0 && mediaDetail?.review_stars < 1)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars == 0) && !(mediaDetail?.review_stars > 0 && mediaDetail?.review_stars < 1)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
+
+                            <!-- 2 star  -->
+                            <!-- <i [class]="(mediaDetail?.review_stars > 1 && mediaDetail?.review_stars < 2) ? 'fa-solid fa-star-half-stroke' : (mediaDetail?.review_stars >= 2) ? 'fa-solid fa-star' : 'far fa-star'"></i> -->
+                            <i *ngIf="(mediaDetail?.review_stars > 1 && mediaDetail?.review_stars < 2)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars >= 2)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars > 1 && mediaDetail?.review_stars < 2) && !(mediaDetail?.review_stars >= 2)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
+                            
+                            <!-- 3 star  -->
+                            <!-- <i [class]="(mediaDetail?.review_stars > 2 && mediaDetail?.review_stars < 3) ? 'fa-solid fa-star-half-stroke' : (mediaDetail?.review_stars >= 3) ? 'fa-solid fa-star' : 'far fa-star'"></i> -->
+                            <i *ngIf="(mediaDetail?.review_stars > 2 && mediaDetail?.review_stars < 3)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars >= 3)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars > 2 && mediaDetail?.review_stars < 3) && !(mediaDetail?.review_stars >= 3)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
+
+                            <!-- 4 star  -->
+                            <!-- <i [class]="(mediaDetail?.review_stars > 3 && mediaDetail?.review_stars < 4) ? 'fa-solid fa-star-half-stroke' : (mediaDetail?.review_stars >= 4) ? 'fa-solid fa-star' : 'far fa-star'"></i>  -->
+                            <i *ngIf="(mediaDetail?.review_stars > 3 && mediaDetail?.review_stars < 4)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars >= 4)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars > 3 && mediaDetail?.review_stars < 4) && !(mediaDetail?.review_stars >= 4)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
+
+                            <!-- 5 star  -->
+                            <!-- <i [class]="(mediaDetail?.review_stars > 4 && mediaDetail?.review_stars < 5) ? 'fa-solid fa-star-half-stroke' : (mediaDetail?.review_stars >= 5) ? 'fa-solid fa-star' : 'far fa-star'"></i>  -->
+                            <i *ngIf="(mediaDetail?.review_stars > 4 && mediaDetail?.review_stars < 5)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars >= 5)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars > 4 && mediaDetail?.review_stars < 5) && !(mediaDetail?.review_stars >= 5)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
+                          </p>
+
+                            <p *ngIf="mediaDetail?.item_code != null"> <Strong>Item Code : </Strong> {{mediaDetail?.item_code}}  </p>
+                            <p *ngIf="mediaDetail?.brand != null"> <Strong>Brand : </Strong> {{mediaDetail?.brand}}  </p>
+                            <p *ngIf="mediaDetail?.delivery_time_period != null"> <Strong>Delivery Time Period : </Strong> {{mediaDetail?.delivery_time_period}}  </p>
+                            <p> <Strong>Availability : </Strong> In stock  </p>
+                            <p [innerHTML]="mediaDetail?.short_description"> {{mediaDetail?.short_description}} </p>
+
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" *ngFor="let price of mediaDetail?.price">
+                          
+                             <div class="services-card-price-row d-flex mt-5" *ngIf="isAuthenticated && price?.price_on_request == 0">
+                                 <div class="services-card-price-col price-week" *ngIf="price?.price_break == false">
+                                     <span>
+                                         <div class="price-week-currency d-inline-block px-1">
+                                             {{selectedCurrency?.symbol}}</div>
+                                         <div class="price-week-currency d-inline-block"> {{price?.offer_rate |
+                                             convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                     </span>
+                                     <span> {{price?.unit}} </span>
+                                 </div>
+                                 <div class="services-card-price-col price-bill" *ngIf="price?.price_break == false">
+                                     <span>
+                                         <div class="price-bill-currency d-inline-block px-1">
+                                             {{selectedCurrency?.symbol}}</div>
+                                         <div class="price-bill-currency d-inline-block"> {{price?.minimum_billing |
+                                             convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                     </span>
+                                     <span> Minimum Billing </span>
+                                 </div>
+                                 <div *ngIf="price?.price_break != false">
+                                     <span *ngFor="let priceBreak of price?.price_break">Buy <span
+                                         class="text-color">{{priceBreak?.quantity}}</span> for {{selectedCurrency?.symbol}} <span
+                                         class="text-color">{{priceBreak?.price | convertToExchange: selectedCurrency | number : '1.2-2'}}</span> each; <br>
+                                     </span>
+                                     <!-- <span *ngFor="let priceBreak of price?.price_break">Buy <span
+                                         class="text-color">{{priceBreak?.quantity}}</span> for {{selectedCurrency?.symbol}} <span
+                                         class="text-color">{{priceBreak?.price | convertToExchange: selectedCurrency | number : '1.2-2'}}</span> each & save <span
+                                         class="text-color">{{this.isSavePrice(priceBreak, price?.offer_rate, price?.price_break) | convertToExchange: selectedCurrency | number : '1.2-2'}}</span>%; <br>
+                                     </span> -->
+                                 </div>
+                             </div>
+                             <hr>
+                            <div class="row services-card-bottom justify-content-left">
+                                <div class="col-auto" *ngIf="isAuthenticated">
+                                    <button type="button" class="btn btn-primary add-to-plan"
+                                        (click)="openAddToPlanDialog(mediaDetailPrice)" *ngIf="mediaDetailPrice.price_on_request == 0">Add to
+                                        Cart</button>
+                                    <button type="button" class="btn btn-primary price-on-request"
+                                        (click)="openPriceOnRequestDialog(mediaDetailPrice)" *ngIf="mediaDetailPrice.price_on_request == 1">
+                                        Price on Request </button>
+                                </div>
+                                <div class="col-auto" *ngIf="!isAuthenticated">
+                                    <button type="button" class="btn btn-primary view-price"
+                                        [attr.data-item-name]="mediaDetail.name"
+                                        [attr.data-item-price-name]="mediaDetailPrice.name"
+                                        (click)="openUserLoginDialog(mediaDetail?.name)">Login to View Price </button>
+                                </div>
+                            </div>
+     
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <i class="fa-solid fa-people"></i> -->
+
+    <!-- pageNotFound start -->
+    <ng-template #pageNotFound>
+        <app-sec-heading-pagenotfound *ngIf="isDataLoaded"></app-sec-heading-pagenotfound>
+        <app-search-result></app-search-result>
+    </ng-template>
+    <!-- pageNotFound end -->
+
+    <!-- description start -->
+    <app-content-builder [contentDetail]="pageDescription" *ngIf="pageDescription"></app-content-builder>
+    <!-- description end -->
+</section>
+<!-- call to action media start -->
+<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
+</app-call-to-action-media>
+<!-- call to action media end -->

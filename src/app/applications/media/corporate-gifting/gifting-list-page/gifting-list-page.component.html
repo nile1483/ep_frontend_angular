@@ -1,0 +1,437 @@
+<section class="py-5" *ngIf="!isAuthenticated">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
+                <p class="h4 m-4"> Login to see your products. </p>
+                <button type="button" class="btn btn-primary view-price" (click)="openUserLoginDialog()">Login</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- desktop filter button start -->
+<section class="media-filter d-lg-block d-none" *ngIf="isAuthenticated">
+    <div class="container">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a aria-label="Link" href="{{webURL}}" itemprop="item">
+                        <span itemprop="name"><b> Home</b></span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+
+                <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name"> Corporate Gifting </span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+        </nav>
+
+        <div class="media-filter-title d-flex align-items-center justify-content-between mb-4">
+            <h1> Corporate Gifting </h1>
+            <div class="dropdown">
+                <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="pe-1 sort-label"> Sort By: </span>
+                    <span class="dropdown-label"> {{selectedSortBy.label}} </span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li *ngFor="let item of sortingList" [value]="item.value">
+                        <button class="dropdown-item" type="button" (click)="changeSortByValue(item)"> {{item?.label}}
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="media-filter-panel">
+            <div class="row accordion g-3" id="mediaFiltersaccordion" (clickOutside)="handleClickOutside()">
+
+                <!-- Category start -->
+                <div class="col-auto" #accordionRef>
+                    <div class="accordion-item border-0 filter" *ngIf="filterList?.category">
+                        <h5 class="accordion-header" id="filter-category">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#category" aria-expanded="false" aria-controls="category">
+                                <span class="accordion-label"> {{filterList?.category?.name}} </span>
+                                <span class="mx-2 badge bg-secondary" *ngIf="params?.filters?.category.length > 0">
+                                    {{params.filters.category.length}}</span>
+                            </button>
+                        </h5>
+                        <div class="accordion-collapse collapse" id="category" data-bs-parent="#mediaFiltersaccordion">
+                            <div class="accordion-body">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchCategory">
+                                <ul class="list-unstyled mt-3 filter-data">
+                                    <li *ngFor="let value of filterList?.category?.values | filter:{name : searchCategory}">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="category-{{value?.id}}" (change)="filterValueChange($event,'category', value.name)">
+                                            <label class="form-check-label" for="category-{{value?.id}}">
+                                                {{value?.name}}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- category end -->
+
+                <!-- price_range start -->
+                <div class="col-auto" #accordionRef>
+                    <div class="accordion-item border-0 border-bottom filter" *ngIf="filterList?.price_range">
+                        <h5 class="accordion-header" id="heading-price_range">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#price_range" aria-expanded="false" aria-controls="price_range">
+                                <span class="accordion-label"> {{filterList?.price_range?.name}} </span>
+                                <span class="mx-2 badge bg-secondary" *ngIf="params?.filters?.price_range.length > 0">
+                                    {{params.filters.price_range.length}}</span>
+                            </button>
+                        </h5>
+                        <div id="price_range" class="accordion-collapse collapse" aria-labelledby="heading-price_range" data-bs-parent="#mediaFiltersaccordion">
+                            <div class="accordion-body">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchPriceRange">
+                                <ul class="list-unstyled mt-3 filter-data">
+                                    <li *ngFor="let value of filterList?.price_range?.values | filter:{name : searchPriceRange}">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="price_range-{{value?.id}}" (change)="filterValueChange($event,'price_range', value.name)">
+                                            <label class="form-check-label" for="price_range-{{value?.id}}">
+                                                {{value?.name}}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- price_range end -->
+
+                <!-- brand start -->
+                <div class="col-auto" #accordionRef>
+                    <div class="accordion-item border-0 border-bottom filter" *ngIf="filterList?.brand">
+                        <h5 class="accordion-header" id="heading-brand">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#brand" aria-expanded="false" aria-controls="brand">
+                                <span class="accordion-label"> {{filterList?.brand?.name}} </span>
+                                <span class="mx-2 badge bg-secondary" *ngIf="params?.filters?.brand.length > 0">
+                                    {{params.filters.brand.length}}</span>
+                            </button>
+                        </h5>
+                        <div id="brand" class="accordion-collapse collapse" aria-labelledby="heading-brand" data-bs-parent="#mediaFiltersaccordion">
+                            <div class="accordion-body">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchBrand">
+                                <ul class="list-unstyled mt-3 filter-data">
+                                    <li *ngFor="let value of filterList?.brand?.values | filter:{name : searchBrand}">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="brand-{{value?.id}}" (change)="filterValueChange($event,'brand', value.name)">
+                                            <label class="form-check-label" for="brand-{{value?.id}}">
+                                                {{value?.name}}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- brand end -->
+
+                <!-- purpose_of_gifting start -->
+                <div class="col-auto" #accordionRef>
+                    <div class="accordion-item border-0 border-bottom filter" *ngIf="filterList?.purpose_of_gifting">
+                        <h5 class="accordion-header" id="heading-purpose_of_gifting">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#purpose_of_gifting" aria-expanded="false" aria-controls="purpose_of_gifting">
+                                <span class="accordion-label"> {{filterList?.purpose_of_gifting?.name}} </span>
+                                <span class="mx-2 badge bg-secondary" *ngIf="params?.filters?.purpose_of_gifting.length > 0">
+                                    {{params.filters.purpose_of_gifting.length}}</span>
+                            </button>
+                        </h5>
+                        <div id="purpose_of_gifting" class="accordion-collapse collapse" aria-labelledby="heading-purpose_of_gifting" data-bs-parent="#mediaFiltersaccordion">
+                            <div class="accordion-body">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchPurposeOfGifting">
+                                <ul class="list-unstyled mt-3 filter-data">
+                                    <li *ngFor="let value of filterList?.purpose_of_gifting?.values | filter:{name : searchPurposeOfGifting}">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="purpose_of_gifting-{{value?.id}}" (change)="filterValueChange($event,'purpose_of_gifting', value.name)">
+                                            <label class="form-check-label" for="purpose_of_gifting-{{value?.id}}">
+                                                {{value?.name}}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- purpose_of_gifting end -->
+
+            </div>
+        </div>
+
+
+        <div class="filter-selected">
+            <p *ngIf="selectedFilterValues.length > 0" class="m-0"> <span class="me-3">Filter applied,</span>
+                <span class="badge me-2" *ngFor="let item of selectedFilterValues; let i=index">
+                    {{item.value}}
+                    <button type="button" class="btn-close" (click)="removeSelectedFilterValue(i, item)"></button>
+                </span>
+                <a aria-label="Link" href="javascript:void(0);" class="clear-btn" (click)="removeSelectedFilterValue()"> Clear</a>
+            </p>
+        </div>
+    </div>
+
+</section>
+<!-- desktop filter button end -->
+
+<!-- mobile Sort & filter  button start -->
+<div class="media-filter-mobile d-lg-none d-flex align-items-cente" *ngIf="isAuthenticated">
+    <div class="media-sorting-button flex-fill" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort">
+        Sort
+        <span [innerHTML]="app_svg_icon_list?.['arrow-down-wide-short'] | safeHtml"></span>
+        <!-- <i class="fa-light fa-arrow-down-wide-short"></i> -->
+    </div>
+    <div class="media-sorting-button flex-fill" (click)="setTempApplyedValue()" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter">
+        Filters
+        <span [innerHTML]="app_svg_icon_list?.['filter'] | safeHtml"></span>
+        <!-- <i class="fa-light fa-filter"></i> -->
+    </div>
+</div>
+<!-- mobile Sort & filter  button start -->
+
+<!-- media list start -->
+<section class="media-list" *ngIf="isAuthenticated">
+    <div class="container">
+        <!-- If Data not found START-->
+        <ng-template #noDataFound>
+            <div class="row text-center">
+                <div class="col">
+                    <app-no-results *ngIf="(isDataLoaded == true && dataList.length == 0)"></app-no-results>
+                    <app-loader *ngIf="!isDataLoaded" ></app-loader>
+                </div>
+            </div>
+        </ng-template>
+        <!-- If Data not found END-->
+
+        <!-- media-list-item found START-->
+        <div class="row g-md-4 g-3" *ngIf="(isDataLoaded == true && dataList.length > 0); else noDataFound">
+            <div class="col-12 mt-4" *ngIf="dataList.length > 0"> {{dataList.length}}
+                <span class="show-result">Showing {{dataList.length}} results</span>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-3" *ngFor="let item of dataList; let i=index">
+                <div class="media-list-card">
+
+                    <a aria-label="Link" [routerLink]="['/',media,item.slug]" class="media-list-card-img">
+                        <img loading="lazy" src="{{item?.image}}" data-item-link-type="Item thumbnail" [attr.data-item-order]="i+1"  class="product-image view-item-image" title="{{item?.name}}" alt="{{item?.name}}">
+                    </a>
+
+                    <div class="media media-list-card-body">
+                        <p class="media-list-card-title">
+                            <a aria-label="Link" [routerLink]="['/',media,item.slug]" data-item-link-type="Item name" [attr.data-item-order]="i+1" class="view-item-name">
+                                {{item?.name}}
+                            </a>
+                        </p>
+                        <!-- <p> Category: <b>{{item?.category}}</b></p>
+                        <p> Price Range: <b>{{item?.price_range}}</b></p> -->
+                        <p *ngIf="item?.moq"> MOQ: <b>{{item?.moq}}</b></p>
+                        <p *ngIf="isAuthenticated">Price: <strong>
+                            <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
+                            <div class="d-inline-block"> {{item?.price?.offer_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                            </strong>
+                            <span class="fst-italic text-reset">(As Low As)</span>
+                            <!-- <span class=" fst-italic text-reset">({{item?.price?.unit}})</span> -->
+                        </p>
+                        <div class="media-button">
+                            <a aria-label="Button" type="button" *ngIf="isAuthenticated" data-item-link-type="View More" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" [routerLink]="['/',media,item.slug]" class="btn btn-outline-primary w-100 view-item-button"> View More</a>
+                            <a aria-label="Button" type="button" href="javascript:void(0)" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" (click)="openUserLoginDialog(item?.name)" class="btn btn-outline-primary w-100 view-price" *ngIf="!isAuthenticated"> Login to View Price</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- media-list-item found END-->
+
+        <!-- View More START-->
+        <div class="row mt-5" *ngIf="isShowViewMore">
+            <div class="col-12 text-center" *ngIf="(isLoadingMore != true); else loadingMoreData">
+                <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreItems()" class="more-link more-link-with-text orange-link">
+                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                        <!-- <i class="fa-light fa-arrow-right-long"></i> -->
+                    </span>
+                </a>
+            </div>
+            <ng-template #loadingMoreData>
+                <div class="col-12 text-center">
+                    <app-loader></app-loader>
+                </div>
+            </ng-template>
+        </div>
+        <!-- View More end-->
+
+    </div>
+
+</section>
+<!-- media list end -->
+
+<!-- content builder start -->
+<app-content-builder [contentDetail]="pageDescription" *ngIf="pageDescription"></app-content-builder>
+<!-- content builder end -->
+
+<!-- Mobile filter start-->
+<div *ngIf="isAuthenticated" class="offcanvas offcanvas-bottom category-mobile-filter-offcanvas offcanvas-mobile-filter" tabindex="-1" id="CategoryMobileFilter" aria-labelledby="CategoryMobileFilterLabel">
+    <div class="offcanvas-header">
+        <p class="offcanvas-title mb-0" id="CategoryMobileFilterLabel">Filters</p>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <!-- Nav tabs -->
+        <div class="mobile-filter-selected">
+            <p *ngIf="selectedFilterValues.length > 0" class="m-0"> <span class="ms-2 me-3"> Filter applied,</span>
+                <span class="badge m-1" *ngFor="let item of selectedFilterValues; let i=index">
+                    {{item.value}}
+                    <button type="button" class="btn-close" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" (click)="removeSelectedFilterValue(i, item)"></button>
+                </span>
+                <a aria-label="Link" href="javascript:void(0);" class="clear-btn" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" (click)="removeSelectedFilterValue()"> Clear</a>
+            </p>
+        </div>
+        <div class="mobile-filter-row d-flex h-100">
+            <ul class="nav nav-tabs d-block mobile-filter-tabs" id="CategoryMobileFilterTab" role="tablist">
+                <!-- <li class="nav-item" role="presentation">
+                    <button class="tab-nav-link active" id="filterTab-1" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Location</button>
+                </li> -->
+                <li class="nav-item" role="presentation" *ngIf="filterList?.category">
+                    <button class="tab-nav-link active" id="filterTab-2" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false"> {{filterList?.category?.name}} <span
+                            class="badge" *ngIf="params?.filters?.category.length > 0">
+                            {{params.filters.category.length}}</span></button>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="filterList?.price_range">
+                    <button class="tab-nav-link" id="filterTab-3" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">{{filterList?.price_range?.name}} <span class="badge"
+                            *ngIf="params?.filters?.price_range.length > 0">
+                            {{params.filters.price_range.length}}</span></button>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="filterList?.brand">
+                    <button class="tab-nav-link" id="filterTab-4" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="tab4" aria-selected="false">{{filterList?.brand?.name}} <span class="badge"
+                            *ngIf="params?.filters?.brand.length > 0">
+                            {{params.filters.brand.length}}</span></button>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="filterList?.purpose_of_gifting">
+                    <button class="tab-nav-link" id="filterTab-5" data-bs-toggle="tab" data-bs-target="#tab5" type="button" role="tab" aria-controls="tab5" aria-selected="false">{{filterList?.purpose_of_gifting?.name}} <span class="badge"
+                            *ngIf="params?.filters?.purpose_of_gifting.length > 0"> 
+                            {{params.filters.purpose_of_gifting.length}}</span></button>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!--  mobile category start -->
+                <div class="tab-pane fade show active " id="tab2" role="tabpanel" aria-labelledby="filterTab-2">
+                    <div class="tab-pane-body">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchCategory">
+                        <ul class="list-unstyled mt-3 filter-data ps-1">
+                            <li *ngFor="let value of filterList?.category?.values | filter:{name : searchCategory}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="mf-category-{{value?.id}}" (change)="mobileFilterValueChange($event,'category', value.name)">
+                                    <label class="form-check-label m-filter-label" for="mf-category-{{value?.id}}">
+                                        {{value?.name}}
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  mobile category end -->
+
+                <!--  mobile price range start -->
+                <div class="tab-pane fade " id="tab3" role="tabpanel" aria-labelledby="filterTab-3">
+                    <div class="tab-pane-body">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchPriceRange">
+                        <ul class="list-unstyled mt-3 filter-data ps-1">
+                            <li *ngFor="let value of filterList?.price_range?.values | filter:{name : searchPriceRange}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [checked]="value.checked" [value]="value.name" id="mf-price_range-{{value?.id}}" (change)="mobileFilterValueChange($event,'price_range', value.name)">
+
+                                    <label class="form-check-label m-filter-label" for="mf-price_range-{{value?.id}}">
+                                        {{value?.name}}
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  mobile price range end -->
+
+                <!--  mobile brand start -->
+                <div class="tab-pane fade " id="tab4" role="tabpanel" aria-labelledby="filterTab-4">
+                    <div class="tab-pane-body">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchBrand">
+                        <ul class="list-unstyled mt-3 filter-data ps-1">
+                            <li *ngFor="let value of filterList?.brand?.values | filter:{name : searchBrand}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [checked]="value.checked" [value]="value.name" id="mf-brand-{{value?.id}}" (change)="mobileFilterValueChange($event,'brand', value.name)">
+
+                                    <label class="form-check-label m-filter-label" for="mf-brand-{{value?.id}}">
+                                        {{value?.name}}
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  mobile brand end -->
+
+                <!--  mobile purpose of gifting start -->
+                <div class="tab-pane fade " id="tab5" role="tabpanel" aria-labelledby="filterTab-5">
+                    <div class="tab-pane-body">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchPurposeOfGifting">
+                        <ul class="list-unstyled mt-3 filter-data ps-1">
+                            <li *ngFor="let value of filterList?.purpose_of_gifting?.values | filter:{name : searchPurposeOfGifting}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [checked]="value.checked" [value]="value.name" id="mf-purpose_of_gifting-{{value?.id}}" (change)="mobileFilterValueChange($event,'purpose_of_gifting', value.name)">
+                                    <label class="form-check-label m-filter-label" for="mf-purpose_of_gifting-{{value?.id}}"> {{value?.name}} </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  mobile purpose of gifting end -->
+
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-footer d-flex align-items-cente justify-content-end">
+        <button class="btn btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter" (click)="applyMobileFilter(false)"> Cancel </button>
+        <button class="btn btn btn-primary ms-2" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter" (click)="applyMobileFilter(true)"> Apply</button>
+    </div>
+</div>
+<!-- Mobile filter end-->
+
+
+<!-- Mobile Sort start-->
+<div *ngIf="isAuthenticated" class="offcanvas offcanvas-bottom category-mobile-sort-offcanvas offcanvas-mobile-filter" tabindex="-1" id="CategoryMobileSort" aria-labelledby="CategoryMobileSortLabel">
+    <div class="offcanvas-header">
+        <p class="offcanvas-title mb-0" id="CategoryMobileSort">Sort</p>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-unstyled m-0">
+            <li *ngFor="let item of sortingList; let i=index">
+                <div class="form-check  mb-1">
+                    <input class="form-check-input" type="radio" name="sortfilter" id="sort{{i}}" (click)="changeSortByValue(item)" [checked]="item?.isDefault">
+                    <label class="form-check-label p-1" for="sort{{i}}">
+                        {{item?.label}}
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="offcanvas-footer d-flex align-items-cente justify-content-end">
+        <button class="btn btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort"> Cancel</button>
+        <button class="btn btn btn-primary ms-2" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort"> Apply</button>
+    </div>
+</div>
+<!-- Mobile Sort end-->
+
+<!-- call to action media start -->
+<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
+</app-call-to-action-media>
+<!-- call to action media end -->

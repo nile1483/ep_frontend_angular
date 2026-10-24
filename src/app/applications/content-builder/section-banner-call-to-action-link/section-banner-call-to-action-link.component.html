@@ -1,0 +1,71 @@
+<div class="row d-flex align-items-center" *ngFor="let content of pageBlock?.content " [ngSwitch]="content?.type">
+
+    <div class="col-12 col-md-7">
+        <h1 [innerHTML]="content?.value?.header"></h1>
+        <div [innerHTML]="content?.value?.sub_header"></div>
+
+        <div class="row" *ngIf="content?.image">
+            <div *ngIf="content?.value?.url != null && content?.value?.label != null">
+                <div class="col-lg-12">
+                    <a aria-label="Link" href="{{content?.value?.url}}">
+                        {{content?.value?.label}}
+                    </a>
+                    <span class="separator-left"></span>
+                </div>
+            </div>
+            <div class="row c2a-contact" *ngIf="pageBlock.inquiryUser">
+                <a target="_blank" href="/schedule-a-call" class="schedule-link py-2">
+                    Schedule a Meeting
+                </a>
+
+                <!-- <div *ngIf="content?.value?.show?.whatsapp" class="col-lg-6 mb-2">
+                    <a aria-label="Link" href="https://wa.me/91{{pageBlock?.inquiryUser?.whatsapp.value}}?text=Hello%2C%20I'm%20interested%20in%20advertising." class="c2a-contact-link c2atracking" [attr.data-c2a-type]="'Whatsapp'" [attr.data-c2a-value]="pageBlock?.inquiryUser?.whatsapp?.value" [attr.data-c2a-placement]="'Banner call to action'">
+                        <span  class="c2a-contact-icon" [innerHTML]="app_svg_icon_list?.['whatsapp'] | safeHtml"></span>
+                        <span class="c2a-contact-value"> {{pageBlock.inquiryUser.whatsapp.show}} </span>
+                    </a>
+                </div>
+                <div *ngIf="content?.value?.show?.contact" class="col-lg-6 mb-2">
+                    <a aria-label="Link" href="tel:{{pageBlock.inquiryUser.call.value}}" class="c2a-contact-link c2atracking" [attr.data-c2a-type]="'Phone'" [attr.data-c2a-value]="pageBlock?.inquiryUser?.call?.value" [attr.data-c2a-placement]="'Banner call to action'">
+                        <span class="c2a-contact-icon" [innerHTML]="app_svg_icon_list?.['phone'] | safeHtml"></span>
+                        <span class="c2a-contact-value"> {{pageBlock.inquiryUser.call.show}} </span>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-5">
+        <div class="mt-3 " *ngIf="content?.image">
+            <img loading="lazy" class="c2a-image w-100 h-auto d-inline-flex my-auto" width="316" height="220" src="{{content?.image}}" alt="banner Image">
+        </div>
+        <div *ngIf="!content?.image">
+            <div *ngIf="content?.value?.url != null && content?.value?.label != null" class="row c2a-text">
+                <div class="col-lg-12">
+                    <a aria-label="Link" href="{{content?.value?.url}}">
+                        {{content?.value?.label}}
+                    </a>
+                    <span class="separator-left"></span>
+                </div>
+            </div>
+            <div *ngIf="pageBlock.inquiryUser?.contact">
+                <a target="_blank" href="/schedule-a-call" class="schedule-link py-2">
+                    Schedule a Meeting
+                </a>
+            </div>
+            <!-- <div class="row c2a-contact" *ngIf="pageBlock.inquiryUser?.contact">
+                <div *ngIf="content?.value?.show?.whatsapp" class="col-lg-6 mb-2">
+                    <a aria-label="Link" href="https://wa.me/91{{pageBlock?.inquiryUser?.whatsapp?.value}}?text=Hello%2C%20I'm%20interested%20in%20advertising."  class="c2a-contact-link c2atracking"   [attr.data-c2a-type]="'Whatsapp'" [attr.data-c2a-value]="pageBlock?.inquiryUser?.whatsapp?.value" [attr.data-c2a-placement]="'Banner call to action'">
+                        <span class="c2a-contact-icon" [innerHTML]="app_svg_icon_list?.['whatsapp'] | safeHtml"></span>
+                        <span class="c2a-contact-value"> {{pageBlock?.inquiryUser?.whatsapp?.show}} </span>
+                    </a>
+                </div>
+                <div *ngIf="content?.value?.show?.contact" class="col-lg-6 mb-2">
+                    <a aria-label="Link" href="tel:{{pageBlock.inquiryUser.call.value}}" class="c2a-contact-link" class="c2a-contact-link c2atracking"   [attr.data-c2a-type]="'Phone'" [attr.data-c2a-value]="pageBlock?.inquiryUser?.call?.value" [attr.data-c2a-placement]="'Banner call to action'">
+                        <span class="c2a-contact-icon" [innerHTML]="app_svg_icon_list?.['phone'] | safeHtml"></span>
+                        <span class="c2a-contact-value"> {{pageBlock?.inquiryUser?.call?.show}} </span>
+                    </a>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

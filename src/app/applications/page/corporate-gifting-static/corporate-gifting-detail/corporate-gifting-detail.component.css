@@ -1,0 +1,135 @@
+.catalogue img,
+.category img {
+    border-radius: 10px;
+}
+
+.card.catalogue,
+.card.category,
+.card.product,
+.card.gifting {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+}
+
+@media (min-width: 1400px) {
+    .card.container {
+        max-width: 1320px !important;
+    }
+}
+
+.catalog-part img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.catalog-text p {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.catalog-text-by-category p {
+    margin-top: 10px;
+    font-weight: 800;
+    font-size: 21px;
+}
+
+.separator {
+    background-color: #bb001e;
+    display: block;
+    height: 2px;
+    width: 15%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+/* catalog-download-inquiry-dialog */
+::ng-deep .phone-number-with-country .drop-down-link {
+    text-align: center;
+    min-width: 90px;
+    display: block;
+    width: 100%;
+    padding: 17px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #818691;
+    background: rgba(122, 141, 159, .08);
+    border: 1px solid rgba(122, 141, 159, .08);
+    border-radius: 5px 0 0 5px
+}
+
+::ng-deep .phone-number {
+    border-radius: 0 5px 5px 0
+}
+
+::ng-deep .phone-number-with-country .dropdown-menu {
+    font-size: 14px;
+    color: var(--gray-3);
+    padding: 8px 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, .06);
+    border-radius: 10px;
+    background-color: var(--bs-white);
+    border: 0;
+    min-width: 280px
+}
+
+::ng-deep .phone-number-with-country .dropdown-menu .country-list {
+    max-height: 110px;
+    overflow-y: auto
+}
+
+::ng-deep .phone-number-with-country .dropdown-menu li {
+    cursor: pointer;
+    border-radius: 4px;
+    white-space: normal
+}
+
+::ng-deep .phone-number-with-country .dropdown-menu .dropdown-item:active {
+    color: #fff;
+    background-color: var(--gray-3)
+}
+
+::ng-deep .country-search {
+    padding: 5px 10px !important;
+}
+
+
+::ng-deep .btn-close:focus {
+    box-shadow: none;
+}
+
+
+::ng-deep .mat-mdc-dialog-container {
+    display: block;
+    /* padding: 24px; */
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
+}
+
+
+
+.partner-btn .btn-primary:before {
+    background: transparent !important;
+  }
+
+
+::ng-deep .form-floating > .form-control:not(:placeholder-shown) ~ label::after {
+    background: transparent !important;
+}
+::ng-deep .form-floating > .form-control:focus ~ label::after {
+    background-color: transparent !important;
+}

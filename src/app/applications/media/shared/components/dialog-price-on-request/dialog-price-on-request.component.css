@@ -1,0 +1,4 @@
+::ng-deep .mdc-dialog__surface {
+    overflow-y: visible;
+    PADDING: 20px 0px;
+}

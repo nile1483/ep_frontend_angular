@@ -1,0 +1,75 @@
+.media-list {
+    background-color: #FCFCFC;
+}
+
+.badge>.btn-close {
+    margin-left: .3rem;
+    color: inherit;
+    font-size: 100%;
+    text-shadow: 0 1px 0 rgba(#000, .5);
+    height: 0.3rem;
+    width: 0.3rem;
+}
+
+.filter .filter-data {
+    max-height: 105px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 50px;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #880B13;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #880B13;
+}
+
+.product-image {
+    height: 103px;
+    min-height: 103px;
+    width: auto;
+}
+
+.media-list-card-body .media-list-card-title {
+    min-height: 60px;
+}
+
+.link_title p>a {
+    text-decoration: none;
+    color: var(--gray-3);
+    font-weight: 500;
+    line-height: 1.4;
+    font-size: 22px;
+}
+
+.link_title p>a:hover {
+    color: var(--bs-primary);
+    margin-bottom: 2px;
+    text-decoration: underline;
+}
+
+.more-link .more-icon::after {   
+    top: 4px;
+}

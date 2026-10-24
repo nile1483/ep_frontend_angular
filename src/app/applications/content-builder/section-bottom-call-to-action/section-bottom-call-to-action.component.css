@@ -1,0 +1,18 @@
+.cta-section .section-heading {
+    max-width: 650px;
+}
+
+.cta-section .section-heading h2 {
+    color: var(--bs-white);
+    margin-bottom: 25px;
+}
+
+@media (max-width:991px) {
+    .cta-section .section-heading {
+        max-width: 325px;
+    }
+}
+
+.highlight-yellow {
+    color: yellow;
+}

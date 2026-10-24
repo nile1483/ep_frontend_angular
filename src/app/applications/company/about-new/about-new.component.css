@@ -1,0 +1,179 @@
+.iframe-set {
+  background-color: var(--gray-12);
+}
+
+.rounded {
+  border-radius: 1.5rem !important;
+}
+
+.vision-section .default-content p,
+.mission-section .default-content p {
+  font-size: 1.3rem !important;
+}
+
+.testimonial {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.testimonial .image {
+  height: 350px;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: var(--gray-10);
+  box-shadow: 5px 3px var(--bs-primary);
+}
+
+.testimonial .quote {
+  width: 50px;
+  display: block;
+  margin-inline: 70px;
+  transform: scaleX(-1);
+}
+
+.testimonial .slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  row-gap: 30px;
+  height: 100%;
+  width: 100%;
+}
+.slide p {
+  padding: 0 80px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #333;
+}
+
+p.name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bs-primary) !important;
+  padding-left: 13.4rem !important;
+}
+p.job {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  padding-left: 13.4rem !important;
+}
+
+/* swiper button css */
+.swiper-pagination-bullet {
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+}
+.swiper-pagination-bullet-active {
+  background-color: #4070f4;
+}
+@media (max-width: 768px) {
+  .slide p {
+    padding: 0 20px;
+  }
+}
+
+.text-line {
+  position: relative;
+  vertical-align: top;
+  padding-left: 13.4rem;
+}
+.text-line:not(.text-gradient) {
+  display: inline-flex;
+}
+.text-line:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-60%);
+  left: 0;
+  width: 12.75rem;
+  height: 0.13rem;
+  background: var(--bs-primary);
+}
+
+::ng-deep span.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.testi-data {
+  text-align: start;
+  justify-content: start;
+  display: grid;
+  padding-left: 5rem;
+}
+
+.bg-gray {
+  background-color: #f3f2f4;
+}
+
+.testimonial:first-child p {
+  font-size: 1.3rem !important;
+}
+
+.border {
+  border-color: #000 !important;
+}
+
+.btn {
+  color: #fff;
+  padding: 15px 30px !important;
+  font-size: 20px !important;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: transparent !important;
+  border: 1px solid #fff !important;
+  border-radius: 50rem !important;
+}
+
+.main-title {
+  font-size: 27px;
+  color: var(--bs-body-color);
+}
+
+@media (max-width: 1200px) {
+  ::ng-deep .testimonial-section .swiper-slide {
+    flex-shrink: 0;
+    width: 100% !important;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+  }
+}
+
+@media (max-width: 991px) {
+  .testimonial .slide {
+    flex-direction: column;
+  }
+  .testimonial .image {
+    height: 270px;
+    width: 270px;
+  }
+}
+
+@media (max-width: 425px) {
+  .text-line {
+    padding-left: 3.4rem;
+  }
+  .text-line:before {
+    width: 2.75rem;
+  }
+  p.name {
+    padding-left: 3.4rem !important;
+  }
+  p.job {
+    padding-left: 3.4rem !important;
+  }
+}

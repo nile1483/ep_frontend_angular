@@ -1,0 +1,196 @@
+<!-- background -->
+<section class="section-featured-services facebookadsroi-background common-padding">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
+    </div>
+</section>
+
+<!--- Calculator --->
+<section class="common-padding shadow">
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Revenue</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Revenue is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Revenue must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Ad spend</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Ad spend is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Ad spend must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
+                    </div>
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">ROI</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detail -->
+
+<section class="common-padding shadow">
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/facebook-ads-roi/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
+
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0">Facebook Ads ROI</h2>
+                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+                <p class="fs-5">
+                    What's great about Facebook ads ROI Calculator, or let’s say Facebook Ad Spend ROI Analyser is that they tell you just how much value your Facebook ads are bringing back. Quite simply, it provides Facebook ad analytics so that you can measure whether the money spent on an ad is justified or not. Just insert the amount spent and sales earned, and voila! Instant ROI. This will help you optimise and, therefore, put every possible rupee to use. Whether in India or anywhere else, ROI tracking is critical in business growth across the board.
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What is Facebook Ads ROI?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Facebook Ads ROI (Return on Investment) is a super metric that helps you measure the profitability of Facebook ad campaigns. It measures the value returned from money spent on Facebook ads. With the help of a Facebook Ads ROI calculator, one can easily check if the ad spend is resulting in real business money for you. This tool weighs the sums of revenue earned against the cost of an advertising campaign, giving a picture of value. In India, tools like the Facebook Ads ROI calculator India help business owners understand their ad costs and revenues in the context of local systems. Tracking ROI on Facebook ads will enable an optimal campaign strategy, refinement of approach, and the highest possible value for each rupee spent.
+            </p>
+            <p><strong>Facebook Ads ROI Formula:</strong></p>
+            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+               ROI = Revenue - Ad spend / Ad spend * 100
+            </h2>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                How to use this Facebook Ads ROI calculator
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Using it is very simple and efficient to use Facebook Ads ROI Calculator. First, enter the amount spent on the Facebook ads campaign, and then the income brought into the system by that campaign. The calculator will return the resulting ROI. For Indian businesses, a Facebook ads cost calculator in India makes it easy and simple on local currency-based metrics of measurement. Understanding your ad spend calculator, along with the revenue generated, will suggest the performance of your Facebook ad campaign. This would prove an impact tool for optimising your Facebook advertising campaigns and resource allocations for getting better returns from future ads against those spent resources.
+            </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Understanding the Facebook Ads ROI result
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                A comprehensive look into your ad campaigns' performance is what you get from the return on investment generated after calculating your Facebook Ads ROI. A positive ROI implies profitability for the campaign, while a negative ROI hints at the need for change. This output will help facilitate your understanding of how your Facebook ad campaign worked in terms of generating sales or leads, because that is what every company ultimately cares about. So, if you were to use a Facebook Ads ROI calculator in India, it would take into account relevant expenses and local currency, thereby ensuring the accuracy of results. In analysing this information continually, you will tweak your Facebook advertising campaigns for improvements on ad ROI calculators over time. Interpreting the ROI result helps you decide whether to scale, pause, or tweak your ads.
+            </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                When to calculate Facebook Ads ROI
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                You should calculate your Facebook Ads ROI at the end of each campaign or periodically during the campaign to assess performance. This allows you to understand whether your Facebook ad campaign is generating sufficient returns compared to your ad spend. Using an ad spend calculator provides a clearer picture of your spending efficiency. Ideally, measure ROI in real time or at key milestones, like after a product launch or when running specific promotions. If you're in India, using a Facebook Ads ROI calculator helps you factor in local ad costs. Continuous tracking ensures that your Facebook advertising campaigns stay on track to meet business goals and maximise profitability.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FAQs -->
+<section class="bg-gradient-gray common-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Calculator start -->
+<section class="media-list">
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <!-- Related Calculator -->
+    </div>
+</section>

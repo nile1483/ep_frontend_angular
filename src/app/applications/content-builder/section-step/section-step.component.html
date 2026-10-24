@@ -1,0 +1,32 @@
+<div *ngFor="let content of pageBlock?.content; let i=index;" [ngSwitch]="content?.type">
+    <div class="section-heading text-center" *ngSwitchCase="'title'">
+        <h2 class="centre-line" *ngIf="content?.title">{{content?.title}}</h2>
+        <span class="separator mb-2" *ngIf="content?.title" ></span>
+        
+    </div>
+    <div class="text-center mb-5" *ngSwitchCase="'simple_description'">        
+        <p class="centre-line" *ngIf="content?.simple_description">{{content?.simple_description}}</p>
+    </div>
+    <div *ngSwitchCase="'title_subtitle'">
+         
+        <div class="timeline-block" *ngFor="let value of content?.values; let i=index">
+            <div class="timeline-col">
+                <div class="timeline-block-content-list">
+                    <span class="timeline-block-default-line"></span>
+                    <span class="timeline-block-drow-line"></span>
+
+                    <!-- left block -->
+                    <div
+                        [ngClass]="((i+1)%2) > 0 ? 'timeline-block-content left-block' : 'timeline-block-content right-block'">
+                        <span class="timeline-block-number">{{i+1}}</span>
+                        <div class="card border-0">
+                            <h5>{{value?.title}}</h5>
+                            <p  [innerHTML]="value?.sub_title"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

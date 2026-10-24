@@ -1,0 +1,77 @@
+
+.list-background {
+    background-image: url("/assets/media/nontraditional/bg-nontraditional.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.media-list-card-body .media-list-card-title {
+    min-height: 60px;
+}
+
+button.accordion-button,.media-filter-title .dropdown .dropdown-toggle{
+    background-color: var(--bs-primary);
+}
+
+.media-filter .accordion-button.collapsed,.media-filter-title .dropdown .dropdown-toggle,.media-filter-title .sort-label{
+    color: var(--bs-white);
+}
+
+.media-filter .accordion-button.collapsed::after, .media-filter-title .dropdown .dropdown-toggle::after {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' style='&%2310; fill: %23fff;&%2310;'%3E%3Cpath d='M2.652 162.1c1.531-1.376 3.438-2.048 5.344-2.048c2.188 0 4.375 .891 5.938 2.642L224 396.2l210.1-233.5c2.906-3.283 8-3.58 11.28-.594c3.281 2.97 3.563 8.019 .5938 11.32l-216 240.1c-3 3.345-8.875 3.345-11.88 0L2.058 173.4C-.9104 170.1-.6292 165 2.652 162.1z'/%3E%3C/svg%3E");
+}
+
+.media-filter .accordion-button,.media-filter-title .dropdown .dropdown-toggle.show,.media-filter-title .dropdown-toggle.show .sort-label{
+    color: var(--bs-body-color);
+}
+
+.media-filter-title .dropdown .dropdown-toggle.show{
+    background-color: var(--bs-white);
+}
+
+.media-filter-title .dropdown .dropdown-toggle.show::after{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M2.652 162.1c1.531-1.376 3.438-2.048 5.344-2.048c2.188 0 4.375 .891 5.938 2.642L224 396.2l210.1-233.5c2.906-3.283 8-3.58 11.28-.594c3.281 2.97 3.563 8.019 .5938 11.32l-216 240.1c-3 3.345-8.875 3.345-11.88 0L2.058 173.4C-.9104 170.1-.6292 165 2.652 162.1z'/%3E%3C/svg%3E");
+}
+
+
+
+/* static list */
+
+.static-media-list-card {
+    background: var(--bs-white);
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.static-media-list-card .static-media-list-card-img img {
+    border-radius: 8px;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: cover;
+    width: 200px;
+    display: flex;
+}
+
+.static-media-list-card-body .static-media-list-card-title {
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--gray-3);
+    margin-bottom: 10px;
+    /* min-height: 35px; */
+}
+
+.static-media-list-card:hover {
+    transform: scale(1.03);
+    transition: all .4s ease-in-out;
+    position: relative;
+    z-index: 1;
+}

@@ -1,0 +1,21 @@
+<div *ngFor="let content of pageBlock?.content " [ngSwitch]="content?.type">
+
+    <!-- title -->
+    <div *ngSwitchCase="'title'">
+        <div class="section-heading text-center mb-5" *ngIf="content?.title != null">
+            <h1 *ngIf="content?.title" > {{content?.title}} </h1>
+            <span class="separator mb-2" *ngIf="content?.title"></span>
+        </div>
+    </div>
+
+    <!-- simple description -->
+    <div *ngSwitchCase="'simple_description'">
+        <div class="section-heading text-center" *ngIf="content?.simple_description != null" [innerHTML]="content?.simple_description"> </div>
+    </div>
+
+    <!-- description -->
+    <div *ngSwitchCase="'description'">
+        <div class="default-content" *ngIf="content?.description != null" [innerHTML]="content?.description | safeHtml"> </div>
+    </div>
+
+</div>

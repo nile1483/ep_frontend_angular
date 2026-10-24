@@ -1,0 +1,8 @@
+::ng-deep section-card-horizontal {
+    counter-reset: cardhorizontal;
+  }
+
+  .card-icon span::before {
+    counter-increment: cardhorizontal;
+    content: counter(cardhorizontal);
+  }

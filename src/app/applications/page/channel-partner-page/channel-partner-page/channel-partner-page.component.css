@@ -1,0 +1,226 @@
+.channel-partner-background {
+  background-image: url(/assets/page/channel-partner/banner.png);
+  padding: 35rem 0 0 0;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
+.channel-partner-background .partner-btn{
+  text-align: center;
+  margin-top: -170px;
+  padding: 15px 30px;
+  font-size: 25px;
+}
+
+
+@media (min-width:1200.9px) and (max-width:1439.9px) {
+  .channel-partner-background {
+    padding: 25rem 0 0 0;
+    background-position: center center;
+    background-repeat: no-repeat
+  }
+
+  .channel-partner-background .partner-btn{
+    margin-top: -50px !important;
+  }
+
+}
+
+
+@media (max-width:1200px) {
+  .channel-partner-background {
+    padding: 26.2rem 0 0 0;
+    background-position: center center;
+    background-repeat: no-repeat
+  }
+
+  .channel-partner-background .partner-btn{
+    margin-top: -70px !important;
+  }
+}
+
+@media (max-width:991px) {
+  .channel-partner-background {
+    padding: 20rem 0 0 0
+  }
+
+  .channel-partner-background .partner-btn{
+    margin-top: -55px !important;
+    padding: 10px 25px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width:768px) {
+  .channel-partner-background {
+    padding: 15rem 0 0 0
+  }
+
+  .channel-partner-background .partner-btn{
+    margin-top: -35px !important;
+    padding: 10px 25px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width:575px) {
+  .channel-partner-background {
+    padding: 10rem 0 0 0;
+    background-position: center
+  }
+  .channel-partner-background .partner-btn{
+    margin-top: -5px !important;
+  }
+}
+
+@media (max-width:425px) {
+  .channel-partner-background {
+    padding: 6rem 0 0 0;
+    background-position: center center
+  }
+
+  .channel-partner-background .partner-btn{
+    margin-top:  15px !important;
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+
+.rounded {
+  border-radius: 1.3rem !important
+}
+
+.rounded-card {
+  border-radius: 0 0 1.3rem 1.3rem !important
+}
+
+.bg-gray {
+  background-color: #f3f2f4
+}
+
+h3.title {
+  color: var(--bs-white)
+}
+
+.card {
+  background-color: #e3e3e3;
+}
+
+.inquiry-card {
+  background-color: #fff;
+}
+
+.card-body {
+  color: var(--bs-black)
+}
+
+.underline:after {
+  content: "";
+  display: block;
+  width: 30px;
+  padding-top: 3px;
+  border-bottom: 3px solid var(--bs-primary)
+}
+
+.join-section div:last-child>p,
+.join-section div:nth-child(2)>p {
+  min-height: 152px
+}
+
+.join-section .border {
+  border-radius: 1.3rem !important;
+  border: 1px solid var(--bs-primary) !important
+}
+
+.phone-number-with-country .drop-down-link {
+  text-align: center;
+  min-width: 90px;
+  display: block;
+  width: 100%;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #818691;
+  background: rgba(122, 141, 159, .08);
+  border: 1px solid rgba(122, 141, 159, .08);
+  border-radius: 5px 0 0 5px
+}
+
+.phone-number {
+  border-radius: 0 5px 5px 0
+}
+
+.phone-number-with-country .dropdown-menu {
+  font-size: 14px;
+  color: var(--gray-3);
+  padding: 8px 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .06);
+  border-radius: 10px;
+  background-color: var(--bs-white);
+  border: 0;
+  min-width: 280px
+}
+
+.phone-number-with-country .dropdown-menu .country-list {
+  max-height: 110px;
+  overflow-y: auto
+}
+
+.phone-number-with-country .dropdown-menu li {
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: normal
+}
+
+.phone-number-with-country .dropdown-menu .dropdown-item:active {
+  color: #fff;
+  background-color: var(--gray-3)
+}
+
+.country-search {
+  padding: 5px 10px !important
+}
+
+@media (max-width:1199px) {
+
+  .join-section div:last-child>p,
+  .join-section div:nth-child(2)>p {
+    min-height: 162px
+  }
+}
+
+@media (max-width:991px) {
+  ::ng-deep .join-section div>p {
+    min-height: auto !important
+  }
+}
+
+/* .get-section p,
+.process-section p {
+  text-align: justify !important
+} */
+
+.partner-btn .btn-primary:before {
+  background: transparent !important;
+}
+
+.side-card .card img {
+  border-radius: 25px;
+}
+
+.justify-text{
+  text-align: justify;
+}
+
+@media (max-width:767px) {
+  .side-card .card{
+    flex-direction: column !important;
+  }
+
+  .side-card .card img{
+    width: 35% !important;
+  }
+}

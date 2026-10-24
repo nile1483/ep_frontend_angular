@@ -1,0 +1,9 @@
+@media (min-width: 992px){
+    .modal-lg, .modal-xl {
+        --bs-modal-width: 700px;
+    }
+}
+
+.services-detail-card-image{
+    cursor: zoom-in;
+}

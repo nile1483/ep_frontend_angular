@@ -1,0 +1,19 @@
+<div class="section-heading text-center mb-3 mb-md-5">
+    <h2 *ngIf="pageBlock?.title" >{{pageBlock?.title}}</h2>
+    <span class="separator mb-2" *ngIf="pageBlock?.title" ></span>
+    <p *ngIf="pageBlock?.simple_description">{{pageBlock?.simple_description}}</p>
+</div>
+<div class="row g-4" *ngIf="pageBlock?.title_subtitle?.length > 0">
+
+    <div class="col-12 col-md-6" *ngFor="let item of pageBlock?.title_subtitle">
+        <div class="card border-0 card-horizontal h-100">
+            <div class="card-icon">
+                <span></span>
+            </div>
+            <div class="card-body p-0">
+                <h5> {{item?.title}} </h5>
+                <p> {{item?.sub_title}} </p>
+            </div>
+        </div>
+    </div> 
+</div>

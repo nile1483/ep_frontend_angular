@@ -1,0 +1,19 @@
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+@Component({
+  selector: 'app-user-login-dialog',
+  templateUrl: './user-login-dialog.component.html',
+  styleUrls: ['./user-login-dialog.component.css']
+})
+export class UserLoginDialogComponent implements OnInit {
+
+  
+  constructor( @Inject(MAT_DIALOG_DATA) public data: any = []) { }
+
+  ngOnInit(): void {
+     
+     
+  }
+
+}

@@ -1,0 +1,219 @@
+.card {
+  box-shadow: none;
+  background-color: transparent;
+  padding: 20px 0px;
+}
+
+.front-face h5,
+.section-heading h5 {
+  color: var(--bs-red);
+}
+
+.section-heading p a {
+  color: #000;
+}
+
+.section-heading p a:hover {
+  color: var(--bs-orange);
+}
+
+.wrapper {
+  height: 260px;
+  width: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.wrapper .card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  background: #f3f3f5;
+  border-radius: 50%;
+  transform: translateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  justify-content: center;
+  border-color: #e0e0e14d;
+}
+
+.wrapper:hover > .front-face {
+  transform: rotateY(-180deg);
+}
+
+.card.front-face {
+  display: flex;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 25px;
+}
+
+.wrapper:hover > .back-face {
+  transform: rotateY(0deg);
+}
+
+.wrapper .back-face {
+  border-radius: 50%;
+  position: absolute;
+  background-image: url("/assets/logo/excellent-logo-career.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.back-face ul {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.btn-outline-primary a {
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-outline-primary {
+  background-color: #fff;
+  border: none;
+}
+
+.btn-outline-primary:hover a {
+  color: #fff !important;
+}
+
+.current-opening-card .row {
+  justify-content: normal;
+}
+
+@media (max-width: 1199px) {
+  .current-opening-card .row {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .current-opening-card .row {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .col-10 {
+    padding: 0;
+  }
+}
+
+.career-page-header {
+  background-image: url("/assets/home/bg-career.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+button.accordion-button,
+.media-filter-title .dropdown .dropdown-toggle {
+  background-color: var(--bs-white);
+  border: 1px solid var(--bs-black);
+}
+
+::ng-deep span.accordion-label {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.media-filter .accordion-button.collapsed,
+.media-filter-title .dropdown .dropdown-toggle,
+.media-filter-title .sort-label {
+  color: var(--bs-body-color);
+}
+
+.media-filter .accordion-button.collapsed::after,
+.media-filter-title .dropdown .dropdown-toggle::after {
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M2.652 162.1c1.531-1.376 3.438-2.048 5.344-2.048c2.188 0 4.375 .891 5.938 2.642L224 396.2l210.1-233.5c2.906-3.283 8-3.58 11.28-.594c3.281 2.97 3.563 8.019 .5938 11.32l-216 240.1c-3 3.345-8.875 3.345-11.88 0L2.058 173.4C-.9104 170.1-.6292 165 2.652 162.1z'/%3E%3C/svg%3E");
+}
+
+.media-filter .accordion-button,
+.media-filter-title .dropdown .dropdown-toggle.show,
+.media-filter-title .dropdown-toggle.show .sort-label {
+  color: var(--bs-body-color);
+}
+
+.media-filter-title .dropdown .dropdown-toggle.show {
+  background-color: var(--bs-white);
+}
+
+.media-filter {
+  background-color: var(--gray-10) !important;
+  padding: 20px 0;
+}
+
+.media-filter .accordion-button:not(.collapsed) {
+  /* background-color: #f3f3f5; */
+  box-shadow: none;
+}
+
+.btn.search {
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 1px solid var(--bs-primary);
+  font-size: 16px;
+}
+
+.mat-mdc-option {
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  cursor: pointer !important;
+}
+
+.media-filter .filter-selected {
+  margin-top: 15px;
+  border-top: none;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.media-filter .accordion-body {
+  padding: 10px 0px 20px;
+  min-height: unset;
+}
+
+.media-filter .filter .filter-data {
+  padding-left: 0px;
+}
+
+::ng-deep option.mat-option {
+  cursor: pointer !important;
+  margin-left: 10px;
+}
+
+::ng-deep option.mat-option:hover{
+  background-color: #f3f3f5;
+}
+

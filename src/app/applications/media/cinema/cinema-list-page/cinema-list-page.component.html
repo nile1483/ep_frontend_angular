@@ -1,0 +1,679 @@
+<!-- desktop Sort & filter start -->
+<section class="media-filter list-background d-lg-block d-none">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+
+            <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a aria-label="Link" href="{{webURL}}" itemprop="item">
+                        <span itemprop="name"><b> Home</b></span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+
+                <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name"> Cinema </span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+
+        </nav>
+
+        <div class="media-filter-title d-flex align-items-center justify-content-between mb-4">
+            <h1> Cinema Advertising </h1>
+            <div class="dropdown">
+                <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="pe-1 sort-label"> Sort By: </span>
+                    <span class="dropdown-label"> {{selectedSortBy.label}} </span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li *ngFor="let item of sortingList" [value]="item.value">
+                        <button class="dropdown-item" type="button" (click)="changeSortByValue(item)"> {{item?.label}}
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="media-filter-panel">
+            <div class="row accordion g-3" #concernedDiv id="mediaFiltersaccordion" (clickOutside)="handleClickOutside()">
+                <!-- location start -->
+                <div class="col-auto" #accordionRef>
+                    <div class="accordion-item border-0">
+                        <h5 class="accordion-header" id="filter-location">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-location" aria-expanded="false" aria-controls="collapse-location">
+                                <span class="accordion-label"> Location </span>
+                            </button>
+                        </h5>
+                        <div id="collapse-location" class="accordion-collapse collapse" data-bs-parent="#mediaFiltersaccordion">
+                            <div class="accordion-body filter">
+                                <input type="search" [formControl]="locationSearchControl" class="form-control" placeholder="Search..." aria-label="Search">
+
+                                <span class="text-danger m-2 mt-2" *ngIf="isFound">{{locationMessage}}</span>
+
+                                <div class="filter-data">
+                                    <mat-option [value]="location" *ngFor="let location of locationSearchResults" (click)="selectLocation(location)">
+                                        {{location?.search_string}}
+                                    </mat-option>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- location end -->
+
+                <!-- audience class start -->
+                <div class="col-auto" #accordionRef *ngIf="filterList?.audience_class">
+                    <div class="accordion-item border-0 filter">
+                        <h5 class="accordion-header" id="filter-audience_class">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#audience_class" aria-expanded="false" aria-controls="audience_class">
+                                <span class="accordion-label"> {{filterList?.audience_class?.name}} </span>
+                                <span class="mx-2 badge bg-secondary"
+                                    *ngIf="params?.filters?.audience_class.length > 0">
+                                    {{params.filters.audience_class.length}}</span>
+                            </button>
+                        </h5>
+                        <div class="accordion-collapse collapse" id="audience_class" data-bs-parent="#mediaFiltersaccordion">
+                            <div class="accordion-body">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchAudienceClass">
+                                <ul class="list-unstyled mt-3 filter-data">
+                                    <li *ngFor="let value of filterList?.audience_class?.values | filter:{name : searchAudienceClass}">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="audience_class-{{value?.id}}" (change)="filterValueChange($event,'audience_class', value.name)">
+                                            <label class="form-check-label" for="audience_class-{{value?.id}}">
+                                                {{value?.name}}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- audience class end -->
+
+                <!-- cinema_chain start -->
+                <div class="col-auto" #accordionRef *ngIf="filterList?.cinema_chain">
+                    <div class="accordion-item border-0 border-bottom filter">
+                        <h5 class="accordion-header" id="heading-cinema_chain">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cinema_chain" aria-expanded="false" aria-controls="cinema_chain">
+                                <span class="accordion-label"> {{filterList?.cinema_chain?.name}} </span>
+                                <span class="mx-2 badge bg-secondary" *ngIf="params?.filters?.cinema_chain.length > 0">
+                                    {{params.filters.cinema_chain.length}}</span>
+                            </button>
+                        </h5>
+                        <div id="cinema_chain" class="accordion-collapse collapse" aria-labelledby="heading-cinema_chain" data-bs-parent="#mediaFiltersaccordion">
+                            <div class="accordion-body">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchCinemaChain">
+                                <ul class="list-unstyled mt-3 filter-data">
+                                    <li *ngFor="let value of filterList?.cinema_chain?.values | filter:{name : searchCinemaChain}">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="cinema_chain-{{value?.id}}" (change)="filterValueChange($event,'cinema_chain', value.name)">
+                                            <label class="form-check-label" for="cinema_chain-{{value?.id}}">
+                                                {{value?.name}}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- cinema_chain end -->
+
+                <!-- screen_recomend start  -->
+                <div class="col-auto" #accordionRef *ngIf="filterList?.screen_recomend">
+                    <div class="accordion-item border-0 border-bottom filter">
+                        <h5 class="accordion-header" id="heading-screen_recomend">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#screen_recomend" aria-expanded="true" aria-controls="screen_recomend">
+                                <span class="accordion-label"> {{filterList?.screen_recomend?.name}} </span>
+                                <span class="mx-2 badge bg-secondary"
+                                    *ngIf="params?.filters?.screen_recomend.length > 0">
+                                    {{params.filters.screen_recomend.length}}</span>
+                            </button>
+                        </h5>
+                        <div id="screen_recomend" class="accordion-collapse collapse" aria-labelledby="heading-screen_recomend" data-bs-parent="#mediaFiltersaccordion">
+                            <div class="accordion-body">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchScreenRecomend">
+                                <ul class="list-unstyled mt-3 filter-data">
+                                    <li *ngFor="let value of filterList?.screen_recomend?.values | filter:{name : searchScreenRecomend}">
+                                        <div class="form-check">
+                                            <input class="form-check-input small-check" type="radio" [checked]="value.checked" value="{{value?.name}}" name="screen_recomend" id="screen_recomend-{{value?.id}}" (change)="filterValueChange($event,'screen_recomend', value.name)">
+
+                                            <label class="form-check-label ps-2" for="screen_recomend-{{value?.id}}">
+                                                {{value?.name}}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- screen_recomend end -->
+
+                <!-- tier start -->
+                <div class="col-auto" #accordionRef *ngIf="filterList?.tier">
+                    <div class="accordion-item border-0 border-bottom filter">
+                        <h5 class="accordion-header" id="heading-tier">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tier" aria-expanded="true" aria-controls="tier">
+                                <span class="accordion-label">{{filterList?.tier?.name}} </span>
+                                <span class="mx-2 badge bg-secondary" *ngIf="params?.filters?.tier.length > 0">
+                                    {{params.filters.tier.length}}</span>
+                            </button>
+                        </h5>
+                        <div id="tier" class="accordion-collapse collapse " aria-labelledby="heading-tier" data-bs-parent="#mediaFiltersaccordion">
+                            <div class="accordion-body">
+                                <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchTier">
+                                <ul class="list-unstyled mt-3 filter-data">
+                                    <li *ngFor="let value of filterList?.tier?.values | filter:{name : searchTier}">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" [checked]="value.checked" [value]="value.name" id="tier-{{value?.id}}" (change)="filterValueChange($event,'tier', value.name)">
+                                            <label class="form-check-label" for="tier-{{value?.id}}">
+                                                {{value?.name}}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- tier_preference end -->
+
+                <!-- case studies start -->
+                <div class="col-auto">
+                    <div class="border-0 border-bottom filter case-studies">
+                        <button class="btn" type="button" (click)="scrollToElement()">
+                            Case Studies
+                        </button>
+                    </div>
+                </div>
+                <!-- case studies start -->
+
+                <!-- price start -->
+                <div class="col-auto" *ngIf="!isAuthenticated">
+                    <div class="border-0 border-bottom filter case-studies">
+                        <button class="btn" type="button" (click)="openUserLoginDialog('Filter Price')">
+                            Price
+                        </button>
+                    </div>
+                </div>
+                <!-- price start -->
+            </div>
+        </div>
+        <!-- filter-selected -->
+        <div class="filter-selected">
+            <p *ngIf="selectedFilterValues.length > 0" class="m-0"> <span class="me-3">Filter applied,</span>
+                <span class="badge me-2" *ngFor="let item of selectedFilterValues; let i=index">
+                    {{item.value}}
+                    <button type="button" class="btn-close" (click)="removeSelectedFilterValue(i, item)"></button>
+                </span>
+                <a aria-label="Link" href="javascript:void(0);" class="clear-btn" (click)="removeSelectedFilterValue()"> Clear</a>
+            </p>
+        </div>
+    </div>
+</section>
+<!-- desktop Sort & filter end -->
+
+<!-- mobile Sort & filter  button start -->
+<div class="media-filter-mobile d-lg-none d-flex align-items-cente">
+    <div class="media-sorting-button flex-fill" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort">
+        Sort
+        <span [innerHTML]="app_svg_icon_list?.['arrow-down-wide-short'] | safeHtml"></span>
+        <!-- <i class="fa-light fa-arrow-down-wide-short"></i> -->
+    </div>
+    <div class="media-sorting-button flex-fill" (click)="setTempApplyedValue()" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter">
+        Filters
+        <span [innerHTML]="app_svg_icon_list?.['filter'] | safeHtml"></span>
+        <!-- <i class="fa-light fa-filter"></i> -->
+    </div>
+</div>
+<!-- mobile Sort & filter  button start -->
+
+<!-- media list start -->
+<section class="media-list">
+    <div class="container">
+        <!-- If Data not found START-->
+        <ng-template #noDataFound>
+            <div class="row text-center">
+                <div class="col">
+                    <app-no-results *ngIf="(isDataLoaded == true && dataList.length == 0)"></app-no-results>
+                    <app-loader *ngIf="!isDataLoaded"></app-loader>
+                </div>
+            </div>
+        </ng-template>
+        <!-- If Data not found END-->
+
+        <!-- media-list-item found START-->
+        <div class="row g-md-4 g-3" *ngIf="(isDataLoaded == true && dataList.length > 0); else noDataFound">
+            <div class="col-12 mt-4">
+                <span class="show-result">Showing {{dataList.length}} results</span>
+            </div>
+            <div class="col-6 col-md-4 col-lg-4 col-xl-3" *ngFor="let item of dataList; let i=index">
+
+                <div class="media-list-card">
+                    <a aria-label="Link" [routerLink]="['/',media,item.slug]" class="media-list-card-img">
+                        <img loading="lazy" src="{{item?.image}}" data-item-link-type="Item thumbnail" [attr.data-item-order]="i+1" class="product-image view-item-image" title="{{item?.name}}" alt="{{item?.name}}">
+                    </a>
+                    <div class="media media-list-card-body">
+                        <p class="media-list-card-title">
+                            <a aria-label="Link" [routerLink]="['/',media,item.slug]" data-item-link-type="Item name" [attr.data-item-order]="i+1" class="view-item-name">
+                                {{item?.name}}
+                            </a>
+                        </p>
+                        <p *ngIf="item?.audience_class != null"> Audience Class: <b>{{item?.audience_class}}</b> </p>
+                        <p> Cinema Chain: <b>{{item?.cinema_chain}}</b> </p>
+                        <p> Screen: <b>{{item?.screen}}</b> </p>
+                        <p *ngIf="isAuthenticated">Price: <strong> 
+                            <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
+                            <div class="d-inline-block"> {{item?.price?.offer_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                            </strong> <span class=" fst-italic text-reset">({{item?.price?.unit}})</span>
+                        </p>
+
+                        <div class="media-button">
+                            <a aria-label="Button" type="button" *ngIf="isAuthenticated" [attr.data-item-name]="item.name" data-item-link-type="View More" [attr.data-item-order]="i+1" [routerLink]="['/',media,item.slug]" class="btn btn-outline-primary w-100 view-item-button"> View More</a>
+                            <a aria-label="Button" type="button" href="javascript:void(0)" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" (click)="openUserLoginDialog(item?.name)" class="btn btn-outline-primary w-100 view-price" *ngIf="!isAuthenticated"> Login to View Price</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- media-list-item found END -->
+
+        <!-- View More START-->
+        <div class="row mt-5" *ngIf="isShowViewMore">
+            <div class="col-12 text-center" *ngIf="(isLoadingMore != true); else loadingMoreData">
+                <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreItems()" class="more-link more-link-with-text orange-link">
+                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                        <!-- <i
+                            class="fa-light fa-arrow-right-long"></i> -->
+                        </span>
+                </a>
+            </div>
+            <ng-template #loadingMoreData>
+                <div class="col-12 text-center">
+                    <app-loader></app-loader>
+                </div>
+            </ng-template>
+        </div>
+        <!-- View More end-->
+
+    </div>
+</section>
+<!-- media list end -->
+
+<!-- content builder start -->
+<app-content-builder [contentDetail]="pageDescription" *ngIf="pageDescription"></app-content-builder>
+<!-- content builder end -->
+
+<!-- Mobile filter start-->
+<div class="offcanvas offcanvas-bottom category-mobile-filter-offcanvas offcanvas-mobile-filter" tabindex="-1" id="CategoryMobileFilter" aria-labelledby="CategoryMobileFilterLabel">
+    <div class="offcanvas-header">
+        <p class="offcanvas-title mb-0" id="CategoryMobileFilterLabel">Filters</p>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <!-- Nav tabs -->
+        <div class="mobile-filter-selected">
+            <p *ngIf="selectedFilterValues.length > 0" class="m-0"> <span class="ms-2 me-3"> Filter applied,</span>
+                <span class="badge m-1" *ngFor="let item of selectedFilterValues; let i=index">
+                    {{item.value}}
+                    <button type="button" class="btn-close" data-bs-toggle="offcanvas"
+                        data-bs-target="#CategoryMobileFilter" (click)="removeSelectedFilterValue(i, item)"></button>
+                </span>
+                <a aria-label="Link" href="javascript:void(0);" class="clear-btn" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" (click)="removeSelectedFilterValue()"> Clear</a>
+            </p>
+        </div>
+        <div class="mobile-filter-row d-flex h-100">
+            <ul class="nav nav-tabs d-block mobile-filter-tabs" id="CategoryMobileFilterTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="tab-nav-link active" id="filterTab-1" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Location</button>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="filterList?.audience_class">
+                    <button class="tab-nav-link" id="filterTab-2" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">
+                        {{filterList?.audience_class?.name}} <span class="badge"
+                            *ngIf="params?.filters?.audience_class.length > 0">
+                            {{params.filters.audience_class.length}}</span></button>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="filterList?.cinema_chain">
+                    <button class="tab-nav-link" id="filterTab-3" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">
+                        {{filterList?.cinema_chain?.name}} <span class="badge"
+                            *ngIf="params?.filters?.cinema_chain.length > 0">
+                            {{params.filters.cinema_chain.length}}</span></button>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="filterList?.screen_recomend">
+                    <button class="tab-nav-link" id="filterTab-4" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="tab4" aria-selected="false">{{filterList?.screen_recomend?.name}} <span class="badge"
+                            *ngIf="params?.filters?.screen_recomend.length > 0">
+                            {{params.filters.screen_recomend.length}}</span></button>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="filterList?.tier">
+                    <button class="tab-nav-link" id="filterTab-5" data-bs-toggle="tab" data-bs-target="#tab5" type="button" role="tab" aria-controls="tab5" aria-selected="false">Tier <span class="badge"
+                            *ngIf="params?.filters?.tier.length > 0">
+                            {{params.filters.tier.length}}</span></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="tab-nav-link" id="filterTab-6" data-bs-toggle="tab" data-bs-target="#tab6" type="button" role="tab" aria-controls="tab6" aria-selected="false" data-bs-toggle="offcanvas" (click)="scrollToElement()">Case Studies</button>
+                </li>
+
+                <li class="nav-item" role="presentation" *ngIf="!isAuthenticated">
+                    <button class="tab-nav-link" id="filterTab-7" data-bs-toggle="tab" data-bs-target="#tab7" type="button" role="tab" aria-controls="tab7" aria-selected="false" data-bs-toggle="offcanvas" (click)="openUserLoginDialog('Filter Price')">Price</button>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- mobile location start -->
+                <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="filterTab-1">
+                    <div class="tab-pane">
+                        <input type="search" [formControl]="locationSearchControl" class="form-control" placeholder="Search..." aria-label="Search">
+
+                        <span class="text-danger m-2 mt-2" *ngIf="isFound">{{locationMessage}}</span>
+
+
+
+                        <div class="filter-data">
+                            <mat-option [value]="location" *ngFor="let location of locationSearchResults" (click)="selectLocation(location, true)">
+                                {{location?.search_string}}
+                            </mat-option>
+                        </div>
+                        <div class="mobile-filter-selected" *ngIf="tempMobileParams.filters['location'].length > 0">
+                            Location Selected,
+                            <span class="badge m-1" *ngFor="let item of tempMobileParams.filters['location'];">
+                                {{item}}
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+                <!--  mobile  location end -->
+
+                <!--  mobile  audience_class start -->
+                <div class="tab-pane fade " id="tab2" role="tabpanel" aria-labelledby="filterTab-2">
+                    <div class="tab-pane-body">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchAudienceClass">
+                        <ul class="list-unstyled mt-3 filter-data ps-1">
+                            <li *ngFor="let value of filterList?.audience_class?.values | filter:{name : searchAudienceClass}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="mf-audience_class-{{value?.id}}" (change)="mobileFilterValueChange($event,'audience_class', value.name)">
+                                    <label class="form-check-label m-filter-label" for="mf-audience_class-{{value?.id}}">
+                                        {{value?.name}}
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  mobile  audience_class end -->
+
+                <!--  mobile  cinema_chain start -->
+                <div class="tab-pane fade " id="tab3" role="tabpanel" aria-labelledby="filterTab-3">
+                    <div class="tab-pane-body">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchCinemaChain">
+                        <ul class="list-unstyled mt-3 filter-data ps-1">
+                            <li *ngFor="let value of filterList?.cinema_chain?.values | filter:{name : searchCinemaChain}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="mf-cinema_chain-{{value?.id}}" (change)="mobileFilterValueChange($event,'cinema_chain', value.name)">
+                                    <label class="form-check-label m-filter-label" for="mf-cinema_chain-{{value?.id}}">
+                                        {{value?.name}}
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  mobile  cinema_chain end -->
+
+                <!--  mobile  screen_recomend start -->
+                <div class="tab-pane fade " id="tab4" role="tabpanel" aria-labelledby="filterTab-4">
+                    <div class="tab-pane-body">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchScreenRecomend">
+                        <ul class="list-unstyled mt-3 filter-data ps-1">
+                            <li *ngFor="let value of filterList?.screen_recomend?.values | filter:{name : searchScreenRecomend}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="mf-screen_recomend-{{value?.id}}" (change)="mobileFilterValueChange($event,'screen_recomend', value.name)">
+
+                                    <label class="form-check-label" for="mf-screen_recomend-{{value?.id}}">
+                                        {{value?.name}}
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  mobile  screen_recomend end -->
+
+                <!--  mobile  Tier start -->
+                <div class="tab-pane fade " id="tab5" role="tabpanel" aria-labelledby="filterTab-5">
+                    <div class="tab-pane-body">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchTier">
+                        <ul class="list-unstyled mt-3 filter-data ps-1">
+                            <li *ngFor="let value of filterList?.tier?.values | filter:{name : searchTier}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [checked]="value.checked" [value]="value.name" id="mf-tier-{{value?.id}}" (change)="mobileFilterValueChange($event,'tier', value.name)">
+
+                                    <label class="form-check-label" for="mf-tier-{{value?.id}}">
+                                        {{value?.name}}
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  mobile  Tier end -->
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-footer d-flex align-items-cente justify-content-end">
+        <button class="btn btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter" (click)="applyMobileFilter(false)"> Cancel </button>
+        <button class="btn btn btn-primary ms-2" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter" (click)="applyMobileFilter(true)" [disabled]="!isDataLoaded">
+            Apply</button>
+    </div>
+</div>
+<!-- Mobile filter end-->
+
+<!-- Mobile Sort start-->
+<div class="offcanvas offcanvas-bottom category-mobile-sort-offcanvas offcanvas-mobile-filter" tabindex="-1" id="CategoryMobileSort" aria-labelledby="CategoryMobileSortLabel">
+    <div class="offcanvas-header">
+        <p class="offcanvas-title mb-0" id="CategoryMobileSort">Sort</p>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-unstyled m-0">
+            <li *ngFor="let item of sortingList; let i=index">
+                <div class="form-check  mb-1">
+                    <input class="form-check-input" type="radio" name="sortfilter" id="sort{{i}}" (click)="changeSortByValue(item)" [checked]="item?.isDefault">
+                    <label class="form-check-label p-1" for="sort{{i}}">
+                        {{item?.label}}
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="offcanvas-footer d-flex align-items-cente justify-content-end">
+        <button class="btn btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort"> Cancel</button>
+        <button class="btn btn btn-primary ms-2" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort"> Apply</button>
+    </div>
+</div>
+<!-- Mobile Sort end-->
+
+
+<!-- CASE STUDIES start -->
+<section class="common-margin" id="CASESTUDIES">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h2 class="text-danger">CASE STUDIES</h2>
+            <span class="separator mb-2"></span>
+            <p>Check out our Cinema Media Case Studies to see how we've scored big for our clients!</p>
+
+        </div>
+        <div class="row g-md-3 g-2 ">
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="flip-container">
+                    <div class="flip-img" [routerLink]="['/casestudy','radisson-blu-s-cinema-campaign-successfully-promotes-sizzler-festival-at-hyderabad-hotel']">
+                        <div class="front">
+                            <img loading="lazy" alt="Logo" class="w-100" width="368px" height="167px"
+                                src="/assets/media/cinema/raddison-hotel-logo.webp">
+                        </div>
+                        <div class="back">
+                            <img loading="lazy" alt="Logo" class="w-100 " width="368px" height="167px"
+                                src="/assets/media/cinema/raddison-hotel.webp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="flip-container">
+                    <div class="flip-img" [routerLink]="['/casestudy','driving-family-fun-skoda-s-cinema-campaign-for-the-kodiaq-suv']">
+                        <div class="front">
+                            <img loading="lazy" alt="Logo" class="w-100" width="368px" height="167px"
+                                src="/assets/media/cinema/skoda-logo.webp">
+                        </div>
+                        <div class="back">
+                            <img loading="lazy" alt="Logo" class="w-100 " width="368px" height="167px"
+                                src="/assets/media/cinema/skoda.webp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="flip-container">
+                    <div class="flip-img" [routerLink]="['/casestudy','promoting-sustainable-urban-commuting-tork-motors-campaign-for-the-t6x-electric-motorcycle']">
+                        <div class="front">
+                            <img loading="lazy" alt="Logo" class="w-100" width="368px" height="167px"
+                                src="/assets/media/cinema/tork-motors-logo.webp">
+                        </div>
+                        <div class="back">
+                            <img loading="lazy" alt="Logo" class="w-100 " width="368px" height="167px"
+                                src="/assets/media/cinema/tork-motors.webp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- CASE STUDIES end -->
+
+
+<!-- call to action media start -->
+<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
+</app-call-to-action-media>
+
+<!-- Footer Link Data start -->
+<div class="col-12 footer-dropdown" style="background-color: #e7e7e7 ;" *ngIf="(isDataLoaded == true && footerLinkData)">
+
+    <div class="container" role="group" aria-label="Dropdown buttons">
+        <div class="row btn-group btn-group-lg ">
+            <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panel1">
+                Cinema Advertising Chains <span class="caret"></span>
+            </button>
+            <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panel2">
+                Advertising Prices & Rates <span class="caret"></span>
+            </button>
+            <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panel3">
+                Ad Agency By Location <span class="caret"></span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Accordion panels -->
+    <div class="panel container">
+        <!-- Panel 1 -->
+        <div id="panel1" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let chains of footerLinkData.cinemaAdvertisingChains">
+                                <a aria-label="Cinema Advertising Chain Link" [href]="chains.url" target="_blank">{{ chains.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let rate of footerLinkData.advertisingRates">
+                                <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let location of footerLinkData.advertisingAgencies">
+                                <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div id="panel2" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let chains of footerLinkData.cinemaAdvertisingChains">
+                                <a aria-label="Cinema Advertising Chain Link" [href]="chains.url" target="_blank">{{ chains.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let rate of footerLinkData.advertisingRates">
+                                <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let location of footerLinkData.advertisingAgencies">
+                                <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel 3 -->
+        <div id="panel3" class="collapse mt-2 " data-bs-parent=".panel">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let chains of footerLinkData.cinemaAdvertisingChains">
+                                <a aria-label="Cinema Advertising Chain Link" [href]="chains.url" target="_blank">{{ chains.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let rate of footerLinkData.advertisingRates">
+                                <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let location of footerLinkData.advertisingAgencies">
+                                <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer Link Data end -->
+
+<!-- call to action media end -->

@@ -1,0 +1,4 @@
+::ng-deep.salesdeck-select-panel {
+  padding: 0 !important;
+  transform: translateX(-24px) !important;
+}

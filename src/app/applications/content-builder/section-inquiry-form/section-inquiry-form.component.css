@@ -1,0 +1,55 @@
+.contact-item {
+  display: flex;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+.contact-inquiry-card.inquiry-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.phone-number-with-country .drop-down-link {
+  text-align: center;
+  min-width: 90px;
+  display: block;
+  width: 100%;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #818691;
+  background: rgba(122, 141, 159, 0.08);
+  border: 1px solid rgba(122, 141, 159, 0.08);
+  border-radius: 5px 0 0 5px;
+}
+.phone-number {
+  border-radius: 0 5px 5px 0;
+}
+.phone-number-with-country .dropdown-menu {
+  font-size: 14px;
+  color: var(--gray-3);
+  padding: 8px 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  background-color: var(--bs-white);
+  border: 0;
+  min-width: 280px;
+}
+.phone-number-with-country .dropdown-menu .country-list {
+  max-height: 110px;
+  overflow-y: auto;
+}
+.phone-number-with-country .dropdown-menu li {
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: normal;
+}
+.phone-number-with-country .dropdown-menu .dropdown-item:active {
+  color: #fff;
+  background-color: var(--gray-3);
+}
+.country-search {
+  padding: 5px 10px !important;
+}
