@@ -1,119 +1,140 @@
 <section class="detail-page">
-    <section class="bg-linear-gradient service-detail-header" *ngIf="mediaDetail != false">
-        <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/ListItem">
-                        <a aria-label="Link" href="{{webURL}}" itemprop="item">
-                            <span itemprop="name"><b> Home</b></span>
-                        </a>
-                        <meta itemprop="position" content="1" />
-                    </li>
-                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/ListItem">
-                        <a aria-label="Link" href="{{webURL}}/monitoring-tools" itemprop="item">
-                            <span itemprop="name"> Monitoring Tools </span>
-                        </a>
-                        <meta itemprop="position" content="2" />
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/ListItem">
-                        <span itemprop="name">{{mediaDetail?.name}}</span>
-                        <meta itemprop="position" content="3" />
-                    </li>
-                </ol>
-            </nav>
-
-            <div class="services-detail-header-card" *ngIf="mediaDetail?.name">
-                <div class="services-header-image-content">
-                    <div class="services-header-image" *ngIf="mediaDetail?.image">
-                        <img loading="lazy" src="{{mediaDetail?.image}}" width="214" height="90" class=""
-                            alt="{{mediaDetail?.name}}" title="{{mediaDetail?.name}}">
-                    </div>
-                    <div class="services-header-content">
-                        <h1> {{mediaDetail?.name}} </h1>
-                        <p> {{mediaDetail?.short_description}} </p>
-                    </div>
+  @if (mediaDetail != false) {
+    <section class="bg-linear-gradient service-detail-header">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+              <a aria-label="Link" href="{{webURL}}" itemprop="item">
+                <span itemprop="name"><b> Home</b></span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+              <a aria-label="Link" href="{{webURL}}/monitoring-tools" itemprop="item">
+                <span itemprop="name"> Monitoring Tools </span>
+              </a>
+              <meta itemprop="position" content="2" />
+            </li>
+            <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+              <span itemprop="name">{{mediaDetail?.name}}</span>
+              <meta itemprop="position" content="3" />
+            </li>
+          </ol>
+        </nav>
+        @if (mediaDetail?.name) {
+          <div class="services-detail-header-card">
+            <div class="services-header-image-content">
+              @if (mediaDetail?.image) {
+                <div class="services-header-image">
+                  <img loading="lazy" src="{{mediaDetail?.image}}" width="214" height="90" class=""
+                    alt="{{mediaDetail?.name}}" title="{{mediaDetail?.name}}">
                 </div>
+              }
+              <div class="services-header-content">
+                <h1> {{mediaDetail?.name}} </h1>
+                <p> {{mediaDetail?.short_description}} </p>
+              </div>
             </div>
-        </div>
+          </div>
+        }
+      </div>
     </section>
+  }
 
-    <!-- media price list start -->
-    <section class="services-detail-media-list" *ngIf="mediaDetail != false; else pageNotFound;">
-        <div class="container">
-            <h2 class="text-center price-heading"> Advertising Options in {{mediaDetail?.name}}</h2>
-            <span class="separator mb-4"></span>
-            <div class="row justify-content-center gy-4">
-                <div class="col-12 col-lg-4 col-services-detail" *ngFor="let price of mediaDetail?.price">
-                    <div class="services-detail-card">
-                        <div class="services-detail-card-image" *ngIf="price?.image">
-                            <img loading="lazy" src="{{price?.image}}" width="326" height="137" alt="{{price?.name}}">
-                        </div>
-                       
-                        <div class="services-detail-card-body">
-                            <p class="services-detail-card-title"> {{price?.name}} </p>
-
-                            <div class="pb-3 price-description" [innerHTML]="price?.description"></div>
-
-                            <div class="services-card-price-row d-flex" *ngIf="isAuthenticated && price.price_on_request == 0">
-                                <div class="services-card-price-col price-week">
-                                    <span>
-                                        <div class="price-week-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                        <div class="price-week-currency d-inline-block"> {{price?.offer_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                                    </span>
-                                    <span> {{price?.unit}} </span>
-                                </div>
-                                <div class="services-card-price-col price-bill">
-                                    <span>
-                                        <div class="price-bill-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                        <div class="price-bill-currency d-inline-block"> {{price?.minimum_billing | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                                    </span>
-                                    <span> Minimum Billing </span>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row services-card-bottom justify-content-center ">
-                                <div class="col-auto" *ngIf="isAuthenticated">
-                                    <button type="button" class="btn btn-primary add-to-plan"
-                                        (click)="openAddToPlanDialog(price)" *ngIf="price.price_on_request == 0"> Add to
-                                        Plan </button>
-                                    <button type="button" class="btn btn-primary price-on-request"
-                                        (click)="openPriceOnRequestDialog(price)" *ngIf="price.price_on_request == 1">
-                                        Price on Request </button>
-                                </div>
-                                <div class="col-auto" *ngIf="!isAuthenticated">
-                                    <button type="button" class="btn btn-primary view-price"
-                                        [attr.data-item-name]="mediaDetail.name"
-                                        [attr.data-item-price-name]="price.name"
-                                        (click)="openUserLoginDialog(mediaDetail?.name)">Login to View Price </button>
-                                </div>
-                            </div>
-
-                        </div>
+  <!-- media price list start -->
+  @if (mediaDetail != false) {
+    <section class="services-detail-media-list">
+      <div class="container">
+        <h2 class="text-center price-heading"> Advertising Options in {{mediaDetail?.name}}</h2>
+        <span class="separator mb-4"></span>
+        <div class="row justify-content-center gy-4">
+          @for (price of mediaDetail?.price; track price) {
+            <div class="col-12 col-lg-4 col-services-detail">
+              <div class="services-detail-card">
+                @if (price?.image) {
+                  <div class="services-detail-card-image">
+                    <img loading="lazy" src="{{price?.image}}" width="326" height="137" alt="{{price?.name}}">
+                  </div>
+                }
+                <div class="services-detail-card-body">
+                  <p class="services-detail-card-title"> {{price?.name}} </p>
+                  <div class="pb-3 price-description" [innerHTML]="$safeNavigationMigration(price?.description)"></div>
+                  @if (isAuthenticated && price.price_on_request == 0) {
+                    <div class="services-card-price-row d-flex">
+                      <div class="services-card-price-col price-week">
+                        <span>
+                          <div class="price-week-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                          <div class="price-week-currency d-inline-block"> {{$safeNavigationMigration(price?.offer_rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                        </span>
+                        <span> {{price?.unit}} </span>
+                      </div>
+                      <div class="services-card-price-col price-bill">
+                        <span>
+                          <div class="price-bill-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                          <div class="price-bill-currency d-inline-block"> {{$safeNavigationMigration(price?.minimum_billing) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                        </span>
+                        <span> Minimum Billing </span>
+                      </div>
                     </div>
+                  }
+                  <hr>
+                    <div class="row services-card-bottom justify-content-center ">
+                      @if (isAuthenticated) {
+                        <div class="col-auto">
+                          @if (price.price_on_request == 0) {
+                            <button type="button" class="btn btn-primary add-to-plan"
+                              (click)="openAddToPlanDialog(price)"> Add to
+                            Plan </button>
+                          }
+                          @if (price.price_on_request == 1) {
+                            <button type="button" class="btn btn-primary price-on-request"
+                              (click)="openPriceOnRequestDialog(price)">
+                            Price on Request </button>
+                          }
+                        </div>
+                      }
+                      @if (!isAuthenticated) {
+                        <div class="col-auto">
+                          <button type="button" class="btn btn-primary view-price"
+                            [attr.data-item-name]="mediaDetail.name"
+                            [attr.data-item-price-name]="price.name"
+                          (click)="openUserLoginDialog($safeNavigationMigration(mediaDetail?.name))">Login to View Price </button>
+                        </div>
+                      }
+                    </div>
+                  </div>
                 </div>
-
-            </div>
+              </div>
+            }
+          </div>
         </div>
-    </section>
+      </section>
+    } @else {
+      @if (isDataLoaded) {
+        <app-sec-heading-pagenotfound></app-sec-heading-pagenotfound>
+      }
+      <app-search-result></app-search-result>
+    }
     <!-- media price list end -->
 
     <!-- pageNotFound start -->
-    <ng-template #pageNotFound>
-        <app-sec-heading-pagenotfound *ngIf="isDataLoaded"></app-sec-heading-pagenotfound>
-        <app-search-result></app-search-result>
-    </ng-template>
     <!-- pageNotFound end -->
 
     <!-- description start -->
-    <app-content-builder [contentDetail]="pageDescription" *ngIf="pageDescription"></app-content-builder>
+    @if (pageDescription) {
+      <app-content-builder [contentDetail]="pageDescription"></app-content-builder>
+    }
     <!-- description end -->
-</section>
+  </section>
 
 
-<!-- call to action media start -->
-<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
-</app-call-to-action-media>
-<!-- call to action media end --> 
+  <!-- call to action media start -->
+  @if (callToActionData?.title) {
+    <app-call-to-action-media [mediaCallToActionData]="callToActionData">
+    </app-call-to-action-media>
+  }
+  <!-- call to action media end -->

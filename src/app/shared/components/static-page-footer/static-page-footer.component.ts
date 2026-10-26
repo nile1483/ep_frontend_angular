@@ -1,10 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-static-page-footer',
-  templateUrl: './static-page-footer.component.html',
-  styleUrl: './static-page-footer.component.css'
+    selector: 'app-static-page-footer',
+    templateUrl: './static-page-footer.component.html',
+    styleUrl: './static-page-footer.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class StaticPageFooterComponent {
 

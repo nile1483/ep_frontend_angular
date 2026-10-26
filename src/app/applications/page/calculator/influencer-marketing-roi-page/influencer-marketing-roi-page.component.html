@@ -1,299 +1,317 @@
 <!-- background -->
 <section class="section-featured-services influencermarketingroi-background common-padding">
-    <div class="container">
-        <div class="section-heading text-center">
-            <h1 class="text-white"></h1>
-        </div>
+  <div class="container">
+    <div class="section-heading text-center">
+      <h1 class="text-white"></h1>
     </div>
+  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-    <div class="container get-section">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-                    class="roas-form p-4 border custom-border mx-auto">
-                    <div class="row mb-3">
-                        <div class="col-md-6 mb-3 mb-md-0 text-center">
-                            <label class="form-label fw-bolder">Revenue</label>
-                            <input
-                              type="number"
-                              formControlName="conversionRevenue"
-                              class="form-control border-danger" placeholder="Enter Value"
-                            />
-                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
-                              <div *ngIf="conversionRevenue?.errors?.['required']">
-                                Revenue is required.
-                              </div>
-                              <div *ngIf="conversionRevenue?.errors?.['min']">
-                                Revenue must be greater than 0.
-                              </div>
-                            </div>
-                          </div>
-
-                        <div class="col-md-6 text-center">
-                            <label class="form-label fw-bolder">Investment</label>
-                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
-                                <div *ngIf="adSpend?.errors?.['required']">
-                                    Investment is required.
-                                </div>
-                                <div *ngIf="adSpend?.errors?.['min']">
-                                    Investment must be greater than 0.
-                                </div>
-                            </div>
-                        </div>
+  <div class="container get-section">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+          class="roas-form p-4 border custom-border mx-auto">
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0 text-center">
+              <label class="form-label fw-bolder">Revenue</label>
+              <input
+                type="number"
+                formControlName="conversionRevenue"
+                class="form-control border-danger" placeholder="Enter Value"
+                />
+              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
+                <div class="text-danger small">
+                  @if (conversionRevenue?.errors?.['required']) {
+                    <div>
+                      Revenue is required.
                     </div>
-
-                    <div class="text-center mb-3">
-                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
+                  }
+                  @if (conversionRevenue?.errors?.['min']) {
+                    <div>
+                      Revenue must be greater than 0.
                     </div>
-
-                    <div class="text-center col-md-6 mx-auto">
-                        <label class="form-label fw-bolder">ROI %</label>
-                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-                    </div>
-                </form>
-
+                  }
+                </div>
+              }
             </div>
-        </div>
+
+            <div class="col-md-6 text-center">
+              <label class="form-label fw-bolder">Investment</label>
+              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+              @if (adSpend?.invalid && adSpend?.touched) {
+                <div class="text-danger small">
+                  @if (adSpend?.errors?.['required']) {
+                    <div>
+                      Investment is required.
+                    </div>
+                  }
+                  @if (adSpend?.errors?.['min']) {
+                    <div>
+                      Investment must be greater than 0.
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="text-center mb-3">
+            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
+          </div>
+
+          <div class="text-center col-md-6 mx-auto">
+            <label class="form-label fw-bolder">ROI %</label>
+            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+          </div>
+        </form>
+
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-    <div class="container default-content">
-        <div class="row align-items-center">
-            <!-- Left Image Column -->
-            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-                <img src="assets/page/calculators/influencer-marketing-roi/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-            </div>
+  <div class="container default-content">
+    <div class="row align-items-center">
+      <!-- Left Image Column -->
+      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+        <img src="assets/page/calculators/influencer-marketing-roi/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+      </div>
 
-            <!-- Right Text Column -->
-            <div class="col-md-7">
-                <h2 class="fw-bold text-danger mb-0">Influencer Marketing ROI</h2>
-                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
-                <p class="fs-5">
-                    Know the success ratio of your influencer marketing campaigns with our influencer marketing ROI calculator. Add campaign cost and returns to generate accurate ROI, helping you in making strategic marketing decisions. Influencer marketing is trending right now, and it is the best thing to choose if you want to give a boost to your brand.
-                </p>
-                <p class="fs-5">
-                    An influencer marketing ROI calculator is a tool designed to measure the effectiveness and profitability of influencer marketing campaigns. It helps businesses assess their return on investment (ROI) by comparing campaign costs against the revenue or value generated. The calculator factors in various expenses, including influencer fees, content creation costs, and other related expenditures, giving you a clear picture of overall campaign performance. By using this tool, businesses can make data-driven decisions and optimize their future influencer marketing strategies.  First of all, let us understand what the influencer marketing ROI calculator is.
-                </p>
-            </div>
-            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                What is the influencer marketing ROI calculator?
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>
-                An Influencer Marketing ROI Calculator is a tool that helps businesses measure the return on investment (ROI) of their influencer marketing campaigns. It calculates how profitable a campaign is by comparing the total costs, such as influencer fees, content creation expenses, and other related costs, against the revenue or value generated from the campaign.
-            </p>
-            <p>This calculator provides businesses with insights into the effectiveness of their influencer collaborations, helping them make data-driven decisions about future investments in influencer marketing. By analyzing the results, brands can optimize their strategies to maximize engagement and conversions and measure overall profitability.</p>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                How to Measure Influencer Marketing ROI
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>You can calculate influencer marketing ROI using the following formula:</p>
-            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-                ROI = Revenue - Investment / Investment * 100
-            </h2>
-            <p>For example, if you invest ₹80,000 in an influencer campaign and generate ₹4,00,000 in sales, your ROI would be:</p>
-            <p>4,00,000-80,000/80,000*100 = 400% </p>
-            <p>This calculation helps you understand whether the campaign was profitable and how much return you received for your investment.</p>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                Key Metrics for Following Influencer Marketing ROI
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p><strong>Cost Metrics</strong></p>
-            <ul class="p-0">
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Total Campaign Cost –</strong>
-                    Sum of influencer fees, content creation, platform fees, and other related expenses.
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Cost per Engagement (CPE) –</strong>
-                    Total cost divided by the number of engagements (likes, comments, shares, etc.).   
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Cost per Click (CPC) – </strong>
-                    Total cost divided by the number of clicks generated.
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Cost per Acquisition (CPA) – </strong>
-                    Total cost divided by the number of conversions or purchases.
-                  </span>
-                </li>
-            </ul>
-            <p><strong>Performance Metrics</strong></p>
-            <ul class="p-0">
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Engagement Rate –</strong>
-                    The percentage of an influencer’s audience that interacts with the content (likes, comments, shares).
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Reach & Impressions –</strong>
-                    The total number of people who have seen the campaign content.   
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Click-Through Rate (CTR) –</strong>
-                    Percentage of users who clicked on the campaign link compared to total impressions.
-                  </span>
-                </li>
-            </ul>
-            <p><strong>Revenue Metrics</strong></p>
-            <ul class="p-0">
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Sales/Conversions –</strong>
-                    The number of purchases or sign-ups driven by the campaign.
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Revenue Generated –</strong>
-                    Total sales amount directly linked to influencer content. 
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Return on Investment (ROI) –</strong>
-                    (Revenue – Cost) ÷ Cost × 100, to determine overall profitability.
-                  </span>
-                </li>
-            </ul>
-            <p><strong>Brand Awareness Metrics</strong></p>
-            <ul class="p-0">
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Follower Growth –</strong>
-                    Increase in brand’s social media followers due to the campaign.
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Brand Mentions & Hashtag Performance –</strong>
-                    Number of times the brand is mentioned across platforms.
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Sentiment Analysis –</strong>
-                    Measuring positive, neutral, or negative responses to the campaign.
-                  </span>
-                </li>
-            </ul>
-            <p><strong>Audience Metrics</strong></p>
-            <ul class="p-0">
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Demographics & Interests –</strong>
-                    Insights into the audience engaging with the content.
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Audience Retention –</strong>
-                    How many new followers or customers stay engaged after the campaign.
-                  </span>
-                </li>
-            </ul>
-        </div>
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                Challenges in measuring influencer marketing ROI
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>Measuring influencer marketing ROI is challenging because it’s not always about direct sales; building brand awareness and trust are harder to quantify. Tracking conversions is tricky since customers may see an influencer’s post but purchase through a different channel, making it difficult to link the sale directly to the influencer’s content. The lack of proper tracking tools like UTM codes or affiliate links further complicates measuring ROI. Additionally, engagement metrics such as likes and comments don’t always reflect the actual impact on brand awareness or customer loyalty, making it tough to measure long-term benefits accurately.</p>
-            <p>Another challenge is influencer authenticity and credibility. If an influencer’s audience isn’t genuinely engaged or if fake followers inflate their numbers, the campaign’s true impact may be misleading. Multi-platform campaigns also create complications, as performance varies across platforms like Instagram, YouTube, and TikTok, making it hard to consolidate data into a single ROI figure. Lastly, influencer marketing often builds long-term brand trust rather than immediate sales, requiring ongoing analysis to measure its true impact, something that isn’t always easy with limited resources.</p>
-        </div>
+      <!-- Right Text Column -->
+      <div class="col-md-7">
+        <h2 class="fw-bold text-danger mb-0">Influencer Marketing ROI</h2>
+        <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+        <p class="fs-5">
+          Know the success ratio of your influencer marketing campaigns with our influencer marketing ROI calculator. Add campaign cost and returns to generate accurate ROI, helping you in making strategic marketing decisions. Influencer marketing is trending right now, and it is the best thing to choose if you want to give a boost to your brand.
+        </p>
+        <p class="fs-5">
+          An influencer marketing ROI calculator is a tool designed to measure the effectiveness and profitability of influencer marketing campaigns. It helps businesses assess their return on investment (ROI) by comparing campaign costs against the revenue or value generated. The calculator factors in various expenses, including influencer fees, content creation costs, and other related expenditures, giving you a clear picture of overall campaign performance. By using this tool, businesses can make data-driven decisions and optimize their future influencer marketing strategies.  First of all, let us understand what the influencer marketing ROI calculator is.
+        </p>
+      </div>
+      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
     </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        What is the influencer marketing ROI calculator?
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>
+        An Influencer Marketing ROI Calculator is a tool that helps businesses measure the return on investment (ROI) of their influencer marketing campaigns. It calculates how profitable a campaign is by comparing the total costs, such as influencer fees, content creation expenses, and other related costs, against the revenue or value generated from the campaign.
+      </p>
+      <p>This calculator provides businesses with insights into the effectiveness of their influencer collaborations, helping them make data-driven decisions about future investments in influencer marketing. By analyzing the results, brands can optimize their strategies to maximize engagement and conversions and measure overall profitability.</p>
+    </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        How to Measure Influencer Marketing ROI
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>You can calculate influencer marketing ROI using the following formula:</p>
+      <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+        ROI = Revenue - Investment / Investment * 100
+      </h2>
+      <p>For example, if you invest ₹80,000 in an influencer campaign and generate ₹4,00,000 in sales, your ROI would be:</p>
+      <p>4,00,000-80,000/80,000*100 = 400% </p>
+      <p>This calculation helps you understand whether the campaign was profitable and how much return you received for your investment.</p>
+    </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        Key Metrics for Following Influencer Marketing ROI
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p><strong>Cost Metrics</strong></p>
+      <ul class="p-0">
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Total Campaign Cost –</strong>
+            Sum of influencer fees, content creation, platform fees, and other related expenses.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Cost per Engagement (CPE) –</strong>
+            Total cost divided by the number of engagements (likes, comments, shares, etc.).
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Cost per Click (CPC) – </strong>
+            Total cost divided by the number of clicks generated.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Cost per Acquisition (CPA) – </strong>
+            Total cost divided by the number of conversions or purchases.
+          </span>
+        </li>
+      </ul>
+      <p><strong>Performance Metrics</strong></p>
+      <ul class="p-0">
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Engagement Rate –</strong>
+            The percentage of an influencer’s audience that interacts with the content (likes, comments, shares).
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Reach & Impressions –</strong>
+            The total number of people who have seen the campaign content.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Click-Through Rate (CTR) –</strong>
+            Percentage of users who clicked on the campaign link compared to total impressions.
+          </span>
+        </li>
+      </ul>
+      <p><strong>Revenue Metrics</strong></p>
+      <ul class="p-0">
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Sales/Conversions –</strong>
+            The number of purchases or sign-ups driven by the campaign.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Revenue Generated –</strong>
+            Total sales amount directly linked to influencer content.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Return on Investment (ROI) –</strong>
+            (Revenue – Cost) ÷ Cost × 100, to determine overall profitability.
+          </span>
+        </li>
+      </ul>
+      <p><strong>Brand Awareness Metrics</strong></p>
+      <ul class="p-0">
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Follower Growth –</strong>
+            Increase in brand’s social media followers due to the campaign.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Brand Mentions & Hashtag Performance –</strong>
+            Number of times the brand is mentioned across platforms.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Sentiment Analysis –</strong>
+            Measuring positive, neutral, or negative responses to the campaign.
+          </span>
+        </li>
+      </ul>
+      <p><strong>Audience Metrics</strong></p>
+      <ul class="p-0">
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Demographics & Interests –</strong>
+            Insights into the audience engaging with the content.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Audience Retention –</strong>
+            How many new followers or customers stay engaged after the campaign.
+          </span>
+        </li>
+      </ul>
+    </div>
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        Challenges in measuring influencer marketing ROI
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>Measuring influencer marketing ROI is challenging because it’s not always about direct sales; building brand awareness and trust are harder to quantify. Tracking conversions is tricky since customers may see an influencer’s post but purchase through a different channel, making it difficult to link the sale directly to the influencer’s content. The lack of proper tracking tools like UTM codes or affiliate links further complicates measuring ROI. Additionally, engagement metrics such as likes and comments don’t always reflect the actual impact on brand awareness or customer loyalty, making it tough to measure long-term benefits accurately.</p>
+      <p>Another challenge is influencer authenticity and credibility. If an influencer’s audience isn’t genuinely engaged or if fake followers inflate their numbers, the campaign’s true impact may be misleading. Multi-platform campaigns also create complications, as performance varies across platforms like Instagram, YouTube, and TikTok, making it hard to consolidate data into a single ROI figure. Lastly, influencer marketing often builds long-term brand trust rather than immediate sales, requiring ongoing analysis to measure its true impact, something that isn’t always easy with limited resources.</p>
+    </div>
+  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="section-heading text-center mb-5">
-                    <h2>FAQs</h2>
-                    <span class="separator mb-2"></span>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="" itemscope itemtype="https://schema.org/FAQPage">
-                    <div class="accordion faq-accordion" id="faqAccordion" >
-                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                            <h6 class="accordion-header" id="heading{{i}}">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
-                                </button>
-                            </h6>
-                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                                itemtype="https://schema.org/Answer" >
-                                <div class="accordion-body default-content" itemprop="text">
-                                    <p [innerHTML]="item?.answer"></p>
-                                </div>
-                                <div class="text-center">
-                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-heading text-center mb-5">
+          <h2>FAQs</h2>
+          <span class="separator mb-2"></span>
         </div>
+      </div>
+      <div class="col-12">
+        <div class="" itemscope itemtype="https://schema.org/FAQPage">
+          <div class="accordion faq-accordion" id="faqAccordion" >
+            @for (item of faqList; track item; let i = $index) {
+              <div class="accordion-item" itemscope itemprop="mainEntity"
+                itemtype="https://schema.org/Question">
+                <h6 class="accordion-header" id="heading{{i}}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
+                  </button>
+                </h6>
+                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                  itemtype="https://schema.org/Answer" >
+                  <div class="accordion-body default-content" itemprop="text">
+                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
+                  </div>
+                  <div class="text-center">
+                    @if (item?.buttonname) {
+                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-    <div class="container">
-        <!-- Related Calculator -->
-        <div class="row g-md-4 g-3">
-            <h2 class="text-center">Related Calculator</h2>
-            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
-                <div class="media-list-card shadow">
-                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-                        <img [src]="card.image" loading="lazy" class="card-img-top"
-                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-                        <div class="card-body px-0">
-                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                          <p class="card-text line-clamp">{{ card.description }}</p>
-                        </div>
-                      </div>
-                </div>
+  <div class="container">
+    <!-- Related Calculator -->
+    <div class="row g-md-4 g-3">
+      <h2 class="text-center">Related Calculator</h2>
+      @for (card of cards; track card) {
+        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+          <div class="media-list-card shadow">
+            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+              <img [src]="card.image" loading="lazy" class="card-img-top"
+                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+              <div class="card-body px-0">
+                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                <p class="card-text line-clamp">{{ card.description }}</p>
+              </div>
             </div>
+          </div>
         </div>
-        <!-- Related Calculator -->
+      }
     </div>
+    <!-- Related Calculator -->
+  </div>
 </section>

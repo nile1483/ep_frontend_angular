@@ -1,12 +1,12 @@
-import { DOCUMENT } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID, DOCUMENT } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Meta, Title } from '@angular/platform-browser';
 import { Observable, of, Subject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { AppURL } from 'src/app/app-url';
-import { GoogleTagManagerService } from 'angular-google-tag-manager';
+import { GoogleTagManagerService } from './google-tag-manager.service';
 import { Router } from '@angular/router';
 import { LocalstorageService } from 'src/app/shared/services/localstorage.service';
 import { CookieService } from './cookie.service';
@@ -34,6 +34,7 @@ export class CommonService {
     private cookieService: CookieService,
     private router: Router,
     @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: object,
   ) {
   }
 
@@ -340,7 +341,7 @@ export class CommonService {
       content_id: this.router.url,
     };
 
-    this.gtmService.pushTag(gtmTag);
+    this.pushGtmTag(gtmTag);
   }
 
 
@@ -362,7 +363,7 @@ export class CommonService {
       custom_item_name: item
     };
 
-    this.gtmService.pushTag(gtmTag);
+    this.pushGtmTag(gtmTag);
 
   }
 
@@ -382,7 +383,7 @@ export class CommonService {
       custom_lead_no: identity
     };
 
-    this.gtmService.pushTag(gtmTag);
+    this.pushGtmTag(gtmTag);
 
   }
 
@@ -397,7 +398,7 @@ export class CommonService {
       custom_filter_data: filterData
     };
 
-    this.gtmService.pushTag(gtmTag);
+    this.pushGtmTag(gtmTag);
   }
 
   /**
@@ -417,7 +418,7 @@ export class CommonService {
       custom_search_suggestions_appear: suggestions,
     };
 
-    this.gtmService.pushTag(gtmTag);
+    this.pushGtmTag(gtmTag);
   }
 
   /**
@@ -435,7 +436,7 @@ export class CommonService {
       custom_search_suggestions_appear: suggestions,
     };
 
-    this.gtmService.pushTag(gtmTag);
+    this.pushGtmTag(gtmTag);
   }
 
   /**
@@ -445,6 +446,14 @@ export class CommonService {
 
   getGtmFilterString(filter: string, value: string) {
     return filter + ':' + value;
+  }
+
+  private pushGtmTag(tag: Record<string, unknown>): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    void this.gtmService.pushTag(tag).catch(() => undefined);
   }
 
 

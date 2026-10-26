@@ -1,224 +1,250 @@
 <!-- desktop filter button start -->
 <section class="media-filter list-background d-lg-block d-none">
-    <div class="container">
+  <div class="container">
 
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a aria-label="Link" href="{{webURL}}" itemprop="item">
-                        <span itemprop="name">
-                            <b> Home </b>
-                        </span>
-                    </a>
-                    <meta itemprop="position" content="1" />
-                </li>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a aria-label="Link" href="{{webURL}}" itemprop="item">
+            <span itemprop="name">
+              <b> Home </b>
+            </span>
+          </a>
+          <meta itemprop="position" content="1" />
+        </li>
 
-                <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name"> Monitoring Tools </span>
-                    <meta itemprop="position" content="2" />
-                </li>
-            </ol>
-        </nav>
+        <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name"> Monitoring Tools </span>
+          <meta itemprop="position" content="2" />
+        </li>
+      </ol>
+    </nav>
 
-        <div class="media-filter-title d-flex align-items-center justify-content-between mb-4 position-relative">
-            <h1> Monitoring Tools </h1>
+    <div class="media-filter-title d-flex align-items-center justify-content-between mb-4 position-relative">
+      <h1> Monitoring Tools </h1>
 
-            <div class="dropdown">
-                <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="pe-1 sort-label"> Sort By: </span>
-                    <span class="dropdown-label"> {{selectedSortBy.label}} </span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li *ngFor="let item of sortingList" [value]="item.value">
-                        <button class="dropdown-item" type="button" (click)="changeSortByValue(item)"> {{item?.label}}
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="media-filter-panel">
-            <div class="row accordion g-3" #concernedDiv id="mediaFiltersaccordion" (clickOutside)="handleClickOutside()">
-            </div>
-        </div>
-
-        <div class="filter-selected">
-            <p *ngIf="selectedFilterValues.length > 0" class="m-0"> <span class="me-3">Filter applied,</span>
-                <span class="badge m-1" *ngFor="let item of selectedFilterValues; let i=index">
-                    {{item.value}}
-                    <button type="button" class="btn-close" (click)="removeSelectedFilterValue(i, item)"></button>
-                </span>
-                <a aria-label="Link" href="javascript:void(0);" class="clear-btn" (click)="removeSelectedFilterValue()"> Clear</a>
-            </p>
-        </div>
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="pe-1 sort-label"> Sort By: </span>
+          <span class="dropdown-label"> {{selectedSortBy.label}} </span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          @for (item of sortingList; track item) {
+            <li [value]="item.value">
+              <button class="dropdown-item" type="button" (click)="changeSortByValue(item)"> {{item?.label}}
+              </button>
+            </li>
+          }
+        </ul>
+      </div>
     </div>
+
+    <div class="media-filter-panel">
+      <div class="row accordion g-3" #concernedDiv id="mediaFiltersaccordion" (clickOutside)="handleClickOutside()">
+      </div>
+    </div>
+
+    <div class="filter-selected">
+      @if (selectedFilterValues.length > 0) {
+        <p class="m-0"> <span class="me-3">Filter applied,</span>
+        @for (item of selectedFilterValues; track item; let i = $index) {
+          <span class="badge m-1">
+            {{item.value}}
+            <button type="button" class="btn-close" (click)="removeSelectedFilterValue(i, item)"></button>
+          </span>
+        }
+        <a aria-label="Link" href="javascript:void(0);" class="clear-btn" (click)="removeSelectedFilterValue()"> Clear</a>
+      </p>
+    }
+  </div>
+</div>
 
 </section>
 <!-- desktop filter button end -->
 
 <!-- mobile Sort & filter  button start -->
 <div class="media-filter-mobile d-lg-none d-flex align-items-cente">
-    <div class="media-sorting-button flex-fill" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort">
-        Sort
-        <span [innerHTML]="app_svg_icon_list?.['arrow-down-wide-short'] | safeHtml"></span>
-    </div>
-    <!-- <div class="media-sorting-button flex-fill" (click)="setTempApplyedValue()" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter">
-        <span [innerHTML]="app_svg_icon_list?.['filter'] | safeHtml"></span> Filters
-    </div> -->
+  <div class="media-sorting-button flex-fill" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort">
+    Sort
+    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-down-wide-short']) | safeHtml"></span>
+  </div>
+  <!-- <div class="media-sorting-button flex-fill" (click)="setTempApplyedValue()" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter">
+  <span [innerHTML]="app_svg_icon_list?.['filter'] | safeHtml"></span> Filters
+</div> -->
 </div>
 <!-- mobile Sort & filter  button start -->
 
 <!-- media-list start -->
 <section class="media-list">
-    <div class="container">
+  <div class="container">
 
-        <!-- If Data not found START-->
-        <ng-template #noDataFound>
-            <div class="row text-center">
-                <div class="col">
-                    <app-no-results *ngIf="(isDataLoaded == true && dataList.length == 0)"></app-no-results>
-                    <app-loader *ngIf="!isDataLoaded" ></app-loader>
-                </div>
-            </div>
-        </ng-template>
-        <!-- If Data not found END-->
+    <!-- If Data not found START-->
+    <!-- If Data not found END-->
 
-        <!-- media-list-item found START-->
-        <div class="row g-md-4 g-3" *ngIf="(isDataLoaded == true && dataList.length > 0); else noDataFound">
-            <div class="col-12 mt-lg-4 mt-0">
-                <span class="show-result">Showing {{dataList.length}} results</span>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4 col-xl-3" *ngFor="let item of dataList; let i=index">
-                <div class="media-list-card">
-                    <a aria-label="Link" [routerLink]="['/',media,item.slug]" class="media-list-card-img">
-                        <img loading="lazy" src="{{item?.image}}" data-item-link-type="Item thumbnail" [attr.data-item-order]="i+1"  class="product-image view-item-image" title="{{item?.name}}" alt="{{item?.name}}">
-                    </a>
-                    <div class="media media-list-card-body">
-                        <p class="media-list-card-title">
-                            <a aria-label="Link" [routerLink]="['/',media,item.slug]" data-item-link-type="Item name" [attr.data-item-order]="i+1" class="view-item-name">
-                                {{item?.name}}
-                            </a>
-                        </p>
-                        <div class="media-button">
-                            <a aria-label="Button" type="button" data-item-link-type="View More" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" [routerLink]="['/',media,item.slug]" class="btn btn-outline-primary w-100 view-item-button"> View More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- media-list-item found START-->
+    @if ((isDataLoaded == true && dataList.length > 0)) {
+      <div class="row g-md-4 g-3">
+        <div class="col-12 mt-lg-4 mt-0">
+          <span class="show-result">Showing {{dataList.length}} results</span>
         </div>
-        <!-- media-list-item found END-->
-
-        <!-- View More START-->
-        <div class="row mt-5" *ngIf="isShowViewMore">
-            <div class="col-12 text-center" *ngIf="(isLoadingMore != true); else loadingMoreData">
-                <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreItems()" class="more-link more-link-with-text orange-link">
-                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
-                        <!-- <i class="fa-light fa-arrow-right-long"></i> -->
-                    </span>
-                </a>
-            </div>
-            <ng-template #loadingMoreData>
-                <div class="col-12 text-center">
-                    <app-loader></app-loader>
+        @for (item of dataList; track item; let i = $index) {
+          <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+            <div class="media-list-card">
+              <a aria-label="Link" [routerLink]="['/',media,item.slug]" class="media-list-card-img">
+                <img loading="lazy" src="{{item?.image}}" data-item-link-type="Item thumbnail" [attr.data-item-order]="i+1"  class="product-image view-item-image" title="{{item?.name}}" alt="{{item?.name}}">
+              </a>
+              <div class="media media-list-card-body">
+                <p class="media-list-card-title">
+                  <a aria-label="Link" [routerLink]="['/',media,item.slug]" data-item-link-type="Item name" [attr.data-item-order]="i+1" class="view-item-name">
+                    {{item?.name}}
+                  </a>
+                </p>
+                <div class="media-button">
+                  <a aria-label="Button" type="button" data-item-link-type="View More" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" [routerLink]="['/',media,item.slug]" class="btn btn-outline-primary w-100 view-item-button"> View More</a>
                 </div>
-            </ng-template>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="row text-center">
+        <div class="col">
+          @if ((isDataLoaded == true && dataList.length == 0)) {
+            <app-no-results></app-no-results>
+          }
+          @if (!isDataLoaded) {
+            <app-loader ></app-loader>
+          }
         </div>
-        <!-- View More end-->
+      </div>
+    }
+    <!-- media-list-item found END-->
 
+    <!-- View More START-->
+    @if (isShowViewMore) {
+      <div class="row mt-5">
+        @if ((isLoadingMore != true)) {
+          <div class="col-12 text-center">
+            <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreItems()" class="more-link more-link-with-text orange-link">
+              <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
+              <!-- <i class="fa-light fa-arrow-right-long"></i> -->
+            </span>
+          </a>
+        </div>
+      } @else {
+        <div class="col-12 text-center">
+          <app-loader></app-loader>
+        </div>
+      }
     </div>
+  }
+  <!-- View More end-->
+
+</div>
 
 </section>
 
 <!-- media-list end -->
 
 <!-- content builder start -->
-<app-content-builder [contentDetail]="pageDescription" *ngIf="pageDescription"></app-content-builder>
+@if (pageDescription) {
+  <app-content-builder [contentDetail]="pageDescription"></app-content-builder>
+}
 <!-- content builder end -->
 
 <!-- Mobile filter start-->
 <div class="offcanvas offcanvas-bottom category-mobile-filter-offcanvas offcanvas-mobile-filter" tabindex="-1" id="CategoryMobileFilter" aria-labelledby="CategoryMobileFilterLabel">
-    <div class="offcanvas-header">
-        <p class="offcanvas-title mb-0" id="CategoryMobileFilterLabel">Filters</p>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body p-0">
-        <!-- Nav tabs -->
-        <div class="mobile-filter-selected">
-            <p *ngIf="selectedFilterValues.length > 0" class="m-0"> <span class="ms-2 me-3"> Filter applied,</span>
-                <span class="badge m-1" *ngFor="let item of selectedFilterValues; let i=index">
-                    {{item.value}}
-                    <button type="button" class="btn-close" data-bs-toggle="offcanvas"
-                        data-bs-target="#CategoryMobileFilter" (click)="removeSelectedFilterValue(i, item)"></button>
-                </span>
-                <a aria-label="Link" href="javascript:void(0);" class="clear-btn" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" (click)="removeSelectedFilterValue()"> Clear </a>
-            </p>
-        </div>
-        <div class="mobile-filter-row d-flex h-100">
-            <!-- <ul class="nav nav-tabs d-block mobile-filter-tabs" id="CategoryMobileFilterTab" role="tablist">
-                <li class="nav-item" role="presentation" *ngIf="filterList?.category">
-                    <button class="tab-nav-link" id="filterTab-2" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false"> 
-                        {{filterList?.category?.name}} 
-                        <span class="badge" *ngIf="params?.filters?.category.length > 0">
-                            {{params.filters.category.length}}</span>
-                        </button>
-                </li>
-            </ul> -->
+  <div class="offcanvas-header">
+    <p class="offcanvas-title mb-0" id="CategoryMobileFilterLabel">Filters</p>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <!-- Nav tabs -->
+    <div class="mobile-filter-selected">
+      @if (selectedFilterValues.length > 0) {
+        <p class="m-0"> <span class="ms-2 me-3"> Filter applied,</span>
+        @for (item of selectedFilterValues; track item; let i = $index) {
+          <span class="badge m-1">
+            {{item.value}}
+            <button type="button" class="btn-close" data-bs-toggle="offcanvas"
+            data-bs-target="#CategoryMobileFilter" (click)="removeSelectedFilterValue(i, item)"></button>
+          </span>
+        }
+        <a aria-label="Link" href="javascript:void(0);" class="clear-btn" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" (click)="removeSelectedFilterValue()"> Clear </a>
+      </p>
+    }
+  </div>
+  <div class="mobile-filter-row d-flex h-100">
+    <!-- <ul class="nav nav-tabs d-block mobile-filter-tabs" id="CategoryMobileFilterTab" role="tablist">
+    <li class="nav-item" role="presentation" *ngIf="filterList?.category">
+      <button class="tab-nav-link" id="filterTab-2" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">
+        {{filterList?.category?.name}}
+        <span class="badge" *ngIf="params?.filters?.category.length > 0">
+        {{params.filters.category.length}}</span>
+      </button>
+    </li>
+  </ul> -->
 
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <!--  mobile  category start -->
-                <!-- <div class="tab-pane fade " id="tab2" role="tabpanel" aria-labelledby="filterTab-2">
-                    <div class="tab-pane-body">
-                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchCategory">
-                        <ul class="list-unstyled mt-3 filter-data ps-1">
-                            <li *ngFor="let value of filterList?.category?.values | filter:{name : searchCategory}">
-                                <div class="form-check">
-                                    <input class="form-check-input small-check" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="mf-category-{{value?.id}}" (change)="mobileFilterValueChange($event,'category', value.name)">
-                                    <label class="form-check-label m-filter-label" for="mf-category-{{value?.id}}">
-                                        {{value?.name}}
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
-                <!--  mobile  category end -->
-            </div>
-        </div>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!--  mobile  category start -->
+    <!-- <div class="tab-pane fade " id="tab2" role="tabpanel" aria-labelledby="filterTab-2">
+    <div class="tab-pane-body">
+      <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchCategory">
+      <ul class="list-unstyled mt-3 filter-data ps-1">
+        <li *ngFor="let value of filterList?.category?.values | filter:{name : searchCategory}">
+          <div class="form-check">
+            <input class="form-check-input small-check" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="mf-category-{{value?.id}}" (change)="mobileFilterValueChange($event,'category', value.name)">
+            <label class="form-check-label m-filter-label" for="mf-category-{{value?.id}}">
+              {{value?.name}}
+            </label>
+          </div>
+        </li>
+      </ul>
     </div>
-    <div class="offcanvas-footer d-flex align-items-cente justify-content-end">
-        <button class="btn btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter" (click)="applyMobileFilter(false)"> Cancel </button>
-        <button class="btn btn btn-primary ms-2" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter" (click)="applyMobileFilter(true)"> Apply</button>
-    </div>
+  </div> -->
+  <!--  mobile  category end -->
+</div>
+</div>
+</div>
+<div class="offcanvas-footer d-flex align-items-cente justify-content-end">
+  <button class="btn btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter" (click)="applyMobileFilter(false)"> Cancel </button>
+  <button class="btn btn btn-primary ms-2" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter" (click)="applyMobileFilter(true)"> Apply</button>
+</div>
 </div>
 <!-- Mobile filter end-->
 
 <!-- Mobile Sort start-->
 <div class="offcanvas offcanvas-bottom category-mobile-sort-offcanvas offcanvas-mobile-filter" tabindex="-1" id="CategoryMobileSort" aria-labelledby="CategoryMobileSortLabel">
-    <div class="offcanvas-header">
-        <p class="offcanvas-title mb-0" id="CategoryMobileSort">Sort</p>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <ul class="list-unstyled m-0">
-            <li *ngFor="let item of sortingList; let i=index">
-                <div class="form-check">
-                    <input class="form-check-input small-check" type="radio" name="sortfilter" id="sort{{i}}" (click)="changeSortByValue(item)" [checked]="item?.isDefault">
-                    <label class="form-check-label ps-2" for="sort{{i}}">
-                        {{item?.label}}
-                    </label>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="offcanvas-footer d-flex align-items-cente justify-content-end">
-        <button class="btn btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort"> Cancel</button>
-        <button class="btn btn btn-primary ms-2" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort"> Apply</button>
-    </div>
+  <div class="offcanvas-header">
+    <p class="offcanvas-title mb-0" id="CategoryMobileSort">Sort</p>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-unstyled m-0">
+      @for (item of sortingList; track item; let i = $index) {
+        <li>
+          <div class="form-check">
+            <input class="form-check-input small-check" type="radio" name="sortfilter" id="sort{{i}}" (click)="changeSortByValue(item)" [checked]="$safeNavigationMigration(item?.isDefault)">
+            <label class="form-check-label ps-2" for="sort{{i}}">
+              {{item?.label}}
+            </label>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+  <div class="offcanvas-footer d-flex align-items-cente justify-content-end">
+    <button class="btn btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort"> Cancel</button>
+    <button class="btn btn btn-primary ms-2" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort"> Apply</button>
+  </div>
 </div>
 <!-- Mobile Sort end-->
 
 
 <!-- call to action media start -->
-<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title"></app-call-to-action-media>
+@if (callToActionData?.title) {
+  <app-call-to-action-media [mediaCallToActionData]="callToActionData"></app-call-to-action-media>
+}
 <!-- call to action media end -->

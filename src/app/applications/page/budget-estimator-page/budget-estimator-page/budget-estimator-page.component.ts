@@ -1,5 +1,5 @@
 
-import { Component, AfterViewInit, Inject, ElementRef, ViewChild, inject } from '@angular/core';
+import { Component, AfterViewInit, Inject, ElementRef, ViewChild, inject, ChangeDetectionStrategy } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { C2A_TITLE_DATA, META_DATA } from '@app-shared-constants';
 import { PLATFORM_ID } from '@angular/core';
@@ -24,9 +24,11 @@ import { LocationParm } from '@app-media-models';
 declare var Chart: any;
 
 @Component({
-  selector: 'app-budget-estimator-page',
-  templateUrl: './budget-estimator-page.component.html',
-  styleUrls: ['./budget-estimator-page.component.css']
+    selector: 'app-budget-estimator-page',
+    templateUrl: './budget-estimator-page.component.html',
+    styleUrls: ['./budget-estimator-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class BudgetEstimatorPageComponent implements AfterViewInit {
 

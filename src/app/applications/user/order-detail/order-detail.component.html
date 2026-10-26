@@ -1,275 +1,321 @@
 <section class="common-padding bg-linear-gradient terms-condition-page-header w-850">
-    <div class="container">
-        <div class="section-heading text-center mb-0">
-            <h2>Order Details</h2>
+  <div class="container">
+    <div class="section-heading text-center mb-0">
+      <h2>Order Details</h2>
 
-            <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a aria-label="Home Page Link" [routerLink]="['/']"> <b> Home</b></a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a aria-label="Order Details Link" [routerLink]="['/user','order']"> <b> Orders </b></a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page"> Order Details </li>
-                </ol>
-            </nav>
-        </div>
+      <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a aria-label="Home Page Link" [routerLink]="['/']"> <b> Home</b></a>
+          </li>
+          <li class="breadcrumb-item">
+            <a aria-label="Order Details Link" [routerLink]="['/user','order']"> <b> Orders </b></a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page"> Order Details </li>
+        </ol>
+      </nav>
     </div>
+  </div>
 </section>
 
-<section class="py-5" *ngIf="!isAuthenticated">
+@if (!isAuthenticated) {
+  <section class="py-5">
     <div class="container">
+      <div class="row">
+        <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
+          <p class="h4 m-5"> Login to see your Order Details. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+@if (orderData?.items?.length == 0 && isAuthenticated) {
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
+          <p class="h4 m-5"> You have no Order Details. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+
+@if (orderData?.items?.length > 0 && isAuthenticated) {
+  <section class="py-5">
+    <div class="container">
+      <div class="cart-card p-4">
         <div class="row">
-            <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
-                <p class="h4 m-5"> Login to see your Order Details. </p>
-            </div>
+          <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <h6> Order Details </h6>
+            <p class="mb-1"><strong> Order Placed on {{$safeNavigationMigration(orderData?.order_date) | date:'medium'}} </strong></p>
+            <table class="w-auto">
+              <tr>
+                <td>Order Number</td>
+                <td>:</td>
+                <th>{{orderData?.order_no}}</th>
+              </tr>
+              <tr>
+                <td>Campaign Name</td>
+                <td>:</td>
+                <th>{{orderData?.campaign_name}}</th>
+              </tr>
+              <tr>
+                <td>Order Status</td>
+                <td>:</td>
+                <th>{{orderData?.order_status}}</th>
+              </tr>
+            </table>
+          </div>
+          <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <h6> Billing Address </h6>
+            @if (orderData?.billing?.address?.company_name) {
+              <p class="mb-1"><strong>
+              {{orderData?.billing?.address?.company_name}} </strong></p>
+            }
+            <p class="mb-1"><strong> {{orderData?.billing?.address?.fullname}} </strong></p>
+            <p class="mb-1"> {{orderData?.billing?.address?.address}}, {{orderData?.billing?.address?.city}},
+            {{orderData?.billing?.address?.state}} - {{orderData?.billing?.address?.zipcode}} </p>
+            <p class="mb-1">Phone: {{orderData?.billing?.address?.contact}}</p>
+            <p>Email: {{orderData?.billing?.address?.email}}</p>
+          </div>
         </div>
-    </div>
-</section>
-<section class="py-5" *ngIf="orderData?.items?.length == 0 && isAuthenticated">
-    <div class="container">
+      </div>
+      <div class="cart-card p-4">
         <div class="row">
-            <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
-                <p class="h4 m-5"> You have no Order Details. </p>
+          <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <h6> Payment Method </h6>
+            <p> {{orderData?.payment_method?.name}} </p>
+          </div>
+          <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <h6> Order Summary </h6>
+            <table class="w-auto">
+              <tr>
+                <td>Item(s) Subtotal</td>
+                <td>: </td>
+                <td> ₹ {{$safeNavigationMigration(orderData?.order_total) | number : '1.2-2'}} </td>
+              </tr>
+              <tr>
+                <td>Order Tax</td>
+                <td>: </td>
+                <td> ₹ {{$safeNavigationMigration(orderData?.order_tax) | number : '1.2-2'}} </td>
+              </tr>
+              @if (orderData?.discount) {
+                <tr>
+                  <td>Discount <br>
+                    <strong>(Code: {{orderData?.ap?.code}})</strong> </td>
+                    <td>: </td>
+                    <td> ₹ {{$safeNavigationMigration(orderData?.discount) | number : '1.2-2'}} </td>
+                  </tr>
+                }
+                <tr>
+                  <th>Grand Total</th>
+                  <td>: </td>
+                  <th> ₹ {{$safeNavigationMigration(orderData?.order_grand_total) | number : '1.2-2'}} </th>
+                </tr>
+              </table>
             </div>
+          </div>
         </div>
-    </div>
-</section>
-
-
-<section class="py-5" *ngIf="orderData?.items?.length > 0 && isAuthenticated">
-    <div class="container">
-        <div class="cart-card p-4">
-            <div class="row">
-                <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <h6> Order Details </h6>
-                    <p class="mb-1"><strong> Order Placed on {{orderData?.order_date | date:'medium'}} </strong></p>
-
-                    <table class="w-auto">
-                        <tr>
-                            <td>Order Number</td>
-                            <td>:</td>
-                            <th>{{orderData?.order_no}}</th>
-                        </tr>
-                        <tr>
-                            <td>Campaign Name</td>
-                            <td>:</td>
-                            <th>{{orderData?.campaign_name}}</th>
-                        </tr>
-                        <tr>
-                            <td>Order Status</td>
-                            <td>:</td>
-                            <th>{{orderData?.order_status}}</th>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <h6> Billing Address </h6>
-                    <p *ngIf="orderData?.billing?.address?.company_name" class="mb-1"><strong>
-                            {{orderData?.billing?.address?.company_name}} </strong></p>
-                    <p class="mb-1"><strong> {{orderData?.billing?.address?.fullname}} </strong></p>
-                    <p class="mb-1"> {{orderData?.billing?.address?.address}}, {{orderData?.billing?.address?.city}},
-                        {{orderData?.billing?.address?.state}} - {{orderData?.billing?.address?.zipcode}} </p>
-                    <p class="mb-1">Phone: {{orderData?.billing?.address?.contact}}</p>
-                    <p>Email: {{orderData?.billing?.address?.email}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="cart-card p-4">
-            <div class="row">
-                <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <h6> Payment Method </h6>
-                    <p> {{orderData?.payment_method?.name}} </p>
-                </div>
-
-                <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <h6> Order Summary </h6>
-                    <table class="w-auto">
-                        <tr>
-                            <td>Item(s) Subtotal</td>
-                            <td>: </td>
-                            <td> ₹ {{orderData?.order_total | number : '1.2-2'}} </td>
-                        </tr>
-                        <tr>
-                            <td>Order Tax</td>
-                            <td>: </td>
-                            <td> ₹ {{orderData?.order_tax | number : '1.2-2'}} </td>
-                        </tr>
-                        <tr *ngIf="orderData?.discount">
-                            <td>Discount <br>
-                                <strong>(Code: {{orderData?.ap?.code}})</strong> </td>
-                            <td>: </td>
-                            <td> ₹ {{orderData?.discount | number : '1.2-2'}} </td>
-                        </tr>
-                        <tr>
-                            <th>Grand Total</th>
-                            <td>: </td>
-                            <th> ₹ {{orderData?.order_grand_total | number : '1.2-2'}} </th>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
         <div class="row p-4">
-            <div class="col-12">
-                <h4> Order Items</h4>
-            </div>
+          <div class="col-12">
+            <h4> Order Items</h4>
+          </div>
         </div>
-        <div class="cart-card p-4" *ngFor="let item of orderData?.items; let i=index">
+        @for (item of orderData?.items; track item; let i = $index) {
+          <div class="cart-card p-4">
             <div class="row">
-                <div class="col-12">
-                    <h6 class="mb-0">{{item?.name}} ({{item?.price_details?.selectedPrice?.name}})</h6>
-                </div>
+              <div class="col-12">
+                <h6 class="mb-0">{{item?.name}} ({{item?.price_details?.selectedPrice?.name}})</h6>
+              </div>
             </div>
             <hr class="w-100">
             <div class="row justify-content-start p-0">
+              <div class="col-12 col-md-3">
+                <div class="cart-img-box">
+                  <img loading="lazy" src="{{item?.image_url}}" class="cart-image" alt="{{item?.name}}">
+                </div>
+              </div>
+              @if (item?.applied_variant.length > 0) {
                 <div class="col-12 col-md-3">
-                    <div class="cart-img-box">
-                        <img loading="lazy" src="{{item?.image_url}}" class="cart-image" alt="{{item?.name}}">
+                  @for (variant of item?.applied_variant; track variant) {
+                    <div class="w-100">
+                      <b>{{variant?.attribute}}</b> : {{variant?.value}}
                     </div>
+                  }
                 </div>
-                <div class="col-12 col-md-3" *ngIf="item?.applied_variant.length > 0">
-                    <div class="w-100" *ngFor="let variant of item?.applied_variant">
-                        <b>{{variant?.attribute}}</b> : {{variant?.value}}
+              }
+              @if (item?.applied_priceunit.length > 0) {
+                <div class="col-12 col-md-3">
+                  @for (priceUnit of item?.applied_priceunit; track priceUnit) {
+                    <div class="w-100">
+                      <b>{{priceUnit?.name}}</b> : {{priceUnit?.value}}
                     </div>
+                  }
                 </div>
-                <div class="col-12 col-md-3" *ngIf="item?.applied_priceunit.length > 0">
-                    <div class="w-100" *ngFor="let priceUnit of item?.applied_priceunit">
-                        <b>{{priceUnit?.name}}</b> : {{priceUnit?.value}}
-                    </div>
+              }
+              <!-- classified_text_ads -->
+              @if (item?.media == 'newspaper' && item?.ad_type == 'classified_text_ads' ) {
+                <div class="col-12 col-md-3">
+                  <div class="w-100">
+                    <b>Ad Type</b> : Classified Text Ads
+                  </div>
+                  <div class="w-100">
+                    <b>Offer Information</b> : {{ item?.newspaper?.applied_offer?.info}}
+                  </div>
+                  <div class="w-100">
+                    <b>Language</b> : {{ item?.newspaper?.applied_offer?.language?.name}}
+                  </div>
+                  <div class="w-100">
+                    <b>Release Date</b> : @for (releaseInfo of item?.newspaper?.release_info; track releaseInfo) {
+                    <span> {{releaseInfo | date:'d/MM/y' }},</span>
+                  }
                 </div>
-
-                <!-- classified_text_ads -->
-                <div class="col-12 col-md-3" *ngIf="item?.media == 'newspaper' && item?.ad_type == 'classified_text_ads' ">
-                    <div class="w-100">
-                        <b>Ad Type</b> : Classified Text Ads
-                    </div>
-                    <div class="w-100">
-                        <b>Offer Information</b> : {{ item?.newspaper?.applied_offer?.info}}
-                    </div>
-                    <div class="w-100">
-                        <b>Language</b> : {{ item?.newspaper?.applied_offer?.language?.name}}
-                    </div>
-                    <div class="w-100">
-                        <b>Release Date</b> : <span *ngFor="let releaseInfo of item?.newspaper?.release_info"> {{releaseInfo | date:'d/MM/y' }},</span>
-                    </div>
-                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.ad_value">
-                        <b>Add Creative</b> : {{item?.newspaper?.applied_offer?.ad_value}}
-                    </div>
+                @if (item?.newspaper?.applied_offer?.ad_value) {
+                  <div class="w-100">
+                    <b>Add Creative</b> : {{item?.newspaper?.applied_offer?.ad_value}}
+                  </div>
+                }
+              </div>
+            }
+            @if (item?.media == 'newspaper' && item?.ad_type == 'classified_text_ads' ) {
+              <div class="col-12 col-md-3">
+                @if (item?.newspaper?.applied_offer?.background_color) {
+                  <div class="w-100">
+                    <b>Background Color</b> : {{ item?.newspaper?.applied_offer?.background_color?.value?.color_name}}
+                  </div>
+                }
+                @if (item?.newspaper?.applied_offer?.border_color) {
+                  <div class="w-100">
+                    <b>Border Color</b> : {{ item?.newspaper?.applied_offer?.border_color?.value?.color_name}}
+                  </div>
+                }
+                @if (item?.newspaper?.applied_offer?.ad_addon) {
+                  <div class="w-100">
+                    <b>Ad Addon</b><br>
+                    @for (adaddon of item?.newspaper?.applied_offer?.ad_addon?.value; track adaddon) {
+                      <span>
+                        <strong>Label</strong> {{adaddon.label}} <br>
+                        <strong>Description</strong> {{adaddon.description}} <br>
+                      </span>
+                    }
+                  </div>
+                }
+              </div>
+            }
+            <!-- classified_display_ads -->
+            @if (item?.media == 'newspaper' && item?.ad_type == 'classified_display_ads' ) {
+              <div class="col-12 col-md-5">
+                <div class="w-100">
+                  <b>Ad Type</b> : Classified Display Ads
                 </div>
-                <div class="col-12 col-md-3" *ngIf="item?.media == 'newspaper' && item?.ad_type == 'classified_text_ads' ">
-                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.background_color">
-                        <b>Background Color</b> : {{ item?.newspaper?.applied_offer?.background_color?.value?.color_name}}
-                    </div>
-                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.border_color">
-                        <b>Border Color</b> : {{ item?.newspaper?.applied_offer?.border_color?.value?.color_name}}
-                    </div>
-                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.ad_addon">
-                        <b>Ad Addon</b><br> 
-                        <span *ngFor="let adaddon of item?.newspaper?.applied_offer?.ad_addon?.value">
-                            <strong>Label</strong> {{adaddon.label}} <br>
-                            <strong>Description</strong> {{adaddon.description}} <br>
-                        </span>
-                    </div>
+                <div class="w-100">
+                  <b>Release Date</b> : @for (releaseInfo of item?.newspaper?.release_info; track releaseInfo) {
+                  <span> {{releaseInfo | date:'d/MM/y' }},</span>
+                }
+              </div>
+              <div class="w-100">
+                <b>Variant</b> : {{item?.newspaper?.applied_offer?.variant?.position }} - {{item?.newspaper?.applied_offer?.variant?.format }}
+              </div>
+              <div class="w-100">
+                <b>Size</b> :  Width : {{item?.newspaper?.applied_offer?.size?.width }}, Height : {{item?.newspaper?.applied_offer?.size?.height }}
+              </div>
+              <div class="w-100">
+                <b>Variant Rate</b> : {{item?.newspaper?.applied_offer?.variant_rate }}
+              </div>
+              @if (item?.newspaper?.applied_offer?.specify_creative_mode == 'use_my_creative') {
+                <div class="w-100">
+                  <b>Add Creative</b> :
+                  @if (item?.newspaper?.applied_offer?.file) {
+                    <span>
+                      <a aria-label="link" target="_blank" href="{{item?.newspaper?.applied_offer?.file}}">View</a>
+                    </span>
+                  }
+                  @if (!item?.newspaper?.applied_offer?.file) {
+                    <span> Not Uploaded</span>
+                  }
                 </div>
-
-                <!-- classified_display_ads -->
-                <div class="col-12 col-md-5" *ngIf="item?.media == 'newspaper' && item?.ad_type == 'classified_display_ads' ">
-                    <div class="w-100">
-                        <b>Ad Type</b> : Classified Display Ads
-                    </div>
-                    <div class="w-100">
-                        <b>Release Date</b> : <span *ngFor="let releaseInfo of item?.newspaper?.release_info"> {{releaseInfo | date:'d/MM/y' }},</span>
-                    </div>
-                    <div class="w-100">
-                        <b>Variant</b> : {{item?.newspaper?.applied_offer?.variant?.position }} - {{item?.newspaper?.applied_offer?.variant?.format }}
-                    </div>
-                    <div class="w-100">
-                        <b>Size</b> :  Width : {{item?.newspaper?.applied_offer?.size?.width }}, Height : {{item?.newspaper?.applied_offer?.size?.height }}
-                    </div>
-                    <div class="w-100">
-                        <b>Variant Rate</b> : {{item?.newspaper?.applied_offer?.variant_rate }}
-                    </div>
-                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.specify_creative_mode == 'use_my_creative'">
-                        <b>Add Creative</b> :
-                        <span *ngIf="item?.newspaper?.applied_offer?.file">
-                            <a aria-label="link" target="_blank" href="{{item?.newspaper?.applied_offer?.file}}">View</a>
-                        </span>
-                        <span *ngIf="!item?.newspaper?.applied_offer?.file"> Not Uploaded</span>
-                    </div>
-                </div>
-
-                <!-- display_ads -->
-                <div class="col-12 col-md-5" *ngIf="item?.media == 'newspaper' && item?.ad_type == 'display_ads' ">
-                    <div class="w-100">
-                        <b>Ad Type</b> : Display Ads
-                    </div>
-                    <div class="w-100">
-                        <b>Variant</b> : {{item?.newspaper?.applied_offer?.variant?.position }} - {{item?.newspaper?.applied_offer?.variant?.format }}
-                    </div>
-                    <div class="w-100">
-                        <b>Size</b> :  Width : {{item?.newspaper?.applied_offer?.size?.width }}, Height : {{item?.newspaper?.applied_offer?.size?.height }}
-                    </div>
-                    <div class="w-100">
-                        <b>Variant Rate</b> : {{item?.newspaper?.applied_offer?.variant_rate }}
-                    </div>
-                    <div class="w-100">
-                        <b>Add Creative</b> :
-                        <span *ngIf="item?.newspaper?.applied_offer?.file">
-                            <a aria-label="link" target="_blank" href="{{item?.newspaper?.applied_offer?.file}}">View</a>
-                        </span>
-                        <span *ngIf="!item?.newspaper?.applied_offer?.file"> Not Uploaded</span>
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-md-3 ms-md-auto">
-                    <div class="w-100">
-                        <table>
-                            <tr>
-                                <td>Rate</td>
-                                <td>: </td>
-                                <td> ₹ {{item?.price | number : '1.2-2'}} </td>
-                            </tr>
-                            <tr>
-                                <td>Quantity</td>
-                                <td>: </td>
-                                <td> {{item?.quantity}} </td>
-                            </tr>
-                            <tr>
-                                <td>Sub Total</td>
-                                <td>: </td>
-                                <td> ₹ {{item?.extended_price | number : '1.2-2'}} </td>
-                            </tr>
-
-                            <tr *ngFor="let option of item?.applied_options">
-                                <td> {{option?.name}} ( {{option?.value}}) </td>
-                                <td>: </td>
-                                <td> ₹ {{option?.price | number : '1.2-2'}} </td>
-                            </tr>
-                            <tr *ngIf="item?.applied_options?.length > 0">
-                                <td>Total</td>
-                                <td>: </td>
-                                <td> ₹ {{item?.total | number : '1.2-2'}} </td>
-                            </tr>
-                            <tr>
-                                <td>GST ({{item?.gst}}%)</td>
-                                <td>: </td>
-                                <td> ₹ {{item?.tax_amount | number : '1.2-2'}} </td>
-                            </tr>
-                            <tr class="border-top">
-                                <td><strong>Item Total</strong></td>
-                                <td>: </td>
-                                <td> <strong> ₹ {{item?.line_total | number : '1.2-2'}} </strong>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+              }
             </div>
+          }
+          <!-- display_ads -->
+          @if (item?.media == 'newspaper' && item?.ad_type == 'display_ads' ) {
+            <div class="col-12 col-md-5">
+              <div class="w-100">
+                <b>Ad Type</b> : Display Ads
+              </div>
+              <div class="w-100">
+                <b>Variant</b> : {{item?.newspaper?.applied_offer?.variant?.position }} - {{item?.newspaper?.applied_offer?.variant?.format }}
+              </div>
+              <div class="w-100">
+                <b>Size</b> :  Width : {{item?.newspaper?.applied_offer?.size?.width }}, Height : {{item?.newspaper?.applied_offer?.size?.height }}
+              </div>
+              <div class="w-100">
+                <b>Variant Rate</b> : {{item?.newspaper?.applied_offer?.variant_rate }}
+              </div>
+              <div class="w-100">
+                <b>Add Creative</b> :
+                @if (item?.newspaper?.applied_offer?.file) {
+                  <span>
+                    <a aria-label="link" target="_blank" href="{{item?.newspaper?.applied_offer?.file}}">View</a>
+                  </span>
+                }
+                @if (!item?.newspaper?.applied_offer?.file) {
+                  <span> Not Uploaded</span>
+                }
+              </div>
+            </div>
+          }
+          <div class="col-12 col-md-3 ms-md-auto">
+            <div class="w-100">
+              <table>
+                <tr>
+                  <td>Rate</td>
+                  <td>: </td>
+                  <td> ₹ {{$safeNavigationMigration(item?.price) | number : '1.2-2'}} </td>
+                </tr>
+                <tr>
+                  <td>Quantity</td>
+                  <td>: </td>
+                  <td> {{item?.quantity}} </td>
+                </tr>
+                <tr>
+                  <td>Sub Total</td>
+                  <td>: </td>
+                  <td> ₹ {{$safeNavigationMigration(item?.extended_price) | number : '1.2-2'}} </td>
+                </tr>
+                @for (option of item?.applied_options; track option) {
+                  <tr>
+                    <td> {{option?.name}} ( {{option?.value}}) </td>
+                    <td>: </td>
+                    <td> ₹ {{$safeNavigationMigration(option?.price) | number : '1.2-2'}} </td>
+                  </tr>
+                }
+                @if (item?.applied_options?.length > 0) {
+                  <tr>
+                    <td>Total</td>
+                    <td>: </td>
+                    <td> ₹ {{$safeNavigationMigration(item?.total) | number : '1.2-2'}} </td>
+                  </tr>
+                }
+                <tr>
+                  <td>GST ({{item?.gst}}%)</td>
+                  <td>: </td>
+                  <td> ₹ {{$safeNavigationMigration(item?.tax_amount) | number : '1.2-2'}} </td>
+                </tr>
+                <tr class="border-top">
+                  <td><strong>Item Total</strong></td>
+                  <td>: </td>
+                  <td> <strong> ₹ {{$safeNavigationMigration(item?.line_total) | number : '1.2-2'}} </strong>
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
+  }
+</div>
 </section>
+}

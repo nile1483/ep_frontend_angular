@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TeamService } from "@app-company-services";
 import { META_DATA } from 'src/app/shared/constants/metadata';
 import { CommonService } from '@app-shared-services';
@@ -6,9 +6,11 @@ import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-  selector: 'app-team',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.css']
+    selector: 'app-team',
+    templateUrl: './team.component.html',
+    styleUrls: ['./team.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class TeamComponent implements OnInit {
 

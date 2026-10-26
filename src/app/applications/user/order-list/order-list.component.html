@@ -1,71 +1,78 @@
 <section class="common-padding bg-linear-gradient terms-condition-page-header w-850">
-    <div class="container">
-        <div class="section-heading text-center mb-0">
-            <h1>Order History</h1>
-            <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a aria-label="home Link" routerLink="/"> 
-                            <b> Home</b>
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page"> Order History </li>
-                </ol>
-            </nav>
-        </div>
+  <div class="container">
+    <div class="section-heading text-center mb-0">
+      <h1>Order History</h1>
+      <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a aria-label="home Link" routerLink="/">
+              <b> Home</b>
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page"> Order History </li>
+        </ol>
+      </nav>
     </div>
+  </div>
 </section>
 
-<section class="py-5" *ngIf="!isAuthenticated">
+@if (!isAuthenticated) {
+  <section class="py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
-                <p class="h4 m-5"> Login to see your Order History. </p>
-            </div>
+      <div class="row">
+        <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
+          <p class="h4 m-5"> Login to see your Order History. </p>
         </div>
+      </div>
     </div>
-</section>
-<section class="py-5" *ngIf="orderData.length == 0 && isAuthenticated">
+  </section>
+}
+@if (orderData.length == 0 && isAuthenticated) {
+  <section class="py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
-                <p class="h4 m-5"> You have no Order History. </p>
-            </div>
+      <div class="row">
+        <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
+          <p class="h4 m-5"> You have no Order History. </p>
         </div>
+      </div>
     </div>
-</section>
+  </section>
+}
 
-<section class="py-5" *ngIf="orderData?.length > 0 && isAuthenticated">
+@if (orderData?.length > 0 && isAuthenticated) {
+  <section class="py-5">
     <div class="container ">
-        <div class="row">
-            <div class="col-12">
-                <div class="card border-0 campaign-list-card">
-                    <table class="table mb-0 campaign-list-table">
-                    <thead>
-                      <tr>
-                        <th scope="col" class="pt-0">Order No</th>
-                        <th scope="col" class="pt-0">Campaign Name</th>
-                        <th scope="col" class="pt-0">Item Count</th>
-                        <th scope="col" class="pt-0">Total</th>
-                        <th scope="col" class="pt-0">Created Date</th>
-                        <!-- <th scope="col">Created By</th> -->
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let order of orderData; let i=index">
-                        <td><span class="order-no-table">Order No:</span> <a aria-label="Order Detail Link" [routerLink]="['/user','order',order.id]" > {{order?.order_no}} </a> </td>
-                        <td><span>Campaign Name:</span> {{order?.campaign_name}} </td>
-                        <td><span>Item Count:</span> {{order?.item_count}} </td>
-                        <td><span>Total:</span> ₹ {{order?.order_grand_total | number : '1.2-2'}} </td> 
-                        <td><span>Created Date:</span> {{ order?.order_date | date:'medium' }} </td> 
-                        <!-- <td> {{ order?.created_by }} </td>  -->
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-            </div>
-
+      <div class="row">
+        <div class="col-12">
+          <div class="card border-0 campaign-list-card">
+            <table class="table mb-0 campaign-list-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="pt-0">Order No</th>
+                  <th scope="col" class="pt-0">Campaign Name</th>
+                  <th scope="col" class="pt-0">Item Count</th>
+                  <th scope="col" class="pt-0">Total</th>
+                  <th scope="col" class="pt-0">Created Date</th>
+                  <!-- <th scope="col">Created By</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                @for (order of orderData; track order; let i = $index) {
+                  <tr>
+                    <td><span class="order-no-table">Order No:</span> <a aria-label="Order Detail Link" [routerLink]="['/user','order',order.id]" > {{order?.order_no}} </a> </td>
+                    <td><span>Campaign Name:</span> {{order?.campaign_name}} </td>
+                    <td><span>Item Count:</span> {{order?.item_count}} </td>
+                    <td><span>Total:</span> ₹ {{$safeNavigationMigration(order?.order_grand_total) | number : '1.2-2'}} </td>
+                    <td><span>Created Date:</span> {{ $safeNavigationMigration(order?.order_date) | date:'medium' }} </td>
+                    <!-- <td> {{ order?.created_by }} </td>  -->
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
+}
 

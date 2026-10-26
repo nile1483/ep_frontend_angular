@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
 import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA, C2A_TITLE_DATA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
@@ -12,9 +12,11 @@ import { AfterViewInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-  selector: 'app-ipl-page',
-  templateUrl: './ipl-page.component.html',
-  styleUrls: ['./ipl-page.component.css']
+    selector: 'app-ipl-page',
+    templateUrl: './ipl-page.component.html',
+    styleUrls: ['./ipl-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class IPLPageComponent implements OnInit, AfterViewInit {
 

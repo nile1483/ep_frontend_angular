@@ -1,4 +1,6 @@
 <!-- mat-typography -->
-<div class="mat-typography">    
-    <shopping-cart *ngIf="data?.selectedPrice"></shopping-cart>     
+<div class="mat-typography">
+  @if (data?.selectedPrice) {
+    <shopping-cart></shopping-cart>
+  }
 </div>

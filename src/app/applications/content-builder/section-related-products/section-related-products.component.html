@@ -3,26 +3,46 @@
 
 
 
-<div *ngFor="let content of pageBlock?.content " [ngSwitch]="content?.type">    
-    <!-- title -->
-    <div *ngSwitchCase="'title'">
-        <div class="section-heading text-center mb-3 mb-md-5" *ngIf="content?.title != null">
-            <h2 *ngIf="content?.title"> {{content?.title}} </h2>
-            <span class="separator mb-2" *ngIf="content?.title" ></span>
-        </div>
-    </div>
-    <div class="text-center mb-5" *ngSwitchCase="'simple_description'">            
-        <div class="centre-line"  *ngIf="content?.simple_description" [innerHTML]="content?.simple_description" ></div>
-    </div>
-    <div  class="row justify-content-center " *ngSwitchCase="'link'">
-         
-            <div class="col-10"  *ngIf="content?.values?.length > 0">
-        
-                <ul class="related-product-links">
-                    <li *ngFor="let item of content?.values" >
-                        <a aria-label="Link" [routerLink]="['/',item.media,item.slug]" > {{item?.name}} </a>
-                    </li>
-                </ul>
+@for (content of pageBlock?.content ; track content) {
+  <div>
+    @switch (content?.type) {
+      <!-- title -->
+      @case ('title') {
+        <div>
+          @if (content?.title != null) {
+            <div class="section-heading text-center mb-3 mb-md-5">
+              @if (content?.title) {
+                <h2> {{content?.title}} </h2>
+              }
+              @if (content?.title) {
+                <span class="separator mb-2" ></span>
+              }
             </div>
-    </div>
-</div>
+          }
+        </div>
+      }
+      @case ('simple_description') {
+        <div class="text-center mb-5">
+          @if (content?.simple_description) {
+            <div class="centre-line"  [innerHTML]="$safeNavigationMigration(content?.simple_description)" ></div>
+          }
+        </div>
+      }
+      @case ('link') {
+        <div  class="row justify-content-center ">
+          @if (content?.values?.length > 0) {
+            <div class="col-10" >
+              <ul class="related-product-links">
+                @for (item of content?.values; track item) {
+                  <li >
+                    <a aria-label="Link" [routerLink]="['/',item.media,item.slug]" > {{item?.name}} </a>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+      }
+    }
+  </div>
+}

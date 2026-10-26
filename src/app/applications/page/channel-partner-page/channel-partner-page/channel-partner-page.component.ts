@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { META_DATA } from '@app-shared-constants';
@@ -26,9 +26,11 @@ export function isPersonalEmailValidatoChannelPage(control: UntypedFormControl):
 }
 
 @Component({
-  selector: 'app-channel-partner-page',
-  templateUrl: './channel-partner-page.component.html',
-  styleUrls: ['./channel-partner-page.component.css']
+    selector: 'app-channel-partner-page',
+    templateUrl: './channel-partner-page.component.html',
+    styleUrls: ['./channel-partner-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ChannelPartnerPageComponent implements OnInit {
 

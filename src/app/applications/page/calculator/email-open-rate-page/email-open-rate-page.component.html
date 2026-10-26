@@ -1,251 +1,269 @@
 <!-- background -->
 <section class="section-featured-services emailopenrate-background common-padding">
-    <div class="container">
-        <div class="section-heading text-center">
-            <h1 class="text-white"></h1>
-        </div>
+  <div class="container">
+    <div class="section-heading text-center">
+      <h1 class="text-white"></h1>
     </div>
+  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-    <div class="container get-section">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-                    class="roas-form p-4 border custom-border mx-auto">
-                    <div class="row mb-3">
-                        <div class="col-md-6 mb-3 mb-md-0 text-center">
-                            <label class="form-label fw-bolder">Numbers of Emails Opened</label>
-                            <input
-                              type="number"
-                              formControlName="conversionRevenue"
-                              class="form-control border-danger" placeholder="Enter Value"
-                            />
-                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
-                              <div *ngIf="conversionRevenue?.errors?.['required']">
-                                Numbers of Emails Opened is required.
-                              </div>
-                              <div *ngIf="conversionRevenue?.errors?.['min']">
-                                Numbers of Emails Opened must be greater than 0.
-                              </div>
-                            </div>
-                          </div>
-
-                        <div class="col-md-6 text-center">
-                            <label class="form-label fw-bolder">Numbers of Emails Delivered</label>
-                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
-                                <div *ngIf="adSpend?.errors?.['required']">
-                                    Numbers of Emails Delivered is required.
-                                </div>
-                                <div *ngIf="adSpend?.errors?.['min']">
-                                    Numbers of Emails Delivered must be greater than 0.
-                                </div>
-                            </div>
-                        </div>
+  <div class="container get-section">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+          class="roas-form p-4 border custom-border mx-auto">
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0 text-center">
+              <label class="form-label fw-bolder">Numbers of Emails Opened</label>
+              <input
+                type="number"
+                formControlName="conversionRevenue"
+                class="form-control border-danger" placeholder="Enter Value"
+                />
+              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
+                <div class="text-danger small">
+                  @if (conversionRevenue?.errors?.['required']) {
+                    <div>
+                      Numbers of Emails Opened is required.
                     </div>
-
-                    <div class="text-center mb-3">
-                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
+                  }
+                  @if (conversionRevenue?.errors?.['min']) {
+                    <div>
+                      Numbers of Emails Opened must be greater than 0.
                     </div>
-
-                    <div class="text-center col-md-6 mx-auto">
-                        <label class="form-label fw-bolder">Email Open Rate</label>
-                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-                    </div>
-                </form>
-
+                  }
+                </div>
+              }
             </div>
-        </div>
+
+            <div class="col-md-6 text-center">
+              <label class="form-label fw-bolder">Numbers of Emails Delivered</label>
+              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+              @if (adSpend?.invalid && adSpend?.touched) {
+                <div class="text-danger small">
+                  @if (adSpend?.errors?.['required']) {
+                    <div>
+                      Numbers of Emails Delivered is required.
+                    </div>
+                  }
+                  @if (adSpend?.errors?.['min']) {
+                    <div>
+                      Numbers of Emails Delivered must be greater than 0.
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="text-center mb-3">
+            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
+          </div>
+
+          <div class="text-center col-md-6 mx-auto">
+            <label class="form-label fw-bolder">Email Open Rate</label>
+            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+          </div>
+        </form>
+
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-    <div class="container default-content">
-        <div class="row align-items-center">
-            <!-- Left Image Column -->
-            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-                <img src="assets/page/calculators/email-open-rate/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-            </div>
+  <div class="container default-content">
+    <div class="row align-items-center">
+      <!-- Left Image Column -->
+      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+        <img src="assets/page/calculators/email-open-rate/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+      </div>
 
-            <!-- Right Text Column -->
-            <div class="col-md-7">
-                <h2 class="fw-bold text-danger mb-0">Email Open Rate</h2>
-                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
-                <p class="fs-5">
-                    Excellent Publicity’s <strong>Email Open Rate Calculator</strong> is a user-friendly tool that measures the email open rate to assist you in analysing the success of your email marketing campaigns. This metric presents the percentage of recipients who have clicked through to your emails, offering you essential data regarding how interactive and interesting your campaign is. With the optimised use of this calculator, you can measure the effectiveness of your email copy and subject lines and make impeccable decisions to enhance your email marketing strategy.
-                </p>
-            </div>
-            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                What is an email open rate?
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>
-                The email open rate is the frequency with which subscribers open the emails you send them. Using the following formula, you can calculate your sent emails' click to open rates:
-            </p>
-            <p><strong>Formula:</strong></p>
-            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-                Number of Emails Opened / Number of Emails Delivered ×100 
-            </h2>
-            <p>For example:  </p>
-            <p>If you sent 4,000 emails, 2,300 were successfully delivered, and you had opened 700 emails, the email open rate will be: </p>
-            <p>= 2,300 / 4000 ×100</p>
-            <p>= 57.5 %</p>
-            <p>Email open and click to open rates give you feedback on how often and how much subscribers are engaging with your newsletters or email campaigns through <strong>email marketing metrics.</strong> Open rate shows how often individuals open email messages, whereas clicks show how often they click on links in the opened message. </p>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                What is a good email open rate?
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>
-                In terms of a <strong>good email open rate,</strong> many elements influence the email open rate, such as industry, audience, and email campaign types. However, it might vary based on the kind of content that has been included.
-            </p>
-            <p>
-                The <strong>average open rate</strong> for email campaigns differs based on the industry, though they usually range from 15% to 25%.
-            </p>
-            <p>
-                When your subject lines, message, and timing effectively entice your readers, you enjoy a great open rate, which is generally more than 25%. Open rates of 30% are considered outstanding and reflect extremely successful email marketing strategies.
-            </p>
-            <p>
-                However, open rates can be different according to the industry and email type. Using our <strong>open rate calculator,</strong> you can gain ample understanding of your email marketing stats and assess your open rates against previous campaign statistics and industry standards to decide the quality of your business performance.
-            </p>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                Why is your email open rate important?
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>
-                In terms of email marketing campaigns, email open rates have long been considered a key performance indicator (KPI). The potential to drive future sales is made real by understanding that there is an active subscriber behind the email address that is interacting with your product or service. But things have evolved over the past few years, and email openings are no longer considered a reliable measure of engagement.
-            </p>
-            <p>
-                Let’s know why: As mail hits the mailbox provider’s networks, more non-human interactions are being accrued, such as bot opens and clicks, which can be turned into a consequence of changes being made to inbound filtering at most mailbox providers. With mailbox providers now focused on giving their customers the most secure inbox experience possible, marketers now have another way to measure engagement.
-            </p>
-            <p>
-                Although open emails are no longer considered a reliable metric of engagement, they can still be used to demonstrate your campaign performance and how your reputation as a sender is perceived by mailbox providers. 
-            </p>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                How to improve your email open rate?
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>
-                Let’s discuss some tips that can help you improve your email open rate. Here we go:
-            </p>
-            <ul class="p-0 ms-4">
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Craft Attention-Grabbing Subject Lines:</strong>
-                    Ensure that your subject lines are compelling, short, and relevant to your readers. Leverage urgency, personalization, and actionable content to generate attention. Test different subject lines by A/B testing what engages your audience most.
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong> Make Your Emails Unique:</strong>
-                    Address the recipient by their name and tailor the information based on their previous actions or tendencies. Personalized emails are opened more frequently than non-personalized ones.  
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Improve Send Times:</strong>
-                    Timing is a crucial factor in open rates. To learn when your audience will best respond to your email, send it multiple times. You can track performance and make adjustments as needed with the help of tools like email open rate calculators.
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Make Sure It’s a Mobile Complaint:</strong>
-                    Most individuals read their emails using their mobile phones. Implement responsive layouts and clear fonts to ensure that your emails are easily accessed via mobile. Openings are invited when the experience is seamless.
-                  </span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <span class="ms-2">
-                    <strong>Examine and Optimize:</strong>
-                    Test different parts of your emails regularly, including subject lines, content, and design, to find out what your audience is most likely to respond to.  Use email marketing statistics and information from tools like open rate calculators to increase your open rate and refine your strategy.
-                  </span>
-                </li>
-              </ul>
-        </div>
-              
-
-        
-
+      <!-- Right Text Column -->
+      <div class="col-md-7">
+        <h2 class="fw-bold text-danger mb-0">Email Open Rate</h2>
+        <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+        <p class="fs-5">
+          Excellent Publicity’s <strong>Email Open Rate Calculator</strong> is a user-friendly tool that measures the email open rate to assist you in analysing the success of your email marketing campaigns. This metric presents the percentage of recipients who have clicked through to your emails, offering you essential data regarding how interactive and interesting your campaign is. With the optimised use of this calculator, you can measure the effectiveness of your email copy and subject lines and make impeccable decisions to enhance your email marketing strategy.
+        </p>
+      </div>
+      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
     </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        What is an email open rate?
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>
+        The email open rate is the frequency with which subscribers open the emails you send them. Using the following formula, you can calculate your sent emails' click to open rates:
+      </p>
+      <p><strong>Formula:</strong></p>
+      <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+        Number of Emails Opened / Number of Emails Delivered ×100
+      </h2>
+      <p>For example:  </p>
+      <p>If you sent 4,000 emails, 2,300 were successfully delivered, and you had opened 700 emails, the email open rate will be: </p>
+      <p>= 2,300 / 4000 ×100</p>
+      <p>= 57.5 %</p>
+      <p>Email open and click to open rates give you feedback on how often and how much subscribers are engaging with your newsletters or email campaigns through <strong>email marketing metrics.</strong> Open rate shows how often individuals open email messages, whereas clicks show how often they click on links in the opened message. </p>
+    </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        What is a good email open rate?
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>
+        In terms of a <strong>good email open rate,</strong> many elements influence the email open rate, such as industry, audience, and email campaign types. However, it might vary based on the kind of content that has been included.
+      </p>
+      <p>
+        The <strong>average open rate</strong> for email campaigns differs based on the industry, though they usually range from 15% to 25%.
+      </p>
+      <p>
+        When your subject lines, message, and timing effectively entice your readers, you enjoy a great open rate, which is generally more than 25%. Open rates of 30% are considered outstanding and reflect extremely successful email marketing strategies.
+      </p>
+      <p>
+        However, open rates can be different according to the industry and email type. Using our <strong>open rate calculator,</strong> you can gain ample understanding of your email marketing stats and assess your open rates against previous campaign statistics and industry standards to decide the quality of your business performance.
+      </p>
+    </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        Why is your email open rate important?
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>
+        In terms of email marketing campaigns, email open rates have long been considered a key performance indicator (KPI). The potential to drive future sales is made real by understanding that there is an active subscriber behind the email address that is interacting with your product or service. But things have evolved over the past few years, and email openings are no longer considered a reliable measure of engagement.
+      </p>
+      <p>
+        Let’s know why: As mail hits the mailbox provider’s networks, more non-human interactions are being accrued, such as bot opens and clicks, which can be turned into a consequence of changes being made to inbound filtering at most mailbox providers. With mailbox providers now focused on giving their customers the most secure inbox experience possible, marketers now have another way to measure engagement.
+      </p>
+      <p>
+        Although open emails are no longer considered a reliable metric of engagement, they can still be used to demonstrate your campaign performance and how your reputation as a sender is perceived by mailbox providers.
+      </p>
+    </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        How to improve your email open rate?
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>
+        Let’s discuss some tips that can help you improve your email open rate. Here we go:
+      </p>
+      <ul class="p-0 ms-4">
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Craft Attention-Grabbing Subject Lines:</strong>
+            Ensure that your subject lines are compelling, short, and relevant to your readers. Leverage urgency, personalization, and actionable content to generate attention. Test different subject lines by A/B testing what engages your audience most.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong> Make Your Emails Unique:</strong>
+            Address the recipient by their name and tailor the information based on their previous actions or tendencies. Personalized emails are opened more frequently than non-personalized ones.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Improve Send Times:</strong>
+            Timing is a crucial factor in open rates. To learn when your audience will best respond to your email, send it multiple times. You can track performance and make adjustments as needed with the help of tools like email open rate calculators.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Make Sure It’s a Mobile Complaint:</strong>
+            Most individuals read their emails using their mobile phones. Implement responsive layouts and clear fonts to ensure that your emails are easily accessed via mobile. Openings are invited when the experience is seamless.
+          </span>
+        </li>
+        <li class="d-flex align-items-start">
+          <span class="ms-2">
+            <strong>Examine and Optimize:</strong>
+            Test different parts of your emails regularly, including subject lines, content, and design, to find out what your audience is most likely to respond to.  Use email marketing statistics and information from tools like open rate calculators to increase your open rate and refine your strategy.
+          </span>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="section-heading text-center mb-5">
-                    <h2>FAQs</h2>
-                    <span class="separator mb-2"></span>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="" itemscope itemtype="https://schema.org/FAQPage">
-                    <div class="accordion faq-accordion" id="faqAccordion" >
-                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                            <h6 class="accordion-header" id="heading{{i}}">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
-                                </button>
-                            </h6>
-                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                                itemtype="https://schema.org/Answer" >
-                                <div class="accordion-body default-content" itemprop="text">
-                                    <p [innerHTML]="item?.answer"></p>
-                                </div>
-                                <div class="text-center">
-                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-heading text-center mb-5">
+          <h2>FAQs</h2>
+          <span class="separator mb-2"></span>
         </div>
+      </div>
+      <div class="col-12">
+        <div class="" itemscope itemtype="https://schema.org/FAQPage">
+          <div class="accordion faq-accordion" id="faqAccordion" >
+            @for (item of faqList; track item; let i = $index) {
+              <div class="accordion-item" itemscope itemprop="mainEntity"
+                itemtype="https://schema.org/Question">
+                <h6 class="accordion-header" id="heading{{i}}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
+                  </button>
+                </h6>
+                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                  itemtype="https://schema.org/Answer" >
+                  <div class="accordion-body default-content" itemprop="text">
+                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
+                  </div>
+                  <div class="text-center">
+                    @if (item?.buttonname) {
+                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-    <div class="container">
-        <!-- Related Calculator -->
-        <div class="row g-md-4 g-3">
-            <h2 class="text-center">Related Calculator</h2>
-            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
-                <div class="media-list-card shadow">
-                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-                        <img [src]="card.image" loading="lazy" class="card-img-top"
-                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-                        <div class="card-body px-0">
-                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                          <p class="card-text line-clamp">{{ card.description }}</p>
-                        </div>
-                      </div>
-                </div>
+  <div class="container">
+    <!-- Related Calculator -->
+    <div class="row g-md-4 g-3">
+      <h2 class="text-center">Related Calculator</h2>
+      @for (card of cards; track card) {
+        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+          <div class="media-list-card shadow">
+            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+              <img [src]="card.image" loading="lazy" class="card-img-top"
+                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+              <div class="card-body px-0">
+                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                <p class="card-text line-clamp">{{ card.description }}</p>
+              </div>
             </div>
+          </div>
         </div>
-        <!-- Related Calculator -->
+      }
     </div>
+    <!-- Related Calculator -->
+  </div>
 </section>

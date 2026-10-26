@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "ignoreDeprecations": "6.0",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -14,29 +15,58 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
     "paths": {
-      "@app-company-services": ["src/app/applications/company/shared/services/index.ts"],      
-      "@app-company-components": ["src/app/applications/company/index.ts"],      
-      "@app-content-builder-components": ["src/app/applications/content-builder/index.ts"],      
-      "@app-shared-helpers": ["src/app/shared/helpers/index.ts"],
-      "@app-shared-services": ["src/app/shared/services/index.ts"],
-      "@app-shared-model": ["src/app/shared/model/index.ts"],
-      "@app-shared-constants": ["src/app/shared/constants/index.ts"],
-      "@app-shared-components": ["src/app/shared/components/index.ts"],
-      "@app-media-services": ["src/app/applications/media/shared/services/index"],
-      "@app-media-models": ["src/app/applications/media/shared/models/index"],
-      "@app-media-shared-components": ["src/app/applications/media/shared/components/index"],
-      "@app-page-services": ["src/app/shared/services/page/index"],
-    },
+      "@app-company-services": [
+        "src/app/applications/company/shared/services/index.ts"
+      ],
+      "@app-company-components": [
+        "src/app/applications/company/index.ts"
+      ],
+      "@app-content-builder-components": [
+        "src/app/applications/content-builder/index.ts"
+      ],
+      "@app-shared-helpers": [
+        "src/app/shared/helpers/index.ts"
+      ],
+      "@app-shared-services": [
+        "src/app/shared/services/index.ts"
+      ],
+      "@app-shared-model": [
+        "src/app/shared/model/index.ts"
+      ],
+      "@app-shared-constants": [
+        "src/app/shared/constants/index.ts"
+      ],
+      "@app-shared-components": [
+        "src/app/shared/components/index.ts"
+      ],
+      "@app-media-services": [
+        "src/app/applications/media/shared/services/index"
+      ],
+      "@app-media-models": [
+        "src/app/applications/media/shared/models/index"
+      ],
+      "@app-media-shared-components": [
+        "src/app/applications/media/shared/components/index"
+      ],
+      "@app-page-services": [
+        "src/app/shared/services/page/index"
+      ],
+      "swiper": [
+        "node_modules/swiper/swiper.d.ts"
+      ],
+      "swiper/angular": [
+        "node_modules/swiper/angular/swiper_angular.d.ts"
+      ],
+      "dom7": [
+        "node_modules/dom7/dom7.d.ts"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

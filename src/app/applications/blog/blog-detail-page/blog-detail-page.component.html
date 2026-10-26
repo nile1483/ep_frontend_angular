@@ -1,237 +1,258 @@
-<section *ngIf="blogHasData != false; else pageNotFound;">
+@if (blogHasData != false) {
+  <section>
     <section class="bg-lightsteelblue service-detail-header">
-        <div class="container">         
-            <nav aria-label="breadcrumb" >
-                <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a aria-label="Link" href="{{webURL}}" itemprop="item">                       
-                            <span itemprop="name"><b> Home </b></span>
-                        </a>
-                        <meta itemprop="position" content="1" />
-                    </li>
-                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a *ngIf="linkName == 'blog' " aria-label="Link" href="{{webURL}}/blog"  itemprop="item" >                       
-                            <span itemprop="name">  Blog </span> 
-                        </a>
-                        <a *ngIf="linkName == 'news' " aria-label="Link" href="{{webURL}}/news"  itemprop="item" >                       
-                            <span itemprop="name">  News </span> 
-                        </a>
-                        <a *ngIf="linkName == 'casestudy' " aria-label="Link" href="{{webURL}}/casestudy"  itemprop="item" >                       
-                            <span itemprop="name">  Case Studies </span> 
-                        </a>
-                        <meta itemprop="position" content="2" />
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">  
-                        <span itemprop="name"> {{blogData?.name}} </span>
-                        <meta itemprop="position" content="3" />
-                    </li>
-                </ol>
-            </nav>
-
-        </div>
+      <div class="container">
+        <nav aria-label="breadcrumb" >
+          <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a aria-label="Link" href="{{webURL}}" itemprop="item">
+                <span itemprop="name"><b> Home </b></span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              @if (linkName == 'blog' ) {
+                <a aria-label="Link" href="{{webURL}}/blog"  itemprop="item" >
+                  <span itemprop="name">  Blog </span>
+                </a>
+              }
+              @if (linkName == 'news' ) {
+                <a aria-label="Link" href="{{webURL}}/news"  itemprop="item" >
+                  <span itemprop="name">  News </span>
+                </a>
+              }
+              @if (linkName == 'casestudy' ) {
+                <a aria-label="Link" href="{{webURL}}/casestudy"  itemprop="item" >
+                  <span itemprop="name">  Case Studies </span>
+                </a>
+              }
+              <meta itemprop="position" content="2" />
+            </li>
+            <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <span itemprop="name"> {{blogData?.name}} </span>
+              <meta itemprop="position" content="3" />
+            </li>
+          </ol>
+        </nav>
+      </div>
     </section>
-
     <section class="common-padding grey-background" style="padding-bottom: 0px;">
-        <div class="container">
-            <div class="section-heading text-center mb-4 pb-lg-2 w-1014">
-                <h1>{{blogData?.name}}</h1>
-            </div>
-            <!-- For Desktop Hide On Mobile-->
-            <div class="blog-sub-title d-lg-flex d-none align-items-center justify-content-between mb-lg-4">
-                <div class="blog-left-title d-flex align-items-center ">
-                    <div class="blog-own-image d-flex align-items-center">
-                        <a [routerLink]="['/',linkName,'author',blogData?.author_detail?.slug]" style="color: #0F2240;">
-                        <img loading="lazy" src="assets/blog/avatar.webp" class="rounded-circle " alt="Image" *ngIf="blogData?.author_detail?.image == null">
-                        <img loading="lazy" src="{{blogData?.author_detail?.image}}" class="rounded-circle " alt="Image" *ngIf="blogData?.author_detail?.image != null">
-                            </a>
-                        <div class="ms-1 d-flex flex-column">
-                            <strong class="d-block"><a [routerLink]="['/',linkName,'author',blogData?.author_detail?.slug]" style="color: #0F2240;">{{blogData?.author_detail?.name}}</a></strong> 
-                            <span>{{blogData?.publish_date | date:'mediumDate'}}</span>
-                        </div>
-                    </div>
-                    <!-- <div class="blog-share">
-                        <a aria-label="Link" href="#" class="d-flex align-items-center"> <i class="fa-regular fa-share-nodes"></i></a>
-                    </div>  -->
-                    <!-- <div class="blog-share">
-                        <a aria-label="Link" href="#" class="d-flex align-items-center"> <i class="fa-solid fa-comment"></i></a>
-                    </div>    -->
-                </div>
-                <div class="blog-right-title">
-                    <a class="btn btn-white" href="#">5 min read</a>
-                </div>
-            </div>
-
-            <img loading="lazy" src="assets/blog/rectangle-509.webp" class="mb-lg-4 mb-3 w-100 blog-single-main-image" alt="Product Image" title="{{blogData?.name}}" *ngIf="blogData?.image == null">
-            <img loading="lazy" src="{{blogData?.image}}" class="mb-lg-4 mb-3 w-100 blog-single-main-image" alt="Product Image" title="{{blogData?.name}}" *ngIf="blogData?.image != null">
-
-            <!-- For Mobile Hide On Desktop-->
-            <div class="blog-sub-title d-flex d-lg-none align-items-center justify-content-between mb-lg-4 mb-1">
-                <div class="blog-left-title d-flex align-items-center ">
-                    <div class="blog-own-image d-flex align-items-center">
-                        <img loading="lazy" src="assets/blog/rectangle-509.webp" alt="blogger image" class="d-lg-inline-block d-none">
-                        <div class="ms-lg-1 d-flex flex-lg-column">
-                            <strong class="d-lg-block me-lg-0 me-1">{{blogData?.create_by_name}}</strong>
-                            <span> {{blogData?.publish_date | date:'mediumDate'}} </span>
-                        </div>
-                    </div>
-                    <div class="blog-share d-lg-block d-none">
-                        <a aria-label="Link" href="#" class="d-flex align-items-center">
-                            <span [innerHTML]="app_svg_icon_list?.['share-nodes'] | safeHtml"></span>
-                            <!-- <i class="fa-regular fa-share-nodes"></i> -->
-                        </a>
-                    </div>
-                    <div class="blog-share d-lg-block d-none">
-                        <a aria-label="Link" href="#" class="d-flex align-items-center">
-                            <span [innerHTML]="app_svg_icon_list?.['comment'] | safeHtml"></span>
-                            <!-- <i class="fa-solid fa-comment"></i> -->
-                        </a>
-                    </div>
-                </div>
-                <div class="blog-right-title">
-                    <a class="btn btn-white" href="#">5 min read</a>
-                </div>
-            </div>
-
-            <!-- <div class="default-content" [innerHTML]="blogDescription"> </div> -->
-
+      <div class="container">
+        <div class="section-heading text-center mb-4 pb-lg-2 w-1014">
+          <h1>{{blogData?.name}}</h1>
         </div>
-    </section>
-
-    <!-- description start -->
-    <app-content-builder [contentDetail]="blogDescription" *ngIf="blogDescription"></app-content-builder>
-    <!-- description end -->
-
-    <section class="grey-background p-3" *ngIf="relatedPosts">
-        <div class="container">
-            <h3>Related Posts</h3>
-            <div class="row g-lg-4 g-3 mt-3">
-                <div class="col-12 col-lg-4 col-xl-4" *ngFor="let blog of relatedPosts">
-                    <div class="media-list-card blog-card">
-                        <div class="media-list-card-img">
-                            <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]" class="d-block h-100 w-100">
-                                <img loading="lazy" src="assets/blog/rectangle-401.png" class="product-image h-100" alt="Product Image" *ngIf="blog?.image == null">
-                                <img loading="lazy" src="{{blog?.image}}" class="product-image h-100" alt="Product Image" *ngIf="blog?.image != null">
-                            </a>
-                        </div>
-                        <div class="media-list-card-body">
-                            <h5 class="media-list-card-title">
-                                <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]">
-                                    {{blog?.name}}
-                                </a>
-                            </h5>
-                            <p class="line-truncate"> {{blog?.short_description}}</p>
-                            <div class="blog-owner-name d-flex align-items-center justify-content-between mt-auto">
-                                <div class="blog-own-image me-2">
-                                    <strong> 
-                                        <a [routerLink]="['/',linkName,'author',blog?.author_slug]" style="color: #0F2240;"> 
-                                            {{blog?.author_name}} 
-                                        </a> 
-                                    </strong>
-                                    <span class="ps-1">{{blog?.publish_date | date:'mediumDate'}}</span>
-                                    <span class="read-time d-block">5 min read</span>
-                                </div>
-                                <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]" class="more-link more-link-with-text orange-link"><span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
-                                    <!-- <i class="fa-light fa-arrow-right-long"></i> -->
-                                </span> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
+        <!-- For Desktop Hide On Mobile-->
+        <div class="blog-sub-title d-lg-flex d-none align-items-center justify-content-between mb-lg-4">
+          <div class="blog-left-title d-flex align-items-center ">
+            <div class="blog-own-image d-flex align-items-center">
+              <a [routerLink]="['/',linkName,'author',$safeNavigationMigration(blogData?.author_detail?.slug)]" style="color: #0F2240;">
+                @if (blogData?.author_detail?.image == null) {
+                  <img loading="lazy" src="assets/blog/avatar.webp" class="rounded-circle " alt="Image">
+                }
+                @if (blogData?.author_detail?.image != null) {
+                  <img loading="lazy" src="{{blogData?.author_detail?.image}}" class="rounded-circle " alt="Image">
+                }
+              </a>
+              <div class="ms-1 d-flex flex-column">
+                <strong class="d-block"><a [routerLink]="['/',linkName,'author',$safeNavigationMigration(blogData?.author_detail?.slug)]" style="color: #0F2240;">{{blogData?.author_detail?.name}}</a></strong>
+                <span>{{$safeNavigationMigration(blogData?.publish_date) | date:'mediumDate'}}</span>
+              </div>
             </div>
+            <!-- <div class="blog-share">
+            <a aria-label="Link" href="#" class="d-flex align-items-center"> <i class="fa-regular fa-share-nodes"></i></a>
+          </div>  -->
+          <!-- <div class="blog-share">
+          <a aria-label="Link" href="#" class="d-flex align-items-center"> <i class="fa-solid fa-comment"></i></a>
+        </div>    -->
+      </div>
+      <div class="blog-right-title">
+        <a class="btn btn-white" href="#">5 min read</a>
+      </div>
+    </div>
+    @if (blogData?.image == null) {
+      <img loading="lazy" src="assets/blog/rectangle-509.webp" class="mb-lg-4 mb-3 w-100 blog-single-main-image" alt="Product Image" title="{{blogData?.name}}">
+    }
+    @if (blogData?.image != null) {
+      <img loading="lazy" src="{{blogData?.image}}" class="mb-lg-4 mb-3 w-100 blog-single-main-image" alt="Product Image" title="{{blogData?.name}}">
+    }
+    <!-- For Mobile Hide On Desktop-->
+    <div class="blog-sub-title d-flex d-lg-none align-items-center justify-content-between mb-lg-4 mb-1">
+      <div class="blog-left-title d-flex align-items-center ">
+        <div class="blog-own-image d-flex align-items-center">
+          <img loading="lazy" src="assets/blog/rectangle-509.webp" alt="blogger image" class="d-lg-inline-block d-none">
+          <div class="ms-lg-1 d-flex flex-lg-column">
+            <strong class="d-lg-block me-lg-0 me-1">{{blogData?.create_by_name}}</strong>
+            <span> {{$safeNavigationMigration(blogData?.publish_date) | date:'mediumDate'}} </span>
+          </div>
         </div>
-    </section>
-
-
-    <section class="bg-gradient-aqua pb-5 pt-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8">
-                    <!-- <ul>
-                        <li *ngFor="let link of shareLinks" >
-                            <button>
-                                <a [href]="link?.link" target="_blank" rel="noreferrer">{{ link?.title }}</a>
-                            </button>
-                        </li>
-                    </ul>                -->
-
-                    <ul class="social-links d-flex align-items-center justify-content-center my-3">
-                        <li>
-                            <!-- facebook -->
-                            <a class="facebook" aria-label="Link" href="javascript:void(0)" (click)="setFacebookLink()" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['facebook-f'] | safeHtml">
-                            </a>
-                        </li>
-                        <li>
-                            <!-- twitter -->
-                        <a class="twitter" aria-label="Link" href="javascript:void(0)" (click)="setTwitterLink()" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['twitter'] | safeHtml">
-                        </a>
-                        </li>
-                        <li>
-                            <!-- linkedin -->
-                            <a class="linkedin" aria-label="Link" href="javascript:void(0)" (click)="setLinkedinLink()" rel="noreferrer" target="_blank" [innerHTML]="app_svg_icon_list?.['linkedin-in'] | safeHtml">
-                            </a>
-                        </li>
-                        <li>
-                            <!-- whatsapp -->
-                            <a class="whatsapp" aria-label="Link" href="javascript:void(0)" (click)="setWhatsappLink()" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['whatsapp'] | safeHtml">
-                            </a>
-                        </li>
-                    </ul>
-            </div>
+        <div class="blog-share d-lg-block d-none">
+          <a aria-label="Link" href="#" class="d-flex align-items-center">
+            <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['share-nodes']) | safeHtml"></span>
+            <!-- <i class="fa-regular fa-share-nodes"></i> -->
+          </a>
         </div>
-
-            <div class="row justify-content-center" *ngIf="!formSubmit">
-                <div class="col-12 col-md-8">
-                    <div class="subscribe-text mb-15 text-center">
-                        <h2>SUBSCRIBE</h2>
-                        <span>Subscribe to get our newsletter and stay updated.</span>
-                        
-                    </div>
-                </div>
-                <div class="col-12 col-md-8">
-                    <div class="subscribe-wrapper subscribe2-wrapper">
-                        <div class="subscribe-form py-4">
-
-                            <form [formGroup]="newsletterForm" (ngSubmit)="newsletterFormSubmit()" >
-                                <div class="row justify-content-center">
-                                    <div class="col-12 col-md-5">
-                                        <input placeholder="Enter Your Email" [formControl]="newsletterForm.controls['email']" type="email" class="w-100">
-                                        <div class="text-danger form-error ms-4">
-                                            <span
-                                                *ngIf="newsletterForm.controls['email'].hasError('required') && newsletterForm.controls['email'].touched">
-                                                Email address is required </span>
-                                            <span class=""
-                                                *ngIf="newsletterForm.controls['email'].hasError('email') && newsletterForm.controls['email'].touched">
-                                                Invalid email address </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-3 text-center">
-                                        <button type="submit" class="button"><span>subscribe </span></button>
-                                    </div>
-                                </div>                             
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center" *ngIf="formSubmit">
-
-                <div class="col-12 col-md-8 text-center my-4 py-5">
-                    <h2>{{message}} </h2>
-                </div>
-            </div>
+        <div class="blog-share d-lg-block d-none">
+          <a aria-label="Link" href="#" class="d-flex align-items-center">
+            <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['comment']) | safeHtml"></span>
+            <!-- <i class="fa-solid fa-comment"></i> -->
+          </a>
         </div>
-    </section>
+      </div>
+      <div class="blog-right-title">
+        <a class="btn btn-white" href="#">5 min read</a>
+      </div>
+    </div>
+    <!-- <div class="default-content" [innerHTML]="blogDescription"> </div> -->
+  </div>
 </section>
+<!-- description start -->
+@if (blogDescription) {
+  <app-content-builder [contentDetail]="blogDescription"></app-content-builder>
+}
+<!-- description end -->
+@if (relatedPosts) {
+  <section class="grey-background p-3">
+    <div class="container">
+      <h3>Related Posts</h3>
+      <div class="row g-lg-4 g-3 mt-3">
+        @for (blog of relatedPosts; track blog) {
+          <div class="col-12 col-lg-4 col-xl-4">
+            <div class="media-list-card blog-card">
+              <div class="media-list-card-img">
+                <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]" class="d-block h-100 w-100">
+                  @if (blog?.image == null) {
+                    <img loading="lazy" src="assets/blog/rectangle-401.png" class="product-image h-100" alt="Product Image">
+                  }
+                  @if (blog?.image != null) {
+                    <img loading="lazy" src="{{blog?.image}}" class="product-image h-100" alt="Product Image">
+                  }
+                </a>
+              </div>
+              <div class="media-list-card-body">
+                <h5 class="media-list-card-title">
+                  <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]">
+                    {{blog?.name}}
+                  </a>
+                </h5>
+                <p class="line-truncate"> {{blog?.short_description}}</p>
+                <div class="blog-owner-name d-flex align-items-center justify-content-between mt-auto">
+                  <div class="blog-own-image me-2">
+                    <strong>
+                      <a [routerLink]="['/',linkName,'author',$safeNavigationMigration(blog?.author_slug)]" style="color: #0F2240;">
+                        {{blog?.author_name}}
+                      </a>
+                    </strong>
+                    <span class="ps-1">{{$safeNavigationMigration(blog?.publish_date) | date:'mediumDate'}}</span>
+                    <span class="read-time d-block">5 min read</span>
+                  </div>
+                  <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]" class="more-link more-link-with-text orange-link"><span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
+                    <!-- <i class="fa-light fa-arrow-right-long"></i> -->
+                  </span> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+}
+<section class="bg-gradient-aqua pb-5 pt-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <!-- <ul>
+        <li *ngFor="let link of shareLinks" >
+          <button>
+            <a [href]="link?.link" target="_blank" rel="noreferrer">{{ link?.title }}</a>
+          </button>
+        </li>
+      </ul>                -->
+      <ul class="social-links d-flex align-items-center justify-content-center my-3">
+        <li>
+          <!-- facebook -->
+          <a class="facebook" aria-label="Link" href="javascript:void(0)" (click)="setFacebookLink()" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['facebook-f']) | safeHtml">
+          </a>
+        </li>
+        <li>
+          <!-- twitter -->
+          <a class="twitter" aria-label="Link" href="javascript:void(0)" (click)="setTwitterLink()" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['twitter']) | safeHtml">
+          </a>
+        </li>
+        <li>
+          <!-- linkedin -->
+          <a class="linkedin" aria-label="Link" href="javascript:void(0)" (click)="setLinkedinLink()" rel="noreferrer" target="_blank" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['linkedin-in']) | safeHtml">
+          </a>
+        </li>
+        <li>
+          <!-- whatsapp -->
+          <a class="whatsapp" aria-label="Link" href="javascript:void(0)" (click)="setWhatsappLink()" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['whatsapp']) | safeHtml">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  @if (!formSubmit) {
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <div class="subscribe-text mb-15 text-center">
+          <h2>SUBSCRIBE</h2>
+          <span>Subscribe to get our newsletter and stay updated.</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-8">
+        <div class="subscribe-wrapper subscribe2-wrapper">
+          <div class="subscribe-form py-4">
+            <form [formGroup]="newsletterForm" (ngSubmit)="newsletterFormSubmit()" >
+              <div class="row justify-content-center">
+                <div class="col-12 col-md-5">
+                  <input placeholder="Enter Your Email" [formControl]="newsletterForm.controls['email']" type="email" class="w-100">
+                  <div class="text-danger form-error ms-4">
+                    @if (newsletterForm.controls['email'].hasError('required') && newsletterForm.controls['email'].touched) {
+                      <span
+                        >
+                      Email address is required </span>
+                    }
+                    @if (newsletterForm.controls['email'].hasError('email') && newsletterForm.controls['email'].touched) {
+                      <span class=""
+                        >
+                      Invalid email address </span>
+                    }
+                  </div>
+                </div>
+                <div class="col-12 col-md-3 text-center">
+                  <button type="submit" class="button"><span>subscribe </span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+  @if (formSubmit) {
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 text-center my-4 py-5">
+        <h2>{{message}} </h2>
+      </div>
+    </div>
+  }
+</div>
+</section>
+</section>
+} @else {
+  @if (isDataLoaded) {
+    <app-sec-heading-pagenotfound></app-sec-heading-pagenotfound>
+  }
+  <app-search-result></app-search-result>
+}
 
 
 <!-- pageNotFound start -->
-<ng-template #pageNotFound>
-    <app-sec-heading-pagenotfound *ngIf="isDataLoaded"></app-sec-heading-pagenotfound>
-    <app-search-result></app-search-result>
-</ng-template>
 <!-- pageNotFound end -->
 
 
-<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
-</app-call-to-action-media>
+@if (callToActionData?.title) {
+  <app-call-to-action-media [mediaCallToActionData]="callToActionData">
+  </app-call-to-action-media>
+}

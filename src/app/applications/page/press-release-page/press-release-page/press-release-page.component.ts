@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA, C2A_TITLE_DATA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
@@ -10,9 +10,11 @@ import { Router } from '@angular/router';
 import { UserService } from '@app-shared-services';
 
 @Component({
-  selector: 'app-press-release-page',
-  templateUrl: './press-release-page.component.html',
-  styleUrl: './press-release-page.component.css'
+    selector: 'app-press-release-page',
+    templateUrl: './press-release-page.component.html',
+    styleUrl: './press-release-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class PressReleasePageComponent {
 

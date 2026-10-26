@@ -105,27 +105,27 @@
                 </p>
                 <ul class="social-links d-flex align-items-center justify-content-center justify-content-lg-start mt-3">
                     <li>
-                        <a aria-label="Link" href="https://www.youtube.com/channel/UCy0nXadAHsfLsDxWuThbz4A" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['youtube'] | safeHtml">
+                        <a aria-label="Link" href="https://www.youtube.com/channel/UCy0nXadAHsfLsDxWuThbz4A" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['youtube']) | safeHtml">
                             <!-- <i class="fa-brands fa-youtube"></i> -->
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://x.com/EP_TALKIES" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['twitter'] | safeHtml">
+                        <a aria-label="Link" href="https://x.com/EP_TALKIES" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['twitter']) | safeHtml">
                             <!-- <i class="fa-brands fa-twitter"></i> -->
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://in.linkedin.com/company/excellent-publicity" rel="noreferrer" target="_blank" [innerHTML]="app_svg_icon_list?.['linkedin-in'] | safeHtml">
+                        <a aria-label="Link" href="https://in.linkedin.com/company/excellent-publicity" rel="noreferrer" target="_blank" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['linkedin-in']) | safeHtml">
                             <!-- <i class="fa-brands fa-linkedin-in"></i> -->
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://www.facebook.com/ExcellentPublicity/" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['facebook-f'] | safeHtml">
+                        <a aria-label="Link" href="https://www.facebook.com/ExcellentPublicity/" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['facebook-f']) | safeHtml">
                             <!-- <i class="fa-brands fa-facebook-f"></i> -->
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://www.instagram.com/excellentpublicity" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['instagram'] | safeHtml">
+                        <a aria-label="Link" href="https://www.instagram.com/excellentpublicity" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['instagram']) | safeHtml">
                             <!-- <i class="fa-brands fa-facebook-f"></i> -->
                         </a>
                     </li>
@@ -162,7 +162,7 @@
         <div class="row">
             <div class="col text-center border-end">
                 <a aria-label="Link" href="/">
-                    <span [innerHTML]="app_svg_icon_list?.['house'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['house']) | safeHtml"></span>
                 </a>
             </div>
             <!-- <div class="col text-center border-end">
@@ -187,7 +187,7 @@
             </div> -->
             <div class="col text-center">
                 <a aria-label="Link" href="mailto:{{footerData?.mobile?.email?.value}}" class="c2atracking" [attr.data-c2a-type]="'Email'" [attr.data-c2a-value]="footerData?.mobile?.email?.value" [attr.data-c2a-placement]="'Mobile Static'">
-                    <span [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml"></span>
                 </a>
             </div>
             <!-- <div class="col text-center">
@@ -213,7 +213,7 @@
 <div class="chat d-lg-block d-none " style="min-width: 285px; padding: 0 7px">
     <h3>
         <a aria-label="Link" href="mailto:{{footerData?.desktop?.email?.value}}" class="c2atracking" [attr.data-c2a-type]="'Email'" [attr.data-c2a-placement]="'Desktop Static'" [attr.data-c2a-value]="footerData?.desktop?.email?.value">
-            <span class="svg-icon-footer" [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml"></span> {{footerData?.desktop?.email?.show}}
+            <span class="svg-icon-footer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml"></span> {{footerData?.desktop?.email?.show}}
         </a>
     </h3>
 </div>

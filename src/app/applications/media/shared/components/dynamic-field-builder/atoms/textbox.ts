@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 // text,email,tel,textarea,password, 
@@ -7,14 +7,20 @@ import { FormGroup } from '@angular/forms';
     template: `
       <div [formGroup]="form">
         <div [formGroupName]="'attribute'" >
-        <mat-form-field >
-            <mat-label>{{field.label}} <strong class="text-danger" *ngIf="field.required">*</strong></mat-label>
+          <mat-form-field >
+            <mat-label>{{field.label}} @if (field.required) {
+              <strong class="text-danger">*</strong>
+            }</mat-label>
             <input matInput [attr.type]="field.type" [name]="field.name" [formControlName]="field.name" [placeholder]="field.placeholder" >
-            <mat-error *ngIf="isRequired"> This is required</mat-error>
-        </mat-form-field>
+            @if (isRequired) {
+              <mat-error> This is required</mat-error>
+            }
+          </mat-form-field>
         </div>
       </div>
-      `
+      `,
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 
 export class TextBoxComponent {

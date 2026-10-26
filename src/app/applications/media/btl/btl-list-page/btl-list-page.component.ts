@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
 import { forkJoin, Subscription } from 'rxjs';
@@ -14,9 +14,11 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-btl-list-page',
-  templateUrl: './btl-list-page.component.html',
-  styleUrls: ['./btl-list-page.component.css']
+    selector: 'app-btl-list-page',
+    templateUrl: './btl-list-page.component.html',
+    styleUrls: ['./btl-list-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 
 export class BtlListPageComponent implements OnInit {

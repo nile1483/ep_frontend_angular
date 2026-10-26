@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
 import { BillingInfo } from 'src/app/shared/model/shopping-cart';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
@@ -13,9 +13,11 @@ import { AppURL } from 'src/app/app-url';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-manual-payment',
-  templateUrl: './manual-payment.component.html',
-  styleUrl: './manual-payment.component.css'
+    selector: 'app-manual-payment',
+    templateUrl: './manual-payment.component.html',
+    styleUrl: './manual-payment.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ManualPaymentComponent {
 

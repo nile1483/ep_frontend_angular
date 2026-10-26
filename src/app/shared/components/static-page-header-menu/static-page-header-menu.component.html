@@ -1,21 +1,23 @@
 <section class="header-menu d-flex justify-content-center align-items-center">
-    <div class="container">
-        <div class="menucontainer">
-            <!-- <div class="left-menu-icon carousel-menu-previous" role="button" aria-label="Previous slide" [innerHTML]="app_svg_icon_list?.['angle-left'] | safeHtml">
-            </div> -->
+  <div class="container">
+    <div class="menucontainer">
+      <!-- <div class="left-menu-icon carousel-menu-previous" role="button" aria-label="Previous slide" [innerHTML]="app_svg_icon_list?.['angle-left'] | safeHtml">
+    </div> -->
 
-            <div class="menubar">
-                <swiper [config]="config">
-                    <ng-template swiperSlide *ngFor="let item of headerData">
-                        <a aria-label="" [href]="[item.url]" [routerLinkActive]="['active']">
-                            <span class="menu-icon-svg" [innerHTML]="app_svg_icon_list?.[item.icon] | safeHtml "> </span>
-                             {{item?.label}}
-                        </a>
-                    </ng-template>
-                </swiper>
-            </div>
-            <!-- <div class="right-menu-icon carousel-menu-next" role="button" aria-label="Next slide" [innerHTML]="app_svg_icon_list?.['angle-right'] | safeHtml">
-            </div> -->
-        </div>
+    <div class="menubar">
+      <swiper [config]="config">
+        @for (item of headerData; track item) {
+          <ng-template swiperSlide>
+            <a aria-label="" [href]="[item.url]" [routerLinkActive]="['active']">
+              <span class="menu-icon-svg" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.[item.icon]) | safeHtml "> </span>
+              {{item?.label}}
+            </a>
+          </ng-template>
+        }
+      </swiper>
     </div>
+    <!-- <div class="right-menu-icon carousel-menu-next" role="button" aria-label="Next slide" [innerHTML]="app_svg_icon_list?.['angle-right'] | safeHtml">
+  </div> -->
+</div>
+</div>
 </section>

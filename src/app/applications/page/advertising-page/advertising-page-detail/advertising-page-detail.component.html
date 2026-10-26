@@ -1,140 +1,188 @@
-<section class="common-padding bg-linear-gradient contact-page-header" *ngIf="(isDataLoaded == true && advertisingPageList.length > 0); else pageNotFound">
+@if ((isDataLoaded == true && advertisingPageList.length > 0)) {
+  <section class="common-padding bg-linear-gradient contact-page-header">
     <div class="container">
-        <div class="section-heading text-center mb-0">
-            <h1 style="font-size: 35.2px;"> {{productdata.name }}</h1>
-            <p> {{productdata.description }}</p>
-        </div>
+      <div class="section-heading text-center mb-0">
+        <h1 style="font-size: 35.2px;"> {{productdata.name }}</h1>
+        <p> {{productdata.description }}</p>
+      </div>
     </div>
-</section>
+  </section>
+} @else {
+  @if (isDataLoaded) {
+    <app-sec-heading-pagenotfound></app-sec-heading-pagenotfound>
+  }
+  <app-search-result></app-search-result>
+}
 <!-- media list start -->
-<section *ngIf="(isDataLoaded == true && advertisingPageList.length > 0); else noDataFound">
-    <section class="media-list bg-gradient-aqua" *ngFor="let item of  advertisingPageList ; let i=index">
+@if ((isDataLoaded == true && advertisingPageList.length > 0)) {
+  <section>
+    @for (item of  advertisingPageList ; track item; let i = $index) {
+      <section class="media-list bg-gradient-aqua">
         <div class="container">
-            <div *ngFor="let content of item.content ">
-                <div class="section-heading text-center mb-3" *ngIf="content?.type == 'title' ">
-                    <h2 style="font-size: 28px;" *ngIf="content?.title"> {{content.title}} </h2>
-                    <span class="separator mb-2" *ngIf="content?.title"></span>
+          @for (content of item.content ; track content) {
+            <div>
+              @if (content?.type == 'title' ) {
+                <div class="section-heading text-center mb-3">
+                  @if (content?.title) {
+                    <h2 style="font-size: 28px;"> {{content.title}} </h2>
+                  }
+                  @if (content?.title) {
+                    <span class="separator mb-2"></span>
+                  }
                 </div>
-                <!-- description start -->
-                <div class="section-heading text-center mb-4" *ngIf="content?.type == 'description' " [innerHTML]="content.description">
+              }
+              <!-- description start -->
+              @if (content?.type == 'description' ) {
+                <div class="section-heading text-center mb-4" [innerHTML]="content.description">
                 </div>
-                <!-- description end -->
-
-                <!-- media-list start -->
-                <div class="row g-md-4 g-3 justify-content-center" *ngIf="content?.type == 'filter' ">
-                    <div class="col-6 col-md-4 col-xl-3" *ngFor="let item of content.filter; let i=index">
-
-                        <div class="media-list-card">
-                            <a [routerLink]="['/',item.media,item.slug]" class="media-list-card-img">
-                                <img loading="lazy" src="{{item?.image}}" data-item-link-type="Item thumbnail" [attr.data-item-order]="i+1" class="product-image view-item-image" title="{{item?.name}}" alt="{{item?.name}}">
-                            </a>
-                            <div class="media media-list-card-body">
-                                <p class="media-list-card-title">
-                                    <a [routerLink]="['/',item.media,item.slug]" data-item-link-type="Item name" [attr.data-item-order]="i+1" class="view-item-name">
-                                        {{item?.name}}</a>
-                                </p>
-                                <div *ngIf="item.media == 'radio' ">
-                                    <p> Frequency: <b>{{item?.frequency}}</b> </p>
-                                    <p> Language: <b>{{item?.language}}</b> </p>
-                                </div>
-                                <div *ngIf="item.media == 'mall' ">
-                                    <p>Foot Falls: <b>{{item?.footfalls}}</b> </p>
-                                    <p> Venue : <b>{{item?.venue}}</b> </p>
-                                </div>
-                                <div *ngIf="item.media == 'cinema' ">
-                                    <p> Audience Class: <b>{{item?.audience_class}}</b> </p>
-                                    <p> Cinema Chain: <b>{{item?.cinema_chain}}</b> </p>
-                                </div>
-                                <div *ngIf="item.media == 'transit' ">
-                                    <p> Media Type: <b>{{item?.media_type}}</b> </p>
-                                </div>
-                                <div *ngIf="item.media == 'outdoor' ">
-                                    <p> Illumination: <b>{{item?.illumination}}</b> </p>
-                                    <p> Landmark: <b>{{item?.landmark}}</b> </p>
-                                </div>
-                                <div *ngIf="item.media == 'magazine' ">
-                                    <p> Category: <b>{{item?.category}}</b> </p>
-                                    <p> Language: <b>{{item?.circulation}}</b> </p>
-                                    <p>Frequency: <b>{{item?.frequency}}</b> </p>
-                                </div>
-                                <div *ngIf="item.media == 'television' ">
-                                    <p> Channel Genre: <b>{{item?.channel_genre}}</b> </p>
-                                    <p> Language: <b>{{item?.language}}</b> </p>
-                                </div>
-                                <div *ngIf="item.media == 'digital' ">
-                                    <p> Category: <b>{{item?.category}}</b> </p>
-                                    <p> Language : <b>{{item?.language}}</b> </p>
-                                </div>
-                                <div *ngIf="item.media == 'digitalpr' ">
-                                    <p> Genre: <b>{{item?.genre}}</b> </p>
-                                    <p> Language : <b>{{item?.language}}</b> </p>
-                                </div>
-
-                                <div *ngIf="item.media == 'influencer' ">
-                                    <p> Platforms: <b>{{item?.platforms}}</b> </p>
-                                    <p> Followers: <b>{{item?.followers}}</b> </p>
-                                    <p>Category: <b>{{item?.category}}</b> </p>
-                                </div>
-
-                                <div *ngIf="item.media == 'newspaper' ">
-                                    <p> Publications: <b>{{item?.publications}}</b> </p>
-                                    <p> Language : <b>{{item?.language}}</b> </p>
-                                </div>
-
-                                <div *ngIf="item.media == 'inflight' ">
-                                    <p> Average Monthly Passengers: <b>{{item?.average_monthly_passengers}}</b> </p>
-                                </div>
-                                <p *ngIf="isAuthenticated">Price: <strong> ₹ {{item?.price?.offer_rate | number :
-                                        '1.2-2'}}
-                                    </strong><br><span class="ps-5 fst-italic text-reset">({{item?.price?.unit}})</span>
-                                </p>
-                                <div class="media-button">
-                                    <a type="button" *ngIf="isAuthenticated" data-item-link-type="View More" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" [routerLink]="['/',item.media,item.slug]" class="btn btn-outline-primary w-100 view-item-button">
-                                        View More
-                                    </a>
-                                    <a type="button" *ngIf="!isAuthenticated" href="javascript:void(0)" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" (click)="openUserLoginDialog(item?.name)" class="btn btn-outline-primary w-100 view-price">
-                                        Login to View Price
-                                    </a>
-                                </div>
+              }
+              <!-- description end -->
+              <!-- media-list start -->
+              @if (content?.type == 'filter' ) {
+                <div class="row g-md-4 g-3 justify-content-center">
+                  @for (item of content.filter; track item; let i = $index) {
+                    <div class="col-6 col-md-4 col-xl-3">
+                      <div class="media-list-card">
+                        <a [routerLink]="['/',item.media,item.slug]" class="media-list-card-img">
+                          <img loading="lazy" src="{{item?.image}}" data-item-link-type="Item thumbnail" [attr.data-item-order]="i+1" class="product-image view-item-image" title="{{item?.name}}" alt="{{item?.name}}">
+                        </a>
+                        <div class="media media-list-card-body">
+                          <p class="media-list-card-title">
+                            <a [routerLink]="['/',item.media,item.slug]" data-item-link-type="Item name" [attr.data-item-order]="i+1" class="view-item-name">
+                            {{item?.name}}</a>
+                          </p>
+                          @if (item.media == 'radio' ) {
+                            <div>
+                              <p> Frequency: <b>{{item?.frequency}}</b> </p>
+                              <p> Language: <b>{{item?.language}}</b> </p>
                             </div>
+                          }
+                          @if (item.media == 'mall' ) {
+                            <div>
+                              <p>Foot Falls: <b>{{item?.footfalls}}</b> </p>
+                              <p> Venue : <b>{{item?.venue}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'cinema' ) {
+                            <div>
+                              <p> Audience Class: <b>{{item?.audience_class}}</b> </p>
+                              <p> Cinema Chain: <b>{{item?.cinema_chain}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'transit' ) {
+                            <div>
+                              <p> Media Type: <b>{{item?.media_type}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'outdoor' ) {
+                            <div>
+                              <p> Illumination: <b>{{item?.illumination}}</b> </p>
+                              <p> Landmark: <b>{{item?.landmark}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'magazine' ) {
+                            <div>
+                              <p> Category: <b>{{item?.category}}</b> </p>
+                              <p> Language: <b>{{item?.circulation}}</b> </p>
+                              <p>Frequency: <b>{{item?.frequency}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'television' ) {
+                            <div>
+                              <p> Channel Genre: <b>{{item?.channel_genre}}</b> </p>
+                              <p> Language: <b>{{item?.language}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'digital' ) {
+                            <div>
+                              <p> Category: <b>{{item?.category}}</b> </p>
+                              <p> Language : <b>{{item?.language}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'digitalpr' ) {
+                            <div>
+                              <p> Genre: <b>{{item?.genre}}</b> </p>
+                              <p> Language : <b>{{item?.language}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'influencer' ) {
+                            <div>
+                              <p> Platforms: <b>{{item?.platforms}}</b> </p>
+                              <p> Followers: <b>{{item?.followers}}</b> </p>
+                              <p>Category: <b>{{item?.category}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'newspaper' ) {
+                            <div>
+                              <p> Publications: <b>{{item?.publications}}</b> </p>
+                              <p> Language : <b>{{item?.language}}</b> </p>
+                            </div>
+                          }
+                          @if (item.media == 'inflight' ) {
+                            <div>
+                              <p> Average Monthly Passengers: <b>{{item?.average_monthly_passengers}}</b> </p>
+                            </div>
+                          }
+                          @if (isAuthenticated) {
+                            <p>Price: <strong> ₹ {{$safeNavigationMigration(item?.price?.offer_rate) | number :
+                              '1.2-2'}}
+                              </strong><br><span class="ps-5 fst-italic text-reset">({{item?.price?.unit}})</span>
+                            </p>
+                          }
+                          <div class="media-button">
+                            @if (isAuthenticated) {
+                              <a type="button" data-item-link-type="View More" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" [routerLink]="['/',item.media,item.slug]" class="btn btn-outline-primary w-100 view-item-button">
+                                View More
+                              </a>
+                            }
+                            @if (!isAuthenticated) {
+                              <a type="button" href="javascript:void(0)" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" (click)="openUserLoginDialog($safeNavigationMigration(item?.name))" class="btn btn-outline-primary w-100 view-price">
+                                Login to View Price
+                              </a>
+                            }
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  }
                 </div>
-                <!-- media-list end -->
-
-                <div *ngIf="content?.type == 'link' " class="text-center mt-4 link_title">
-
-                    <a aria-label="Link" href="{{content.link_url}}" class="more-link more-link-with-text orange-link">
-                        <span class="more-text"> {{content.link_title}} </span>
-                        <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml"></span>
-                    </a>
+              }
+              <!-- media-list end -->
+              @if (content?.type == 'link' ) {
+                <div class="text-center mt-4 link_title">
+                  <a aria-label="Link" href="{{content.link_url}}" class="more-link more-link-with-text orange-link">
+                    <span class="more-text"> {{content.link_title}} </span>
+                    <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml"></span>
+                  </a>
                 </div>
-
+              }
             </div>
+          }
         </div>
-    </section>
-</section>
+      </section>
+    }
+  </section>
+} @else {
+  <div class="row text-center common-padding">
+    <div class="col">
+      @if ((isDataLoaded == true && advertisingPageList.length == 0)) {
+        <app-no-results></app-no-results>
+      }
+      @if (!isDataLoaded) {
+        <app-loader></app-loader>
+      }
+    </div>
+  </div>
+}
 
 
 
 <!-- media list end -->
 
 <!-- If Data not found START-->
-<ng-template #noDataFound>
-    <div class="row text-center common-padding">
-        <div class="col">
-            <app-no-results *ngIf="(isDataLoaded == true && advertisingPageList.length == 0)"></app-no-results>
-            <app-loader *ngIf="!isDataLoaded"></app-loader>
-        </div>
-    </div>
-</ng-template>
 <!-- If Data not found end-->
 
 <!-- pageNotFound start -->
-<ng-template #pageNotFound>
-    <app-sec-heading-pagenotfound *ngIf="isDataLoaded"></app-sec-heading-pagenotfound>
-    <app-search-result></app-search-result>
-</ng-template>
 <!-- If Data not found END-->
 
 <app-call-to-action></app-call-to-action>

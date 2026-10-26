@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration, TransferState } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration, withNoIncrementalHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-import { TransferHttpCacheModule } from '@nguniversal/common'; // HERE
-import { GoogleTagManagerModule } from 'angular-google-tag-manager';
 import { StatusCodeResponseService } from '@app-shared-services';
 import { AppHttpInterceptorService } from '@app-shared-services';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -39,21 +37,16 @@ import { SalesOrderPaymentSuccessComponent } from './applications/sales-order-pa
     SalesOrderPaymentSuccessComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
-    TransferHttpCacheModule, // AND HERE
-    SharedModule,
-    GoogleTagManagerModule.forRoot({
-      id: 'GTM-MT5BHP',
-    }),
+    SharedModule
   ],
   providers: [
-    provideClientHydration(),
+    provideClientHydration(withNoIncrementalHydration()),
     { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
-    { provide: TransferState },
-    StatusCodeResponseService
+    StatusCodeResponseService,
+    provideHttpClient(withFetch(), withInterceptorsFromDi())
   ],
   bootstrap: [AppComponent]
 })

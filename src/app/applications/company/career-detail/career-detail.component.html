@@ -1,122 +1,147 @@
 <section class="common-padding career-page-header">
-    <div class="container">
-        <div class="section-heading text-center mb-0">
-            <h1> Careers at Excellent </h1>
-            <p> We value our people as much as we value our clients.<br> At Excellent Publicity we are a passionate
-                group of people dedicated to making lasting relationships and help building Brands. We’re looking for
-                amazing talent who want to grow professionally,
-                deliver results and preserve our client – centered culture. If you think that we are right fit for you,
-                do drop in your profile <br>&#64; <a aria-label="Link" href="mailto:chahal@excellentpublicity.com">
-                    chahal&#64;excellentpublicity.com </a>
-            </p>
-        </div>
-    </div>
+  <div class="container">
+    <div class="section-heading text-center mb-0">
+      <h1> Careers at Excellent </h1>
+      <p> We value our people as much as we value our clients.<br> At Excellent Publicity we are a passionate
+        group of people dedicated to making lasting relationships and help building Brands. We’re looking for
+        amazing talent who want to grow professionally,
+        deliver results and preserve our client – centered culture. If you think that we are right fit for you,
+        do drop in your profile <br>&#64; <a aria-label="Link" href="mailto:chahal@excellentpublicity.com">
+      chahal&#64;excellentpublicity.com </a>
+    </p>
+  </div>
+</div>
 </section>
 
-<section class="common-padding" *ngIf="careerDetail !== null">
+@if (careerDetail !== null) {
+  <section class="common-padding">
     <div class="container title px-5">
-        <div class="custom grey-background p-4 p-md-5">
-            <div class="container">
-                <div class="justify-text">
-                    <div class="experience" *ngIf="careerDetail?.experience">
-                        <h4>Experience</h4>
-                        <p>{{careerDetail?.experience}}</p>
-                    </div>
-                    <div class="job-summary" *ngIf="careerDetail?.job_summary">
-                        <h4>Job Summary</h4>
-                        <p>{{careerDetail?.job_summary}}</p>
-                    </div>
-                    <div class="roles" *ngIf="careerDetail?.job_description" [innerHTML]="careerDetail?.job_description | safeHtml">
-                    </div>
-                </div>
+      <div class="custom grey-background p-4 p-md-5">
+        <div class="container">
+          <div class="justify-text">
+            @if (careerDetail?.experience) {
+              <div class="experience">
+                <h4>Experience</h4>
+                <p>{{careerDetail?.experience}}</p>
+              </div>
+            }
+            @if (careerDetail?.job_summary) {
+              <div class="job-summary">
+                <h4>Job Summary</h4>
+                <p>{{careerDetail?.job_summary}}</p>
+              </div>
+            }
+            @if (careerDetail?.job_description) {
+              <div class="roles" [innerHTML]="$safeNavigationMigration(careerDetail?.job_description) | safeHtml">
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+      <div id="applynowform" class="section-heading text-center mb-lg-3 pb-lg-2 pt-lg-5 mt-lg-5 mt-5">
+        <h2>Apply Now</h2>
+      </div>
+      <div class="card border-0 inquiry-card contact-inquiry-card">
+        @if (!inquirySubmit) {
+          <form class="row g-3" [formGroup]="userInquiryForm" (ngSubmit)="inquiryFormSubmit()">
+            <div class="col-md-6 m-0">
+              <label class="form-label">Applying For <span>*</span></label>
+              <input type="text" class="form-control" readonly [formControl]="userInquiryForm.controls['applyFor']"
+                placeholder="Enter post">
+              <div class="text-danger form-error">
+                @if (userInquiryForm.controls['applyFor'].hasError('required') && userInquiryForm.controls['applyFor'].touched) {
+                  <span
+                    >
+                  Post name is required </span>
+                }
+              </div>
             </div>
-        </div>
-        <div id="applynowform" class="section-heading text-center mb-lg-3 pb-lg-2 pt-lg-5 mt-lg-5 mt-5">
-            <h2>Apply Now</h2>
-        </div>
-        <div class="card border-0 inquiry-card contact-inquiry-card">
-            <form class="row g-3" [formGroup]="userInquiryForm" (ngSubmit)="inquiryFormSubmit()" *ngIf="!inquirySubmit">
-                <div class="col-md-6 m-0">
-                    <label class="form-label">Applying For <span>*</span></label>
-                    <input type="text" class="form-control" readonly [formControl]="userInquiryForm.controls['applyFor']"
-                        placeholder="Enter post">
-                    <div class="text-danger form-error">
-                        <span
-                            *ngIf="userInquiryForm.controls['applyFor'].hasError('required') && userInquiryForm.controls['applyFor'].touched">
-                            Post name is required </span>
-                    </div>
-                </div>
-                <div class="col-md-6 m-0 ">
-                    <label class="form-label">Full name <span>*</span></label>
-                    <input type="text" class="form-control" [formControl]="userInquiryForm.controls['name']"
-                        placeholder="Enter name">
-                    <div class="text-danger form-error">
-                        <span
-                            *ngIf="userInquiryForm.controls['name'].hasError('required') && userInquiryForm.controls['name'].touched">
-                            Full name is required </span>
-                    </div>
-                </div>
-                <div class="col-md-6 m-0">
-                    <label class="form-label">Email address <span>*</span></label>
-                    <input type="email" class="form-control" [formControl]="userInquiryForm.controls['email']"
-                        placeholder="Enter email address">
-                    <div class="text-danger form-error">
-                        <span
-                            *ngIf="userInquiryForm.controls['email'].hasError('required') && userInquiryForm.controls['email'].touched">
-                            Email address is required </span>
-                        <span
-                            *ngIf="userInquiryForm.controls['email'].hasError('email') && userInquiryForm.controls['email'].touched">
-                            Invalid email address </span>
-                    </div>
-                </div>
-                <div class="col-md-6 m-0">
-                    <label class="form-label">Phone no. <span>*</span></label>
-                    <input type="number" class="form-control" [formControl]="userInquiryForm.controls['contact']"
-                        placeholder="Enter phone no.">
-                    <div class="text-danger form-error">
-                        <span
-                            *ngIf="userInquiryForm.controls['contact'].hasError('required') && userInquiryForm.controls['contact'].touched">
-                            Phone no. is required </span>
-                    </div>
-                </div>
-                <div class="col-md-6 m-0">
-                    <label class="form-label">City<span>*</span></label>
-                    <input type="text" class="form-control" [formControl]="userInquiryForm.controls['city']"
-                        placeholder="Enter city">
-                    <div class="text-danger form-error">
-                        <span
-                            *ngIf="userInquiryForm.controls['city'].hasError('required') && userInquiryForm.controls['city'].touched">
-                            City is required </span>
-                    </div>
-                </div>
-                <div class="col-12 text-md-start text-center m-0">
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label"> Upload Your CV<span>*</span></label>
-                        <input class="form-control" type="file" id="formFile" (change)="fileUpload($event)"
-                            accept=".doc,.docx,.pdf">
-
-                    </div>
-
-                    <div class="text-danger form-error">
-                        <span *ngIf="error"> {{errorMsg}} </span>
-                    </div>
-                </div>
-                <div class="col-12 text-md-start text-center mt-md-4 mt-3">
-                    <button type="submit" class="btn btn-primary">Apply Now</button>
-                </div>
-            </form>
-
-            <h5 *ngIf="inquirySubmit" class="text-center" [innerHTML]="inquiryMessage | safeHtml"> </h5>
-        </div>
+            <div class="col-md-6 m-0 ">
+              <label class="form-label">Full name <span>*</span></label>
+              <input type="text" class="form-control" [formControl]="userInquiryForm.controls['name']"
+                placeholder="Enter name">
+              <div class="text-danger form-error">
+                @if (userInquiryForm.controls['name'].hasError('required') && userInquiryForm.controls['name'].touched) {
+                  <span
+                    >
+                  Full name is required </span>
+                }
+              </div>
+            </div>
+            <div class="col-md-6 m-0">
+              <label class="form-label">Email address <span>*</span></label>
+              <input type="email" class="form-control" [formControl]="userInquiryForm.controls['email']"
+                placeholder="Enter email address">
+              <div class="text-danger form-error">
+                @if (userInquiryForm.controls['email'].hasError('required') && userInquiryForm.controls['email'].touched) {
+                  <span
+                    >
+                  Email address is required </span>
+                }
+                @if (userInquiryForm.controls['email'].hasError('email') && userInquiryForm.controls['email'].touched) {
+                  <span
+                    >
+                  Invalid email address </span>
+                }
+              </div>
+            </div>
+            <div class="col-md-6 m-0">
+              <label class="form-label">Phone no. <span>*</span></label>
+              <input type="number" class="form-control" [formControl]="userInquiryForm.controls['contact']"
+                placeholder="Enter phone no.">
+              <div class="text-danger form-error">
+                @if (userInquiryForm.controls['contact'].hasError('required') && userInquiryForm.controls['contact'].touched) {
+                  <span
+                    >
+                  Phone no. is required </span>
+                }
+              </div>
+            </div>
+            <div class="col-md-6 m-0">
+              <label class="form-label">City<span>*</span></label>
+              <input type="text" class="form-control" [formControl]="userInquiryForm.controls['city']"
+                placeholder="Enter city">
+              <div class="text-danger form-error">
+                @if (userInquiryForm.controls['city'].hasError('required') && userInquiryForm.controls['city'].touched) {
+                  <span
+                    >
+                  City is required </span>
+                }
+              </div>
+            </div>
+            <div class="col-12 text-md-start text-center m-0">
+              <div class="mb-3">
+                <label for="formFile" class="form-label"> Upload Your CV<span>*</span></label>
+                <input class="form-control" type="file" id="formFile" (change)="fileUpload($event)"
+                  accept=".doc,.docx,.pdf">
+              </div>
+              <div class="text-danger form-error">
+                @if (error) {
+                  <span> {{errorMsg}} </span>
+                }
+              </div>
+            </div>
+            <div class="col-12 text-md-start text-center mt-md-4 mt-3">
+              <button type="submit" class="btn btn-primary">Apply Now</button>
+            </div>
+          </form>
+        }
+        @if (inquirySubmit) {
+          <h5 class="text-center" [innerHTML]="inquiryMessage | safeHtml"> </h5>
+        }
+      </div>
     </div>
-</section>
+  </section>
+}
 
-<section class="common-padding" *ngIf="careerDetail == null">
+@if (careerDetail == null) {
+  <section class="common-padding">
     <div class="container title px-5">
-        <div class="custom grey-background p-4 p-md-5">
-            <div class="container">
-                <p>We couldn’t find any career opportunities matching your criteria. Try adjusting your filters or check back later for new openings.</p>
-            </div>
+      <div class="custom grey-background p-4 p-md-5">
+        <div class="container">
+          <p>We couldn’t find any career opportunities matching your criteria. Try adjusting your filters or check back later for new openings.</p>
         </div>
+      </div>
     </div>
-</section>
+  </section>
+}

@@ -1,232 +1,239 @@
 <section class="common-padding bg-linear-gradient hire-plan-page-header">
-    <div class="container">
-        <div class="section-heading text-center mb-0">
-            <h1 id="title" >Hire a Planner</h1>
-            <p>Our media planner will help you construct a strong and competitive media plan that your brand deserves. Fill the form below, we will reach out to you within 24 hrs.</p>
-        </div>
+  <div class="container">
+    <div class="section-heading text-center mb-0">
+      <h1 id="title" >Hire a Planner</h1>
+      <p>Our media planner will help you construct a strong and competitive media plan that your brand deserves. Fill the form below, we will reach out to you within 24 hrs.</p>
     </div>
+  </div>
 </section>
 <section class="grey-background common-padding">
-    <div class="container">
-        <div class="card border-0 inquiry-card contact-inquiry-card">
-            <form class="row g-3" [formGroup]="userInquiryForm" (ngSubmit)="inquiryFormSubmit()" *ngIf="!inquirySubmit">
-                <div class="col-md-6 m-0">
-                    <label class="form-label">Name<span>*</span></label>
-                    <input type="text" class="form-control" [formControl]="userInquiryForm.controls['name']"
-                        placeholder="Write your name">
-                    <div class="text-danger form-error">
-                        <span
-                            *ngIf="userInquiryForm.controls['name'].hasError('required') && userInquiryForm.controls['name'].touched">
-                            Name is required </span>
-                    </div>
-
+  <div class="container">
+    <div class="card border-0 inquiry-card contact-inquiry-card">
+      @if (!inquirySubmit) {
+        <form class="row g-3" [formGroup]="userInquiryForm" (ngSubmit)="inquiryFormSubmit()">
+          <div class="col-md-6 m-0">
+            <label class="form-label">Name<span>*</span></label>
+            <input type="text" class="form-control" [formControl]="userInquiryForm.controls['name']"
+              placeholder="Write your name">
+              <div class="text-danger form-error">
+                @if (userInquiryForm.controls['name'].hasError('required') && userInquiryForm.controls['name'].touched) {
+                  <span
+                    >
+                  Name is required </span>
+                }
+              </div>
+            </div>
+            <div class="col-md-6 m-0">
+              <label class="form-label">Email address<span>*</span></label>
+              <input type="email" class="form-control" [formControl]="userInquiryForm.controls['email']"
+                placeholder="Write your email">
+                <div class="text-danger form-error">
+                  @if (userInquiryForm.controls['email'].hasError('required') && userInquiryForm.controls['email'].touched) {
+                    <span
+                      >
+                    Email address is required </span>
+                  }
+                  @if (userInquiryForm.controls['email'].hasError('email') && userInquiryForm.controls['email'].touched) {
+                    <span
+                      >
+                    Invalid email address </span>
+                  }
+                  @if (userInquiryForm.controls['email'].hasError('isPersonal')) {
+                    <span> Only business email account is valid.</span>
+                  }
                 </div>
-                <div class="col-md-6 m-0">
-                    <label class="form-label">Email address<span>*</span></label>
-                    <input type="email" class="form-control" [formControl]="userInquiryForm.controls['email']"
-                        placeholder="Write your email">
-
-                    <div class="text-danger form-error">
-                        <span
-                            *ngIf="userInquiryForm.controls['email'].hasError('required') && userInquiryForm.controls['email'].touched">
-                            Email address is required </span>
-                        <span
-                            *ngIf="userInquiryForm.controls['email'].hasError('email') && userInquiryForm.controls['email'].touched">
-                            Invalid email address </span>
-                        <span *ngIf="userInquiryForm.controls['email'].hasError('isPersonal')"> Only business email account is valid.</span>
-
+              </div>
+              <div class="col-md-6 m-0">
+                <label class="form-label"> Phone no. <span>*</span></label>
+                <div class="phone-number-with-country">
+                  <div class="d-flex">
+                    <div class="dropdown">
+                      <a class="drop-down-link dropdown-toggle" href="#" role="button"
+                        id="countruCodeDropdown" data-bs-toggle="dropdown"
+                      aria-expanded="false">{{selectedCountry?.dialCode}}</a>
+                      <ul class="dropdown-menu" aria-labelledby="countruCodeDropdown">
+                        <div class="country-list-search mb-2">
+                          <input type="search" class="form-control country-search" placeholder="Search..."
+                            aria-label="Search" (input)="onSearchChange($event.target.value)">
+                          </div>
+                          <div class="country-list default-scroll">
+                            @for (country of countryFilteredList; track country) {
+                              <li class="dropdown-item"
+                                (click)="selectCountry(country)">
+                                {{country?.name}}
+                                <span>({{country?.dialCode}})</span>
+                              </li>
+                            }
+                          </div>
+                        </ul>
+                      </div>
+                      <input type="number" class="form-control phone-number"
+                        [formControl]="userInquiryForm.controls['contact']" placeholder="Your Contact No."
+                        autocomplete="off">
+                      </div>
+                      <div class="text-danger form-error w-100">
+                        @if (userInquiryForm.controls['contact'].hasError('required') && userInquiryForm.controls['contact'].touched) {
+                          <span
+                            >
+                          This field is Required </span>
+                        }
+                        <!-- <span *ngIf="userRegistrationError?.hasError && userRegistrationError?.errors?.contact" class="error-msg-1"> {{userRegistrationError?.errors?.contact}} </span> -->
+                      </div>
                     </div>
-                </div>
-                <div class="col-md-6 m-0">
-                    <label class="form-label"> Phone no. <span>*</span></label>
-                    <div class="phone-number-with-country">
-                        <div class="d-flex">
-                            <div class="dropdown">
-                                <a class="drop-down-link dropdown-toggle" href="#" role="button"
-                                    id="countruCodeDropdown" data-bs-toggle="dropdown"
-                                    aria-expanded="false">{{selectedCountry?.dialCode}}</a>
-
-
-                                <ul class="dropdown-menu" aria-labelledby="countruCodeDropdown">
-                                    <div class="country-list-search mb-2">
-                                        <input type="search" class="form-control country-search" placeholder="Search..."
-                                            aria-label="Search" (input)="onSearchChange($event.target.value)">
-                                    </div>
-                                    <div class="country-list default-scroll">
-                                        <li class="dropdown-item" *ngFor="let country of countryFilteredList"
-                                            (click)="selectCountry(country)">
-                                            {{country?.name}}
-                                            <span>({{country?.dialCode}})</span>
-                                        </li>
-                                    </div>
-                                </ul>
-
-                            </div>
-
-                            <input type="number" class="form-control phone-number"
-                                [formControl]="userInquiryForm.controls['contact']" placeholder="Your Contact No."
-                                autocomplete="off">
-
-
-                        </div>
-                        <div class="text-danger form-error w-100">
-                            <span
-                                *ngIf="userInquiryForm.controls['contact'].hasError('required') && userInquiryForm.controls['contact'].touched">
-                                This field is Required </span>
-                            <!-- <span *ngIf="userRegistrationError?.hasError && userRegistrationError?.errors?.contact" class="error-msg-1"> {{userRegistrationError?.errors?.contact}} </span> -->
-                        </div>
-                    </div>
-                </div>
-                 
-                <div class="col-md-6 m-0">
+                  </div>
+                  <div class="col-md-6 m-0">
                     <label class="form-label"> City <span>*</span></label>
                     <input type="text" class="form-control" [formControl]="userInquiryForm.controls['city']"
-                        placeholder="Write your city">
-
-                    <div class="text-danger form-error">
-                        <span
-                            *ngIf="userInquiryForm.controls['city'].hasError('required') && userInquiryForm.controls['city'].touched">
-                            City is required </span>
+                      placeholder="Write your city">
+                      <div class="text-danger form-error">
+                        @if (userInquiryForm.controls['city'].hasError('required') && userInquiryForm.controls['city'].touched) {
+                          <span
+                            >
+                          City is required </span>
+                        }
+                      </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 m-0">
-                    <label class="form-label">What is your Brand Name, Product Description?<span>*</span></label>
-                    <input type="text" class="form-control" [formControl]="userInquiryForm.controls['product_desc']"
+                    <div class="col-md-6 m-0">
+                      <label class="form-label">What is your Brand Name, Product Description?<span>*</span></label>
+                      <input type="text" class="form-control" [formControl]="userInquiryForm.controls['product_desc']"
                         placeholder="Write your Brand name...">
-                    <div class="text-danger form-error">
-                        <span
-                            *ngIf="userInquiryForm.controls['product_desc'].hasError('required') && userInquiryForm.controls['product_desc'].touched">
+                        <div class="text-danger form-error">
+                          @if (userInquiryForm.controls['product_desc'].hasError('required') && userInquiryForm.controls['product_desc'].touched) {
+                            <span
+                              >
                             Product description is required </span>
-                    </div>
-                </div>
-                <div class="col-md-6 m-0">
-                    <label class="form-label">Is there a website we can refer to? </label>
-                    <input type="text" class="form-control" [formControl]="userInquiryForm.controls['website_name']"
-                        placeholder="Write referring website...">
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Can you let us know tentative campaign start date? </label>
-                    <input type="date" class="form-control" [formControl]="userInquiryForm.controls['start_date']"
-                        placeholder="Select date">
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Do you have any location preference? </label>
-                    <input type="text" class="form-control" [formControl]="userInquiryForm.controls['location']"
-                        placeholder="Write location preference...">
-                </div>
-                <div class="col-12">
-                    <label class="form-label">Which type of audience you are looking to target?</label>
-                    <div class="row g-3">
-                        <div class="col-5 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Youth" id="target1"
-                                    (change)="audienceTypeChange($event)">
-                                <label class="form-check-label" for="target1"> Youth </label>
-                            </div>
+                          }
                         </div>
-                        <div class="col-5 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Masses" id="target2"
-                                    (change)="audienceTypeChange($event)">
-                                <label class="form-check-label" for="target2"> Masses </label>
-                            </div>
+                      </div>
+                      <div class="col-md-6 m-0">
+                        <label class="form-label">Is there a website we can refer to? </label>
+                        <input type="text" class="form-control" [formControl]="userInquiryForm.controls['website_name']"
+                          placeholder="Write referring website...">
                         </div>
-                        
-                        <div class="col-5 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Elite Class" id="target3"
-                                    (change)="audienceTypeChange($event)">
-                                <label class="form-check-label" for="target3"> Elite Class </label>
+                        <div class="col-md-6">
+                          <label class="form-label">Can you let us know tentative campaign start date? </label>
+                          <input type="date" class="form-control" [formControl]="userInquiryForm.controls['start_date']"
+                            placeholder="Select date">
+                          </div>
+                          <div class="col-md-6">
+                            <label class="form-label">Do you have any location preference? </label>
+                            <input type="text" class="form-control" [formControl]="userInquiryForm.controls['location']"
+                              placeholder="Write location preference...">
                             </div>
-                        </div>
-                        <div class="col-7 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Matured Audience" id="target4"
-                                    (change)="audienceTypeChange($event)">
-                                <label class="form-check-label" for="target4"> Matured Audience </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <label class="form-label">Are you looking for any particular media option?</label>
-                    <div class="row g-3">
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
-                                    value="Radio" id="media-option1">
-                                <label class="form-check-label" for="media-option1"> Radio </label>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
-                                    value="Digital" id="media-option2">
-                                <label class="form-check-label" for="media-option2"> Digital </label>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
-                                    value="Television" id="media-option3">
-                                <label class="form-check-label" for="media-option3"> Television </label>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
-                                    value="Newspaper" id="media-option4">
-                                <label class="form-check-label" for="media-option4"> Newspaper </label>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
-                                    value="Outdoor" id="media-option5">
-                                <label class="form-check-label" for="media-option5"> Outdoor </label>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
-                                    value="Non-Traditional" id="media-option6">
-                                <label class="form-check-label" for="media-option6"> Non-Traditional </label>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
-                                    value="Cinema" id="media-option7">
-                                <label class="form-check-label" for="media-option7"> Cinema </label>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
-                                    value="Airline/Airport" id="media-option8">
-                                <label class="form-check-label" for="media-option8"> Airline/Airport </label>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="form-check">
-                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
-                                    value="Magazine" id="media-option9">
-                                <label class="form-check-label" for="media-option9"> Magazine </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 text-md-start text-center mt-4">
-                    <button type="submit" class="btn btn-primary">Apply Now</button>
-                </div>
-            </form>
+                            <div class="col-12">
+                              <label class="form-label">Which type of audience you are looking to target?</label>
+                              <div class="row g-3">
+                                <div class="col-5 col-md-6 col-lg-3">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Youth" id="target1"
+                                      (change)="audienceTypeChange($event)">
+                                      <label class="form-check-label" for="target1"> Youth </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-5 col-md-6 col-lg-3">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="Masses" id="target2"
+                                        (change)="audienceTypeChange($event)">
+                                        <label class="form-check-label" for="target2"> Masses </label>
+                                      </div>
+                                    </div>
+                                    <div class="col-5 col-md-6 col-lg-3">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Elite Class" id="target3"
+                                          (change)="audienceTypeChange($event)">
+                                          <label class="form-check-label" for="target3"> Elite Class </label>
+                                        </div>
+                                      </div>
+                                      <div class="col-7 col-md-6 col-lg-3">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="Matured Audience" id="target4"
+                                            (change)="audienceTypeChange($event)">
+                                            <label class="form-check-label" for="target4"> Matured Audience </label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-12">
+                                      <label class="form-label">Are you looking for any particular media option?</label>
+                                      <div class="row g-3">
+                                        <div class="col-6 col-md-6 col-lg-3">
+                                          <div class="form-check">
+                                            <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
+                                              value="Radio" id="media-option1">
+                                              <label class="form-check-label" for="media-option1"> Radio </label>
+                                            </div>
+                                          </div>
+                                          <div class="col-6 col-md-6 col-lg-3">
+                                            <div class="form-check">
+                                              <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
+                                                value="Digital" id="media-option2">
+                                                <label class="form-check-label" for="media-option2"> Digital </label>
+                                              </div>
+                                            </div>
+                                            <div class="col-6 col-md-6 col-lg-3">
+                                              <div class="form-check">
+                                                <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
+                                                  value="Television" id="media-option3">
+                                                  <label class="form-check-label" for="media-option3"> Television </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-6 col-md-6 col-lg-3">
+                                                <div class="form-check">
+                                                  <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
+                                                    value="Newspaper" id="media-option4">
+                                                    <label class="form-check-label" for="media-option4"> Newspaper </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-3">
+                                                  <div class="form-check">
+                                                    <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
+                                                      value="Outdoor" id="media-option5">
+                                                      <label class="form-check-label" for="media-option5"> Outdoor </label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-6 col-md-6 col-lg-3">
+                                                    <div class="form-check">
+                                                      <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
+                                                        value="Non-Traditional" id="media-option6">
+                                                        <label class="form-check-label" for="media-option6"> Non-Traditional </label>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-6 col-md-6 col-lg-3">
+                                                      <div class="form-check">
+                                                        <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
+                                                          value="Cinema" id="media-option7">
+                                                          <label class="form-check-label" for="media-option7"> Cinema </label>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-6 col-md-6 col-lg-3">
+                                                        <div class="form-check">
+                                                          <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
+                                                            value="Airline/Airport" id="media-option8">
+                                                            <label class="form-check-label" for="media-option8"> Airline/Airport </label>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-6 col-lg-3">
+                                                          <div class="form-check">
+                                                            <input class="form-check-input" (change)="mediaOptionChange($event)" type="checkbox"
+                                                              value="Magazine" id="media-option9">
+                                                              <label class="form-check-label" for="media-option9"> Magazine </label>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-12 text-md-start text-center mt-4">
+                                                        <button type="submit" class="btn btn-primary">Apply Now</button>
+                                                      </div>
+                                                    </form>
+                                                  }
 
-            <h5 *ngIf="inquirySubmit" class="text-center" [innerHTML]="inquiryMessage | safeHtml">  </h5>
+                                                  @if (inquirySubmit) {
+                                                    <h5 class="text-center" [innerHTML]="inquiryMessage | safeHtml">  </h5>
+                                                  }
 
-        </div>
-    </div>
-</section>
+                                                </div>
+                                              </div>
+                                            </section>
 
 
-<app-call-to-action></app-call-to-action>
+                                            <app-call-to-action></app-call-to-action>

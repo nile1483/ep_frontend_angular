@@ -1,5 +1,5 @@
-import { Inject, Injectable, Optional } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse, HttpResponse } from '@angular/common/http'
+import { Injectable, Injector, Optional } from '@angular/core';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -15,12 +15,11 @@ export class AppHttpInterceptorService implements HttpInterceptor {
   private readonly fixedTokenValue = '39lEl5t2c8886n7nleE53x8n';
 
   constructor(
-    private userService: UserService,
+    private injector: Injector,
     @Optional() private statusCodeResponseService?: StatusCodeResponseService,
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     // Clone the request to add the custom header
     const modifiedReq = req.clone({
       setHeaders: {
@@ -33,8 +32,9 @@ export class AppHttpInterceptorService implements HttpInterceptor {
       catchError((response: HttpErrorResponse) => {
         let errorMessage = '';
         if (response.status == 401) {
-          this.userService.setUserAuthenticated(false);
-          this.userService.userData.next(false);
+          const userService = this.injector.get(UserService);
+          userService.setUserAuthenticated(false);
+          userService.userData.next(false);
         }
 
         if (response.status == 402) {

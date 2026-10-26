@@ -1,161 +1,174 @@
 <section class="common-padding career-page-header">
-    <div class="container">
-        <div class="section-heading text-center mb-0">
-            <h1> Careers at Excellent </h1>
-            <p> We value our people as much as we value our clients.<br> At Excellent Publicity we are a passionate
-                group of people dedicated to making lasting relationships and help building Brands. We’re looking for
-                amazing talent who want to grow professionally,
-                deliver results and preserve our client – centered culture. If you think that we are right fit for you,
-                do drop in your profile <br>&#64; <a aria-label="Link" href="mailto:chahal@excellentpublicity.com">
-                    chahal&#64;excellentpublicity.com </a>
-            </p>
-        </div>
-    </div>
+  <div class="container">
+    <div class="section-heading text-center mb-0">
+      <h1> Careers at Excellent </h1>
+      <p> We value our people as much as we value our clients.<br> At Excellent Publicity we are a passionate
+        group of people dedicated to making lasting relationships and help building Brands. We’re looking for
+        amazing talent who want to grow professionally,
+        deliver results and preserve our client – centered culture. If you think that we are right fit for you,
+        do drop in your profile <br>&#64; <a aria-label="Link" href="mailto:chahal@excellentpublicity.com">
+      chahal&#64;excellentpublicity.com </a>
+    </p>
+  </div>
+</div>
 </section>
 
 <section class="grey-background common-padding">
-    <div class="container">
-        <div class="section-heading text-center mb-3 mb-md-4">
-            <h2>Job Openings</h2>
-            <h5>Join Us!</h5>
-        </div>
-        <section class="media-filter list-background ">
-            <div class="media-filter-panel">
-                <div class="row accordion g-3 justify-content-center"  id="mediaFiltersaccordion">
-
-                    <!-- job title start -->
-                    <div class="col-auto col-md-3 offset-md-1 offset-lg-2">
-                        <div class="accordion-item border-0">
-                            <h5 class="accordion-header" id="filter-job">
-                                <button class="accordion-button collapsed" #accordionButtonJobRef type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse-job" aria-expanded="false"
-                                    aria-controls="collapse-job">
-                                    <span class="accordion-label"> Job Title </span>
-                                </button>
-                            </h5>
-                            <div id="collapse-job" class="accordion-collapse collapse"
-                                data-bs-parent="#mediaFiltersaccordion">
-                                <div class="accordion-body filter">
-                                    <!-- <input type="search" placeholder="Search..." aria-label="Search"> -->
-                                    <div class="filter-data">
-                                        <option class="mat-option" *ngFor="let title of filterTitleList" (click)="selectTitle(title)">
-                                            {{title}}
-                                        </option>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                    <!-- job title end -->
-
-                    <!-- location start -->
-                    <div class="col-auto col-md-3">
-                        <div class="accordion-item border-0">
-                            <h5 class="accordion-header" id="filter-location">
-                                <button class="accordion-button collapsed" #accordionButtonLocationRef type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse-location" aria-expanded="false"
-                                    aria-controls="collapse-location">
-                                    <span class="accordion-label"> Location </span>
-                                </button>
-                            </h5>
-                            <div id="collapse-location" class="accordion-collapse collapse"
-                                data-bs-parent="#mediaFiltersaccordion">
-                                <div class="accordion-body filter">
-                                    <!-- <input type="search" placeholder="Search..." aria-label="Search"> -->
-                                    <div class="filter-data">
-                                        <option class="mat-option" *ngFor="let location of filterLocationList" (click)="selectLocation(location)">
-                                            {{location}}
-                                        </option>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- location end -->
-
-                    <div class="col-auto col-md-3">
-                        <button type="button" class="btn btn-outline-primary search"
-                            (click)="searchFilters()">Search</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="filter-selected">
-                <p *ngIf="careerFilters.title.length > 0 || careerFilters.location.length > 0" class="m-0"> <span
-                        class="me-3">Filter applied: </span>
-                    <span class="badge m-1" *ngIf="careerFilters.title.length > 0"> <strong>Job Title: </strong> <span
-                            [innerHTML]="careerFilters.title"></span></span>
-                    <span class="badge m-1" *ngIf="careerFilters.location.length > 0"> <strong>Location: </strong> <span
-                            [innerHTML]="careerFilters.location"></span></span>
-                </p>
-            </div>
-        </section>
-
-        <div class="row g-md-4 g-3">
-            <!-- If Data not found START-->
-            <div class="row text-center mt-3">
-                <div class="col">
-                    <app-no-results *ngIf="(isDataLoaded == true && currentOpenings.length == 0)"></app-no-results>
-                    <!-- <app-loader *ngIf="!isDataLoaded" ></app-loader> -->
-                </div>
-            </div>
-            <!-- If Data not found END-->
-
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let currentOpening of currentOpenings;let i=index">
-                <div class="card border-0 h-100 current-opening-card">
-                    <div class="row">
-                        <div class="col-10">
-                            <div class="wrapper">
-                                <div class="card front-face">
-                                    <h5 class="text-center px-2" [innerHTML]="currentOpening?.title"> </h5>
-                                </div>
-                                <div class="card back-face">
-
-                                    <button type="button" class="btn btn-outline-primary"> <a
-                                            href="career/{{currentOpening?.slug}}">Read More</a>
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-outline-primary"> <a
-                                            href="career/{{currentOpening?.slug}}">Apply
-                                            Now</a> </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="section-heading text-center mb-5">
-                    <h2>Frequently Asked Question</h2>
-                    <span class="separator mb-2"></span>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="" *ngIf="careerFaqList.length > 0" itemscope itemtype="https://schema.org/FAQPage">
-                    <div class="accordion faq-accordion" id="faqAccordion" >
-                        <div class="accordion-item" *ngFor="let item of careerFaqList; let i=index" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                            <h6 class="accordion-header" id="heading{{i}}">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                                    <p itemprop="name" class="m-0"> {{item?.question}} </p>
-                                </button>
-                            </h6>
-                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                                itemtype="https://schema.org/Answer" >
-                                <div class="accordion-body default-content" itemprop="text">
-                                    <p [innerHTML]="item?.answer"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
+  <div class="container">
+    <div class="section-heading text-center mb-3 mb-md-4">
+      <h2>Job Openings</h2>
+      <h5>Join Us!</h5>
     </div>
+    <section class="media-filter list-background ">
+      <div class="media-filter-panel">
+        <div class="row accordion g-3 justify-content-center"  id="mediaFiltersaccordion">
+
+          <!-- job title start -->
+          <div class="col-auto col-md-3 offset-md-1 offset-lg-2">
+            <div class="accordion-item border-0">
+              <h5 class="accordion-header" id="filter-job">
+                <button class="accordion-button collapsed" #accordionButtonJobRef type="button"
+                  data-bs-toggle="collapse" data-bs-target="#collapse-job" aria-expanded="false"
+                  aria-controls="collapse-job">
+                  <span class="accordion-label"> Job Title </span>
+                </button>
+              </h5>
+              <div id="collapse-job" class="accordion-collapse collapse"
+                data-bs-parent="#mediaFiltersaccordion">
+                <div class="accordion-body filter">
+                  <!-- <input type="search" placeholder="Search..." aria-label="Search"> -->
+                  <div class="filter-data">
+                    @for (title of filterTitleList; track title) {
+                      <option class="mat-option" (click)="selectTitle(title)">
+                        {{title}}
+                      </option>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- job title end -->
+
+          <!-- location start -->
+          <div class="col-auto col-md-3">
+            <div class="accordion-item border-0">
+              <h5 class="accordion-header" id="filter-location">
+                <button class="accordion-button collapsed" #accordionButtonLocationRef type="button"
+                  data-bs-toggle="collapse" data-bs-target="#collapse-location" aria-expanded="false"
+                  aria-controls="collapse-location">
+                  <span class="accordion-label"> Location </span>
+                </button>
+              </h5>
+              <div id="collapse-location" class="accordion-collapse collapse"
+                data-bs-parent="#mediaFiltersaccordion">
+                <div class="accordion-body filter">
+                  <!-- <input type="search" placeholder="Search..." aria-label="Search"> -->
+                  <div class="filter-data">
+                    @for (location of filterLocationList; track location) {
+                      <option class="mat-option" (click)="selectLocation(location)">
+                        {{location}}
+                      </option>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- location end -->
+
+          <div class="col-auto col-md-3">
+            <button type="button" class="btn btn-outline-primary search"
+            (click)="searchFilters()">Search</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-selected">
+        @if (careerFilters.title.length > 0 || careerFilters.location.length > 0) {
+          <p class="m-0"> <span
+          class="me-3">Filter applied: </span>
+          @if (careerFilters.title.length > 0) {
+            <span class="badge m-1"> <strong>Job Title: </strong> <span
+          [innerHTML]="careerFilters.title"></span></span>
+        }
+        @if (careerFilters.location.length > 0) {
+          <span class="badge m-1"> <strong>Location: </strong> <span
+        [innerHTML]="careerFilters.location"></span></span>
+      }
+    </p>
+  }
+</div>
+</section>
+
+<div class="row g-md-4 g-3">
+  <!-- If Data not found START-->
+  <div class="row text-center mt-3">
+    <div class="col">
+      @if ((isDataLoaded == true && currentOpenings.length == 0)) {
+        <app-no-results></app-no-results>
+      }
+      <!-- <app-loader *ngIf="!isDataLoaded" ></app-loader> -->
+    </div>
+  </div>
+  <!-- If Data not found END-->
+
+  @for (currentOpening of currentOpenings; track currentOpening; let i = $index) {
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+      <div class="card border-0 h-100 current-opening-card">
+        <div class="row">
+          <div class="col-10">
+            <div class="wrapper">
+              <div class="card front-face">
+                <h5 class="text-center px-2" [innerHTML]="$safeNavigationMigration(currentOpening?.title)"> </h5>
+              </div>
+              <div class="card back-face">
+                <button type="button" class="btn btn-outline-primary"> <a
+                href="career/{{currentOpening?.slug}}">Read More</a>
+              </button>
+              <br>
+                <button type="button" class="btn btn-outline-primary"> <a
+                  href="career/{{currentOpening?.slug}}">Apply
+                Now</a> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+
+<!-- <div class="row justify-content-center">
+<div class="col-12">
+  <div class="section-heading text-center mb-5">
+    <h2>Frequently Asked Question</h2>
+    <span class="separator mb-2"></span>
+  </div>
+</div>
+<div class="col-12">
+  <div class="" *ngIf="careerFaqList.length > 0" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="accordion faq-accordion" id="faqAccordion" >
+      <div class="accordion-item" *ngFor="let item of careerFaqList; let i=index" itemscope itemprop="mainEntity"
+        itemtype="https://schema.org/Question">
+        <h6 class="accordion-header" id="heading{{i}}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+            <p itemprop="name" class="m-0"> {{item?.question}} </p>
+          </button>
+        </h6>
+        <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+          data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+          itemtype="https://schema.org/Answer" >
+          <div class="accordion-body default-content" itemprop="text">
+            <p [innerHTML]="item?.answer"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div> -->
+
+</div>
 </section>

@@ -1,40 +1,51 @@
 <!-- <div *ngFor="let content of pageBlock?.content " [ngSwitch]="content?.type">
-    <div *ngSwitchCase="'title'">
-        <div class="section-heading text-center mb-5" *ngIf="content?.title != null">
-            <h2 *ngIf="content?.title"> {{content?.title}} </h2>
-            <span class="separator mb-2" *ngIf="content?.title" ></span>
-        </div>
+<div *ngSwitchCase="'title'">
+  <div class="section-heading text-center mb-5" *ngIf="content?.title != null">
+    <h2 *ngIf="content?.title"> {{content?.title}} </h2>
+    <span class="separator mb-2" *ngIf="content?.title" ></span>
+  </div>
+</div>
+<div class="text-center mb-5" *ngSwitchCase="'simple_description'">
+
+  <div class="centre-line"  *ngIf="content?.simple_description" [innerHTML]="content?.simple_description" ></div>
+</div>
+<div *ngSwitchCase="'title_subtitle'">
+  <div class="card terms-card"  *ngIf="content?.values?.length > 0">
+    <div class="terms-list" *ngFor="let item of content?.values">
+      <div class="terms-heading">
+        {{item?.title}}
+      </div>
+      <div class="terms-content" [innerHTML]="item?.sub_title" ></div>
     </div>
-    <div class="text-center mb-5" *ngSwitchCase="'simple_description'">        
-         
-        <div class="centre-line"  *ngIf="content?.simple_description" [innerHTML]="content?.simple_description" ></div>
-    </div>
-    <div *ngSwitchCase="'title_subtitle'">
-        <div class="card terms-card"  *ngIf="content?.values?.length > 0">
-            <div class="terms-list" *ngFor="let item of content?.values">
-                <div class="terms-heading">
-                    {{item?.title}}
-                </div>
-                <div class="terms-content" [innerHTML]="item?.sub_title" ></div>
-            </div>
-        </div>
-    </div>
+  </div>
+</div>
 </div> -->
 
 
 <div class="section-heading text-center mb-5">
-    <h2 *ngIf="pageBlock?.title">{{pageBlock?.title}}</h2>
-    <span class="separator mb-2" *ngIf="pageBlock?.title"></span>
-    <p *ngIf="pageBlock?.simple_description">{{pageBlock?.simple_description}}</p>
+  @if (pageBlock?.title) {
+    <h2>{{pageBlock?.title}}</h2>
+  }
+  @if (pageBlock?.title) {
+    <span class="separator mb-2"></span>
+  }
+  @if (pageBlock?.simple_description) {
+    <p>{{pageBlock?.simple_description}}</p>
+  }
 </div>
-<div class="row g-4" *ngIf="pageBlock?.title_subtitle?.length > 0">
-
-    <div class="card terms-card" *ngIf="pageBlock?.title_subtitle">
-        <div class="terms-list" *ngFor="let item of pageBlock?.title_subtitle">
+@if (pageBlock?.title_subtitle?.length > 0) {
+  <div class="row g-4">
+    @if (pageBlock?.title_subtitle) {
+      <div class="card terms-card">
+        @for (item of pageBlock?.title_subtitle; track item) {
+          <div class="terms-list">
             <div class="terms-heading">
-                {{item?.title}}
+              {{item?.title}}
             </div>
-            <div class="terms-content" [innerHTML]="item?.sub_title"></div>
-        </div>
-    </div>
-</div>
+            <div class="terms-content" [innerHTML]="$safeNavigationMigration(item?.sub_title)"></div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+}

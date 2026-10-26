@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '@app-shared-services';
 import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
@@ -29,9 +29,11 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
 }
 
 @Component({
-  selector: 'app-pro-bono-page',
-  templateUrl: './pro-bono-page.component.html',
-  styleUrl: './pro-bono-page.component.css'
+    selector: 'app-pro-bono-page',
+    templateUrl: './pro-bono-page.component.html',
+    styleUrl: './pro-bono-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ProBonoPageComponent {
 

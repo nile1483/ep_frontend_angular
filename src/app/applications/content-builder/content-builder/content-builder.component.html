@@ -1,122 +1,148 @@
-<section *ngFor="let pageBlock of contentDetail?.pageBlock " [ngClass]="{'common-padding': pageBlock?.block_type !== 'bannerwithtitledescription' && pageBlock?.block_type !== 'headernavigation' && pageBlock?.block_type !== 'inquiryform' && pageBlock?.block_type !== 'footer'}" class=" {{pageBlock?.block_type}} {{pageBlock?.css_class}}" [ngSwitch]="pageBlock?.block_type">
-     
-    <!-- bannerc2alink --> 
-    <div class="container" *ngSwitchCase="'bannerc2alink'">
-        <section-banner-call-to-action-link [pageBlock]="pageBlock"> </section-banner-call-to-action-link>
-    </div>
- 
-    <!-- highlight -->
-    <div class="container" *ngSwitchCase="'highlight'">
-        <section-highlight [pageBlock]="pageBlock"> </section-highlight>
-    </div>
- 
-    <!-- description -->
-    <div class="container" *ngSwitchCase="'description'">
-        <section-description [pageBlock]="pageBlock"> </section-description>
-    </div>
- 
-    <!-- steps -->
-    <div class="container" *ngSwitchCase="'step'">
-        <section-step [pageBlock]="pageBlock"> </section-step>
-    </div>
-
-    <!-- faq -->
-    <div class="container" *ngSwitchCase="'faq'">
-        <section-faq [pageBlock]="pageBlock"> </section-faq>
-    </div>
-
-    <!-- clientele -->
-    <div class="container" *ngSwitchCase="'clientele'">
-        <section-clientele [pageBlock]="pageBlock"> </section-clientele>
-    </div>
-
-    <!-- ourservices -->
-    <div class="container" *ngSwitchCase="'ourservices'">
-        <section-our-services [pageBlock]="pageBlock"> </section-our-services>
-    </div>
- 
-    <!-- c2action -->
-    <div class="container" *ngSwitchCase="'c2action'">
-        <section-call-to-action [pageBlock]="pageBlock"> </section-call-to-action>
-    </div>
-
-    <!-- advertisingsample -->
-    <div class="container" *ngSwitchCase="'advertisingsample'">
-        <section-advertising-sample [pageBlock]="pageBlock"> </section-advertising-sample>
-    </div>
-
-    <!-- datalist -->
-    <div class="container" *ngSwitchCase="'datalist'">
-        <section-data-list [pageBlock]="pageBlock"> </section-data-list>
-    </div>
-
-    <!-- features -->
-    <div class="container benifit-section" *ngSwitchCase="'features'">
-        <section-features [pageBlock]="pageBlock"> </section-features>
-    </div>
-
-    <!-- section-card-horizontal -->
-    <div class="container advertising-section" *ngSwitchCase="'cardhorizontal'">
-        <section-card-horizontal [pageBlock]="pageBlock"> </section-card-horizontal>
-    </div>
-
-    <!-- section-card-with-icon -->
-    <div class="container element-section" *ngSwitchCase="'cardwithicon'">
-        <section-card-with-icon [pageBlock]="pageBlock"> </section-card-with-icon>
-    </div>
-
-    <!-- section-card-with-image -->
-    <div class="container advertising-media-section" *ngSwitchCase="'cardwithimage'">
-        <section-card-with-image [pageBlock]="pageBlock"> </section-card-with-image>
-    </div>
-
-    <!-- section-table-of-content -->
-    <div class="container table-of-content" *ngSwitchCase="'tableofcontent'">
-        <section-table-of-content [pageBlock]="pageBlock"> </section-table-of-content>
-    </div>
-    
-    <!-- relativemedia -->
-    <div class="container" *ngSwitchCase="'relativemedia'" >
-        <section-related-products [pageBlock]="pageBlock" ></section-related-products>
-    </div>
-
-    <!-- headernavigation -->
-    <!-- <div class="container" *ngSwitchCase="'headernavigation'" > -->
-        <section-header-navigation [pageBlock]="pageBlock" *ngSwitchCase="'headernavigation'"></section-header-navigation>
+@for (pageBlock of contentDetail?.pageBlock ; track pageBlock) {
+  <section [ngClass]="{'common-padding': pageBlock?.block_type !== 'bannerwithtitledescription' && pageBlock?.block_type !== 'headernavigation' && pageBlock?.block_type !== 'inquiryform' && pageBlock?.block_type !== 'footer'}" class=" {{pageBlock?.block_type}} {{pageBlock?.css_class}}">
+    @switch (pageBlock?.block_type) {
+      <!-- bannerc2alink -->
+      @case ('bannerc2alink') {
+        <div class="container">
+          <section-banner-call-to-action-link [pageBlock]="pageBlock"> </section-banner-call-to-action-link>
+        </div>
+      }
+      <!-- highlight -->
+      @case ('highlight') {
+        <div class="container">
+          <section-highlight [pageBlock]="pageBlock"> </section-highlight>
+        </div>
+      }
+      <!-- description -->
+      @case ('description') {
+        <div class="container">
+          <section-description [pageBlock]="pageBlock"> </section-description>
+        </div>
+      }
+      <!-- steps -->
+      @case ('step') {
+        <div class="container">
+          <section-step [pageBlock]="pageBlock"> </section-step>
+        </div>
+      }
+      <!-- faq -->
+      @case ('faq') {
+        <div class="container">
+          <section-faq [pageBlock]="pageBlock"> </section-faq>
+        </div>
+      }
+      <!-- clientele -->
+      @case ('clientele') {
+        <div class="container">
+          <section-clientele [pageBlock]="pageBlock"> </section-clientele>
+        </div>
+      }
+      <!-- ourservices -->
+      @case ('ourservices') {
+        <div class="container">
+          <section-our-services [pageBlock]="pageBlock"> </section-our-services>
+        </div>
+      }
+      <!-- c2action -->
+      @case ('c2action') {
+        <div class="container">
+          <section-call-to-action [pageBlock]="pageBlock"> </section-call-to-action>
+        </div>
+      }
+      <!-- advertisingsample -->
+      @case ('advertisingsample') {
+        <div class="container">
+          <section-advertising-sample [pageBlock]="pageBlock"> </section-advertising-sample>
+        </div>
+      }
+      <!-- datalist -->
+      @case ('datalist') {
+        <div class="container">
+          <section-data-list [pageBlock]="pageBlock"> </section-data-list>
+        </div>
+      }
+      <!-- features -->
+      @case ('features') {
+        <div class="container benifit-section">
+          <section-features [pageBlock]="pageBlock"> </section-features>
+        </div>
+      }
+      <!-- section-card-horizontal -->
+      @case ('cardhorizontal') {
+        <div class="container advertising-section">
+          <section-card-horizontal [pageBlock]="pageBlock"> </section-card-horizontal>
+        </div>
+      }
+      <!-- section-card-with-icon -->
+      @case ('cardwithicon') {
+        <div class="container element-section">
+          <section-card-with-icon [pageBlock]="pageBlock"> </section-card-with-icon>
+        </div>
+      }
+      <!-- section-card-with-image -->
+      @case ('cardwithimage') {
+        <div class="container advertising-media-section">
+          <section-card-with-image [pageBlock]="pageBlock"> </section-card-with-image>
+        </div>
+      }
+      <!-- section-table-of-content -->
+      @case ('tableofcontent') {
+        <div class="container table-of-content">
+          <section-table-of-content [pageBlock]="pageBlock"> </section-table-of-content>
+        </div>
+      }
+      <!-- relativemedia -->
+      @case ('relativemedia') {
+        <div class="container" >
+          <section-related-products [pageBlock]="pageBlock" ></section-related-products>
+        </div>
+      }
+      <!-- headernavigation -->
+      <!-- <div class="container" *ngSwitchCase="'headernavigation'" > -->
+      @case ('headernavigation') {
+        <section-header-navigation [pageBlock]="pageBlock"></section-header-navigation>
+      }
     <!-- </div> -->
-
     <!-- bannerwithtitledescription -->
     <!-- <div class="container" *ngSwitchCase="'bannerwithtitledescription'" > -->
-        <section-banner-title-description [pageBlock]="pageBlock" *ngSwitchCase="'bannerwithtitledescription'"></section-banner-title-description>
-    <!-- </div> -->
-
-    <!-- cardwithimageandlink -->
-    <div class="container" *ngSwitchCase="'cardwithimageandlink'" >
-        <section-card-with-image-link [pageBlock]="pageBlock" ></section-card-with-image-link>
+    @case ('bannerwithtitledescription') {
+      <section-banner-title-description [pageBlock]="pageBlock"></section-banner-title-description>
+    }
+  <!-- </div> -->
+  <!-- cardwithimageandlink -->
+  @case ('cardwithimageandlink') {
+    <div class="container" >
+      <section-card-with-image-link [pageBlock]="pageBlock" ></section-card-with-image-link>
     </div>
-
-    <!-- cardwithmediaiconandlink -->
-    <div class="container" *ngSwitchCase="'cardwithmediaiconandlink'" >
-        <section-card-with-media-icon-link [pageBlock]="pageBlock" ></section-card-with-media-icon-link>
+  }
+  <!-- cardwithmediaiconandlink -->
+  @case ('cardwithmediaiconandlink') {
+    <div class="container" >
+      <section-card-with-media-icon-link [pageBlock]="pageBlock" ></section-card-with-media-icon-link>
     </div>
-
-    <!-- bottomc2action -->
-    <div class="container" *ngSwitchCase="'bottomc2action'" >
-        <section-bottom-call-to-action [pageBlock]="pageBlock" ></section-bottom-call-to-action>
+  }
+  <!-- bottomc2action -->
+  @case ('bottomc2action') {
+    <div class="container" >
+      <section-bottom-call-to-action [pageBlock]="pageBlock" ></section-bottom-call-to-action>
     </div>
-
-    <!-- inquiryform -->
-    <div class="container" *ngSwitchCase="'inquiryform'" >
-        <section-inquiry-form [pageBlock]="pageBlock" ></section-inquiry-form>
+  }
+  <!-- inquiryform -->
+  @case ('inquiryform') {
+    <div class="container" >
+      <section-inquiry-form [pageBlock]="pageBlock" ></section-inquiry-form>
     </div>
+  }
+  <!-- footer -->
+  <!-- <div class="container" *ngSwitchCase="'footer'" > -->
+  @case ('footer') {
+    <section-footer [pageBlock]="pageBlock"></section-footer>
+  }
+<!-- </div> -->
+}
+</section>
+}
 
-    <!-- footer -->
-    <!-- <div class="container" *ngSwitchCase="'footer'" > -->
-        <section-footer [pageBlock]="pageBlock" *ngSwitchCase="'footer'"></section-footer>
-    <!-- </div> -->
 
- </section>
-
- 
- <!-- <section  class="common-padding">
- </section> -->
+<!-- <section  class="common-padding">
+</section> -->

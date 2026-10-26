@@ -2,8 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Pipe({
-  name: 'convertToExchange',
-  pure: true,
+    name: 'convertToExchange',
+    pure: true,
+    standalone: false
 })
 export class ConvertToExchange implements PipeTransform {
 

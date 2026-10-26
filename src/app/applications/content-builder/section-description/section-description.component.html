@@ -1,21 +1,37 @@
-<div *ngFor="let content of pageBlock?.content " [ngSwitch]="content?.type">
-
-    <!-- title -->
-    <div *ngSwitchCase="'title'">
-        <div class="section-heading text-center mb-5" *ngIf="content?.title != null">
-            <h1 *ngIf="content?.title" > {{content?.title}} </h1>
-            <span class="separator mb-2" *ngIf="content?.title"></span>
+@for (content of pageBlock?.content ; track content) {
+  <div>
+    @switch (content?.type) {
+      <!-- title -->
+      @case ('title') {
+        <div>
+          @if (content?.title != null) {
+            <div class="section-heading text-center mb-5">
+              @if (content?.title) {
+                <h1 > {{content?.title}} </h1>
+              }
+              @if (content?.title) {
+                <span class="separator mb-2"></span>
+              }
+            </div>
+          }
         </div>
-    </div>
-
-    <!-- simple description -->
-    <div *ngSwitchCase="'simple_description'">
-        <div class="section-heading text-center" *ngIf="content?.simple_description != null" [innerHTML]="content?.simple_description"> </div>
-    </div>
-
-    <!-- description -->
-    <div *ngSwitchCase="'description'">
-        <div class="default-content" *ngIf="content?.description != null" [innerHTML]="content?.description | safeHtml"> </div>
-    </div>
-
-</div>
+      }
+      <!-- simple description -->
+      @case ('simple_description') {
+        <div>
+          @if (content?.simple_description != null) {
+            <div class="section-heading text-center" [innerHTML]="$safeNavigationMigration(content?.simple_description)"> </div>
+          }
+        </div>
+      }
+      <!-- description -->
+      @case ('description') {
+        <div>
+          @if (content?.description != null) {
+            <div class="default-content" [innerHTML]="$safeNavigationMigration(content?.description) | safeHtml"> </div>
+          }
+        </div>
+      }
+    }
+  </div>
+}

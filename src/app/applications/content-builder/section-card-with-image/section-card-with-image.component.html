@@ -1,18 +1,30 @@
 <div class="section-heading text-center mb-3 mb-md-5">
-    <h2 *ngIf="pageBlock?.title">{{pageBlock?.title}}</h2>
-    <span class="separator mb-2" *ngIf="pageBlock?.title" ></span>
-    <p *ngIf="pageBlock?.simple_description">{{pageBlock?.simple_description}}</p>
+  @if (pageBlock?.title) {
+    <h2>{{pageBlock?.title}}</h2>
+  }
+  @if (pageBlock?.title) {
+    <span class="separator mb-2" ></span>
+  }
+  @if (pageBlock?.simple_description) {
+    <p>{{pageBlock?.simple_description}}</p>
+  }
 </div>
-<div class="row g-4 justify-content-center" *ngIf="pageBlock?.image_block?.length > 0" >
-    <div class="col-12 col-lg-3 col-md-6" *ngFor="let block of pageBlock?.image_block">
+@if (pageBlock?.image_block?.length > 0) {
+  <div class="row g-4 justify-content-center" >
+    @for (block of pageBlock?.image_block; track block) {
+      <div class="col-12 col-lg-3 col-md-6">
         <div class="card border-0 h-100">
-            <div class="card-image">
-                <img *ngIf="block?.image" src="{{block?.image}}" alt="{{block?.title}}" loading="lazy">
-            </div>
-            <div class="card-body">
-                <h5>{{block?.title}}</h5>
-                <p>{{block?.sub_title}}</p>
-            </div>
+          <div class="card-image">
+            @if (block?.image) {
+              <img src="{{block?.image}}" alt="{{block?.title}}" loading="lazy">
+            }
+          </div>
+          <div class="card-body">
+            <h5>{{block?.title}}</h5>
+            <p>{{block?.sub_title}}</p>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+    }
+  </div>
+}

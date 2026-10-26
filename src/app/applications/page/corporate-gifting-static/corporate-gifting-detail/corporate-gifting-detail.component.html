@@ -2,422 +2,432 @@
 <!-- Gift Range Start-->
 
 <!-- Gift Range Upto 500 start -->
-<section *ngIf="downloadType == 'gift-range-250-500'">
+@if (downloadType == 'gift-range-250-500') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Gift Range Upto 500</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Gift Range Upto 500</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Electronics Gadgets</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-food-and-beverages.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Food & Beverages</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Grooming Kits & Perfumes</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Home Appliances & Kitchen Utility</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Lifestyles Range</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Travel Companion & Accessories</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Writing Instruments & Stationery</p>
-                    </span>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-electronic-products.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Electronics Gadgets</p>
+            </span>
+          </div>
         </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-food-and-beverages.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Food & Beverages</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-gromming-kits-and-perfume.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Grooming Kits & Perfumes</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-home-appliances-and-kitchen-utlity.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Home Appliances & Kitchen Utility</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-lifestyle-ranges.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Lifestyles Range</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-travel.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Travel Companion & Accessories</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-writting-instruments-and-stationary.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Writing Instruments & Stationery</p>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+}
 <!-- Gift Range Upto 500 end -->
 
 
 <!-- Gift Range Upto 500-1000 start -->
-<section *ngIf="downloadType == 'gift-range-500-1000'">
+@if (downloadType == 'gift-range-500-1000') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Gift Range Upto 500-1000</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Gift Range Upto 500-1000</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Electronics Gadgets</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-food-and-beverages.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Food & Beverages</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Grooming Kits & Perfumes</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Home Appliances & Kitchen Utility</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/between-500-1000-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Lifestyles Range</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Travel Companion & Accessories</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/between-500-1000-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Writing Instruments & Stationery</p>
-                    </span>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-electronic-products.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Electronics Gadgets</p>
+            </span>
+          </div>
         </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-food-and-beverages.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Food & Beverages</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-gromming-kits-and-perfume.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Grooming Kits & Perfumes</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-home-appliances-and-kitchen-utlity.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Home Appliances & Kitchen Utility</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/between-500-1000-lifestyle-ranges.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Lifestyles Range</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-travel.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Travel Companion & Accessories</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/between-500-1000-writting-instruments-and-stationary.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Writing Instruments & Stationery</p>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+}
 <!-- Gift Range Upto 500-1000 end -->
 
 
 <!-- Gift Range Upto 1000-2500 start -->
-<section *ngIf="downloadType == 'gift-range-1000-2500'">
+@if (downloadType == 'gift-range-1000-2500') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Gift Range Upto 1000-2500</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Gift Range Upto 1000-2500</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Electronics Gadgets</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-food-and-beverages.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Food & Beverages</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Grooming Kits & Perfumes</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Home Appliances & Kitchen Utility</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Lifestyles Range</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Travel Companion & Accessories</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Writing Instruments & Stationery</p>
-                    </span>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-electronic-products.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Electronics Gadgets</p>
+            </span>
+          </div>
         </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-food-and-beverages.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Food & Beverages</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-gromming-kits-and-perfume.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Grooming Kits & Perfumes</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-home-appliances-and-kitchen-utlity.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Home Appliances & Kitchen Utility</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-lifestyle-ranges.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Lifestyles Range</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-travel.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Travel Companion & Accessories</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-writting-instruments-and-stationary.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Writing Instruments & Stationery</p>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+}
 <!-- Gift Range Upto 1000-2500 end -->
 
 
 <!-- Gift Range Upto 2500-5000 start -->
-<section *ngIf="downloadType == 'gift-range-2500-5000'">
+@if (downloadType == 'gift-range-2500-5000') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Gift Range Upto 2500-5000</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Gift Range Upto 2500-5000</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Electronics Gadgets</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-food-and-beverages.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Food & Beverages</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Grooming Kits & Perfumes</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Home Appliances & Kitchen Utility</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Lifestyles Range</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Travel Companion & Accessories</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Writing Instruments & Stationery</p>
-                    </span>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-electronic-products.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Electronics Gadgets</p>
+            </span>
+          </div>
         </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-food-and-beverages.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Food & Beverages</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-gromming-kits-and-perfume.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Grooming Kits & Perfumes</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-home-appliances-and-kitchen-utlity.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Home Appliances & Kitchen Utility</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-lifestyle-ranges.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Lifestyles Range</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-travel.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Travel Companion & Accessories</p>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-writting-instruments-and-stationary.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Writing Instruments & Stationery</p>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+}
 <!-- Gift Range Upto 2500-5000 end -->
 
 
 <!-- Gift Range Above 5000 start -->
-<section *ngIf="downloadType == 'gift-range-5000-and-above'">
+@if (downloadType == 'gift-range-5000-and-above') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Gift Range Above 5000</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Gift Range Above 5000</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Electronics Gadgets</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <!-- <a href="javascript:void(0)" (click)="handleGiftClick($event, '')"> -->
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
-                    <!-- </a> -->
-                    <span class="catalog-text">
-                        <p>Food & Beverages</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Grooming Kits & Perfumes</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Home Appliances & Kitchen Utility</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Lifestyles Range</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Travel Companion & Accessories</p>
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-3 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <span class="catalog-text">
-                        <p>Writing Instruments & Stationery</p>
-                    </span>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-electronic-products.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <span class="catalog-text">
+              <p>Electronics Gadgets</p>
+            </span>
+          </div>
         </div>
+        <div class="col-lg-4 mt-3 col-md-6">
+          <div class="catalog-part">
+            <!-- <a href="javascript:void(0)" (click)="handleGiftClick($event, '')"> -->
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
+          <!-- </a> -->
+          <span class="catalog-text">
+            <p>Food & Beverages</p>
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-3 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-gromming-kits-and-perfume.pdf')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <span class="catalog-text">
+            <p>Grooming Kits & Perfumes</p>
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-3 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-home-appliances-and-kitchen-utlity.pdf')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <span class="catalog-text">
+            <p>Home Appliances & Kitchen Utility</p>
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-3 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-lifestyle-ranges.pdf')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <span class="catalog-text">
+            <p>Lifestyles Range</p>
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-3 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-travel.pptx')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <span class="catalog-text">
+            <p>Travel Companion & Accessories</p>
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-3 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-writting-instruments-and-stationary.pdf')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <span class="catalog-text">
+            <p>Writing Instruments & Stationery</p>
+          </span>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+}
 <!-- Gift Range Above 5000 end -->
 
 <!-- Gift Range End-->
@@ -429,542 +439,556 @@
 <!-- Category Start-->
 
 <!-- electronics start -->
-<section *ngIf="downloadType == 'electronics'">
+@if (downloadType == 'electronics') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Electronics Gadgets as per Price Range</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Electronics Gadgets as per Price Range</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>UPTO 500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>500 - 1000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>1000 - 2500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>2500 - 5000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-electronic-products.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>5000 & ABOVE</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
-                    </div>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-4 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-electronic-products.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <!-- <span class="catalog-text-by-category">
+            <p><strong>UPTO 500</strong></p>
+          </span> -->
+          <div class="partner-btn">
+            <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 mt-4 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-electronic-products.pdf')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <!-- <span class="catalog-text-by-category">
+          <p><strong>500 - 1000</strong></p>
+        </span> -->
+        <div class="partner-btn">
+          <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
+        </div>
+      </div>
     </div>
+    <div class="col-lg-4 mt-4 col-md-6">
+      <div class="catalog-part">
+        <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-electronic-products.pdf')">
+          <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+        </a>
+        <!-- <span class="catalog-text-by-category">
+        <p><strong>1000 - 2500</strong></p>
+      </span> -->
+      <div class="partner-btn">
+        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 mt-4 col-md-6">
+    <div class="catalog-part">
+      <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-electronic-products.pdf')">
+        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+      </a>
+      <!-- <span class="catalog-text-by-category">
+      <p><strong>2500 - 5000</strong></p>
+    </span> -->
+    <div class="partner-btn">
+      <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 mt-4 col-md-6">
+  <div class="catalog-part">
+    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-electronic-products.pdf')">
+      <img alt="Product Image" src="/assets/page/corporate-gifting/categories/electronic-gadgets.jpg" class="img-fluid" loading="lazy">
+    </a>
+    <!-- <span class="catalog-text-by-category">
+    <p><strong>5000 & ABOVE</strong></p>
+  </span> -->
+  <div class="partner-btn">
+    <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
+  </div>
+</div>
+</div>
+</div>
+</div>
 </section>
+}
 <!-- electronics end -->
 
 
 <!-- food-beverages start -->
-<section *ngIf="downloadType == 'food-beverages'">
+@if (downloadType == 'food-beverages') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Food and Beverages as per Price Range</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Food and Beverages as per Price Range</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-food-and-beverages.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>UPTO 500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-food-and-beverages.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>500 - 1000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-food-and-beverages.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>1000 - 2500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-food-and-beverages.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>2500 - 5000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
-                    </div>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-4 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-food-and-beverages.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <!-- <span class="catalog-text-by-category">
+            <p><strong>UPTO 500</strong></p>
+          </span> -->
+          <div class="partner-btn">
+            <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 mt-4 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-food-and-beverages.pptx')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <!-- <span class="catalog-text-by-category">
+          <p><strong>500 - 1000</strong></p>
+        </span> -->
+        <div class="partner-btn">
+          <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
+        </div>
+      </div>
     </div>
+    <div class="col-lg-4 mt-4 col-md-6">
+      <div class="catalog-part">
+        <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-food-and-beverages.pptx')">
+          <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
+        </a>
+        <!-- <span class="catalog-text-by-category">
+        <p><strong>1000 - 2500</strong></p>
+      </span> -->
+      <div class="partner-btn">
+        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 mt-4 col-md-6">
+    <div class="catalog-part">
+      <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-food-and-beverages.pptx')">
+        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/food-beverages.jpg" class="img-fluid" loading="lazy">
+      </a>
+      <!-- <span class="catalog-text-by-category">
+      <p><strong>2500 - 5000</strong></p>
+    </span> -->
+    <div class="partner-btn">
+      <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </section>
+}
 <!-- food-beverages end -->
 
 
 <!-- grooming start -->
-<section *ngIf="downloadType == 'grooming'">
+@if (downloadType == 'grooming') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Grooming Kits and Perfumes as per Price Range</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Grooming Kits and Perfumes as per Price Range</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-text-by-category">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text">
-                        <p><strong>UPTO 500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-text-by-category">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text">
-                        <p><strong>500 - 1000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-text-by-category">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text">
-                        <p><strong>1000 - 2500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-text-by-category">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text">
-                        <p><strong>2500 - 5000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-text-by-category">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-gromming-kits-and-perfume.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text">
-                        <p><strong>5000 & ABOVE</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
-                    </div>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-4 col-md-6">
+          <div class="catalog-text-by-category">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-gromming-kits-and-perfume.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <!-- <span class="catalog-text">
+            <p><strong>UPTO 500</strong></p>
+          </span> -->
+          <div class="partner-btn">
+            <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 mt-4 col-md-6">
+        <div class="catalog-text-by-category">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-gromming-kits-and-perfume.pdf')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <!-- <span class="catalog-text">
+          <p><strong>500 - 1000</strong></p>
+        </span> -->
+        <div class="partner-btn">
+          <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
+        </div>
+      </div>
     </div>
+    <div class="col-lg-4 mt-4 col-md-6">
+      <div class="catalog-text-by-category">
+        <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-gromming-kits-and-perfume.pdf')">
+          <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+        </a>
+        <!-- <span class="catalog-text">
+        <p><strong>1000 - 2500</strong></p>
+      </span> -->
+      <div class="partner-btn">
+        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 mt-4 col-md-6">
+    <div class="catalog-text-by-category">
+      <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-gromming-kits-and-perfume.pdf')">
+        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+      </a>
+      <!-- <span class="catalog-text">
+      <p><strong>2500 - 5000</strong></p>
+    </span> -->
+    <div class="partner-btn">
+      <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 mt-4 col-md-6">
+  <div class="catalog-text-by-category">
+    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-gromming-kits-and-perfume.pdf')">
+      <img alt="Product Image" src="/assets/page/corporate-gifting/categories/grooming-kits-perfumes.jpg" class="img-fluid" loading="lazy">
+    </a>
+    <!-- <span class="catalog-text">
+    <p><strong>5000 & ABOVE</strong></p>
+  </span> -->
+  <div class="partner-btn">
+    <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
+  </div>
+</div>
+</div>
+</div>
+</div>
 </section>
+}
 <!-- grooming end -->
 
 
 <!-- home-kitchen start -->
-<section *ngIf="downloadType == 'home-kitchen'">
+@if (downloadType == 'home-kitchen') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Home Appliances and Kitchen Utility as per Price Range</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Home Appliances and Kitchen Utility as per Price Range</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>UPTO 500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>500 - 1000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>1000 - 2500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>2500 - 5000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-home-appliances-and-kitchen-utlity.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>5000 & ABOVE</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
-                    </div>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-4 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-home-appliances-and-kitchen-utlity.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <!-- <span class="catalog-text-by-category">
+            <p><strong>UPTO 500</strong></p>
+          </span> -->
+          <div class="partner-btn">
+            <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 mt-4 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-home-appliances-and-kitchen-utlity.pdf')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <!-- <span class="catalog-text-by-category">
+          <p><strong>500 - 1000</strong></p>
+        </span> -->
+        <div class="partner-btn">
+          <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
+        </div>
+      </div>
     </div>
+    <div class="col-lg-4 mt-4 col-md-6">
+      <div class="catalog-part">
+        <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-home-appliances-and-kitchen-utlity.pdf')">
+          <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+        </a>
+        <!-- <span class="catalog-text-by-category">
+        <p><strong>1000 - 2500</strong></p>
+      </span> -->
+      <div class="partner-btn">
+        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 mt-4 col-md-6">
+    <div class="catalog-part">
+      <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-home-appliances-and-kitchen-utlity.pdf')">
+        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+      </a>
+      <!-- <span class="catalog-text-by-category">
+      <p><strong>2500 - 5000</strong></p>
+    </span> -->
+    <div class="partner-btn">
+      <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 mt-4 col-md-6">
+  <div class="catalog-part">
+    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-home-appliances-and-kitchen-utlity.pdf')">
+      <img alt="Product Image" src="/assets/page/corporate-gifting/categories/home-appliances-kitchen-utility.jpg" class="img-fluid" loading="lazy">
+    </a>
+    <!-- <span class="catalog-text-by-category">
+    <p><strong>5000 & ABOVE</strong></p>
+  </span> -->
+  <div class="partner-btn">
+    <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
+  </div>
+</div>
+</div>
+</div>
+</div>
 </section>
+}
 <!-- home-kitchen end -->
 
 
 <!-- lifestyle start -->
-<section *ngIf="downloadType == 'lifestyle'">
+@if (downloadType == 'lifestyle') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Lifestyles as per Price Range</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Lifestyles as per Price Range</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>UPTO 500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/between-500-1000-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>500 - 1000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>1000 - 2500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>2500 - 5000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-lifestyle-ranges.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>5000 & ABOVE</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
-                    </div>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-4 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-lifestyle-ranges.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <!-- <span class="catalog-text-by-category">
+            <p><strong>UPTO 500</strong></p>
+          </span> -->
+          <div class="partner-btn">
+            <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 mt-4 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/between-500-1000-lifestyle-ranges.pdf')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <!-- <span class="catalog-text-by-category">
+          <p><strong>500 - 1000</strong></p>
+        </span> -->
+        <div class="partner-btn">
+          <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
+        </div>
+      </div>
     </div>
+    <div class="col-lg-4 mt-4 col-md-6">
+      <div class="catalog-part">
+        <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-lifestyle-ranges.pdf')">
+          <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+        </a>
+        <!-- <span class="catalog-text-by-category">
+        <p><strong>1000 - 2500</strong></p>
+      </span> -->
+      <div class="partner-btn">
+        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 mt-4 col-md-6">
+    <div class="catalog-part">
+      <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-lifestyle-ranges.pdf')">
+        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+      </a>
+      <!-- <span class="catalog-text-by-category">
+      <p><strong>2500 - 5000</strong></p>
+    </span> -->
+    <div class="partner-btn">
+      <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 mt-4 col-md-6">
+  <div class="catalog-part">
+    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-lifestyle-ranges.pdf')">
+      <img alt="Product Image" src="/assets/page/corporate-gifting/categories/lifestyles-range.jpg" class="img-fluid" loading="lazy">
+    </a>
+    <!-- <span class="catalog-text-by-category">
+    <p><strong>5000 & ABOVE</strong></p>
+  </span> -->
+  <div class="partner-btn">
+    <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
+  </div>
+</div>
+</div>
+</div>
+</div>
 </section>
+}
 <!-- lifestyle end -->
 
 
 <!-- travel start -->
-<section *ngIf="downloadType == 'travel'">
+@if (downloadType == 'travel') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Travel Companion and Accessories as per Price Range</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Travel Companion and Accessories as per Price Range</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>UPTO 500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>500 - 1000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>1000 - 2500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>2500 - 5000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-travel.pptx')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>5000 & ABOVE</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
-                    </div>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-4 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-travel.pptx')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <!-- <span class="catalog-text-by-category">
+            <p><strong>UPTO 500</strong></p>
+          </span> -->
+          <div class="partner-btn">
+            <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 mt-4 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/500-1000-travel.pptx')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <!-- <span class="catalog-text-by-category">
+          <p><strong>500 - 1000</strong></p>
+        </span> -->
+        <div class="partner-btn">
+          <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
+        </div>
+      </div>
     </div>
+    <div class="col-lg-4 mt-4 col-md-6">
+      <div class="catalog-part">
+        <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-travel.pptx')">
+          <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+        </a>
+        <!-- <span class="catalog-text-by-category">
+        <p><strong>1000 - 2500</strong></p>
+      </span> -->
+      <div class="partner-btn">
+        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 mt-4 col-md-6">
+    <div class="catalog-part">
+      <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-travel.pptx')">
+        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+      </a>
+      <!-- <span class="catalog-text-by-category">
+      <p><strong>2500 - 5000</strong></p>
+    </span> -->
+    <div class="partner-btn">
+      <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 mt-4 col-md-6">
+  <div class="catalog-part">
+    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-travel.pptx')">
+      <img alt="Product Image" src="/assets/page/corporate-gifting/categories/travel-companion-accessories.jpg" class="img-fluid" loading="lazy">
+    </a>
+    <!-- <span class="catalog-text-by-category">
+    <p><strong>5000 & ABOVE</strong></p>
+  </span> -->
+  <div class="partner-btn">
+    <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
+  </div>
+</div>
+</div>
+</div>
+</div>
 </section>
+}
 <!-- travel end -->
 
 
 <!-- stationery start -->
-<section *ngIf="downloadType == 'stationery'">
+@if (downloadType == 'stationery') {
+  <section>
     <div class="divider-style text-center mt-4 mb-2 pt-4">
-        <h1 class="text-danger">Writing Instruments and Stationery as per Price Range</h1>
-        <span class="separator mb-2"></span>
+      <h1 class="text-danger">Writing Instruments and Stationery as per Price Range</h1>
+      <span class="separator mb-2"></span>
     </div>
     <div class="card container catalogue">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>UPTO 500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/between-500-1000-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>500 - 1000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>1000 - 2500</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>2500 - 5000</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 col-md-6">
-                <div class="catalog-part">
-                    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-writting-instruments-and-stationary.pdf')">
-                        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
-                    </a>
-                    <!-- <span class="catalog-text-by-category">
-                        <p><strong>5000 & ABOVE</strong></p>
-                    </span> -->
-                    <div class="partner-btn">
-                        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
-                    </div>
-                </div>
-            </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-4 mt-4 col-md-6">
+          <div class="catalog-part">
+            <a href="javascript:void(0)" (click)="handleGiftClick($event, 'below-500/below-500-writting-instruments-and-stationary.pdf')">
+              <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+            </a>
+            <!-- <span class="catalog-text-by-category">
+            <p><strong>UPTO 500</strong></p>
+          </span> -->
+          <div class="partner-btn">
+            <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> UPTO 500 </button>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 mt-4 col-md-6">
+        <div class="catalog-part">
+          <a href="javascript:void(0)" (click)="handleGiftClick($event, '500-1000/between-500-1000-writting-instruments-and-stationary.pdf')">
+            <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+          </a>
+          <!-- <span class="catalog-text-by-category">
+          <p><strong>500 - 1000</strong></p>
+        </span> -->
+        <div class="partner-btn">
+          <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 500 - 1000 </button>
+        </div>
+      </div>
     </div>
+    <div class="col-lg-4 mt-4 col-md-6">
+      <div class="catalog-part">
+        <a href="javascript:void(0)" (click)="handleGiftClick($event, '1000-2500/1000-2500-writting-instruments-and-stationary.pdf')">
+          <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+        </a>
+        <!-- <span class="catalog-text-by-category">
+        <p><strong>1000 - 2500</strong></p>
+      </span> -->
+      <div class="partner-btn">
+        <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 1000 - 2500 </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 mt-4 col-md-6">
+    <div class="catalog-part">
+      <a href="javascript:void(0)" (click)="handleGiftClick($event, '2500-5000/2500-5000-writting-instruments-and-stationary.pdf')">
+        <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+      </a>
+      <!-- <span class="catalog-text-by-category">
+      <p><strong>2500 - 5000</strong></p>
+    </span> -->
+    <div class="partner-btn">
+      <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 2500 - 5000 </button>
+    </div>
+  </div>
+</div>
+<div class="col-lg-4 mt-4 col-md-6">
+  <div class="catalog-part">
+    <a href="javascript:void(0)" (click)="handleGiftClick($event, '5000-above/above-5000-writting-instruments-and-stationary.pdf')">
+      <img alt="Product Image" src="/assets/page/corporate-gifting/categories/writing-lnstruments-stationery.jpg" class="img-fluid" loading="lazy">
+    </a>
+    <!-- <span class="catalog-text-by-category">
+    <p><strong>5000 & ABOVE</strong></p>
+  </span> -->
+  <div class="partner-btn">
+    <button type="submit" class="partner-btn btn btn-primary my-3 rounded-pill"> 5000 & ABOVE </button>
+  </div>
+</div>
+</div>
+</div>
+</div>
 </section>
+}
 <!-- stationery end -->
 
 

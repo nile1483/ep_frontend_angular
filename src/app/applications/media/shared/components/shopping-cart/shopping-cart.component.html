@@ -1,101 +1,120 @@
-<section *ngIf="isFormCreated">
+@if (isFormCreated) {
+  <section>
     <div class="container p-3">
-        <form [formGroup]="shoppingCartForm">
-            <div class="row justify-content-start p-0" *ngFor="let product of shoppingCartData; let pIndex=index">
-                <div class="col-12">
-                    <h3> {{product?.name}} (<b>{{product?.selectedPrice?.name}}</b>) </h3>
-                    <hr class="w-100">
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="w-100" *ngFor="let field of product?.selectedPrice?.attribute">
-                        <field-builder class="mt-5" [field]="field" [shoppingCartForm]="shoppingCartForm" (onResetAttribute)="resetAttribute($event)" (onChangeAttributeValue)="changeAttributeValue($event)"></field-builder>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3" *ngIf="product?.selectedPrice?.price_unit">
-
-                    <div class="w-100" *ngFor="let priceUnit of product?.selectedPrice?.price_unit">
-                        <field-builder [field]="priceUnit" [shoppingCartForm]="shoppingCartForm"></field-builder>
-                    </div>
-                    <div class="w-100 option-price" *ngFor="let option of product?.selectedPrice?.option; let opIndex=index">
-                        <field-builder [field]="option" [shoppingCartForm]="shoppingCartForm"></field-builder>
-                    </div>
-                </div>
-                <div class="col-12 col-md-5">
-                    <table class="w-100">
-                        <!-- <tr *ngFor="let option of product?.selectedPrice?.option; let opIndex=index">
-                            <td colspan="3">
-                                <field-builder [field]="option" [shoppingCartForm]="shoppingCartForm"></field-builder>
-                            </td>
-                        </tr> -->
-                        <tr>
-                            <td>Rate</td>
-                            <td><strong>: </strong> </td>
-                            <td>
-                                <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.optionPrice | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Sub Total</td>
-                            <td><strong>: </strong></td>
-                            <td> 
-                                <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.subTotal | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                            </td>
-                        </tr>
-                        <tr [ngClass]="{'min-billing': product?.selectedPrice?.minPriceFlag}">
-                            <td><abbr title="Minimum Billing Sub Total" class="">Min Billing</abbr></td>
-                            <td><strong>: </strong></td>
-                            <td>
-                                <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.minimum_billing | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                            </td>
-                        </tr>
-                        <tr *ngFor="let option of product?.selectedPrice?.option">
-                            <td style="width: 110px;"> {{option?.name}} </td>
-                            <td><strong>: </strong></td>
-                            <td>
-                                <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{option?.value?.price | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                            </td>
-                        </tr>
-                        <tr *ngIf="product?.selectedPrice?.option?.length > 0">
-                            <td>Total</td>
-                            <td><strong>: </strong></td>
-                            <td>
-                                <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.total | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>GST ({{product?.selectedPrice?.gst}}%)</td>
-                            <td><strong>: </strong></td>
-                            <td>
-                                <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.totalGst | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                            </td>
-                        </tr>
-                        <tr class="border-top">
-                            <td class="pt-2"><strong>Grand Total</strong></td>
-                            <td class="pt-2"><strong>: </strong></td>
-                            <td class="pt-2"><strong>
-                                <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.grandTotal | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                            </strong>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </form>
-        <div class="row">
+      <form [formGroup]="shoppingCartForm">
+        @for (product of shoppingCartData; track product; let pIndex = $index) {
+          <div class="row justify-content-start p-0">
             <div class="col-12">
-                <button class="btn btn-dark m-2 float-end" (click)="closeDialog()"> Cancel</button>
-                <button class="btn btn-blue m-2 float-end" (click)="addToPlanData()" [disabled]="isDisabledAddToPlanButton">
-                    <span *ngIf="isEditShoppingCart"> Update Plan </span>
-                    <span *ngIf="!isEditShoppingCart"> Add to Plan </span>
-                </button>
+              <h3> {{product?.name}} (<b>{{product?.selectedPrice?.name}}</b>) </h3>
+              <hr class="w-100">
             </div>
+            <div class="col-12 col-md-4">
+              @for (field of product?.selectedPrice?.attribute; track field) {
+                <div class="w-100">
+                  <field-builder class="mt-5" [field]="field" [shoppingCartForm]="shoppingCartForm" (onResetAttribute)="resetAttribute($event)" (onChangeAttributeValue)="changeAttributeValue($event)"></field-builder>
+                </div>
+              }
+            </div>
+            @if (product?.selectedPrice?.price_unit) {
+              <div class="col-12 col-md-3">
+                @for (priceUnit of product?.selectedPrice?.price_unit; track priceUnit) {
+                  <div class="w-100">
+                    <field-builder [field]="priceUnit" [shoppingCartForm]="shoppingCartForm"></field-builder>
+                  </div>
+                }
+                @for (option of product?.selectedPrice?.option; track option; let opIndex = $index) {
+                  <div class="w-100 option-price">
+                    <field-builder [field]="option" [shoppingCartForm]="shoppingCartForm"></field-builder>
+                  </div>
+                }
+              </div>
+            }
+            <div class="col-12 col-md-5">
+              <table class="w-100">
+                <!-- <tr *ngFor="let option of product?.selectedPrice?.option; let opIndex=index">
+                <td colspan="3">
+                  <field-builder [field]="option" [shoppingCartForm]="shoppingCartForm"></field-builder>
+                </td>
+              </tr> -->
+              <tr>
+                <td>Rate</td>
+                <td><strong>: </strong> </td>
+                <td>
+                  <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                  <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.optionPrice) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                </td>
+              </tr>
+              <tr>
+                <td>Sub Total</td>
+                <td><strong>: </strong></td>
+                <td>
+                  <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                  <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.subTotal) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                </td>
+              </tr>
+              <tr [ngClass]="{'min-billing': $safeNavigationMigration(product?.selectedPrice?.minPriceFlag)}">
+                <td><abbr title="Minimum Billing Sub Total" class="">Min Billing</abbr></td>
+                <td><strong>: </strong></td>
+                <td>
+                  <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                  <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.minimum_billing) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                </td>
+              </tr>
+              @for (option of product?.selectedPrice?.option; track option) {
+                <tr>
+                  <td style="width: 110px;"> {{option?.name}} </td>
+                  <td><strong>: </strong></td>
+                  <td>
+                    <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                    <div class="d-inline-block"> {{$safeNavigationMigration(option?.value?.price) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                  </td>
+                </tr>
+              }
+              @if (product?.selectedPrice?.option?.length > 0) {
+                <tr>
+                  <td>Total</td>
+                  <td><strong>: </strong></td>
+                  <td>
+                    <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                    <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.total) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                  </td>
+                </tr>
+              }
+              <tr>
+                <td>GST ({{product?.selectedPrice?.gst}}%)</td>
+                <td><strong>: </strong></td>
+                <td>
+                  <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                  <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.totalGst) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                </td>
+              </tr>
+              <tr class="border-top">
+                <td class="pt-2"><strong>Grand Total</strong></td>
+                <td class="pt-2"><strong>: </strong></td>
+                <td class="pt-2"><strong>
+                  <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
+                  <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.grandTotal) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                </strong>
+              </td>
+            </tr>
+          </table>
         </div>
+      </div>
+    }
+  </form>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-dark m-2 float-end" (click)="closeDialog()"> Cancel</button>
+      <button class="btn btn-blue m-2 float-end" (click)="addToPlanData()" [disabled]="isDisabledAddToPlanButton">
+        @if (isEditShoppingCart) {
+          <span> Update Plan </span>
+        }
+        @if (!isEditShoppingCart) {
+          <span> Add to Plan </span>
+        }
+      </button>
     </div>
+  </div>
+</div>
 </section>
+}

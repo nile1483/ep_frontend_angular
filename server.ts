@@ -1,11 +1,10 @@
 import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr';
+import { CommonEngine } from '@angular/ssr/node';
 import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import AppServerModule from './src/main.server';
-
-import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
+import { SERVER_RESPONSE } from './src/app/shared/tokens/server-response.token';
 
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -15,7 +14,14 @@ export function app(): express.Express {
   const browserDistFolder = resolve(serverDistFolder, '../browser');
   const indexHtml = join(serverDistFolder, 'index.server.html');
 
-  const commonEngine = new CommonEngine();
+  const commonEngine = new CommonEngine({
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      'excellentpublicity.com',
+      '*.excellentpublicity.com',
+    ],
+  });
 
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
@@ -108,17 +114,15 @@ export function app(): express.Express {
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
-
-    commonEngine
-      .render({
+    commonEngine.render({
         bootstrap: AppServerModule,
         inlineCriticalCss: false, // new add
         documentFilePath: indexHtml,
         url: `${protocol}://${headers.host}${originalUrl}`,
         publicPath: browserDistFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl },
-        { provide: REQUEST, useValue: req },   // <-- add this
-        { provide: RESPONSE, useValue: res },  // <-- and this
+        providers: [
+          { provide: APP_BASE_HREF, useValue: baseUrl },
+          { provide: SERVER_RESPONSE, useValue: res },
         ],
       })
       .then((html) => res.send(html))

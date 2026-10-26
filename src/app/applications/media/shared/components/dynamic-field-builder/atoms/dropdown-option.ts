@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,14 +7,18 @@ import { FormGroup } from '@angular/forms';
       <div [formGroup]="form">
         <div [formGroupName]="'options'" >
           <mat-form-field>
-          <mat-label>{{field.name}} </mat-label> 
+            <mat-label>{{field.name}} </mat-label>
             <mat-select [formControlName]="field.code"  [(value)]="field.selected" >
-                <mat-option *ngFor="let opt of field.values" [value]="opt.name" >{{opt.name}} </mat-option>
+              @for (opt of field.values; track opt) {
+                <mat-option [value]="opt.name" >{{opt.name}} </mat-option>
+              }
             </mat-select>
           </mat-form-field>
-        </div> 
-      </div> 
-    `
+        </div>
+      </div>
+      `,
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 }) 
 export class DropDownOptionComponent {
     @Input() field:any = {};

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { APP_SVG_ICON_LIST, MENU_LIST_WITH_SVG_ICON } from '@app-shared-constants';
 
 // import Swiper core and required components
@@ -10,9 +10,11 @@ SwiperCore.use([
 ]);
 
 @Component({
-  selector: 'section-header-navigation',
-  templateUrl: './section-header-navigation.component.html',
-  styleUrl: './section-header-navigation.component.css'
+    selector: 'section-header-navigation',
+    templateUrl: './section-header-navigation.component.html',
+    styleUrl: './section-header-navigation.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class SectionHeaderNavigationComponent {
 

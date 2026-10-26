@@ -1,14 +1,21 @@
-<h3 *ngIf="pageBlock?.name"> {{pageBlock?.name}} </h3>
+@if (pageBlock?.name) {
+  <h3> {{pageBlock?.name}} </h3>
+}
 <ul class="list-group list-group-flush border p-3" style="width: max-content; border-radius: 20px;">
-    <li class="list-group-item content-item fw-bold border-0" *ngFor="let content of pageBlock?.content; let index=index;">
-        <span class="">{{index+1}}. </span>
-        <a [routerLink]='"."' [fragment]="content.link" > {{content?.title}} </a>
-
-        <ul class="list-group list-group-flush" *ngIf="content?.sublink">
-            <li class="list-group-item content-item fw-normal border-0 py-1" *ngFor="let sublink of content?.sublink; let subindex=index;">
-                <span class="">{{index+1}}.{{subindex+1}}. </span>
-                <a [routerLink]='"."' [fragment]="sublink.link" > {{sublink?.title}} </a>
+  @for (content of pageBlock?.content; track content; let index = $index) {
+    <li class="list-group-item content-item fw-bold border-0">
+      <span class="">{{index+1}}. </span>
+      <a [routerLink]='"."' [fragment]="content.link" > {{content?.title}} </a>
+      @if (content?.sublink) {
+        <ul class="list-group list-group-flush">
+          @for (sublink of content?.sublink; track sublink; let subindex = $index) {
+            <li class="list-group-item content-item fw-normal border-0 py-1">
+              <span class="">{{index+1}}.{{subindex+1}}. </span>
+              <a [routerLink]='"."' [fragment]="sublink.link" > {{sublink?.title}} </a>
             </li>
+          }
         </ul>
+      }
     </li>
+  }
 </ul>

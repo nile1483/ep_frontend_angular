@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-  selector: 'app-industry-insights-list-page',
-  templateUrl: './industry-insights-list-page.component.html',
-  styleUrl: './industry-insights-list-page.component.css',
+    selector: 'app-industry-insights-list-page',
+    templateUrl: './industry-insights-list-page.component.html',
+    styleUrl: './industry-insights-list-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class IndustryInsightsListPageComponent {
 

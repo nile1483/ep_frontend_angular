@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { AbstractControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '@app-shared-services';
@@ -44,9 +44,11 @@ export function emailValidator(control: AbstractControl) {
 
 
 @Component({
-  selector: 'app-ipl-inquiry-dialog',
-  templateUrl: './ipl-inquiry-dialog.component.html',
-  styleUrls: ['./ipl-inquiry-dialog.component.css']
+    selector: 'app-ipl-inquiry-dialog',
+    templateUrl: './ipl-inquiry-dialog.component.html',
+    styleUrls: ['./ipl-inquiry-dialog.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 
 

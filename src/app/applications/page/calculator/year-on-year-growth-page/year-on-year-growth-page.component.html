@@ -1,240 +1,258 @@
 <!-- background -->
 <section class="section-featured-services yearonyeargrowth-background common-padding">
-    <div class="container">
-        <div class="section-heading text-center">
-            <h1 class="text-white"></h1>
-        </div>
+  <div class="container">
+    <div class="section-heading text-center">
+      <h1 class="text-white"></h1>
     </div>
+  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-    <div class="container get-section">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-                    class="roas-form p-4 border custom-border mx-auto">
-                    <div class="row mb-3">
-                        <div class="col-md-6 mb-3 mb-md-0 text-center">
-                            <label class="form-label fw-bolder">Current Year Value</label>
-                            <input
-                              type="number"
-                              formControlName="conversionRevenue"
-                              class="form-control border-danger" placeholder="Enter Value"
-                            />
-                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
-                              <div *ngIf="conversionRevenue?.errors?.['required']">
-                                Current Year Value is required.
-                              </div>
-                              <div *ngIf="conversionRevenue?.errors?.['min']">
-                                Current Year Value must be greater than 0.
-                              </div>
-                            </div>
-                          </div>
-
-                        <div class="col-md-6 text-center">
-                            <label class="form-label fw-bolder">Previous Year Value</label>
-                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
-                                <div *ngIf="adSpend?.errors?.['required']">
-                                    Previous Year Value is required.
-                                </div>
-                                <div *ngIf="adSpend?.errors?.['min']">
-                                    Previous Year Value must be greater than 0.
-                                </div>
-                            </div>
-                        </div>
+  <div class="container get-section">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+          class="roas-form p-4 border custom-border mx-auto">
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0 text-center">
+              <label class="form-label fw-bolder">Current Year Value</label>
+              <input
+                type="number"
+                formControlName="conversionRevenue"
+                class="form-control border-danger" placeholder="Enter Value"
+                />
+              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
+                <div class="text-danger small">
+                  @if (conversionRevenue?.errors?.['required']) {
+                    <div>
+                      Current Year Value is required.
                     </div>
-
-                    <div class="text-center mb-3">
-                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
+                  }
+                  @if (conversionRevenue?.errors?.['min']) {
+                    <div>
+                      Current Year Value must be greater than 0.
                     </div>
-
-                    <div class="text-center col-md-6 mx-auto">
-                        <label class="form-label fw-bolder">YOY</label>
-                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-                    </div>
-                </form>
-
+                  }
+                </div>
+              }
             </div>
-        </div>
+
+            <div class="col-md-6 text-center">
+              <label class="form-label fw-bolder">Previous Year Value</label>
+              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+              @if (adSpend?.invalid && adSpend?.touched) {
+                <div class="text-danger small">
+                  @if (adSpend?.errors?.['required']) {
+                    <div>
+                      Previous Year Value is required.
+                    </div>
+                  }
+                  @if (adSpend?.errors?.['min']) {
+                    <div>
+                      Previous Year Value must be greater than 0.
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="text-center mb-3">
+            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
+          </div>
+
+          <div class="text-center col-md-6 mx-auto">
+            <label class="form-label fw-bolder">YOY</label>
+            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+          </div>
+        </form>
+
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-    <div class="container default-content">
-        <div class="row align-items-center">
-            <!-- Left Image Column -->
-            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-                <img src="assets/page/calculators/year-on-year-growth/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-            </div>
+  <div class="container default-content">
+    <div class="row align-items-center">
+      <!-- Left Image Column -->
+      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+        <img src="assets/page/calculators/year-on-year-growth/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+      </div>
 
-            <!-- Right Text Column -->
-            <div class="col-md-7">
-                <h2 class="fw-bold text-danger mb-0">Year-on-Year Growth</h2>
-                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
-                <p class="fs-5">
-                    A year-on-year (YOY) growth calculator is the most important tool that can help you understand how well your business is progressing. It calculates and analyzes your year-over-year growth rate in statistics between one particular year and its prior year.
-                </p>
-                <p class="fs-5">
-                    As the calculator reflects the annual business performance, it is also known as a <strong>Yearly Performance Tracker.</strong>
-                </p>
-            </div>
-            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                What is year-over-year?
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>
-                Year-over-year or YOY is considered a financial term and equation that is used to compare and analyze a particular measure of one year with its previous year. These calculations, which indicate anticipated growth or downfall every year, are proven to be a reliable way of measuring a company's performance.
-            </p>
-            <p>Many companies often analyze their yearly growth by certain parameters such as income, expenditures, sales, and significant profit. But to get a clear picture of performance trends, a comparison of two consecutive years is needed. It helps you understand where the growth has occurred.</p>
-            <p>Analyzing the overall financial performance of an organization makes it somewhat easier to define goals and make strategic decisions.</p>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                How to use a year-on-year calculator?
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>
-                Using a year-on-year calculator, you can compare the rise and fall of financial metrics such as profit, expenses, sales, or client base throughout two consecutive years. It demonstrates the changes as a percentage, which simplifies the performance trend assessment.
-            </p>
-            <p>
-                If you want to measure the business performance, using Year-on-Year growth calculator, here’s the formula:
-            </p>
-            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-                (Current Year Value - Previous Year Value) / Previous Year Value × 100
-            </h2>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                The importance of calculating year over year changes?
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>
-                Year over year calculations are one of the accurate and useful approaches to analyze the performance of an organization. It provides an exact representation of sustainability and long-term prosperity. Let’s discuss some of the reasons that define the importance of YOY analysis:
-            </p>
-            
-            <p>
-                <strong>Determines Growth Patterns: </strong>
-            </p>
-            <p>Companies can consider this year over year calculations to check if there is any significant growth, stability, or deterioration present while comparing the results of two consecutive years.</p>
-            <p class="ms-4">-	Seasonal businesses can measure their actual growth by eliminating the effect of cyclical patterns with year over year(YOY).</p>
-            
-            <p>
-                <strong>Cuts Down on Seasonal Variations: </strong>
-            </p>
-            <p>Some industries go through certain spikes, like retail, during holidays are around. In such cases, month over month data is considered less consistent and trustworthy compared to YOY analysis to measure the financial health of the business.</p>
-            
-            <p>
-                <strong>Indicates Business Sustainability: </strong>
-            </p>
-            <p>Investors evaluate a company’s financial health using the <strong>Year-on-year growth calculator.</strong> You can decide whether your business model can be considered robust and long-lasting if your YOY growth is constant.</p>
-            
-            <p>
-                <strong>Helps in Decision-Making </strong>
-            </p>
-            <p>YOY analysis can help business owners make important decisions by identifying areas of improvement or destruction. Past performance can help you strategize for future goals.</p>
-            
-            <p>
-                <strong>Evaluates the Strategy Effectiveness </strong>
-            </p>
-            <p>Over time, companies can keep a tab on the impact of marketing campaigns, new product launches, and operational changes. Based on data-driven insights received using Year-on-Year Growth Calculator, you can easily modify the strategic norms that can impact the success of your organization.</p>
-            <p>In summary, considering year over year calculation is a very crucial and result-driven analytical tool for businesses, investors, or financial analysts. </p>
-        </div>
-
-        <ul class="p-0 ml-0">
-            <li class="d-flex align-items-start h3 text-danger">
-                Year over year growth calculation example
-            </li>
-        </ul>
-        <div class="ms-4">
-            <p>
-                Suppose you are running your own organization, and you want to calculate over yearly growth of your company’s revenue.
-            </p>
-            <p>
-                Let’s say your company had a revenue of $ 7,00,000 in 2024 and it further increased to $ 8,90,000 in 2025. 
-            </p>
-            <p><strong>YOY Growth Formula:</strong></p>
-            <p><strong>YOY Growth Rate (%) = (Current Year Value - Previous Year Value) / Previous Year Value × 100</strong></p>
-            <p class="ms-4">= 8,90,000 - 7,00,000 / 7,00,000 × 100</p>
-            <p class="ms-4">= 1,90,000 / 7,00,000 × 100</p>
-            <p class="ms-4">= 0.2714×100</p>
-            <p class="ms-4">= 27.14%</p>
-            <p class="ms-4">Which means your company's revenue increased 27.14% year on year.</p> 
-        </div>
-
+      <!-- Right Text Column -->
+      <div class="col-md-7">
+        <h2 class="fw-bold text-danger mb-0">Year-on-Year Growth</h2>
+        <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+        <p class="fs-5">
+          A year-on-year (YOY) growth calculator is the most important tool that can help you understand how well your business is progressing. It calculates and analyzes your year-over-year growth rate in statistics between one particular year and its prior year.
+        </p>
+        <p class="fs-5">
+          As the calculator reflects the annual business performance, it is also known as a <strong>Yearly Performance Tracker.</strong>
+        </p>
+      </div>
+      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
     </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        What is year-over-year?
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>
+        Year-over-year or YOY is considered a financial term and equation that is used to compare and analyze a particular measure of one year with its previous year. These calculations, which indicate anticipated growth or downfall every year, are proven to be a reliable way of measuring a company's performance.
+      </p>
+      <p>Many companies often analyze their yearly growth by certain parameters such as income, expenditures, sales, and significant profit. But to get a clear picture of performance trends, a comparison of two consecutive years is needed. It helps you understand where the growth has occurred.</p>
+      <p>Analyzing the overall financial performance of an organization makes it somewhat easier to define goals and make strategic decisions.</p>
+    </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        How to use a year-on-year calculator?
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>
+        Using a year-on-year calculator, you can compare the rise and fall of financial metrics such as profit, expenses, sales, or client base throughout two consecutive years. It demonstrates the changes as a percentage, which simplifies the performance trend assessment.
+      </p>
+      <p>
+        If you want to measure the business performance, using Year-on-Year growth calculator, here’s the formula:
+      </p>
+      <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+        (Current Year Value - Previous Year Value) / Previous Year Value × 100
+      </h2>
+    </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        The importance of calculating year over year changes?
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>
+        Year over year calculations are one of the accurate and useful approaches to analyze the performance of an organization. It provides an exact representation of sustainability and long-term prosperity. Let’s discuss some of the reasons that define the importance of YOY analysis:
+      </p>
+
+      <p>
+        <strong>Determines Growth Patterns: </strong>
+      </p>
+      <p>Companies can consider this year over year calculations to check if there is any significant growth, stability, or deterioration present while comparing the results of two consecutive years.</p>
+      <p class="ms-4">-	Seasonal businesses can measure their actual growth by eliminating the effect of cyclical patterns with year over year(YOY).</p>
+
+      <p>
+        <strong>Cuts Down on Seasonal Variations: </strong>
+      </p>
+      <p>Some industries go through certain spikes, like retail, during holidays are around. In such cases, month over month data is considered less consistent and trustworthy compared to YOY analysis to measure the financial health of the business.</p>
+
+      <p>
+        <strong>Indicates Business Sustainability: </strong>
+      </p>
+      <p>Investors evaluate a company’s financial health using the <strong>Year-on-year growth calculator.</strong> You can decide whether your business model can be considered robust and long-lasting if your YOY growth is constant.</p>
+
+      <p>
+        <strong>Helps in Decision-Making </strong>
+      </p>
+      <p>YOY analysis can help business owners make important decisions by identifying areas of improvement or destruction. Past performance can help you strategize for future goals.</p>
+
+      <p>
+        <strong>Evaluates the Strategy Effectiveness </strong>
+      </p>
+      <p>Over time, companies can keep a tab on the impact of marketing campaigns, new product launches, and operational changes. Based on data-driven insights received using Year-on-Year Growth Calculator, you can easily modify the strategic norms that can impact the success of your organization.</p>
+      <p>In summary, considering year over year calculation is a very crucial and result-driven analytical tool for businesses, investors, or financial analysts. </p>
+    </div>
+
+    <ul class="p-0 ml-0">
+      <li class="d-flex align-items-start h3 text-danger">
+        Year over year growth calculation example
+      </li>
+    </ul>
+    <div class="ms-4">
+      <p>
+        Suppose you are running your own organization, and you want to calculate over yearly growth of your company’s revenue.
+      </p>
+      <p>
+        Let’s say your company had a revenue of $ 7,00,000 in 2024 and it further increased to $ 8,90,000 in 2025.
+      </p>
+      <p><strong>YOY Growth Formula:</strong></p>
+      <p><strong>YOY Growth Rate (%) = (Current Year Value - Previous Year Value) / Previous Year Value × 100</strong></p>
+      <p class="ms-4">= 8,90,000 - 7,00,000 / 7,00,000 × 100</p>
+      <p class="ms-4">= 1,90,000 / 7,00,000 × 100</p>
+      <p class="ms-4">= 0.2714×100</p>
+      <p class="ms-4">= 27.14%</p>
+      <p class="ms-4">Which means your company's revenue increased 27.14% year on year.</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="section-heading text-center mb-5">
-                    <h2>FAQs</h2>
-                    <span class="separator mb-2"></span>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="" itemscope itemtype="https://schema.org/FAQPage">
-                    <div class="accordion faq-accordion" id="faqAccordion" >
-                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
-                        itemtype="https://schema.org/Question">
-                            <h6 class="accordion-header" id="heading{{i}}">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
-                                </button>
-                            </h6>
-                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                                itemtype="https://schema.org/Answer" >
-                                <div class="accordion-body default-content" itemprop="text">
-                                    <p [innerHTML]="item?.answer"></p>
-                                </div>
-                                <div class="text-center">
-                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-heading text-center mb-5">
+          <h2>FAQs</h2>
+          <span class="separator mb-2"></span>
         </div>
+      </div>
+      <div class="col-12">
+        <div class="" itemscope itemtype="https://schema.org/FAQPage">
+          <div class="accordion faq-accordion" id="faqAccordion" >
+            @for (item of faqList; track item; let i = $index) {
+              <div class="accordion-item" itemscope itemprop="mainEntity"
+                itemtype="https://schema.org/Question">
+                <h6 class="accordion-header" id="heading{{i}}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
+                  </button>
+                </h6>
+                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                  itemtype="https://schema.org/Answer" >
+                  <div class="accordion-body default-content" itemprop="text">
+                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
+                  </div>
+                  <div class="text-center">
+                    @if (item?.buttonname) {
+                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-    <div class="container">
-        <!-- Related Calculator -->
-        <div class="row g-md-4 g-3">
-            <h2 class="text-center">Related Calculator</h2>
-            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
-                <div class="media-list-card shadow">
-                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-                        <img [src]="card.image" loading="lazy" class="card-img-top"
-                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-                        <div class="card-body px-0">
-                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                          <p class="card-text line-clamp">{{ card.description }}</p>
-                        </div>
-                      </div>
-                </div>
+  <div class="container">
+    <!-- Related Calculator -->
+    <div class="row g-md-4 g-3">
+      <h2 class="text-center">Related Calculator</h2>
+      @for (card of cards; track card) {
+        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+          <div class="media-list-card shadow">
+            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+              <img [src]="card.image" loading="lazy" class="card-img-top"
+                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+              <div class="card-body px-0">
+                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                <p class="card-text line-clamp">{{ card.description }}</p>
+              </div>
             </div>
+          </div>
         </div>
-        <!-- Related Calculator -->
+      }
     </div>
+    <!-- Related Calculator -->
+  </div>
 </section>

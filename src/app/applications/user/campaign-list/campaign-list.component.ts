@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
 import { UserService } from 'src/app/shared/services/user.service';
 import { CommonService } from '@app-shared-services';
@@ -8,9 +8,11 @@ import { AppURL } from 'src/app/app-url';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-campaign-list',
-  templateUrl: './campaign-list.component.html',
-  styleUrls: ['./campaign-list.component.css']
+    selector: 'app-campaign-list',
+    templateUrl: './campaign-list.component.html',
+    styleUrls: ['./campaign-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class CampaignListComponent implements OnInit {
 

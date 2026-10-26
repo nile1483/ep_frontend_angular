@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { META_DATA } from 'src/app/shared/constants/metadata'; 
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
 @Component({
-  selector: 'app-terms-conditions',
-  templateUrl: './terms-conditions.component.html',
-  styleUrls: ['./terms-conditions.component.css']
+    selector: 'app-terms-conditions',
+    templateUrl: './terms-conditions.component.html',
+    styleUrls: ['./terms-conditions.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class TermsConditionsComponent implements OnInit {
   webURL : string = AppURL.webURL;

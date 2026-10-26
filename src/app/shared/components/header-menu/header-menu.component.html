@@ -1,26 +1,32 @@
 <section class="header-menu d-flex justify-content-center align-items-center">
-    <div class="container">
-        <div class="menucontainer">
-            <div class="left-menu-icon carousel-menu-previous" role="button" aria-label="Previous slide" [innerHTML]="app_svg_icon_list?.['angle-left'] | safeHtml">
-                <!-- <i class="fa-regular fa-angle-left"></i> -->
+  <div class="container">
+    <div class="menucontainer">
+      <div class="left-menu-icon carousel-menu-previous" role="button" aria-label="Previous slide" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['angle-left']) | safeHtml">
+        <!-- <i class="fa-regular fa-angle-left"></i> -->
 
-            </div>
+      </div>
 
-            <div class="menubar">
-                <swiper [config]="config">
-                    <ng-template swiperSlide *ngFor="let item of listMenu">
-                        <a aria-label="Link" [routerLink]="['/',item.url]" [routerLinkActive]="['active']" *ngIf="item?.label != 'Corporate Gifting'">
-                            <span class="menu-icon-svg" [innerHTML]="item?.icon | safeHtml"> </span> {{item?.label}}
-                        </a>
-                        <a aria-label="Link" href="{{item.url}}" *ngIf="item?.label == 'Corporate Gifting'">
-                            <span class="menu-icon-svg" [innerHTML]="item?.icon | safeHtml"></span> {{item?.label}}
-                        </a>
-                    </ng-template>
-                </swiper>
-            </div>
-            <div class="right-menu-icon carousel-menu-next" role="button" aria-label="Next slide" [innerHTML]="app_svg_icon_list?.['angle-right'] | safeHtml">
-                <!-- <i class="fa-regular fa-angle-right" ></i> -->
-            </div>
-        </div>
+      <div class="menubar">
+        <swiper [config]="config">
+          @for (item of listMenu; track item) {
+            <ng-template swiperSlide>
+              @if (item?.label != 'Corporate Gifting') {
+                <a aria-label="Link" [routerLink]="['/',item.url]" [routerLinkActive]="['active']">
+                  <span class="menu-icon-svg" [innerHTML]="$safeNavigationMigration(item?.icon) | safeHtml"> </span> {{item?.label}}
+                </a>
+              }
+              @if (item?.label == 'Corporate Gifting') {
+                <a aria-label="Link" href="{{item.url}}">
+                  <span class="menu-icon-svg" [innerHTML]="$safeNavigationMigration(item?.icon) | safeHtml"></span> {{item?.label}}
+                </a>
+              }
+            </ng-template>
+          }
+        </swiper>
+      </div>
+      <div class="right-menu-icon carousel-menu-next" role="button" aria-label="Next slide" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['angle-right']) | safeHtml">
+        <!-- <i class="fa-regular fa-angle-right" ></i> -->
+      </div>
     </div>
+  </div>
 </section>

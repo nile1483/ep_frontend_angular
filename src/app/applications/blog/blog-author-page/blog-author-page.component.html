@@ -1,74 +1,92 @@
 <section class="common-padding bg-linear-gradient clientele-page-header">
-    <div class="container">
-        <div class="section-heading mb-0 w-850 text-center">
-            <div class="row">
-                <div class="col-12">
-                    
-                    <img loading="lazy" src="assets/blog/avatar.webp" class="rounded-circle " alt="Author Image" *ngIf="authorData?.image == null">
-                    <img loading="lazy" src="{{authorData?.image}}" class="rounded-circle " alt="Author Image" *ngIf="authorData?.image != null">
-                    <h1 class="author-name" *ngIf="authorData?.name">  Author: {{authorData?.name}} </h1> 
-                    <p *ngIf="authorData?.short_description" > {{authorData?.short_description}}</p>
-                </div>
-                 
-            </div>
-             
+  <div class="container">
+    <div class="section-heading mb-0 w-850 text-center">
+      <div class="row">
+        <div class="col-12">
+
+          @if (authorData?.image == null) {
+            <img loading="lazy" src="assets/blog/avatar.webp" class="rounded-circle " alt="Author Image">
+          }
+          @if (authorData?.image != null) {
+            <img loading="lazy" src="{{authorData?.image}}" class="rounded-circle " alt="Author Image">
+          }
+          @if (authorData?.name) {
+            <h1 class="author-name">  Author: {{authorData?.name}} </h1>
+          }
+          @if (authorData?.short_description) {
+            <p > {{authorData?.short_description}}</p>
+          }
         </div>
-         
+
+      </div>
+
     </div>
+
+  </div>
 </section>
- 
+
 
 
 <section class="common-padding grey-background">
-    <div class="container">
-        <div class="row g-lg-4 g-3">
-            <div class="col-12 col-lg-4 col-xl-4" *ngFor="let blog of blogListData">
-                <div class="media-list-card blog-card">
-                    <div class="media-list-card-img">
-                        <a aria-label="Detail Page Link" [routerLink]="['/',linkName,blog.slug]" class="d-block h-100 w-100">
-                            <img loading="lazy" src="assets/blog/rectangle-401.png" class="product-image h-100" alt="Product Image" *ngIf="blog?.image == null">
-                            <img loading="lazy" src="{{blog?.image}}" class="product-image h-100" alt="Product Image" *ngIf="blog?.image != null">
-                        </a>
-                    </div>
-                    <div class="media-list-card-body">
-                        <h5 class="media-list-card-title">
-                            <a aria-label="Detail Page Link" [routerLink]="['/',linkName,blog.slug]">
-                                {{blog?.name}}
-                            </a>
-                        </h5>
-                        <p class="line-truncate"> {{blog?.short_description}}</p>
-                        <div class="blog-owner-name d-flex align-items-center justify-content-between mt-auto">
-                            <div class="blog-own-image me-2">
-                                <strong>
-                                    <a [routerLink]="['/',linkName,'author',blog?.author_slug]" style="color: #0F2240;"> 
-                                        {{blog?.author_name}} 
-                                    </a> 
-                                </strong>
-                                <span class="ps-1">{{blog?.publish_date | date:'mediumDate'}}</span>
-                                <span class="read-time d-block">5 min read</span>
-                            </div>
-                            <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]" class="more-link more-link-with-text orange-link"><span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
-                                <!-- <i class="fa-light fa-arrow-right-long"></i> -->
-                            </span> </a>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="row g-lg-4 g-3">
+      @for (blog of blogListData; track blog) {
+        <div class="col-12 col-lg-4 col-xl-4">
+          <div class="media-list-card blog-card">
+            <div class="media-list-card-img">
+              <a aria-label="Detail Page Link" [routerLink]="['/',linkName,blog.slug]" class="d-block h-100 w-100">
+                @if (blog?.image == null) {
+                  <img loading="lazy" src="assets/blog/rectangle-401.png" class="product-image h-100" alt="Product Image">
+                }
+                @if (blog?.image != null) {
+                  <img loading="lazy" src="{{blog?.image}}" class="product-image h-100" alt="Product Image">
+                }
+              </a>
             </div>
-
-        </div>
-        <!-- view More Blogs -->
-        <div class="row mt-5" *ngIf="isShowViewMore">
-            <div class="col-12 text-center">
-                <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreBlogs()" class="more-link more-link-with-text orange-link">
-                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
-                        <!-- <i class="fa-light fa-arrow-right-long"></i> -->
-                        </span>
+            <div class="media-list-card-body">
+              <h5 class="media-list-card-title">
+                <a aria-label="Detail Page Link" [routerLink]="['/',linkName,blog.slug]">
+                  {{blog?.name}}
                 </a>
+              </h5>
+              <p class="line-truncate"> {{blog?.short_description}}</p>
+              <div class="blog-owner-name d-flex align-items-center justify-content-between mt-auto">
+                <div class="blog-own-image me-2">
+                  <strong>
+                    <a [routerLink]="['/',linkName,'author',$safeNavigationMigration(blog?.author_slug)]" style="color: #0F2240;">
+                      {{blog?.author_name}}
+                    </a>
+                  </strong>
+                  <span class="ps-1">{{$safeNavigationMigration(blog?.publish_date) | date:'mediumDate'}}</span>
+                  <span class="read-time d-block">5 min read</span>
+                </div>
+                <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]" class="more-link more-link-with-text orange-link"><span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
+                  <!-- <i class="fa-light fa-arrow-right-long"></i> -->
+                </span> </a>
+              </div>
             </div>
+          </div>
         </div>
+      }
 
     </div>
+    <!-- view More Blogs -->
+    @if (isShowViewMore) {
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreBlogs()" class="more-link more-link-with-text orange-link">
+            <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
+            <!-- <i class="fa-light fa-arrow-right-long"></i> -->
+          </span>
+        </a>
+      </div>
+    </div>
+  }
+
+</div>
 </section>
 
-<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
-</app-call-to-action-media>
+@if (callToActionData?.title) {
+  <app-call-to-action-media [mediaCallToActionData]="callToActionData">
+  </app-call-to-action-media>
+}

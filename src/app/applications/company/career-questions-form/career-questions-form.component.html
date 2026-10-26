@@ -1,117 +1,125 @@
 
-<section class="common-padding career-page-header" *ngIf="!formSubmit">
-    
+@if (!formSubmit) {
+  <section class="common-padding career-page-header">
     <div class="container">
-        <div class="section-heading text-center mb-0">
-            <h1>Additional Questions</h1>
-            <h5 class="mt-5">Please provide a few additional details to help us better understand your experience and suitability for this role.</h5>
-        </div>
+      <div class="section-heading text-center mb-0">
+        <h1>Additional Questions</h1>
+        <h5 class="mt-5">Please provide a few additional details to help us better understand your experience and suitability for this role.</h5>
+      </div>
     </div>
-
     <div class="container title px-5 mt-5">
-        <div class="card border-0 inquiry-card contact-inquiry-card">
-            <form class="row g-3" [formGroup]="form" (ngSubmit)="submit()">
-                <!-- <div formArrayName="answers">
-                    <div *ngFor="let q of careerQuestions; let i=index" [formGroupName]="i">
-                        <label class="form-label">
-                            {{q.question}} 
-                            <span *ngIf="q.is_required">*</span>
-                            <p *ngIf="q.question_note">({{q.question_note}})</p>
-                        </label>
-                        <input type="text" class="form-control" formControlName="answer"
-                            placeholder="Enter Detail">
-                        <div class="text-danger form-error">
-                            <span *ngIf="form.get('answers')['controls'][i].get('answer').invalid && form.get('answers')['controls'][i].get('answer').touched">
-                               This is required 
-                            </span>
-                        </div>
+      <div class="card border-0 inquiry-card contact-inquiry-card">
+        <form class="row g-3" [formGroup]="form" (ngSubmit)="submit()">
+          <!-- <div formArrayName="answers">
+          <div *ngFor="let q of careerQuestions; let i=index" [formGroupName]="i">
+            <label class="form-label">
+              {{q.question}}
+              <span *ngIf="q.is_required">*</span>
+              <p *ngIf="q.question_note">({{q.question_note}})</p>
+            </label>
+            <input type="text" class="form-control" formControlName="answer"
+              placeholder="Enter Detail">
+            <div class="text-danger form-error">
+              <span *ngIf="form.get('answers')['controls'][i].get('answer').invalid && form.get('answers')['controls'][i].get('answer').touched">
+                This is required
+              </span>
+            </div>
+          </div>
+        </div> -->
+        <div formArrayName="answers">
+          @for (q of careerQuestions; track q; let i = $index) {
+            <div [formGroupName]="i">
+              <label class="form-label">
+                {{q.question}}
+                @if (q.is_required) {
+                  <span>*</span>
+                }
+                @if (q.question_note) {
+                  <p>({{q.question_note}})</p>
+                }
+              </label>
+              <!-- TEXTBOX -->
+              @if (!q.options || q.type === 'text') {
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="answer"
+                  placeholder="Enter Detail">
+              }
+              <!-- RADIO -->
+              @if (q.type === 'radio' && q.options) {
+                <div>
+                  @for (opt of q.options; track opt) {
+                    <div>
+                      <label>
+                        <input type="radio"
+                          [value]="opt.value"
+                          formControlName="answer">
+                        {{opt.value}}
+                      </label>
                     </div>
-                </div> -->
-
-                <div formArrayName="answers">
-
-                    <div *ngFor="let q of careerQuestions; let i=index" [formGroupName]="i">
-
-                        <label class="form-label">
-                        {{q.question}}
-                        <span *ngIf="q.is_required">*</span>
-                        <p *ngIf="q.question_note">({{q.question_note}})</p>
-                        </label>
-
-                        <!-- TEXTBOX -->
-                        <input *ngIf="!q.options || q.type === 'text'"
-                            type="text"
-                            class="form-control"
-                            formControlName="answer"
-                            placeholder="Enter Detail">
-
-                        <!-- RADIO -->
-                        <div *ngIf="q.type === 'radio' && q.options">
-                        <div *ngFor="let opt of q.options">
-                            <label>
-                            <input type="radio"
-                                    [value]="opt.value"
-                                    formControlName="answer">
-                            {{opt.value}}
-                            </label>
-                        </div>
-                        </div>
-
-                        <!-- DROPDOWN -->
-                        <select *ngIf="q.type === 'dropdown' && q.options"
-                                class="form-control"
-                                formControlName="answer">
-                        <option value="">Select</option>
-                        <option *ngFor="let opt of q.options" [value]="opt.value">
-                            {{opt.value}}
-                        </option>
-                        </select>
-
-                        <!-- ERROR -->
-                        <div class="text-danger form-error">
-                        <span *ngIf="form.get('answers')['controls'][i].get('answer').invalid 
-                                    && form.get('answers')['controls'][i].get('answer').touched">
-                            This is required
-                        </span>
-                        </div>
-
-                    </div>
-
+                  }
                 </div>
-
-
-                <div class="col-12 text-md-start text-center m-0" *ngIf="error">
-                    <div class="text-danger form-error">
-                      {{errorMsg}}
-                    </div>
-                </div>
-                <div class="col-12 text-md-start text-center mt-md-4 mt-3">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-
-            <h5 *ngIf="formSubmit" class="text-center" [innerHTML]="formMessage | safeHtml"> </h5>
+              }
+              <!-- DROPDOWN -->
+              @if (q.type === 'dropdown' && q.options) {
+                <select
+                  class="form-control"
+                  formControlName="answer">
+                  <option value="">Select</option>
+                  @for (opt of q.options; track opt) {
+                    <option [value]="opt.value">
+                      {{opt.value}}
+                    </option>
+                  }
+                </select>
+              }
+              <!-- ERROR -->
+              <div class="text-danger form-error">
+                @if (form.get('answers')['controls'][i].get('answer').invalid
+                  && form.get('answers')['controls'][i].get('answer').touched) {
+                  <span>
+                    This is required
+                  </span>
+                }
+              </div>
+            </div>
+          }
         </div>
+        @if (error) {
+          <div class="col-12 text-md-start text-center m-0">
+            <div class="text-danger form-error">
+              {{errorMsg}}
+            </div>
+          </div>
+        }
+        <div class="col-12 text-md-start text-center mt-md-4 mt-3">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+      @if (formSubmit) {
+        <h5 class="text-center" [innerHTML]="formMessage | safeHtml"> </h5>
+      }
     </div>
-
+  </div>
 </section>
+}
 
 
-<section class="common-padding career-page-header" *ngIf="formSubmit">
-    
+@if (formSubmit) {
+  <section class="common-padding career-page-header">
     <div class="container">
-        <div class="section-heading text-center mb-0">
-            <h2>Application Submitted Successfully</h2>
-        </div>
+      <div class="section-heading text-center mb-0">
+        <h2>Application Submitted Successfully</h2>
+      </div>
     </div>
-
     <div class="container title px-5 mt-5">
-        <div class="card border-0 inquiry-card contact-inquiry-card">
-            <h5 class="text-center"> 
-                Thank you for completing your application.
-                Please keep an eye on your email, as we will contact you there if you are shortlisted for the next stage, including any further screening or video interview.
-            </h5>
-        </div>
+      <div class="card border-0 inquiry-card contact-inquiry-card">
+        <h5 class="text-center">
+          Thank you for completing your application.
+          Please keep an eye on your email, as we will contact you there if you are shortlisted for the next stage, including any further screening or video interview.
+        </h5>
+      </div>
     </div>
-
-</section>
+  </section>
+}

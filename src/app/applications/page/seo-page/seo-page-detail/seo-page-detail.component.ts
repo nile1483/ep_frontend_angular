@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MetaInformation } from '@app-shared-model';
 import { CommonService } from '@app-shared-services';
@@ -7,9 +7,11 @@ import { LandingPageService } from '../../landing-page/landingpage.service';
 import { log } from 'console';
 
 @Component({
-  selector: 'app-seo-page-detail',
-  templateUrl: './seo-page-detail.component.html',
-  styleUrls: ['./seo-page-detail.component.css']
+    selector: 'app-seo-page-detail',
+    templateUrl: './seo-page-detail.component.html',
+    styleUrls: ['./seo-page-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class SeoPageDetailComponent implements OnInit {
 
