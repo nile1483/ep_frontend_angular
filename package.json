@@ -10,7 +10,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:excellent-publicity": "node dist/excellent-publicity/server/server.mjs"
+    "serve:ssr": "node dist/excellent-publicity/server/server.mjs"
   },
   "private": true,
   "dependencies": {

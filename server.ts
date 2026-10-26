@@ -19,6 +19,7 @@ export function app(): express.Express {
       'localhost',
       '127.0.0.1',
       'excellentpublicity.com',
+      'frontend.allexcellentpublicity.com',
       '*.excellentpublicity.com',
     ],
   });
