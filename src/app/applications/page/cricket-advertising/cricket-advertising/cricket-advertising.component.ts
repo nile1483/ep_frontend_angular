@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA, C2A_TITLE_DATA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
@@ -65,6 +66,7 @@ export class CricketAdvertisingComponent {
     private commonService: CommonService,
     private userService: UserService,
     private pageService: PageService,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) { }
 
   ngOnInit(): void {
@@ -74,8 +76,10 @@ export class CricketAdvertisingComponent {
     this.getCountryCodeData();
     this.setMetaData();
     this.createForm();
-    this.checkScreen();
-    window.addEventListener('resize', () => this.checkScreen());
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreen();
+      window.addEventListener('resize', () => this.checkScreen());
+    }
   }
 
 

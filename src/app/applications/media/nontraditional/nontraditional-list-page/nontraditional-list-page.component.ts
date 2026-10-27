@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, QueryList, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
 import { forkJoin, Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
-import { LocationStrategy } from '@angular/common';
+import { isPlatformBrowser, LocationStrategy } from '@angular/common';
 
 @Component({
     selector: 'app-nontraditional-list-page',
@@ -76,6 +76,7 @@ export class NontraditionalListPageComponent implements OnInit {
     private commonService: CommonService,
     private location: LocationStrategy,
     private elementRef: ElementRef,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
 
   }
@@ -127,11 +128,13 @@ export class NontraditionalListPageComponent implements OnInit {
 
     //static data use
     // preventing back button in browser implemented by "Samba Siva"  
-    history.pushState(null, '', window.location.href);
-    this.location.onPopState(() => {
+    if (isPlatformBrowser(this.platformId)) {
       history.pushState(null, '', window.location.href);
-      window.location.reload();
-    });
+      this.location.onPopState(() => {
+        history.pushState(null, '', window.location.href);
+        window.location.reload();
+      });
+    }
 
     if (!(Object.keys(queryParams).length === 0)) {
 

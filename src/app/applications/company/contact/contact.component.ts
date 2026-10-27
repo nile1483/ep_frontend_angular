@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { AbstractControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { UserService } from '@app-shared-services';
 import { META_DATA } from 'src/app/shared/constants/metadata';
@@ -54,7 +55,8 @@ export class ContactComponent implements OnInit {
     private pageService: PageService,
     private commonService: CommonService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
 
     const queryParams = this.route.snapshot.queryParams;
@@ -104,9 +106,11 @@ export class ContactComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.scrollToTitle()
-    }, 1000)
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.scrollToTitle()
+      }, 1000)
+    }
 
   }
 
@@ -154,7 +158,8 @@ export class ContactComponent implements OnInit {
   }
 
   scrollToTitle() {
-    const element: any = document.querySelector('#quickInquiry');
-    element.scrollIntoView();
+    if (isPlatformBrowser(this.platformId)) {
+      document.querySelector('#quickInquiry')?.scrollIntoView();
+    }
   }
 }

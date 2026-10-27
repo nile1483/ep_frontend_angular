@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration, withNoIncrementalHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,7 +43,6 @@ import { SalesOrderPaymentSuccessComponent } from './applications/sales-order-pa
     SharedModule
   ],
   providers: [
-    provideClientHydration(withNoIncrementalHydration()),
     { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
     StatusCodeResponseService,
     provideHttpClient(withFetch(), withInterceptorsFromDi())
