@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import AppServerModule from './src/main.server';
 import { SERVER_RESPONSE } from './src/app/shared/tokens/server-response.token';
+import { SERVER_API_ORIGIN, SERVER_REQUEST } from './src/app/shared/tokens/server-request.token';
 
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -19,8 +20,9 @@ export function app(): express.Express {
       'localhost',
       '127.0.0.1',
       'excellentpublicity.com',
-      'frontend.allexcellentpublicity.com',
       '*.excellentpublicity.com',
+      'allexcellentpublicity.com',
+      '*.allexcellentpublicity.com',
     ],
   });
 
@@ -124,6 +126,8 @@ export function app(): express.Express {
         providers: [
           { provide: APP_BASE_HREF, useValue: baseUrl },
           { provide: SERVER_RESPONSE, useValue: res },
+          { provide: SERVER_REQUEST, useValue: req },
+          { provide: SERVER_API_ORIGIN, useValue: process.env['NG_API_ORIGIN'] || null },
         ],
       })
       .then((html) => res.send(html))

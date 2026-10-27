@@ -5,7 +5,7 @@
 This document compares the following versions of the `main` branch:
 
 - Baseline: `a0e7e47` - **Code uploded**
-- Current: `78e8981` - **fix: restore client interactions with SSR**
+- Current: `main`, including the dynamic same-origin API routing update
 - Prepared on: 27 October 2026
 
 The comparison includes these migration commits:
@@ -13,6 +13,7 @@ The comparison includes these migration commits:
 1. `00730db` - Angular application migrated to version 22.
 2. `93de3f4` - asynchronous server-side rendering stabilized.
 3. `78e8981` - browser interactions restored while retaining SSR.
+4. Dynamic same-origin API routing was added for browser and SSR requests.
 
 The migration changed 415 files. Most HTML and component changes were mechanical Angular migrations rather than business-feature redesigns.
 
@@ -31,7 +32,8 @@ Client hydration is intentionally disabled. The server still returns complete re
 | Angular Universal replacement | Legacy `@nguniversal/*` dependencies were removed and SSR was moved to `@angular/ssr` and its Node integration. | Angular Universal is retired; Angular 22 provides the supported SSR implementation directly. |
 | Application bootstrap | Browser and server bootstraps were updated for Angular 22. HTTP is now provided through the current provider-based API with Fetch support and DI interceptors. | To use supported Angular APIs and ensure HTTP requests participate correctly in SSR. |
 | Global server-side rendering | All regular application URLs continue through the Express server and Angular rendering engine. Explicit server-side zone change detection was added. | To ensure asynchronous API results update the final server HTML consistently instead of intermittently returning an incomplete application shell. |
-| SSR host and deployment handling | Production and local hostnames were allowed by the SSR engine. The server output continues to use separate `browser` and `server` build directories. | To support the production proxy hostname safely and match the Angular 22 application-builder output structure. |
+| SSR host and deployment handling | Production and local hostnames were allowed by the SSR engine, including the Excellent Publicity application subdomains. The server output continues to use separate `browser` and `server` build directories. | To support the production proxy hostname safely and match the Angular 22 application-builder output structure. |
+| API host routing | Browser API requests now use same-origin `/api/...` URLs. During SSR, those URLs are resolved from the incoming forwarded protocol, hostname, and port. Direct local SSR uses `https://www.excellentpublicity.com` as a recursion-safe fallback, and `NG_API_ORIGIN` can provide an explicit server-only override. | To ensure production browser and SSR traffic passes through the active hostname's Nginx `/api/` upstream instead of silently bypassing it through a hardcoded external API hostname. |
 | Server response and status handling | The old Angular Universal request/response tokens were replaced by a local server response token. Redirect and HTTP status behavior was retained through the shared status service. | To preserve redirects, 404 responses, and server response control without depending on removed Universal packages. |
 | Browser hydration strategy | Angular client hydration was removed while SSR remained enabled. | Swiper 8 and other existing DOM-manipulating UI code are not reliably hydration-safe. A clean client bootstrap restores sliders, menu navigation, and other interactive behavior while keeping rendered source HTML for SEO. |
 | HTTP interceptor | User-service access was changed to lazy dependency resolution inside authentication error handling. | To remove an Angular dependency-injection cycle exposed by the newer framework/runtime. |
@@ -70,11 +72,12 @@ Disabling hydration does **not** disable SSR. Search engines and `view-source` s
 - Angular 22 production browser and server build completed successfully.
 - SSR was tested with supported Node 22 and the deployment Node 24 runtime.
 - Repeated SSR requests consistently contained API-backed detail content.
+- Same-origin browser API URLs and forwarded-host SSR API routing were verified. Stopping the configured hostname's API upstream now produces an upstream failure instead of silently loading data from the legacy hardcoded host.
 - Home trending-media autoplay and slider initialization were verified in a real browser.
 - Header slider navigation was verified.
 - Radio, Cinema, Digital, Transit, and Outdoor navigation was verified independently.
 - SSR safety checks were performed across the public sitemap routes.
-- The Karma command completed successfully; the repository currently contains zero executable unit-test specifications.
+- The Karma command completed successfully with four API-routing regression tests.
 
 Existing bundle-size warnings remain. They do not stop the build, but bundle optimization should be handled separately from the migration.
 
@@ -87,6 +90,10 @@ Deploy the complete `dist/excellent-publicity` output, including both:
 
 After replacing the build, restart the SSR container. Updating only `server.mjs` or only the `server/` directory is insufficient because the browser compatibility correction is part of the browser bundle.
 
+Nginx must proxy `/api/` on every application hostname to the intended Laravel upstream and must forward `Host`, `X-Forwarded-Host`, `X-Forwarded-Proto`, and `X-Forwarded-Port` to SSR. `proxy.conf.json` remains limited to local `ng serve` development. If HTTP Basic Authentication is enabled at the Nginx server level, disable its inheritance inside `location /api/` (`auth_basic off;`) so server-side API requests are not challenged.
+
+Normally no API hostname environment variable is required. `NG_API_ORIGIN` is available only when SSR must deliberately use a trusted API origin different from the incoming application hostname.
+
 Use a supported Node LTS release defined by the project engine policy. The tested production-compatible runtime is Node 24.22.1.
 
 ## Follow-up observations
@@ -95,6 +102,6 @@ These items were identified during the migration audit and should be tracked sep
 
 - The legacy `/corporategifting` media route can be delayed by a backend API dependency; the separate `/corporate-gifting` public page renders normally.
 - `/gtm-outreach`, `/gtm-outreach-calendar`, and `/insights` are listed in the sitemap but currently resolve through the application's 404 handling.
-- Automated unit-test coverage should be added because the current Karma run reports zero test specifications.
+- Automated unit-test coverage should be expanded beyond the API-routing regression tests added with this change.
 
 These observations do not change the global SSR architecture, but resolving them will improve whole-site reliability and release confidence.

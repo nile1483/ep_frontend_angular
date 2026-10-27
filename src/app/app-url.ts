@@ -1,9 +1,10 @@
 export class AppURL {
 
     public static webURL = 'https://www.excellentpublicity.com';
-    public static prefix  =`${AppURL.webURL}/api`;
-    // public static webURL = '';
-    // public static prefix = 'api';
+    // Keep API calls on the current application host. In development these
+    // requests are forwarded by proxy.conf.json; during SSR the interceptor
+    // resolves them against the incoming request host.
+    public static prefix = '/api';
     public static version_1 = 'v1';
     public static version_2 = 'v2';
     
