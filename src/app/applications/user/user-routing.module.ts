@@ -20,7 +20,6 @@ import { SalesOrderPaymentFailComponent } from '../../applications/sales-order-p
 
 import { SalesInvoiceDownloadComponent } from '../sales-invoice-download/sales-invoice-download.component';
 
-
 const routes: Routes = [
   { path: 'user/profile', component: ProfileComponent},
   

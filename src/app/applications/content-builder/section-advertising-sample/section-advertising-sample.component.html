@@ -1,186 +1,189 @@
-<div class="container">
-  <div class="section-heading text-center mb-5">
-    <h2>Advertising Samples</h2>
-    <span class="separator mb-2"></span>
-  </div>
-
-  <!-- radio -->
-  @if (pageBlock?.media == 'radio' ) {
-    <div class="row g-4 text-center" >
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1120947481&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1120946953&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1120945066&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1120942024&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-          </div>
-        </div>
-      </div>
+ <div class="container">
+    <div class="section-heading text-center mb-5">
+        <h2>Advertising Samples</h2>
+        <span class="separator mb-2"></span>
     </div>
-  }
 
-  <!-- cinema -->
-  @if (pageBlock?.media == 'cinema' ) {
-    <div class="row g-4 text-center" >
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img  loading="lazy" alt="PVR Logo" class="w-100" width="345" height="145" src="/assets/sample/cinema/pvr.webp">
-            <h5>PVR</h5>
-          </div>
+    <!-- radio -->
+    <div class="row g-4 text-center"  *ngIf="pageBlock?.media == 'radio' ">
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1120947481&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img loading="lazy" alt="INOX Logo" class="w-100"   width="345" height="145" src="/assets/sample/cinema/inox.webp">
-            <h5>INOX</h5>
-          </div>
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1120946953&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                </div>
+                 
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img loading="lazy"  alt="Carnival Logo" class="w-100"  width="345" height="145" src="/assets/sample/cinema/carnival.webp">
-            <h5>Carnival</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img loading="lazy"  alt="RDB Cinema Logo" class="w-100"  width="345" height="145" src="/assets/sample/cinema/rdb.webp">
-            <h5>RDB Cinema</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  }
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1120945066&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                </div>
+                 
+            </div>
+        </div>       
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1120942024&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                </div>
+                 
+            </div>
+        </div>  
+    </div> 
 
-  <!-- transit -->
-  @if (pageBlock?.media == 'transit' ) {
-    <div class="row g-4 text-center">
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img alt="Auto Branding Logo" class="w-100" loading="lazy" src="/assets/sample/transit/autobranding.webp">
-            <h5>Auto Branding</h5>
-          </div>
+     <!-- cinema -->
+     <div class="row g-4 text-center"  *ngIf="pageBlock?.media == 'cinema' ">
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img  loading="lazy" alt="PVR Logo" class="w-100" width="345" height="145" src="/assets/sample/cinema/pvr.webp">
+                    <h5>PVR</h5> 
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img loading="lazy"  alt="Uber Branding Logo" class="w-100" src="/assets/sample/transit/cabbranding.webp">
-            <h5>Uber Branding</h5>
-          </div>
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img loading="lazy" alt="INOX Logo" class="w-100"   width="345" height="145" src="/assets/sample/cinema/inox.webp">
+                    <h5>INOX</h5> 
+                </div>
+                 
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img loading="lazy" alt="Ordinary City Bus Logo" class="w-100" src="/assets/sample/transit/buspanel.webp">
-            <h5>Ordinary City Bus</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img loading="lazy"  alt="Tricycle Branding Logo" class="w-100" src="/assets/sample/transit/tricyclebranding.webp">
-            <h5>Tricycle Branding</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  }
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img loading="lazy"  alt="Carnival Logo" class="w-100"  width="345" height="145" src="/assets/sample/cinema/carnival.webp">
+                
+                    <h5>Carnival</h5> 
+                </div>
+                 
+            </div>
+        </div>       
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img loading="lazy"  alt="RDB Cinema Logo" class="w-100"  width="345" height="145" src="/assets/sample/cinema/rdb.webp">
+                
+                    <h5>RDB Cinema</h5> 
+                </div>
+                 
+            </div>
+        </div>  
+    </div> 
 
-  <!-- outdoor -->
-  @if (pageBlock?.media == 'outdoor' ) {
-    <div class="row g-4 text-center" >
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img  loading="lazy" alt="Outdoor Logo" class="w-100" src="/assets/sample/outdoor/image-1.webp">
-          </div>
+    <!-- transit -->
+    <div class="row g-4 text-center" *ngIf="pageBlock?.media == 'transit' ">
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img alt="Auto Branding Logo" class="w-100" loading="lazy" src="/assets/sample/transit/autobranding.webp"> 
+                 
+                    <h5>Auto Branding</h5> 
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img loading="lazy" alt="Outdoor Logo" class="w-100" src="/assets/sample/outdoor/image-2.webp">
-          </div>
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img loading="lazy"  alt="Uber Branding Logo" class="w-100" src="/assets/sample/transit/cabbranding.webp">  
+                
+                    <h5>Uber Branding</h5>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img loading="lazy" alt="Outdoor Logo" class="w-100" src="/assets/sample/outdoor/image-3.webp">
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card border-0">
-          <div class="card-body">
-            <img loading="lazy" alt="Outdoor Logo" class="w-100" src="/assets/sample/outdoor/image-4.webp">
-          </div>
-        </div>
-      </div>
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img loading="lazy" alt="Ordinary City Bus Logo" class="w-100" src="/assets/sample/transit/buspanel.webp">                
+                
+                    <h5>Ordinary City Bus</h5>
+                </div>
+            </div>
+        </div> 
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img loading="lazy"  alt="Tricycle Branding Logo" class="w-100" src="/assets/sample/transit/tricyclebranding.webp"> 
+                
+                    <h5>Tricycle Branding</h5>
+                </div>
+            </div>
+        </div>         
     </div>
-  }
 
-  <!-- newspaper -->
-  @if (pageBlock?.media == 'newspaper' ) {
-    <div class="row g-4 text-center">
-      <div class="col-12 col-md-4">
-        <div class="card border-0">
-          <div class="card-image">
-            <img loading="lazy" alt="Auto Branding Logo"  width="300" height="300" src="/assets/sample/newspaper/classified-textad.webp">
-          </div>
-          <div class="card-body">
-            <h5>Classified Text Ad</h5>
-          </div>
+    <!-- outdoor -->
+    <div class="row g-4 text-center"  *ngIf="pageBlock?.media == 'outdoor' ">
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body"> 
+                    <img  loading="lazy" alt="Outdoor Logo" class="w-100" src="/assets/sample/outdoor/image-1.webp">
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-md-4">
-        <div class="card border-0">
-          <div class="card-image">
-            <img loading="lazy"   alt="Auto Branding Logo" width="300" height="300" src="/assets/sample/newspaper/classified-displayad.webp">
-          </div>
-          <div class="card-body">
-            <h5>Classified Display Ad</h5>
-          </div>
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img loading="lazy" alt="Outdoor Logo" class="w-100" src="/assets/sample/outdoor/image-2.webp">
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-md-4">
-        <div class="card border-0">
-          <div class="card-image">
-            <img loading="lazy"  alt="Auto Branding Logo" width="300" height="300" src="/assets/sample/newspaper/displayads.webp">
-          </div>
-          <div class="card-body">
-            <h5>Display Ad </h5>
-          </div>
-        </div>
-      </div>
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img loading="lazy" alt="Outdoor Logo" class="w-100" src="/assets/sample/outdoor/image-3.webp">
+                </div>
+            </div>
+        </div> 
+        <div class="col-12 col-md-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <img loading="lazy" alt="Outdoor Logo" class="w-100" src="/assets/sample/outdoor/image-4.webp">
+                </div>
+            </div>
+        </div>         
     </div>
-  }
+
+    <!-- newspaper -->
+    <div class="row g-4 text-center" *ngIf="pageBlock?.media == 'newspaper' ">
+        <div class="col-12 col-md-4">
+            <div class="card border-0">
+                <div class="card-image">
+                    <img loading="lazy" alt="Auto Branding Logo"  width="300" height="300" src="/assets/sample/newspaper/classified-textad.webp">
+                </div>
+                <div class="card-body">
+                    <h5>Classified Text Ad</h5> 
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card border-0">
+                <div class="card-image">
+                    <img loading="lazy"   alt="Auto Branding Logo" width="300" height="300" src="/assets/sample/newspaper/classified-displayad.webp">
+                </div>
+                <div class="card-body">
+                    <h5>Classified Display Ad</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card border-0">
+                <div class="card-image">
+                    <img loading="lazy"  alt="Auto Branding Logo" width="300" height="300" src="/assets/sample/newspaper/displayads.webp">
+                </div>
+                <div class="card-body">
+                    <h5>Display Ad </h5>
+                </div>
+            </div>
+        </div>         
+    </div> 
 </div>
+ 

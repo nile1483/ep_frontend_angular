@@ -1,18 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { PageService } from '../../page.service';
 import { AppURL } from 'src/app/app-url';
-import { log } from 'console';
 
 @Component({
-    selector: 'app-country-page-detail',
-    templateUrl: './country-page-detail.component.html',
-    styleUrl: './country-page-detail.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-country-page-detail',
+  templateUrl: './country-page-detail.component.html',
+  styleUrl: './country-page-detail.component.css'
 })
 export class CountryPageDetailComponent {
 
@@ -70,7 +66,7 @@ export class CountryPageDetailComponent {
     metaInfo.meta_description = this.landingPageDetail?.meta_description ?? '';
     metaInfo.meta_keywords = this.landingPageDetail?.meta_keywords ?? '';
     metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
-    
+
     this.commonService.setMetaData(metaInfo);
 
     //************************// 

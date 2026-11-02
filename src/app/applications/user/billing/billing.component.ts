@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
 import { BillingInfo } from 'src/app/shared/model/shopping-cart';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
@@ -10,18 +10,18 @@ import { LoaderService } from 'src/app/shared/services/loader.service';
 import { MetaInformation } from '@app-shared-model';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
-import { APP_SVG_ICON_LIST} from '@app-shared-constants';
+import { APP_SVG_ICON_LIST } from '@app-shared-constants';
+
 @Component({
-    selector: 'app-billing',
-    templateUrl: './billing.component.html',
-    styleUrls: ['./billing.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-billing',
+  templateUrl: './billing.component.html',
+  styleUrls: ['./billing.component.css']
 })
 export class BillingComponent implements OnInit {
-  app_svg_icon_list = APP_SVG_ICON_LIST;
+
   webURL: string = AppURL.webURL;
   metaData: any = META_DATA['billing'];
+  app_svg_icon_list = APP_SVG_ICON_LIST;
   showBillingAddress = true;
   isAuthenticated = true;
   isEditAddress = false;
@@ -39,7 +39,6 @@ export class BillingComponent implements OnInit {
   paymentProceedData: any = { shoppingcart_id: null, payment_method: null, billing_address: null };
   userInfo: any;
 
-
   addNewAddressForm = new UntypedFormGroup({
     id: new UntypedFormControl(0),
     company_name: new UntypedFormControl(''),
@@ -49,8 +48,6 @@ export class BillingComponent implements OnInit {
     state: new UntypedFormControl('', [Validators.required]),
     zipcode: new UntypedFormControl('', [Validators.required]),
   });
-
-
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -333,7 +330,7 @@ export class BillingComponent implements OnInit {
     options.modal.ondismiss = (() => {
       // handle the case when user closes the form while transaction is in progress
     });
-    
+
     const rzp = new this.winRef.nativeWindow.Razorpay(options);
     rzp.open();
 
@@ -349,7 +346,7 @@ export class BillingComponent implements OnInit {
 
   handle_payment_success_response(rpresponse: any) {
 
-     
+
     let data: any = {};
     data.razorpay_order_id = rpresponse.razorpay_order_id;
     data.razorpay_payment_id = rpresponse.razorpay_payment_id;
@@ -383,21 +380,19 @@ export class BillingComponent implements OnInit {
 
 
 
-  checkAmountAndPaymentMethod()
-  {
+  checkAmountAndPaymentMethod() {
 
     let grandTotal: number = this.billingInfoData?.cartDetail?.grand_total;
     let paymentInfo = this.paymentMethodInfoData.find(item => item.alias === "razorpay");
-    
-    if(paymentInfo != null)
-    {
+
+    if (paymentInfo != null) {
       let price: number = paymentInfo.price;
-      if(price < grandTotal){
-         let defaultMethod = this.paymentMethodInfoData.find(item => item.alias === "purchaseorder");
+      if (price < grandTotal) {
+        let defaultMethod = this.paymentMethodInfoData.find(item => item.alias === "purchaseorder");
 
         this.paymentProceedData.payment_method = defaultMethod != undefined ? defaultMethod : null;
       }
     }
-   
+
   }
 }

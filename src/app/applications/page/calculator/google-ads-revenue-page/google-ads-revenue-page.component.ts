@@ -1,13 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-google-ads-revenue-page',
-    templateUrl: './google-ads-revenue-page.component.html',
-    styleUrl: './google-ads-revenue-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-google-ads-revenue-page',
+  templateUrl: './google-ads-revenue-page.component.html',
+  styleUrl: './google-ads-revenue-page.component.css'
 })
 export class GoogleAdsRevenuePageComponent {
 

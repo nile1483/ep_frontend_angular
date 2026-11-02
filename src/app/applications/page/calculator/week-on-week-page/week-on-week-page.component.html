@@ -1,297 +1,279 @@
 <!-- background -->
 <section class="section-featured-services weekonweek-background common-padding">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h1 class="text-white"></h1>
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-          class="roas-form p-4 border custom-border mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0 text-center">
-              <label class="form-label fw-bolder">Conversion Revenue</label>
-              <input type="number" formControlName="conversionRevenue" class="form-control border-danger" placeholder="Enter Value" />
-              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
-                <div class="text-danger small">
-                  @if (conversionRevenue?.errors?.['required']) {
-                    <div>
-                      Conversion Revenue is required.
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Conversion Revenue</label>
+                            <input type="number" formControlName="conversionRevenue" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Conversion Revenue is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Conversion Revenue must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Advertising Spend</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Advertising Spend is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Advertising Spend must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  }
-                  @if (conversionRevenue?.errors?.['min']) {
-                    <div>
-                      Conversion Revenue must be greater than 0.
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
-                  }
-                </div>
-              }
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">ROAS %</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
             </div>
-
-            <div class="col-md-6 text-center">
-              <label class="form-label fw-bolder">Advertising Spend</label>
-              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-              @if (adSpend?.invalid && adSpend?.touched) {
-                <div class="text-danger small">
-                  @if (adSpend?.errors?.['required']) {
-                    <div>
-                      Advertising Spend is required.
-                    </div>
-                  }
-                  @if (adSpend?.errors?.['min']) {
-                    <div>
-                      Advertising Spend must be greater than 0.
-                    </div>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
-          </div>
-
-          <div class="text-center col-md-6 mx-auto">
-            <label class="form-label fw-bolder">ROAS %</label>
-            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-          </div>
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-  <div class="container default-content">
-    <div class="row align-items-center">
-      <!-- Left Image Column -->
-      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-        <img src="assets/page/calculators/week-on-week/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-      </div>
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/week-on-week/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
 
-      <!-- Right Text Column -->
-      <div class="col-md-7">
-        <h2 class="fw-bold text-danger mb-0">Week-on-week</h2>
-        <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
-        <p class="fs-5">
-          In the dynamic media planning and advertising world, tracking campaign performance is crucial to making informed decisions.
-          For that, one of the innovative tools that Excellent Publicity offers to evaluate and optimize the effectiveness of its branding efforts and ads is the <strong>Week-on-Week Calculator</strong>.
-        </p>
-      </div>
-      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Week-on-Week Definition
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        The performance of campaigns week after week is compared through an analytical tool known as the <strong>Week-on-Week Calculator</strong>. It helps marketers identify trends, detect anomalies, and optimize their media plans for better ROI.
-      </p>
-      <p>This calculator is known as a <strong>‘WoW Momentum Meter’</strong> as it captures the pulse of weekly campaign performance to <strong>measure business growth</strong>.</p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Week-on-Week Formula
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        One of the most critical indicators for measuring short-term increases in sales, revenue, or other KPIs is the week-on-week <strong>growth rate</strong>. This formula can be utilized to keep track of <strong>business performance</strong>, identify trends, and make decisions accordingly.
-      </p>
-    </div>
-
-    <div>
-      <div class="d-flex" style="align-items: baseline;">
-        <img src="assets/page/calculators/week-on-week/right-arrow.png" alt="right-arrow" class="img-fluid me-1" style="max-height: 16px;">
-        <h3 class="text-black mb-0">Week-on-week Formula to measure growth rate:</h3>
-      </div>
-      <div>
-        <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-          WOW Growth Rate(%)= <br> (Current Week Value−Previous Week Value) / Previous Week Value×100
-        </h2>
-        <p>Example: <br>
-          If x company’s last week's revenue was 100 and this week’s is 120, the growth rate for the week will
-          be:
-        </p>
-        <p>= 120-100 / 100 ×100
-          <br>
-            = 20%
-          </p>
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0">Week-on-week</h2>
+                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+                <p class="fs-5">
+                    In the dynamic media planning and advertising world, tracking campaign performance is crucial to making informed decisions.
+                    For that, one of the innovative tools that Excellent Publicity offers to evaluate and optimize the effectiveness of its branding efforts and ads is the <strong>Week-on-Week Calculator</strong>.
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
         </div>
-      </div>
-
-      <ul class="p-0 ml-0">
-        <li class="d-flex align-items-start h3 text-danger">
-          When should I use the Week-on-Week calculator?
-        </li>
-      </ul>
-      <div class="ms-4">
-        <p>
-          In this fast-moving industry, keeping track of short-term <strong>business growth</strong> is crucial. In such cases, a <strong>week-on-week calculator</strong> can work as your customized <strong>business calculator</strong>, providing insights about your overall business know-how, from marketing campaigns and seasonal fluctuations to financial growth patterns.
-        </p>
-        <h5 class="text-black">Let’s look at the following reasons why businesses should use this WOW Calculator:</h5>
-
-        <ul class="p-0">
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Monitoring weekly trends:</strong>
-              If your business undergoes frequent changes (e.g. retail sales or digital marketing),
-              our business calculator can help you monitor your <strong>WoW growth rate</strong> efficiently.
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Marketing Impact Evaluation:</strong>
-              If there’s any ongoing brand promotion or ad campaign, then our <strong>WOW growth Calculator</strong> can evaluate the overall engagement rate that impacts your market growth.
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Seasonal Trends Management:</strong>
-              Businesses like hospitality, e-commerce, and travel often experience weekly fluctuations. Measuring <strong>business performance</strong> in such sectors is possible with the help of a <strong>growth calculator</strong>.
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Track of Operational Effectiveness:</strong>
-              To optimize processes and strategies and compare productivity, sales, or customer acquisition, it can keep track of everything.
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Agile Business Decision Making:</strong>
-              Using a Week-on-Week Calculator can accelerate your decision-making and course corrections compared to monthly or quarterly evaluations.
-            </span>
-          </li>
-        </ul>
-        <p>So, if you want to keep track of your business health & intend to make quick adaptions on a week-on-week basis, using the <strong>WOW growth calculator</strong> can be proved as a smart move.</p>
 
         <ul class="p-0 ml-0">
-          <li class="d-flex align-items-start h3 text-danger">
-            Who are Week-on-Week comparisons useful for?
-          </li>
+            <li class="d-flex align-items-start h3 text-danger">
+                Week-on-Week Definition
+            </li>
         </ul>
+        <div class="ms-4">
+            <p>
+                The performance of campaigns week after week is compared through an analytical tool known as the <strong>Week-on-Week Calculator</strong>. It helps marketers identify trends, detect anomalies, and optimize their media plans for better ROI.
+            </p>
+            <p>This calculator is known as a <strong>‘WoW Momentum Meter’</strong> as it captures the pulse of weekly campaign performance to <strong>measure business growth</strong>.</p>
+        </div>
 
-        <p class="ms-4">
-          In terms of interim <strong>business performance</strong> measurement, observing a Week-on-Week comparison is crucial for businesses and professionals who need to monitor their short-term trends and performance fluctuations. They assist in pattern recognition, performance evaluation, and fast decision-making. They are significantly helpful for:
-        </p>
-
-        <ul class="p-0 ms-4">
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Marketers & Advertisers:</strong>
-              To measure the effectiveness of ads, audience interaction, and campaign performance.
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Retailers & E-commerce Brands:</strong>
-              To keep an eye on shifts in customer demand, inventory flow, and sales patterns.
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Media & Content Creators:</strong>
-              To gauge social media engagement, audience likes, and trends of content consumption..
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Finance & Investors:</strong>
-              To measure economic metrics, stock fluctuations, and market trends on the micro level.
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              <strong>Operations and Supply Chain Managers:</strong>
-              To track demand volatility, manufacturing efficiency, and logistics.
-            </span>
-          </li>
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Week-on-Week Formula
+            </li>
         </ul>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FAQs -->
-  <section class="bg-gradient-gray common-padding">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <div class="section-heading text-center mb-5">
-            <h2>FAQs</h2>
-            <span class="separator mb-2"></span>
-          </div>
+        <div class="ms-4">
+            <p>
+                One of the most critical indicators for measuring short-term increases in sales, revenue, or other KPIs is the week-on-week <strong>growth rate</strong>. This formula can be utilized to keep track of <strong>business performance</strong>, identify trends, and make decisions accordingly.
+            </p>
         </div>
-        <div class="col-12">
-          <div class="" itemscope itemtype="https://schema.org/FAQPage">
-            <div class="accordion faq-accordion" id="faqAccordion" >
-              @for (item of faqList; track item; let i = $index) {
-                <div class="accordion-item" itemscope itemprop="mainEntity"
-                  itemtype="https://schema.org/Question">
-                  <h6 class="accordion-header" id="heading{{i}}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                      <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                    </button>
-                  </h6>
-                  <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                    data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                    itemtype="https://schema.org/Answer" >
-                    <div class="accordion-body default-content" itemprop="text">
-                      <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                    </div>
-                    <div class="text-center">
-                      @if (item?.buttonname) {
-                        <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                      }
-                    </div>
-                  </div>
-                </div>
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Related Calculator start -->
-  <section class="media-list">
-    <div class="container">
-      <!-- Related Calculator -->
-      <div class="row g-md-4 g-3">
-        <h2 class="text-center">Related Calculator</h2>
-        @for (card of cards; track card) {
-          <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-            <div class="media-list-card shadow">
-              <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-                <img [src]="card.image" loading="lazy" class="card-img-top"
-                  [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-                <div class="card-body px-0">
-                  <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                  <p class="card-text line-clamp">{{ card.description }}</p>
-                </div>
-              </div>
+        <div>
+            <div class="d-flex" style="align-items: baseline;">
+                <img src="assets/page/calculators/week-on-week/right-arrow.png" alt="right-arrow" class="img-fluid me-1" style="max-height: 16px;">
+                <h3 class="text-black mb-0">Week-on-week Formula to measure growth rate:</h3>
             </div>
-          </div>
-        }
-      </div>
-      <!-- Related Calculator -->
+            <div>
+                <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                    WOW Growth Rate(%)= <br> (Current Week Value−Previous Week Value) / Previous Week Value×100
+                </h2>
+                <p>Example: <br>
+                    If x company’s last week's revenue was 100 and this week’s is 120, the growth rate for the week will
+                    be:
+                </p>
+                <p>= 120-100 / 100 ×100
+                    <br>
+                    = 20%
+                </p>
+            </div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                    When should I use the Week-on-Week calculator?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                In this fast-moving industry, keeping track of short-term <strong>business growth</strong> is crucial. In such cases, a <strong>week-on-week calculator</strong> can work as your customized <strong>business calculator</strong>, providing insights about your overall business know-how, from marketing campaigns and seasonal fluctuations to financial growth patterns.
+            </p>
+            <h5 class="text-black">Let’s look at the following reasons why businesses should use this WOW Calculator:</h5>
+            
+            <ul class="p-0">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Monitoring weekly trends:</strong>
+                    If your business undergoes frequent changes (e.g. retail sales or digital marketing),
+                    our business calculator can help you monitor your <strong>WoW growth rate</strong> efficiently.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Marketing Impact Evaluation:</strong>
+                    If there’s any ongoing brand promotion or ad campaign, then our <strong>WOW growth Calculator</strong> can evaluate the overall engagement rate that impacts your market growth.   
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Seasonal Trends Management:</strong>
+                    Businesses like hospitality, e-commerce, and travel often experience weekly fluctuations. Measuring <strong>business performance</strong> in such sectors is possible with the help of a <strong>growth calculator</strong>.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Track of Operational Effectiveness:</strong>
+                    To optimize processes and strategies and compare productivity, sales, or customer acquisition, it can keep track of everything.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Agile Business Decision Making:</strong>
+                    Using a Week-on-Week Calculator can accelerate your decision-making and course corrections compared to monthly or quarterly evaluations.
+                  </span>
+                </li>
+            </ul>
+              <p>So, if you want to keep track of your business health & intend to make quick adaptions on a week-on-week basis, using the <strong>WOW growth calculator</strong> can be proved as a smart move.</p>
+ 
+                <ul class="p-0 ml-0">
+                    <li class="d-flex align-items-start h3 text-danger">
+                        Who are Week-on-Week comparisons useful for?
+                    </li>
+                </ul>
+
+              <p class="ms-4">
+                In terms of interim <strong>business performance</strong> measurement, observing a Week-on-Week comparison is crucial for businesses and professionals who need to monitor their short-term trends and performance fluctuations. They assist in pattern recognition, performance evaluation, and fast decision-making. They are significantly helpful for:
+              </p>
+
+              <ul class="p-0 ms-4">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Marketers & Advertisers:</strong>
+                    To measure the effectiveness of ads, audience interaction, and campaign performance.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Retailers & E-commerce Brands:</strong>
+                    To keep an eye on shifts in customer demand, inventory flow, and sales patterns.  
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Media & Content Creators:</strong>
+                    To gauge social media engagement, audience likes, and trends of content consumption..
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Finance & Investors:</strong>
+                    To measure economic metrics, stock fluctuations, and market trends on the micro level.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Operations and Supply Chain Managers:</strong>
+                    To track demand volatility, manufacturing efficiency, and logistics.
+                  </span>
+                </li>
+            </ul>
+
+        </div>
+
     </div>
-  </section>
+</section>
+
+<!-- FAQs -->
+<section class="bg-gradient-gray common-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Calculator start -->
+<section class="media-list">
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <!-- Related Calculator -->
+    </div>
+</section>

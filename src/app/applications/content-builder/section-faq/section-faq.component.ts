@@ -1,11 +1,9 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'section-faq',
-    templateUrl: './section-faq.component.html',
-    styleUrls: ['./section-faq.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'section-faq',
+  templateUrl: './section-faq.component.html',
+  styleUrls: ['./section-faq.component.css']
 })
 export class SectionFaqComponent implements OnInit {
 

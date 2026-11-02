@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA, C2A_TITLE_DATA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
@@ -11,11 +11,9 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-ipl-advertising-page',
-    templateUrl: './ipl-advertising-page.component.html',
-    styleUrl: './ipl-advertising-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-ipl-advertising-page',
+  templateUrl: './ipl-advertising-page.component.html',
+  styleUrl: './ipl-advertising-page.component.css'
 })
 export class IplAdvertisingPageComponent {
 
@@ -25,7 +23,7 @@ export class IplAdvertisingPageComponent {
   media_icons: any = SVG_ICON_FOR_MEDIA
   serviceList: any = SERVICE_LIST_WITH_SVG_ICON;
   app_svg_icon_list = APP_SVG_ICON_LIST;
-  metaData: any = META_DATA['ipladvertising'];
+  metaData: any = META_DATA['ipl-advertising'];
   selectedCurrency: any;
   pageContentData: any;
 

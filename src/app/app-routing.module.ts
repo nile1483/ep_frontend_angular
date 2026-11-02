@@ -33,7 +33,6 @@ const routes: Routes = [
       }
     ]
   },
-
   {
     path: '',
     component: MainLayoutComponent,
@@ -163,12 +162,12 @@ const routes: Routes = [
         loadChildren: () => import('./applications/media/airport/airport.module').then(m => m.AirportModule)
       },
       {
-        path: 'ai-tools',
-        loadChildren: () => import('./applications/media/aitools/aitools.module').then(m => m.AitoolsModule)
-      },
-      {
         path: 'in-film-advertising-and-cobranding',
         loadChildren: () => import('./applications/media/infilm/infilm.module').then(m => m.InfilmModule)
+      },
+      {
+        path: 'ai-tools',
+        loadChildren: () => import('./applications/media/aitools/aitools.module').then(m => m.AitoolsModule)
       },
       {
         path: 'monitoring-tools',
@@ -194,7 +193,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' })],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled', initialNavigation: 'enabledBlocking' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

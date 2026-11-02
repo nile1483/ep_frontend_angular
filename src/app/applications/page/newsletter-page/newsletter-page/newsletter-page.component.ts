@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
@@ -7,11 +7,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-newsletter-page',
-    templateUrl: './newsletter-page.component.html',
-    styleUrl: './newsletter-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-newsletter-page',
+  templateUrl: './newsletter-page.component.html',
+  styleUrl: './newsletter-page.component.css'
 })
 export class NewsletterPageComponent {
 
@@ -45,6 +43,6 @@ export class NewsletterPageComponent {
     //   Google Tag Manager   //
     //************************//
 
-    this.commonService.gtmPageEvents('Company', 'Company');
+    this.commonService.gtmPageEvents('Company', 'Newsletter Page');
   }
 }

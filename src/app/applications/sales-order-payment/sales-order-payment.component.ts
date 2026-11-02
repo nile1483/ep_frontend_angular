@@ -1,30 +1,22 @@
-import { ChangeDetectorRef, Component, NgZone, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
-import { BillingInfo } from 'src/app/shared/model/shopping-cart';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WindowRefService } from '@app-shared-services';
 import { LoaderService } from 'src/app/shared/services/loader.service';
-import { MetaInformation } from '@app-shared-model';
-import { META_DATA } from '@app-shared-constants';
-import { AppURL } from 'src/app/app-url';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-sales-order-payment',
-    templateUrl: './sales-order-payment.component.html',
-    styleUrl: './sales-order-payment.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-sales-order-payment',
+  templateUrl: './sales-order-payment.component.html',
+  styleUrl: './sales-order-payment.component.css'
 })
 export class SalesOrderPaymentComponent {
 
   token: string = '';
   amount: number = 0;
   app_svg_icon_list = APP_SVG_ICON_LIST;
-
 
   paymentDetails: any = {};
   paymentSuccessData: any = {};

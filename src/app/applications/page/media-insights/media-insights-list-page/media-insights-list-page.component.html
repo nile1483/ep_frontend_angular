@@ -1,29 +1,27 @@
 <section class="section-featured-services">
-  <img src="./assets/page/media-insights/list/media-banner.png" alt="budget-roi-banner" class="w-100">
+    <img src="./assets/page/media-insights/list/media-banner.png" alt="budget-roi-banner" class="w-100">
 </section>
 
 
 <!-- media-list start -->
 <section class="media-list">
-  <div class="container">
-    <!-- media-list-item found START-->
-    <div class="row g-md-4 g-3">
-      @for (card of cards; track card) {
-        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-          <div class="media-list-card shadow">
-            <div class="card p-0" [routerLink]="[card.link]">
-              <img [src]="card.image" loading="lazy" class="card-img-top" [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-              <div class="card-body px-0">
-                <h5 class="card-title title-clamp text-center mb-0" [matTooltip]="card.title">{{ card.title }}</h5>
-                <p class="card-text line-clamp">{{ card.description }}</p>
-              </div>
+    <div class="container">
+        <!-- media-list-item found START-->
+        <div class="row g-md-4 g-3">
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card p-0" [routerLink]="[card.link]">
+                        <img [src]="card.image" loading="lazy" class="card-img-top" [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp text-center mb-0" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        <!-- media-list-item found END-->
     </div>
-    <!-- media-list-item found END-->
-  </div>
 </section>
 <!-- media-list end -->
 
@@ -31,130 +29,126 @@
 
 
 <section class="common-padding bg-gradient-gray">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="default-content pe-lg-4">
-          <h1>Media Insights for Data-Driven Advertising Decisions</h1>
-          <p>
-            In the current rapidly changing media environment, knowing your audience's behavior is very important for the success of advertising. Excellent Publicity gives actionable Media Insights on advertising spend that allow companies and agencies to make the most of their advertising budgets, plan their campaigns in a very good way, and see the results of their actions in numbers.
-          </p>
-          <p>
-            Our reports guide you through the media industry, enable successful media insight projects, and leverage social media insights to connect with your audience effectively and meaningfully.
-          </p>
-
-          <h3>What You Will Explore in Every Media Report</h3>
-          <div class="row align-items-stretch">
-            <div class="col-lg-10 col-md-12 col-12">
-              <div class="row align-items-stretch gy-3">
-                <!--column -->
-                <div class="col-lg-6 col-md-6 col-sm-10 col-12 service-icon-section">
-                  <div class="icon-with-text">
-                    <div class="icon-bg">
-                      <img loading="lazy" src="/assets/page/media-insights/list/icon-1.png" alt="Icon Image">
-                    </div>
-                    <p class="mb-0">Monthly ad volume patterns and growth trends</p>
+    <div class="container get-section">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="default-content pe-lg-4">
+            <h1>Media Insights for Data-Driven Advertising Decisions</h1>
+            <p>
+              In the current rapidly changing media environment, knowing your audience's behavior is very important for the success of advertising. Excellent Publicity gives actionable Media Insights on advertising spend that allow companies and agencies to make the most of their advertising budgets, plan their campaigns in a very good way, and see the results of their actions in numbers.
+            </p>
+            <p>
+              Our reports guide you through the media industry, enable successful media insight projects, and leverage social media insights to connect with your audience effectively and meaningfully.
+            </p>
+    
+            <h3>What You Will Explore in Every Media Report</h3>
+             <div class="row align-items-stretch">
+                  <div class="col-lg-10 col-md-12 col-12">
+                      <div class="row align-items-stretch gy-3">
+                           <!--column -->
+                          <div class="col-lg-6 col-md-6 col-sm-10 col-12 service-icon-section">
+                              <div class="icon-with-text">
+                                  <div class="icon-bg">
+                                      <img loading="lazy" src="/assets/page/media-insights/list/icon-1.png" alt="Icon Image">
+                                  </div>
+                                <p class="mb-0">Monthly ad volume patterns and growth trends</p>
+                              </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-10 col-12 service-icon-section">
+                              <div class="icon-with-text">
+                                  <div class="icon-bg">
+                                      <img loading="lazy" src="/assets/page/media-insights/list/icon-4.png" alt="Icon Image">
+                                  </div>
+                                <p class="mb-0">Top spenders and leading categories</p>
+                              </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-10 col-12 service-icon-section">
+                              <div class="icon-with-text">
+                                  <div class="icon-bg">
+                                      <img loading="lazy" src="/assets/page/media-insights/list/icon-5.png" alt="Icon Image">
+                                  </div>
+                                <p class="mb-0">Top-performing channels, programs, and brands</p>
+                              </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-10 col-12 service-icon-section">
+                              <div class="icon-with-text">
+                                  <div class="icon-bg">
+                                      <img loading="lazy" src="/assets/page/media-insights/list/icon-2.png" alt="Icon Image">
+                                  </div>
+                                <p class="mb-0">Top-performing campaigns and categories</p>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-10 col-12 service-icon-section">
-                  <div class="icon-with-text">
-                    <div class="icon-bg">
-                      <img loading="lazy" src="/assets/page/media-insights/list/icon-4.png" alt="Icon Image">
-                    </div>
-                    <p class="mb-0">Top spenders and leading categories</p>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-10 col-12 service-icon-section">
-                  <div class="icon-with-text">
-                    <div class="icon-bg">
-                      <img loading="lazy" src="/assets/page/media-insights/list/icon-5.png" alt="Icon Image">
-                    </div>
-                    <p class="mb-0">Top-performing channels, programs, and brands</p>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-10 col-12 service-icon-section">
-                  <div class="icon-with-text">
-                    <div class="icon-bg">
-                      <img loading="lazy" src="/assets/page/media-insights/list/icon-2.png" alt="Icon Image">
-                    </div>
-                    <p class="mb-0">Top-performing campaigns and categories</p>
-                  </div>
-                </div>
               </div>
-            </div>
+  
+  
+  
+            <h3>Why Are Media Insights Critical for Your Brand?</h3>
+  
+            <p>Excellent Publicity's Media Insights provide brands with a comprehensive view of ad spend trends of brands across different media types, such as print, TV, radio, and digital. It helps brands gain better insights and create campaigns that consistently deliver measurable results by turning data into informed strategies.
+            </p>
+            <p><strong>Benefits of Media Wise Ad-Spend Insights for Businesses</strong>
+            </p>
+            
+            <ul class="insights-list">
+              <li>Analyse exactly where competitors spend: Print, TV, Radio, and Digital.</li>
+              <li>Find the channel that works best for your brand.</li>
+              <li>Spot the products and trends competitors lead in.</li>
+              <li>Build a media mix that delivers results.</li>
+            </ul>
+            <h3>Why Choose Excellent Publicity for Media Insights?</h3>
+            <ul class="insights-list">
+                <li>14+ Years of Expertise in Advertising & Media</li>
+                <li>Proven Track Record of Strategy-Led Campaigns</li>
+                <li>Detailed Media Reports: Print, TV, Radio, and Digital</li>
+            </ul>
+
+
           </div>
-
-
-
-          <h3>Why Are Media Insights Critical for Your Brand?</h3>
-
-          <p>Excellent Publicity's Media Insights provide brands with a comprehensive view of ad spend trends of brands across different media types, such as print, TV, radio, and digital. It helps brands gain better insights and create campaigns that consistently deliver measurable results by turning data into informed strategies.
-          </p>
-          <p><strong>Benefits of Media Wise Ad-Spend Insights for Businesses</strong>
-        </p>
-
-        <ul class="insights-list">
-          <li>Analyse exactly where competitors spend: Print, TV, Radio, and Digital.</li>
-          <li>Find the channel that works best for your brand.</li>
-          <li>Spot the products and trends competitors lead in.</li>
-          <li>Build a media mix that delivers results.</li>
-        </ul>
-        <h3>Why Choose Excellent Publicity for Media Insights?</h3>
-        <ul class="insights-list">
-          <li>14+ Years of Expertise in Advertising & Media</li>
-          <li>Proven Track Record of Strategy-Led Campaigns</li>
-          <li>Detailed Media Reports: Print, TV, Radio, and Digital</li>
-        </ul>
-
-
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</section>
+  </section>
 
 
 
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="section-heading text-center mb-5">
-          <h2>FAQs</h2>
-          <span class="separator mb-2"></span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion faq-accordion" id="faqAccordion" >
-            @for (item of faqList; track item; let i = $index) {
-              <div class="accordion-item" itemscope itemprop="mainEntity"
-                itemtype="https://schema.org/Question">
-                <h6 class="accordion-header" id="heading{{i}}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                  </button>
-                </h6>
-                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                  itemtype="https://schema.org/Answer" >
-                  <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                  </div>
-                  <div class="text-center">
-                    @if (item?.buttonname) {
-                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                    }
-                  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>

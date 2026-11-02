@@ -1,67 +1,55 @@
 <section class="common-padding bg-linear-gradient">
-  <div class="container">
-    <div class="section-heading text-center mb-0 w-850">
-      <h1> Testimonials</h1>
-      <p> It’s the clients that make us whom we are; it’s for them that we strive day by day.</p>
-      <p> Here’s what our clients are saying about us</p>
+    <div class="container">
+        <div class="section-heading text-center mb-0 w-850">
+            <h1> Testimonials</h1>
+            <p> It’s the clients that make us whom we are; it’s for them that we strive day by day.</p>
+            <p> Here’s what our clients are saying about us</p>
+        </div>
     </div>
-  </div>
 </section>
 
 <section class="common-padding grey-background testimonials-section">
-  <div class="container">
-    <div class="section-heading text-center mb-md-5 pb-md-5 mb-5 pb-2">
-      <h2 class="mb-0"> Clients </h2>
-    </div>
-    <div class="row justify-content-center testimonials-card-row">
-      <div class="col-12">
-        @for (testimonials of testimonialsList?.client; track testimonials) {
-          <div class="card-col">
-            <div class="card testimonials-card border-0">
-              <div class="card-body text-center px-0 px-md-3">
-                <img loading="lazy" src="{{testimonials?.clientimage}}" class="testimonials-img mb-3" alt="{{testimonials?.client_name}}" title="{{testimonials?.client_name}}">
-                <p class="mb-0 fst-italic"> {{testimonials?.description}}</p>
-                <h6 class="mb-1 mt-3">{{testimonials?.client_name}}</h6>
-                <p class="text-medium text-grey-light mb-0">{{testimonials?.designation}}</p>
-                @if (testimonials?.brandimage != null) {
-                  <img loading="lazy" src="{{testimonials?.brandimage}}" class="testimonials-brand mt-2" alt="{{testimonials?.brand_name}}" title="{{testimonials?.brand_name}}">
-                }
-                @if (testimonials?.brandimage == null) {
-                  <h5 class="mb-1 mt-3" >{{testimonials?.brand_name}}</h5>
-                }
-              </div>
+    <div class="container">
+        <div class="section-heading text-center mb-md-5 pb-md-5 mb-5 pb-2">
+            <h2 class="mb-0"> Clients </h2>
+        </div>
+        <div class="row justify-content-center testimonials-card-row">
+            <div class="col-12">
+                <div class="card-col" *ngFor="let testimonials of testimonialsList?.client">
+                    <div class="card testimonials-card border-0">
+                        <div class="card-body text-center px-0 px-md-3">
+                            <img loading="lazy" src="{{testimonials?.clientimage}}" class="testimonials-img mb-3" alt="{{testimonials?.client_name}}" title="{{testimonials?.client_name}}">
+                            <p class="mb-0 fst-italic"> {{testimonials?.description}}</p>
+                            <h6 class="mb-1 mt-3">{{testimonials?.client_name}}</h6>
+                            <p class="text-medium text-grey-light mb-0">{{testimonials?.designation}}</p>
+                            <img loading="lazy" src="{{testimonials?.brandimage}}" class="testimonials-brand mt-2" alt="{{testimonials?.brand_name}}" title="{{testimonials?.brand_name}}" *ngIf="testimonials?.brandimage != null">
+                            <h5 class="mb-1 mt-3" *ngIf="testimonials?.brandimage == null" >{{testimonials?.brand_name}}</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        }
-      </div>
-    </div>
-    <div class="section-heading text-center mt-5 pt-md-4 mb-5 pb-md-5 mb-5 pb-2">
-      <h2 class="mb-0"> Vendors </h2>
-    </div>
-    <div class="row justify-content-center testimonials-card-row">
-      <div class="col-12">
-        @for (testimonials of testimonialsList?.vendor; track testimonials) {
-          <div class="card-col">
-            <div class="card testimonials-card border-0">
-              <div class="card-body text-center px-0 px-md-3">
-                <img loading="lazy" src="{{testimonials?.clientimage}}" class="testimonials-img mb-3" alt="{{testimonials?.client_name}}" title="{{testimonials?.client_name}}">
-                <p class="mb-0 fst-italic">{{testimonials?.description}}</p>
-                <h6 class="mb-1 mt-3">{{testimonials?.client_name}}</h6>
-                <p class="text-medium text-grey-light mb-0">{{testimonials?.designation}}</p>
-                @if (testimonials?.brandimage != null) {
-                  <img loading="lazy" src="{{testimonials?.brandimage }}" class="testimonials-brand mt-2" alt="{{testimonials?.brand_name}}" title="{{testimonials?.brand_name}}">
-                }
-                @if (testimonials?.brandimage == null) {
-                  <h5 class="mb-1 mt-3" >{{testimonials?.brand_name}}</h5>
-                }
-              </div>
-            </div>
-          </div>
-        }
+        </div>
+        <div class="section-heading text-center mt-5 pt-md-4 mb-5 pb-md-5 mb-5 pb-2">
+            <h2 class="mb-0"> Vendors </h2>
+        </div>
+        <div class="row justify-content-center testimonials-card-row">
+            <div class="col-12">
+                <div class="card-col" *ngFor="let testimonials of testimonialsList?.vendor">
+                    <div class="card testimonials-card border-0">
+                        <div class="card-body text-center px-0 px-md-3">
+                            <img loading="lazy" src="{{testimonials?.clientimage}}" class="testimonials-img mb-3" alt="{{testimonials?.client_name}}" title="{{testimonials?.client_name}}">
+                            <p class="mb-0 fst-italic">{{testimonials?.description}}</p>
+                            <h6 class="mb-1 mt-3">{{testimonials?.client_name}}</h6>
+                            <p class="text-medium text-grey-light mb-0">{{testimonials?.designation}}</p>
+                            <img loading="lazy" src="{{testimonials?.brandimage }}" class="testimonials-brand mt-2" alt="{{testimonials?.brand_name}}" title="{{testimonials?.brand_name}}" *ngIf="testimonials?.brandimage != null">
+                            <h5 class="mb-1 mt-3" *ngIf="testimonials?.brandimage == null" >{{testimonials?.brand_name}}</h5>
+                        </div>
+                    </div>
+                </div>
 
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <app-call-to-action></app-call-to-action>

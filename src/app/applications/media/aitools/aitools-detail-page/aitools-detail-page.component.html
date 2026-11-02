@@ -1,91 +1,79 @@
 <section class="detail-page">
-  @if (mediaDetail != false) {
-    <section class="bg-linear-gradient service-detail-header">
-      <div class="container">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-              itemtype="https://schema.org/ListItem">
-              <a aria-label="Link" href="{{webURL}}" itemprop="item">
-                <span itemprop="name"><b> Home</b></span>
-              </a>
-              <meta itemprop="position" content="1" />
-            </li>
-            <li class="breadcrumb-item" itemprop="itemListElement" itemscope
-              itemtype="https://schema.org/ListItem">
-              <a aria-label="Link" href="{{webURL}}/ai-tools" itemprop="item">
-                <span itemprop="name"> AI Tools </span>
-              </a>
-              <meta itemprop="position" content="2" />
-            </li>
-            <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
-              itemtype="https://schema.org/ListItem">
-              <span itemprop="name">{{mediaDetail?.name}}</span>
-              <meta itemprop="position" content="3" />
-            </li>
-          </ol>
-        </nav>
-        @if (mediaDetail?.name) {
-          <div class="services-detail-header-card">
-            <div class="services-header-image-content">
-              @if (mediaDetail?.image) {
-                <div class="services-header-image">
-                  <img loading="lazy" src="{{mediaDetail?.image}}" width="214" height="90" class=""
-                    alt="{{mediaDetail?.name}}" title="{{mediaDetail?.name}}">
-                  </div>
-                }
-                <div class="services-header-content">
-                  <h1> {{mediaDetail?.name}} </h1>
-                  <p> {{mediaDetail?.short_description}} </p>
+    <section class="bg-linear-gradient service-detail-header" *ngIf="mediaDetail != false; else pageNotFound;">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a aria-label="Link" href="{{webURL}}" itemprop="item">
+                            <span itemprop="name"><b> Home</b></span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a aria-label="Link" href="{{webURL}}/ai-tools" itemprop="item">
+                            <span itemprop="name"> AI Tools </span>
+                        </a>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <span itemprop="name">{{mediaDetail?.name}}</span>
+                        <meta itemprop="position" content="3" />
+                    </li>
+                </ol>
+            </nav>
+
+            <div class="services-detail-header-card" *ngIf="mediaDetail?.name">
+                <div class="services-header-image-content">
+                    <div class="services-header-image" *ngIf="mediaDetail?.image">
+                        <img loading="lazy" src="{{mediaDetail?.image}}" width="214" height="90" class=""
+                            alt="{{mediaDetail?.name}}" title="{{mediaDetail?.name}}">
+                    </div>
+                    <div class="services-header-content">
+                        <h1> {{mediaDetail?.name}} </h1>
+                        <p> {{mediaDetail?.short_description}} </p>
+                    </div>
                 </div>
-              </div>
-              <div class="services-header-button">
-                <a
-                  aria-label="Button"
-                  type="button"
-                  target="_blank"
-                  data-item-link-type="View More"
-                  [href]="$safeNavigationMigration(mediaDetail?.website_url)"
-                  class="btn btn-outline-primary view-item-button"
-                  >
-                  View More
-                </a>
-              </div>
-              @if (mediaDetail?.keyInsights) {
-                <div class="services-header-bottom-content">
-                  <h5> Key Insights </h5>
-                  @for (item of $safeNavigationMigration(mediaDetail?.keyInsights) | keyvalue; track item) {
-                    <span class="badge m-1">
-                      {{item.key}} <strong> {{item.value}} </strong>
+
+               <div class="services-header-button">
+                    <a
+                        aria-label="Button"
+                        type="button"
+                        target="_blank"
+                        data-item-link-type="View More"
+                        [href]="mediaDetail?.website_url"
+                        class="btn btn-outline-primary view-item-button"
+                    >
+                        View More
+                    </a>
+                </div>
+
+                <div class="services-header-bottom-content" *ngIf="mediaDetail?.keyInsights">
+                    <h5> Key Insights </h5>
+                    <span class="badge m-1" *ngFor="let item of mediaDetail?.keyInsights | keyvalue">
+                        {{item.key}} <strong> {{item.value}} </strong> 
                     </span>
-                  }
                 </div>
-              }
             </div>
-          }
         </div>
-      </section>
-    } @else {
-      @if (isDataLoaded) {
-        <app-sec-heading-pagenotfound></app-sec-heading-pagenotfound>
-      }
-      <app-search-result></app-search-result>
-    }
+    </section>
 
     <!-- pageNotFound start -->
+    <ng-template #pageNotFound>
+        <app-sec-heading-pagenotfound *ngIf="isDataLoaded"></app-sec-heading-pagenotfound>
+        <app-search-result></app-search-result>
+    </ng-template>
     <!-- pageNotFound end -->
 
     <!-- description start -->
-    @if (pageDescription) {
-      <app-content-builder [contentDetail]="pageDescription"></app-content-builder>
-    }
+    <app-content-builder [contentDetail]="pageDescription" *ngIf="pageDescription"></app-content-builder>
     <!-- description end -->
-  </section>
+</section>
 
 
-  <!-- call to action media start -->
-  @if (callToActionData?.title) {
-    <app-call-to-action-media [mediaCallToActionData]="callToActionData">
-    </app-call-to-action-media>
-  }
-  <!-- call to action media end -->
+<!-- call to action media start -->
+<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
+</app-call-to-action-media>
+<!-- call to action media end -->

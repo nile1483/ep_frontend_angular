@@ -1,13 +1,14 @@
 import { Inject, Injectable, Optional } from '@angular/core';
-import type { Response } from 'express';
+import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { Response } from 'express';
 import { Router } from '@angular/router';
-import { SERVER_RESPONSE } from '../tokens/server-response.token';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class StatusCodeResponseService {
 
   constructor(
-        @Optional() @Inject(SERVER_RESPONSE) private response: Response | null,
+        @Optional() @Inject(RESPONSE) private response: Response | null,
        private router: Router
   ) {
     
@@ -62,12 +63,6 @@ export class StatusCodeResponseService {
   }
 
   setPermanentRedirect(newUrl: string) {
-    if (this.response) {
-      this.response.status(301);
-      this.response.setHeader('Location', newUrl);
-      return;
-    }
-
     if (newUrl.startsWith('http://') || newUrl.startsWith('https://')) {
       // External URL
       window.location.href = newUrl;

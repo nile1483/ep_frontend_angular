@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OutdoorService } from '@app-media-services';
@@ -9,14 +9,12 @@ import { MetaInformation } from '@app-shared-model';
 import { C2A_TITLE_DATA } from '@app-shared-constants';
 import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
-
+import { DOCUMENT } from '@angular/common';
 
 @Component({
-    selector: 'app-outdoor-detail-page',
-    templateUrl: './outdoor-detail-page.component.html',
-    styleUrls: ['./outdoor-detail-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-outdoor-detail-page',
+  templateUrl: './outdoor-detail-page.component.html',
+  styleUrls: ['./outdoor-detail-page.component.css']
 })
 export class OutdoorDetailPageComponent implements OnInit {
 

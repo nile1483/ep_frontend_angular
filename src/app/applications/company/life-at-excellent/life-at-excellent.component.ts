@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TeamService } from '@app-company-services';
 import { META_DATA } from '@app-shared-constants';
 import { MetaInformation } from '@app-shared-model';
@@ -6,11 +6,9 @@ import { CommonService } from '@app-shared-services';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-    selector: 'app-life-at-excellent',
-    templateUrl: './life-at-excellent.component.html',
-    styleUrls: ['./life-at-excellent.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-life-at-excellent',
+  templateUrl: './life-at-excellent.component.html',
+  styleUrls: ['./life-at-excellent.component.css']
 })
 export class LifeAtExcellentComponent implements OnInit {
   webURL: string = AppURL.webURL;

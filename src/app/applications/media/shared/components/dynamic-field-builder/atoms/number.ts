@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 // text,email,tel,textarea,password, 
@@ -7,26 +7,16 @@ import { FormGroup } from '@angular/forms';
     template: `
       <div [formGroup]="form">
         <div [formGroupName]="'priceUnit'" >
-          <mat-form-field >
-            <mat-label>{{field.name}} @if (field.required) {
-              <strong class="text-danger">*</strong>
-            }</mat-label>
+        <mat-form-field >
+            <mat-label>{{field.name}} <strong class="text-danger" *ngIf="field.required">*</strong></mat-label>
             <input matInput [attr.type]="field.type" [name]="field.code" [formControlName]="field.code" [step]="field.step" [placeholder]="field.placeholder" >
-            @if (isRequired) {
-              <mat-error> This is required</mat-error>
-            }
-            @if (hasMinError) {
-              <mat-error> Minimum {{minValue}}</mat-error>
-            }
-            @if (hasMaxError) {
-              <mat-error> Maximum {{maxValue}}</mat-error>
-            }
-          </mat-form-field>
+            <mat-error *ngIf="isRequired"> This is required</mat-error>
+            <mat-error *ngIf="hasMinError"> Minimum {{minValue}}</mat-error>
+            <mat-error *ngIf="hasMaxError"> Maximum {{maxValue}}</mat-error>
+        </mat-form-field>
         </div>
       </div>
-      `,
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+      `
 })
 export class NumberComponent {
     @Input() field:any = {};

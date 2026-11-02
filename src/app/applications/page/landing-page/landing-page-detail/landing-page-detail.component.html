@@ -1,20 +1,17 @@
-@if (landingPageDetail?.id) {
-  <app-content-builder [contentDetail]="landingPageDetail">
-  </app-content-builder>
-} @else {
-  @if (isDataLoaded) {
-    <app-sec-heading-pagenotfound ></app-sec-heading-pagenotfound>
-  }
-  <app-search-result></app-search-result>
-}
+<app-content-builder [contentDetail]="landingPageDetail" *ngIf="landingPageDetail?.id; else pageNotFound">
+</app-content-builder>
 
 <!-- pageNotFound start -->
+<ng-template #pageNotFound>
+    <app-sec-heading-pagenotfound *ngIf="isDataLoaded" ></app-sec-heading-pagenotfound>
+    <app-search-result></app-search-result>
+</ng-template>
 <!-- pageNotFound end -->
 
 <!-- <ng-template #elseBlock>
-<section class="common-padding">
-  <div class="container text-center">
-    <h5>Data not Found</h5>
-  </div>
-</section>
+    <section class="common-padding">
+        <div class="container text-center">
+            <h5>Data not Found</h5>
+        </div>
+    </section>
 </ng-template> -->

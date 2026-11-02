@@ -1,12 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-manual-payment-fail',
-    templateUrl: './manual-payment-fail.component.html',
-    styleUrl: './manual-payment-fail.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-manual-payment-fail',
+  templateUrl: './manual-payment-fail.component.html',
+  styleUrl: './manual-payment-fail.component.css'
 })
 export class ManualPaymentFailComponent {
 

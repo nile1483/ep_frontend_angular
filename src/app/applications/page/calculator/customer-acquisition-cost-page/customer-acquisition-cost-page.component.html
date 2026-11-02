@@ -1,243 +1,225 @@
 <!-- background -->
 <section class="section-featured-services customeracquisitioncost-background common-padding">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h1 class="text-white"></h1>
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-          class="roas-form p-4 border custom-border mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0 text-center">
-              <label class="form-label fw-bolder">Total sales and marketing cost</label>
-              <input
-                type="number"
-                formControlName="conversionRevenue"
-                class="form-control border-danger" placeholder="Enter Value"
-                />
-              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
-                <div class="text-danger small">
-                  @if (conversionRevenue?.errors?.['required']) {
-                    <div>
-                      Total sales and marketing cost is required.
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Total sales and marketing cost</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Total sales and marketing cost is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Total sales and marketing cost must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Numbers of new customers acquired</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Advertising Spend is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Advertising Spend must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  }
-                  @if (conversionRevenue?.errors?.['min']) {
-                    <div>
-                      Total sales and marketing cost must be greater than 0.
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
-                  }
-                </div>
-              }
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">CAC</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
             </div>
-
-            <div class="col-md-6 text-center">
-              <label class="form-label fw-bolder">Numbers of new customers acquired</label>
-              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-              @if (adSpend?.invalid && adSpend?.touched) {
-                <div class="text-danger small">
-                  @if (adSpend?.errors?.['required']) {
-                    <div>
-                      Advertising Spend is required.
-                    </div>
-                  }
-                  @if (adSpend?.errors?.['min']) {
-                    <div>
-                      Advertising Spend must be greater than 0.
-                    </div>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
-          </div>
-
-          <div class="text-center col-md-6 mx-auto">
-            <label class="form-label fw-bolder">CAC</label>
-            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-          </div>
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-  <div class="container default-content">
-    <div class="row align-items-center">
-      <!-- Left Image Column -->
-      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-        <img src="assets/page/calculators/customer-acquisition-cost/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-      </div>
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/customer-acquisition-cost/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
 
-      <!-- Right Text Column -->
-      <div class="col-md-7">
-        <h2 class="fw-bold text-danger mb-0">Customer Acquisition Cost </h2>
-        <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
-        <p class="fs-5">
-          Use our easy CAC Calculator to estimate your average customer acquisition cost. Just enter your sales and marketing expenses along with the number of new customers gained to get useful insights.
-        </p>
-        <p class="fs-5">
-          The acquisition cost calculator helps businesses find out how much they spend to get each new customer by dividing total sales and marketing costs by the number of new customers in a given period.
-        </p>
-      </div>
-      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0">Customer Acquisition Cost </h2>
+                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+                <p class="fs-5">
+                    Use our easy CAC Calculator to estimate your average customer acquisition cost. Just enter your sales and marketing expenses along with the number of new customers gained to get useful insights.
+                </p>
+                <p class="fs-5">
+                    The acquisition cost calculator helps businesses find out how much they spend to get each new customer by dividing total sales and marketing costs by the number of new customers in a given period.
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What is the customer acquisition cost?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Customer acquisition cost (also known as CAC) measures the total expenses a business incurs to acquire new customers. It includes all costs related to marketing, advertising, sales, and any other efforts aimed at converting potential leads into paying customers. Understanding CAC helps businesses measure the efficiency of their marketing and sales strategies. A lower CAC indicates that the company is acquiring customers more cost-effectively, which improves profitability. Businesses often aim to keep their CAC lower than the Customer Lifetime Value (CLV) to ensure sustainable growth and long-term success.
+            </p>
+           
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                How to calculate CAC? Customer acquisition cost formula?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                The formula for Customer Acquisition Cost (CAC) is:
+            </p>
+            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                CAC = Total sales and marketing cost/Number of new customers acquired 
+            </h2>
+            <p>
+                Let’s understand this with an example:
+            </p>
+            <p>
+                If a company spends 8 lakhs on sales and marketing in a month and acquires 400 new customers within that period, CAC would be:
+            </p>
+            <p>
+                8,00,000/400 = 2,000
+            </p>
+            <p>
+                This means that a company has spent ₹2,000 to acquire each new customer. Knowing the exact amount of CAC helps businesses in evaluating their sales and marketing efforts. 
+            </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Components of Customer Acquisition Cost (CAC):
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Understanding the components of <strong>customer acquisition cost</strong> helps businesses identify areas to reduce costs and improve efficiency:
+            </p>
+            <p><strong>Marketing Costs:</strong></p>
+            <p>Expenses related to advertising, social media campaigns, content creation, SEO, influencer partnerships, and other promotional activities.</p>
+            <p><strong>Sales Costs:</strong></p>
+            <p>Costs of hiring, training, and paying sales staff, as well as commissions and bonuses.</p>
+            <p><strong>Advertising Costs:</strong></p>
+            <p>Spending on digital ads (Google, Facebook, Instagram, etc.), print ads, TV, and radio commercials.</p>
+            <p><strong>Creative and Production Costs:</strong></p>
+            <p>Costs for designing and producing marketing materials, including graphic design, video production, and photography.</p>
+            <p><strong>Software and Tools:</strong></p>
+            <p>Subscription fees for CRM, email marketing platforms, social media management tools, and other technology used to support marketing and sales efforts.</p>
+            <p><strong>Agency and Consultant Fees:</strong></p>
+            <p>Payments are made to marketing agencies, consultants, and freelancers for strategy development and execution.</p>
+            <p><strong>Promotional Offers and Discounts:</strong></p>
+            <p>Costs associated with special deals, free trials, and discounts are used to attract new customers. </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Why is CAC a Crucial Business Metric?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Customer Acquisition Cost (CAC) is an important metric since it allows companies to know how much they are investing in acquiring new customers and if their sales and marketing efforts are value for the money. The lower the CAC, the more efficiently the business is acquiring customers, which translates to increased profitability. Monitoring CAC also assists in creating realistic marketing and sales budgets, determining the best channels, and making adjustments to maximize ROI (Return on Investment). It offers an understanding of customer value through the comparison of CAC with Customer Lifetime Value (CLV); if CAC is greater than CLV, the company might experience long-term losses. CAC analysis assists companies in making decisions on scaling operations, enhancing customer retention, and boosting overall profitability.
+            </p>
+        </div>
+
     </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        What is the customer acquisition cost?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        Customer acquisition cost (also known as CAC) measures the total expenses a business incurs to acquire new customers. It includes all costs related to marketing, advertising, sales, and any other efforts aimed at converting potential leads into paying customers. Understanding CAC helps businesses measure the efficiency of their marketing and sales strategies. A lower CAC indicates that the company is acquiring customers more cost-effectively, which improves profitability. Businesses often aim to keep their CAC lower than the Customer Lifetime Value (CLV) to ensure sustainable growth and long-term success.
-      </p>
-
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        How to calculate CAC? Customer acquisition cost formula?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        The formula for Customer Acquisition Cost (CAC) is:
-      </p>
-      <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-        CAC = Total sales and marketing cost/Number of new customers acquired
-      </h2>
-      <p>
-        Let’s understand this with an example:
-      </p>
-      <p>
-        If a company spends 8 lakhs on sales and marketing in a month and acquires 400 new customers within that period, CAC would be:
-      </p>
-      <p>
-        8,00,000/400 = 2,000
-      </p>
-      <p>
-        This means that a company has spent ₹2,000 to acquire each new customer. Knowing the exact amount of CAC helps businesses in evaluating their sales and marketing efforts.
-      </p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Components of Customer Acquisition Cost (CAC):
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        Understanding the components of <strong>customer acquisition cost</strong> helps businesses identify areas to reduce costs and improve efficiency:
-      </p>
-      <p><strong>Marketing Costs:</strong></p>
-      <p>Expenses related to advertising, social media campaigns, content creation, SEO, influencer partnerships, and other promotional activities.</p>
-      <p><strong>Sales Costs:</strong></p>
-      <p>Costs of hiring, training, and paying sales staff, as well as commissions and bonuses.</p>
-      <p><strong>Advertising Costs:</strong></p>
-      <p>Spending on digital ads (Google, Facebook, Instagram, etc.), print ads, TV, and radio commercials.</p>
-      <p><strong>Creative and Production Costs:</strong></p>
-      <p>Costs for designing and producing marketing materials, including graphic design, video production, and photography.</p>
-      <p><strong>Software and Tools:</strong></p>
-      <p>Subscription fees for CRM, email marketing platforms, social media management tools, and other technology used to support marketing and sales efforts.</p>
-      <p><strong>Agency and Consultant Fees:</strong></p>
-      <p>Payments are made to marketing agencies, consultants, and freelancers for strategy development and execution.</p>
-      <p><strong>Promotional Offers and Discounts:</strong></p>
-      <p>Costs associated with special deals, free trials, and discounts are used to attract new customers. </p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Why is CAC a Crucial Business Metric?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        Customer Acquisition Cost (CAC) is an important metric since it allows companies to know how much they are investing in acquiring new customers and if their sales and marketing efforts are value for the money. The lower the CAC, the more efficiently the business is acquiring customers, which translates to increased profitability. Monitoring CAC also assists in creating realistic marketing and sales budgets, determining the best channels, and making adjustments to maximize ROI (Return on Investment). It offers an understanding of customer value through the comparison of CAC with Customer Lifetime Value (CLV); if CAC is greater than CLV, the company might experience long-term losses. CAC analysis assists companies in making decisions on scaling operations, enhancing customer retention, and boosting overall profitability.
-      </p>
-    </div>
-
-  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="section-heading text-center mb-5">
-          <h2>FAQs</h2>
-          <span class="separator mb-2"></span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion faq-accordion" id="faqAccordion" >
-            @for (item of faqList; track item; let i = $index) {
-              <div class="accordion-item" itemscope itemprop="mainEntity"
-                itemtype="https://schema.org/Question">
-                <h6 class="accordion-header" id="heading{{i}}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                  </button>
-                </h6>
-                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                  itemtype="https://schema.org/Answer" >
-                  <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                  </div>
-                  <div class="text-center">
-                    @if (item?.buttonname) {
-                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                    }
-                  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-  <div class="container">
-    <!-- Related Calculator -->
-    <div class="row g-md-4 g-3">
-      <h2 class="text-center">Related Calculator</h2>
-      @for (card of cards; track card) {
-        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-          <div class="media-list-card shadow">
-            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-              <img [src]="card.image" loading="lazy" class="card-img-top"
-                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-              <div class="card-body px-0">
-                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                <p class="card-text line-clamp">{{ card.description }}</p>
-              </div>
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        <!-- Related Calculator -->
     </div>
-    <!-- Related Calculator -->
-  </div>
 </section>

@@ -1,50 +1,48 @@
 <section class="common-padding bg-linear-gradient career-page-header">
-  <div class="container">
-    <div class="section-heading text-center mb-0">
-      <h1> Life at Excellent </h1>
-      <p> Working hard, Travelling hard<br> This is how our normal life looks like </p>
+    <div class="container">
+        <div class="section-heading text-center mb-0">
+            <h1> Life at Excellent </h1>
+            <p> Working hard, Travelling hard<br> This is how our normal life looks like </p>
+        </div>
     </div>
-  </div>
 </section>
 
 <section class="common-padding photo-gallery-section grey-background">
-  <div class="container">
+    <div class="container">
 
-    <div class="row text-center justify-content-center photo-gallery-row">
-      <div class="col-12">
-        @for (album of teamAlbum; track album) {
-          <div class="card-col">
-            <div class="card gallery-card border-0" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="setSelected(album)">
-              <img loading="lazy" src="{{album?.src}}" class="" title="{{album?.caption}}" alt="{{album?.caption}}">
-              <div class="card-body py-0 px-2">
-                <h6>{{ album.caption.split("-")[0]}}<span class="text-grey-light">- {{ album.caption.split("-")[1]}}</span></h6>
-              </div>
+        <div class="row text-center justify-content-center photo-gallery-row">
+            <div class="col-12">
+                <div class="card-col" *ngFor="let album of teamAlbum">
+                    <div class="card gallery-card border-0" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="setSelected(album)">
+                        <img loading="lazy" src="{{album?.src}}" class="" title="{{album?.caption}}" alt="{{album?.caption}}">
+                        <div class="card-body py-0 px-2">
+                            <h6>{{ album.caption.split("-")[0]}}<span class="text-grey-light">- {{ album.caption.split("-")[1]}}</span></h6>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        }
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <app-call-to-action></app-call-to-action>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{selectedAlbum?.caption}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{selectedAlbum?.caption}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
-      <div class="modal-body">
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <img loading="lazy" src="{{selectedAlbum?.src}}" title="{{selectedAlbum?.caption}}" alt="{{selectedAlbum?.caption}}" class="img-thumbnail mx-auto d-block">
-          </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <img loading="lazy" src="{{selectedAlbum?.src}}" title="{{selectedAlbum?.caption}}" alt="{{selectedAlbum?.caption}}" class="img-thumbnail mx-auto d-block">
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-
     </div>
-  </div>
 </div>

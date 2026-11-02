@@ -7,7 +7,6 @@ import { TestingPageComponent } from './testing-page/testing-page.component';
 
 @NgModule({
   declarations: [
-  
     TestingPageComponent
   ],
   imports: [

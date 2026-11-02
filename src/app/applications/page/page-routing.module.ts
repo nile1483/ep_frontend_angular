@@ -79,7 +79,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('../../applications/page/ipl-page/ipl.module').then(m => m.IPLModule)
+        loadChildren: () => import('./ipl-advertising-page/ipl-advertising-page.module').then(m => m.IplAdvertisingPageModule)
       }
     ]
   },
@@ -89,7 +89,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('../../applications/page/channel-partner-page/channel-partner-page.module').then(m => m.ChannelPartnerPageModule)
+        loadChildren: () => import('./agency-partnership-program-page/agency-partnership-program-page.module').then(m => m.AgencyPartnershipProgramPageModule)
       }
     ]
   },
@@ -139,28 +139,17 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('../../applications/page/garba-page/garba-page.module').then(m => m.GarbaPageModule)
+        loadChildren: () => import('./garba-sponsorships-page/garba-sponsorships-page.module').then(m => m.GarbaSponsorshipsPageModule)
       }
     ]
   },
-  // {
-  //   path: 'in-film-advertising-and-cobranding',
-  //   component: MainLayoutComponent,
-  //   children: [
-  //     {
-  //       path: '',
-  //       loadChildren: () => import('../../applications/page/infilm-outfilm/infilm-outfilm.module').then(m => m.InfilmOutfilmModule)
-  //     }
-  //   ]
-  // },
-
   {
     path: 'press-coverage',
     component: MainLayoutComponent,
     children: [
       {
         path: '',
-        loadChildren: () => import('../../applications/page/press-release-page/press-release-page.module').then(m => m.PressReleasePageModule)
+        loadChildren: () => import('./press-coverage-page/press-coverage-page.module').then(m => m.PressCoveragePageModule)
       }
     ]
   },
@@ -182,21 +171,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('../../applications/page/pro-bono-page/pro-bono-page.module').then(m => m.ProBonoPageModule)
+        loadChildren: () => import('./free-startup-consultation-page/free-startup-consultation-page.module').then(m => m.FreeStartupConsultationPageModule)
       }
     ]
   },
-
-  // {
-  //   path: 'whatsapp-community-elements',
-  //   component: MainLayoutComponent,
-  //   children: [
-  //     {
-  //       path: '',
-  //       loadChildren: () => import('../../applications/page/whatsapp-community-elements/whatsapp-community-elements-page.module').then(m => m.WhatsappCommunityElementsModule)
-  //     }
-  //   ]
-  // },
 
   {
     path: 'community',
@@ -215,7 +193,29 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('../../applications/page/cricket-advertising/cricket-advertising.module').then(m => m.CricketAdvertisingModule)
+        loadChildren: () => import('./cricket-advertising-page/cricket-advertising-page.module').then(m => m.CricketAdvertisingPageModule)
+      }
+    ]
+  },
+
+  {
+    path: 'newsletter',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('../../applications/page/newsletter-page/newsletter-page.module').then(m => m.NewsletterPageModule)
+      }
+    ]
+  },
+
+  {
+    path: 'salesdeck',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('../../applications/page/sales-deck-page/sales-deck-page.module').then(m => m.SalesDeckPageModule)
       }
     ]
   },
@@ -251,29 +251,7 @@ const routes: Routes = [
         loadChildren: () => import('../../applications/page/calculator/calculator-page.module').then(m => m.CalculatorPageModule)
       }
     ]
-  },
-
-  {
-    path: 'salesdeck',
-    component: MainLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('../../applications/page/sales-deck-page/sales-deck-page.module').then(m => m.SalesDeckPageModule)
-      }
-    ]
-  },
-
-  {
-    path: 'newsletter',
-    component: MainLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('../../applications/page/newsletter-page/newsletter-page.module').then(m => m.NewsletterPageModule)
-      }
-    ]
-  },
+  }
 
 ];
 

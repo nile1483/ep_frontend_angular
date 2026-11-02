@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
@@ -17,11 +17,9 @@ import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 
 @Component({
-    selector: 'app-digital-list-page',
-    templateUrl: './digital-list-page.component.html',
-    styleUrls: ['./digital-list-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-digital-list-page',
+  templateUrl: './digital-list-page.component.html',
+  styleUrls: ['./digital-list-page.component.css']
 })
 export class DigitalListPageComponent implements OnInit {
 

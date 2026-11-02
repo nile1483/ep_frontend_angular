@@ -1,249 +1,231 @@
 <!-- background -->
 <section class="section-featured-services grossmargin-background common-padding">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h1 class="text-white"></h1>
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-          class="roas-form p-4 border custom-border mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0 text-center">
-              <label class="form-label fw-bolder">Revenue</label>
-              <input
-                type="number"
-                formControlName="conversionRevenue"
-                class="form-control border-danger" placeholder="Enter Value"
-                />
-              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
-                <div class="text-danger small">
-                  @if (conversionRevenue?.errors?.['required']) {
-                    <div>
-                      Revenue is required.
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Revenue</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Revenue is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Revenue must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">COGS</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    COGS is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    COGS must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  }
-                  @if (conversionRevenue?.errors?.['min']) {
-                    <div>
-                      Revenue must be greater than 0.
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
-                  }
-                </div>
-              }
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">Gross Profit Margin</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
             </div>
-
-            <div class="col-md-6 text-center">
-              <label class="form-label fw-bolder">COGS</label>
-              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-              @if (adSpend?.invalid && adSpend?.touched) {
-                <div class="text-danger small">
-                  @if (adSpend?.errors?.['required']) {
-                    <div>
-                      COGS is required.
-                    </div>
-                  }
-                  @if (adSpend?.errors?.['min']) {
-                    <div>
-                      COGS must be greater than 0.
-                    </div>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
-          </div>
-
-          <div class="text-center col-md-6 mx-auto">
-            <label class="form-label fw-bolder">Gross Profit Margin</label>
-            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-          </div>
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-  <div class="container default-content">
-    <div class="row align-items-center">
-      <!-- Left Image Column -->
-      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-        <img src="assets/page/calculators/gross-margin/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-      </div>
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/gross-margin/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
 
-      <!-- Right Text Column -->
-      <div class="col-md-7">
-        <h2 class="fw-bold text-danger mb-0">Gross Margin</h2>
-        <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
-        <p class="fs-5">
-          Our Gross Margin Calculator can help you determine the profitability of your organisation. Measure your accurate gross margin to optimize your operations and make suitable decisions. Try it Now!
-        </p>
-        <p class="fs-5">
-          The <strong>Gross Margin Calculator</strong> is an efficient analytical tool to ascertain the percentage of gross margin profitability of your business. The comparison of total revenue and cost of goods sold (COGS) helps users analyse their financial health and provides insightful details about organisational effectiveness and potential areas of improvement.
-        </p>
-      </div>
-      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0">Gross Margin</h2>
+                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+                <p class="fs-5">
+                    Our Gross Margin Calculator can help you determine the profitability of your organisation. Measure your accurate gross margin to optimize your operations and make suitable decisions. Try it Now!
+                </p>
+                <p class="fs-5">
+                    The <strong>Gross Margin Calculator</strong> is an efficient analytical tool to ascertain the percentage of gross margin profitability of your business. The comparison of total revenue and cost of goods sold (COGS) helps users analyse their financial health and provides insightful details about organisational effectiveness and potential areas of improvement. 
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                How to calculate profit margin?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Calculating profit margin using a <strong>gross profit calculator</strong> is truly beneficial. Also, it is a crucial financial indicator that measures a company’s profitability related to its revenue.
+            </p>
+            <p><strong>Formula for Profit Margin Calculation: </strong></p>
+            <p><strong>Gross margin formula </strong></p>
+            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                Gross Profit Margin = (Revenue−COGS) / Revenue × 100
+            </h2>
+            <p>Let’s assume that there’s company X sold a product for $ 2000, and the total cost spent on it is $ 800, which includes the cost of production, marketing, and other expenses.</p>
+            <p>Then the profit margin would be</p>
+            <p>= 2000 - 800 / 2000 × 100</p>
+            <p>= 1200 / 2000 × 100</p>
+            <p>= 0.6 × 100</p>
+            <p>= 60%</p>
+            <p>Thus, your profit margin is 60%, which indicates that even after all production costs are paid, 60% of the income is retained.  </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Why does gross margin matter?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Gross margin is one of the important measures of knowing a business’s financial stability and profitability. It shows the capability of a company to turn sales into profit after eliminating the cost of goods sold (COGS). Using the gross margin formula, you can evaluate the gross <strong>profit percentage.</strong>
+            </p>
+            <p>
+                Business can assess their cost control and costing methods with the utilization of a profit percentage calculator. Analyzing several profit circumstances and strengthening financial performance is also made possible. Calculating gross margin with a <strong>gross margin calculator</strong> can give you data that can help you monitor profitability and ensure result-driven decision-making for sustainable growth.
+            </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                How can I increase my Gross Margin?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                If you want to increase the company’s gross margin, you should consider the following tips:
+            </p>            
+            <ul class="p-0">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Improve Your Pricing Strategy: </strong>
+                    If you want to find optimized pricing that preserves competitiveness while streamlining revenue, using the Gross Margin Calculator will prove the best tool for analytics.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Control the Cost of Goods Sold: </strong>
+                    Control expenses and enhance profits by efficient bargaining of supply costs, bulk buying, or simplifying business processes.   
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Enhance Business Efficiency: </strong>
+                    Streamline processes, cut down waste, and boost productivity to minimize unwise spending.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Concentration on High-Margin Goods and Services: </strong>
+                    Decide what kind of goods can create more revenue and promote them by measuring their contribution with a margin calculator.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Boost Value Preposition: </strong>
+                    To drive profitability and protect higher fees, offer premium services, higher quality, or upgraded features.
+                  </span>
+                </li>
+            </ul>
+        </div>
+
     </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        How to calculate profit margin?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        Calculating profit margin using a <strong>gross profit calculator</strong> is truly beneficial. Also, it is a crucial financial indicator that measures a company’s profitability related to its revenue.
-      </p>
-      <p><strong>Formula for Profit Margin Calculation: </strong></p>
-      <p><strong>Gross margin formula </strong></p>
-      <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-        Gross Profit Margin = (Revenue−COGS) / Revenue × 100
-      </h2>
-      <p>Let’s assume that there’s company X sold a product for $ 2000, and the total cost spent on it is $ 800, which includes the cost of production, marketing, and other expenses.</p>
-      <p>Then the profit margin would be</p>
-      <p>= 2000 - 800 / 2000 × 100</p>
-      <p>= 1200 / 2000 × 100</p>
-      <p>= 0.6 × 100</p>
-      <p>= 60%</p>
-      <p>Thus, your profit margin is 60%, which indicates that even after all production costs are paid, 60% of the income is retained.  </p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Why does gross margin matter?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        Gross margin is one of the important measures of knowing a business’s financial stability and profitability. It shows the capability of a company to turn sales into profit after eliminating the cost of goods sold (COGS). Using the gross margin formula, you can evaluate the gross <strong>profit percentage.</strong>
-      </p>
-      <p>
-        Business can assess their cost control and costing methods with the utilization of a profit percentage calculator. Analyzing several profit circumstances and strengthening financial performance is also made possible. Calculating gross margin with a <strong>gross margin calculator</strong> can give you data that can help you monitor profitability and ensure result-driven decision-making for sustainable growth.
-      </p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        How can I increase my Gross Margin?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        If you want to increase the company’s gross margin, you should consider the following tips:
-      </p>
-      <ul class="p-0">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Improve Your Pricing Strategy: </strong>
-            If you want to find optimized pricing that preserves competitiveness while streamlining revenue, using the Gross Margin Calculator will prove the best tool for analytics.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Control the Cost of Goods Sold: </strong>
-            Control expenses and enhance profits by efficient bargaining of supply costs, bulk buying, or simplifying business processes.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Enhance Business Efficiency: </strong>
-            Streamline processes, cut down waste, and boost productivity to minimize unwise spending.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Concentration on High-Margin Goods and Services: </strong>
-            Decide what kind of goods can create more revenue and promote them by measuring their contribution with a margin calculator.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Boost Value Preposition: </strong>
-            To drive profitability and protect higher fees, offer premium services, higher quality, or upgraded features.
-          </span>
-        </li>
-      </ul>
-    </div>
-
-  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="section-heading text-center mb-5">
-          <h2>FAQs</h2>
-          <span class="separator mb-2"></span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion faq-accordion" id="faqAccordion" >
-            @for (item of faqList; track item; let i = $index) {
-              <div class="accordion-item" itemscope itemprop="mainEntity"
-                itemtype="https://schema.org/Question">
-                <h6 class="accordion-header" id="heading{{i}}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                  </button>
-                </h6>
-                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                  itemtype="https://schema.org/Answer" >
-                  <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                  </div>
-                  <div class="text-center">
-                    @if (item?.buttonname) {
-                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                    }
-                  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-  <div class="container">
-    <!-- Related Calculator -->
-    <div class="row g-md-4 g-3">
-      <h2 class="text-center">Related Calculator</h2>
-      @for (card of cards; track card) {
-        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-          <div class="media-list-card shadow">
-            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-              <img [src]="card.image" loading="lazy" class="card-img-top"
-                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-              <div class="card-body px-0">
-                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                <p class="card-text line-clamp">{{ card.description }}</p>
-              </div>
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        <!-- Related Calculator -->
     </div>
-    <!-- Related Calculator -->
-  </div>
 </section>

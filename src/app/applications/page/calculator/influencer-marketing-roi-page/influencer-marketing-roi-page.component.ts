@@ -1,13 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-influencer-marketing-roi-page',
-    templateUrl: './influencer-marketing-roi-page.component.html',
-    styleUrl: './influencer-marketing-roi-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-influencer-marketing-roi-page',
+  templateUrl: './influencer-marketing-roi-page.component.html',
+  styleUrl: './influencer-marketing-roi-page.component.css'
 })
 export class InfluencerMarketingRoiPageComponent {
 

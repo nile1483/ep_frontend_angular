@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { CommunityPageComponent } from './community-page/community-page.component';
 
 const routes: Routes = [

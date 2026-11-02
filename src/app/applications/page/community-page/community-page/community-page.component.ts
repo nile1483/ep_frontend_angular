@@ -1,16 +1,14 @@
-import { Component, ElementRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { UserService } from '@app-shared-services';
-import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
-
 import { MatDialog } from '@angular/material/dialog';
 import { PageService } from '../../page.service';
 import { UntypedFormArray, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { FORBIDDEN_EMAIL_DOMAINS } from 'src/app/shared/constants/forbidden-email-domain-list';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): ValidationErrors | null {
   var emailTemp = control.value;
@@ -29,21 +27,15 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
 }
 
 @Component({
-    selector: 'app-community-page',
-    templateUrl: './community-page.component.html',
-    styleUrl: './community-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-community-page',
+  templateUrl: './community-page.component.html',
+  styleUrl: './community-page.component.css'
 })
 export class CommunityPageComponent {
 
   webURL: string = AppURL.webURL;
-  media_icons: any = SVG_ICON_FOR_MEDIA
-  serviceList: any = SERVICE_LIST_WITH_SVG_ICON;
-  app_svg_icon_list = APP_SVG_ICON_LIST;
   metaData: any = META_DATA['community'];
-  selectedCurrency: any;
-  pageContentData: any;
+
   selectedCountry: any = { "name": "India", "dialCode": "+91", "code": "IN" };
   countryList: any = [];
   countryFilteredList: any = [];
@@ -66,18 +58,11 @@ export class CommunityPageComponent {
   }
 
   ngOnInit(): void {
-
     this.href = this.router.url;
 
     this.getCountryCodeData();
     this.setMetaData();
     this.createForm();
-
-    //Currency
-    this.selectedCurrency = this.commonService.getSelectedCurrency();
-    this.commonService.getCurrency().subscribe(currency => {
-      this.selectedCurrency = this.commonService.getSelectedCurrency();
-    });
   }
 
   getCountryCodeData() {
@@ -124,7 +109,7 @@ export class CommunityPageComponent {
     //   Google Tag Manager   //
     //************************//
 
-    this.commonService.gtmPageEvents('Company', 'Company');
+    this.commonService.gtmPageEvents('Company', 'Community Page');
   }
 
 

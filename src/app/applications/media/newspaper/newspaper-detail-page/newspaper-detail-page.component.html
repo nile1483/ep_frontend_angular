@@ -1,409 +1,287 @@
 
 
-@if (mediaDetail != false) {
-  <section class="common-padding bg-linear-gradient newspaper-detail-page-header">
+<section class="common-padding bg-linear-gradient newspaper-detail-page-header" *ngIf="mediaDetail != false; else pageNotFound;">
     <div class="container">
-      <div class="section-heading text-center mb-0">
-        <h1 class="mb-lg-5 mb-md-4 mb-4"> Advertising in {{ $safeNavigationMigration(mediaDetail?.name) | titlecase }} </h1>
-        <h3 class="mb-lg-4 mb-3">Select Ad Type</h3>
-        <div class="ad-type-block d-lg-flex">
-          <div class="select-ad-type text-start flex-fill">
-            <div class="form-check pb-2">
-              <input class="form-check-input small-check" type="radio" name="adtype" id="adType1" checked (click)="changeAdsControl('classified_text_ads');">
-              <label class="form-check-label" for="adType1">Classified Text Ads</label>
-            </div>
-            <div class="form-check pt-2 pb-2">
-              <input class="form-check-input small-check" type="radio" name="adtype" id="adType2" (click)="changeAdsControl('classified_display_ads')">
-              <label class="form-check-label" for="adType2">Classified Display Ads</label>
-            </div>
-            <div class="form-check pt-2 pb-2">
-              <input class="form-check-input small-check" type="radio" name="adtype" id="adType3" (click)="changeAdsControl('display_ads')">
-              <label class="form-check-label" for="adType3">Display Ads</label>
-            </div>
-          </div>
-          <div class="ad-image flex-fill mt-lg-0 mt-4">
-            @if (selectedAdType == 'classified_text_ads' ) {
-              <img loading="lazy" src="/assets/media/newspaper/text_ads.png" class="img-fluid" alt="Logo" >
-            }
-            @if (selectedAdType == 'classified_display_ads' ) {
-              <img loading="lazy" src="/assets/media/newspaper/classified_display_ads.png" class="img-fluid" alt="Logo">
-            }
-            @if (selectedAdType == 'display_ads' ) {
-              <img loading="lazy" src="/assets/media/newspaper/display_ads.png" class="img-fluid" alt="Logo">
-            }
-          </div>
+        <div class="section-heading text-center mb-0">
+            <h1 class="mb-lg-5 mb-md-4 mb-4"> Advertising in {{ mediaDetail?.name | titlecase }} </h1>
+            <h3 class="mb-lg-4 mb-3">Select Ad Type</h3>
+            <div class="ad-type-block d-lg-flex">
+                <div class="select-ad-type text-start flex-fill">
+                    <div class="form-check pb-2">
+                        <input class="form-check-input small-check" type="radio" name="adtype" id="adType1" checked (click)="changeAdsControl('classified_text_ads');">
+                        <label class="form-check-label" for="adType1">Classified Text Ads</label>
+                    </div>
+                    
+                    <div class="form-check pt-2 pb-2">
+                        <input class="form-check-input small-check" type="radio" name="adtype" id="adType2" (click)="changeAdsControl('classified_display_ads')">
+                        <label class="form-check-label" for="adType2">Classified Display Ads</label>
+                    </div>
+
+                    <div class="form-check pt-2 pb-2">
+                        <input class="form-check-input small-check" type="radio" name="adtype" id="adType3" (click)="changeAdsControl('display_ads')">
+                        <label class="form-check-label" for="adType3">Display Ads</label>
+                    </div>
+                </div>
+                <div class="ad-image flex-fill mt-lg-0 mt-4">
+                    <img loading="lazy" *ngIf="selectedAdType == 'classified_text_ads' " src="/assets/media/newspaper/text_ads.png" class="img-fluid" alt="Logo" >
+                    <img loading="lazy" *ngIf="selectedAdType == 'classified_display_ads' " src="/assets/media/newspaper/classified_display_ads.png" class="img-fluid" alt="Logo">
+                    <img loading="lazy" *ngIf="selectedAdType == 'display_ads' " src="/assets/media/newspaper/display_ads.png" class="img-fluid" alt="Logo">
+                </div>    
+            </div>    
         </div>
-      </div>
     </div>
-  </section>
-} @else {
-  @if (isDataLoaded) {
-    <app-sec-heading-pagenotfound></app-sec-heading-pagenotfound>
-  }
-  <app-search-result></app-search-result>
-}
-
+</section>
+ 
 <section class="grey-background common-padding">
-  <div class="container">
+    <div class="container">
 
-    <!-- *ngIf="isOfferNotFound" -->
-    @if (isOfferNotFound == true) {
-      <div class="section-heading text-center mb-3 mb-md-4">
-        <h2>Selected Ads Offer Not Found</h2>
-      </div>
-    }
-
-
-    <!-- *ngIf="isCatagoryList" -->
-    @if (isCatagoryList) {
-      <div class="section-heading text-center mb-3 mb-md-4">
-        <h2>Select Category</h2>
-      </div>
-    }
-    @if (isCatagoryList) {
-      <div class="category-list">
-        @for (category of selectedAdTypeByCategoriesList; track category; let i = $index) {
-          <div class="form-check mordern-check">
-            <input class="form-check-input" type="radio" name="category" id="category{{i}}" (click)="changeCategory(category);">
-            <label class="form-check-label" for="category{{i}}">
-              <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 144v288C0 457.6 22.41 480 48 480H96V96H48C22.41 96 0 118.4 0 144zM336 0h-160C150.4 0 128 22.41 128 48V480h256V48C384 22.41 361.6 0 336 0zM336 96h-160V48h160V96zM464 96H416v384h48c25.59 0 48-22.41 48-48v-288C512 118.4 489.6 96 464 96z"/></svg></span>
-              {{category.name}}
-            </label>
-          </div>
-        }
-      </div>
-    }
-
-    <!-- *ngIf="isEditionList" -->
-    @if (isEditionList) {
-      <div class="section-heading text-center mb-3 mb-md-4 mt-5 pt-lg-3 mt-lg-5">
-        <h2>Select Edition</h2>
-      </div>
-    }
-    @if (isEditionList) {
-      <div class="category-list">
-        @for (edition of filterOfferSelectedCategoryByEditionList; track edition; let i = $index) {
-          <div class="form-check mordern-check">
-            <input class="form-check-input" type="checkbox" name="edition" id="Edition{{i}}" (change)="changeEdition($event,edition)">
-            <label class="form-check-label" for="Edition{{i}}">
-              {{edition.name}}
-            </label>
-          </div>
-        }
-      </div>
-    }
-
-
-    @if (isOfferDisplay) {
-      <div >
-        <div class="section-heading text-center mb-3 mb-md-4 mt-5 pt-lg-3 mt-lg-5">
-          <h2>Select Offers</h2>
+        <!-- *ngIf="isOfferNotFound" -->
+        <div class="section-heading text-center mb-3 mb-md-4" *ngIf="isOfferNotFound == true"> 
+            <h2>Selected Ads Offer Not Found</h2>
         </div>
-        <div class="row g-md-4 g-3">
-          @for (offer of selectedEditionByOffersList.selected; track offer) {
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="card border-0 h-100 current-opening-card align-items-start">
-                <div class="card-content mb-3">
-                  <div class="career-card-title d-flex"><h5> {{offer.offer_name}}</h5></div>
-                  <h6>
-                    @if (offer.ad_type == 'classified_text_ads' ) {
-                      <span >
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block text-red"> {{offer.prices.card_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span>
-                        }
-                        <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer.prices.card_rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span> -->
-                        @if (!isAuthenticated) {
-                          <span class="text-red">{{offer.prices.card_rate | mask }}/</span>
-                          }@if (!isAuthenticated) {
-                          <span class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span>
-                        }
-                      </span>
-                    }
-                    @if (offer.ad_type == 'classified_display_ads' ) {
-                      <span >
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block text-red"> {{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="fw-normal">Sq.Cm</span>
-                        }
-                        <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
-                        @if (!isAuthenticated) {
-                          <span class="text-red">{{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | mask }}/</span>
-                          }@if (!isAuthenticated) {
-                          <span class="fw-normal">Sq.Cm</span>
-                        }
-                      </span>
-                    }
-                    @if (offer.ad_type == 'display_ads' ) {
-                      <span >
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block text-red"> {{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="fw-normal">Sq.Cm</span>
-                        }
-                        <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
-                        @if (!isAuthenticated) {
-                          <span class="text-red">{{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | mask }}/</span>
-                          }@if (!isAuthenticated) {
-                          <span class="fw-normal">Sq.Cm</span>
-                        }
-                      </span>
-                    }
-                  </h6>
-                </div>
-                @if (isAuthenticated) {
-                  <button type="button" class="btn btn-outline-primary" (click)="composeProcess(offer)">Book Now</button>
-                }
-                @if (!isAuthenticated) {
-                  <button type="button" class="btn btn-outline-primary" (click)="openUserLoginDialog($safeNavigationMigration(mediaDetail?.name))">Login to View Price</button>
-                }
-              </div>
+
+
+        <!-- *ngIf="isCatagoryList" -->
+        <div class="section-heading text-center mb-3 mb-md-4" *ngIf="isCatagoryList"> 
+            <h2>Select Category</h2>
+        </div>
+        <div class="category-list" *ngIf="isCatagoryList">
+            <div class="form-check mordern-check" *ngFor="let category of selectedAdTypeByCategoriesList; let i = index">
+                <input class="form-check-input" type="radio" name="category" id="category{{i}}" (click)="changeCategory(category);">
+                <label class="form-check-label" for="category{{i}}">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 144v288C0 457.6 22.41 480 48 480H96V96H48C22.41 96 0 118.4 0 144zM336 0h-160C150.4 0 128 22.41 128 48V480h256V48C384 22.41 361.6 0 336 0zM336 96h-160V48h160V96zM464 96H416v384h48c25.59 0 48-22.41 48-48v-288C512 118.4 489.6 96 464 96z"/></svg></span>
+                    {{category.name}}
+                </label>
             </div>
-          }
         </div>
-        @if (selectedEditionByOffersList?.selectOption?.length > 0) {
-          <div class="row g-md-4 g-3 mt-3 mb-3">
-            <span class="text-center"><strong>OR</strong></span>
-          </div>
-        }
-        <div class="row g-md-4 g-3">
-          @for (offer of selectedEditionByOffersList.selectOption; track offer) {
-            <div class="col-12 col-md-6 col-lg-3">
-              <div class="card border-0 h-100 current-opening-card align-items-start">
-                <div class="card-content mb-3">
-                  <div class="career-card-title d-flex"><h5> {{offer.offer_name}}</h5></div>
-                  <h6>
-                    @if (offer.ad_type == 'classified_text_ads' ) {
-                      <span >
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block text-red"> {{offer.prices.card_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span>
-                        }
-                        <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer.prices.card_rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span> -->
-                        @if (!isAuthenticated) {
-                          <span class="text-red">{{offer.prices.card_rate | mask }}/</span>
-                          }@if (!isAuthenticated) {
-                          <span class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span>
-                        }
-                      </span>
-                    }
-                    @if (offer.ad_type == 'classified_display_ads' ) {
-                      <span >
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block text-red"> {{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="fw-normal">Sq.Cm</span>
-                        }
-                        <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
-                        @if (!isAuthenticated) {
-                          <span class="text-red">{{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | mask }}/</span>
-                          }@if (!isAuthenticated) {
-                          <span class="fw-normal">Sq.Cm</span>
-                        }
-                      </span>
-                    }
-                    @if (offer.ad_type == 'display_ads' ) {
-                      <span >
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="d-inline-block text-red"> {{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
-                        }
-                        @if (isAuthenticated) {
-                          <span class="fw-normal">Sq.Cm</span>
-                        }
-                        <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
-                        @if (!isAuthenticated) {
-                          <span class="text-red">{{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | mask }}/</span>
-                          }@if (!isAuthenticated) {
-                          <span class="fw-normal">Sq.Cm</span>
-                        }
-                      </span>
-                    }
-                  </h6>
-                </div>
-                @if (isAuthenticated) {
-                  <button type="button" class="btn btn-outline-primary" (click)="composeProcess(offer)">Book Now</button>
-                }
-                @if (!isAuthenticated) {
-                  <button type="button" class="btn btn-outline-primary" (click)="openUserLoginDialog($safeNavigationMigration(mediaDetail?.name))">Login to View Price</button>
-                }
-              </div>
-            </div>
-          }
-        </div>
-      </div>
-    }
 
-  </div>
+        <!-- *ngIf="isEditionList" -->
+        <div class="section-heading text-center mb-3 mb-md-4 mt-5 pt-lg-3 mt-lg-5" *ngIf="isEditionList">
+            <h2>Select Edition</h2>
+        </div>
+        <div class="category-list" *ngIf="isEditionList">
+            <div class="form-check mordern-check" *ngFor="let edition of filterOfferSelectedCategoryByEditionList; let i = index">
+                <input class="form-check-input" type="checkbox" name="edition" id="Edition{{i}}" (change)="changeEdition($event,edition)">
+                <label class="form-check-label" for="Edition{{i}}">
+                    {{edition.name}}
+                </label>
+            </div>
+        </div>
+
+
+        <div  *ngIf="isOfferDisplay">
+            <div class="section-heading text-center mb-3 mb-md-4 mt-5 pt-lg-3 mt-lg-5">
+                <h2>Select Offers</h2>
+            </div>
+            <div class="row g-md-4 g-3">
+                <div class="col-12 col-md-6 col-lg-3" *ngFor="let offer of selectedEditionByOffersList.selected">
+                    <div class="card border-0 h-100 current-opening-card align-items-start">
+                        <div class="card-content mb-3">
+                            <div class="career-card-title d-flex"><h5> {{offer.offer_name}}</h5></div>
+                            <h6>
+                                <span  *ngIf="offer.ad_type == 'classified_text_ads' ">
+                                    <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer.prices.card_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span>
+                                    <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer.prices.card_rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span> -->
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer.prices.card_rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span>
+                                </span>
+
+                                <span  *ngIf="offer.ad_type == 'classified_display_ads' ">
+                                    <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer?.prices?.card_rate[0]?.rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                    <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                </span>
+
+                                <span  *ngIf="offer.ad_type == 'display_ads' ">
+                                    <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer?.prices?.card_rate[0]?.rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                    <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                </span>
+                            </h6>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary" *ngIf="isAuthenticated" (click)="composeProcess(offer)">Book Now</button>
+                        <button type="button" class="btn btn-outline-primary" *ngIf="!isAuthenticated" (click)="openUserLoginDialog(mediaDetail?.name)">Login to View Price</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-md-4 g-3 mt-3 mb-3" *ngIf="selectedEditionByOffersList?.selectOption?.length > 0">
+                <span class="text-center"><strong>OR</strong></span>
+            </div>
+
+            <div class="row g-md-4 g-3">
+                <div class="col-12 col-md-6 col-lg-3" *ngFor="let offer of selectedEditionByOffersList.selectOption">
+                    <div class="card border-0 h-100 current-opening-card align-items-start">
+                        <div class="card-content mb-3">
+                            <div class="career-card-title d-flex"><h5> {{offer.offer_name}}</h5></div>
+                            <h6>
+                                <span  *ngIf="offer.ad_type == 'classified_text_ads' ">
+                                    <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer.prices.card_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span>
+                                    <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer.prices.card_rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span> -->
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer.prices.card_rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">{{offer.prices.card_qty}} {{(offer.prices.type == 'per_word')?'Words':'Lines'}}</span>
+                                </span>
+
+                                <span  *ngIf="offer.ad_type == 'classified_display_ads' ">
+                                    <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer?.prices?.card_rate[0]?.rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                    <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                </span>
+
+                                <span  *ngIf="offer.ad_type == 'display_ads' ">
+                                    <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer?.prices?.card_rate[0]?.rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                    <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                </span>
+                            </h6>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary" *ngIf="isAuthenticated" (click)="composeProcess(offer)">Book Now</button>
+                        <button type="button" class="btn btn-outline-primary" *ngIf="!isAuthenticated" (click)="openUserLoginDialog(mediaDetail?.name)">Login to View Price</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </section>
 
 
 <!-- pageNotFound start -->
+<ng-template #pageNotFound>
+    <app-sec-heading-pagenotfound *ngIf="isDataLoaded"></app-sec-heading-pagenotfound>
+    <app-search-result></app-search-result>
+</ng-template>
 <!-- pageNotFound end -->
 
 <!-- description start -->
-@if (pageDescription) {
-  <app-content-builder [contentDetail]="pageDescription"></app-content-builder>
-}
+<app-content-builder [contentDetail]="pageDescription" *ngIf="pageDescription"></app-content-builder>
 <!-- description end -->
 
 <!-- call to action media start -->
-@if (callToActionData?.title) {
-  <app-call-to-action-media [mediaCallToActionData]="callToActionData">
-  </app-call-to-action-media>
-}
+<app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
+</app-call-to-action-media>
 <!-- call to action media end -->
 
 
 <!-- Footer Link Data start -->
-@if ((isDataLoaded == true && footerLinkData)) {
-  <div class="col-12 footer-dropdown" style="background-color: #e7e7e7 ;">
+<div class="col-12 footer-dropdown" style="background-color: #e7e7e7 ;" *ngIf="(isDataLoaded == true && footerLinkData)">
+
     <div class="container" role="group" aria-label="Dropdown buttons">
-      <div class="row btn-group btn-group-lg ">
-        <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panel1">
-          Newspaper Advertising Channels <span class="caret"></span>
-        </button>
-        <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panel2">
-          Advertising Prices & Rates <span class="caret"></span>
-        </button>
-        <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panel3">
-          Ad Agency By Location <span class="caret"></span>
-        </button>
-      </div>
+        <div class="row btn-group btn-group-lg ">
+            <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panel1">
+                Newspaper Advertising Channels <span class="caret"></span>
+            </button>
+            <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panel2">
+                Advertising Prices & Rates <span class="caret"></span>
+            </button>
+            <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panel3">
+                Ad Agency By Location <span class="caret"></span>
+            </button>
+        </div>
+
     </div>
+
     <!-- Accordion panels -->
     <div class="panel container">
-      <!-- Panel 1 -->
-      <div id="panel1" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
-        <div class="card card-body">
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (channels of footerLinkData.newspaperAdvertisingChannels; track channels) {
-                  <li>
-                    <a aria-label="Newspaper Advertising Channel Link" [href]="channels.url" target="_blank">{{ channels.name }}</a>
-                  </li>
-                }
-              </ul>
+        <!-- Panel 1 -->
+        <div id="panel1" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let channels of footerLinkData.newspaperAdvertisingChannels">
+                                <a aria-label="Newspaper Advertising Channel Link" [href]="channels.url" target="_blank">{{ channels.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let rate of footerLinkData.advertisingRates">
+                                <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let location of footerLinkData.advertisingAgencies">
+                                <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (rate of footerLinkData.advertisingRates; track rate) {
-                  <li>
-                    <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (location of footerLinkData.advertisingAgencies; track location) {
-                  <li>
-                    <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
-      <!-- Panel 2 -->
-      <div id="panel2" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
-        <div class="card card-body">
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (channels of footerLinkData.newspaperAdvertisingChannels; track channels) {
-                  <li>
-                    <a aria-label="Newspaper Advertising Channel Link" [href]="channels.url" target="_blank">{{ channels.name }}</a>
-                  </li>
-                }
-              </ul>
+
+        <!-- Panel 2 -->
+        <div id="panel2" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let channels of footerLinkData.newspaperAdvertisingChannels">
+                                <a aria-label="Newspaper Advertising Channel Link" [href]="channels.url" target="_blank">{{ channels.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let rate of footerLinkData.advertisingRates">
+                                <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let location of footerLinkData.advertisingAgencies">
+                                <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (rate of footerLinkData.advertisingRates; track rate) {
-                  <li>
-                    <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (location of footerLinkData.advertisingAgencies; track location) {
-                  <li>
-                    <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
-      <!-- Panel 3 -->
-      <div id="panel3" class="collapse mt-2 " data-bs-parent=".panel">
-        <div class="card card-body">
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (channels of footerLinkData.newspaperAdvertisingChannels; track channels) {
-                  <li>
-                    <a aria-label="Newspaper Advertising Channel Link" [href]="channels.url" target="_blank">{{ channels.name }}</a>
-                  </li>
-                }
-              </ul>
+
+        <!-- Panel 3 -->
+        <div id="panel3" class="collapse mt-2 " data-bs-parent=".panel">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let channels of footerLinkData.newspaperAdvertisingChannels">
+                                <a aria-label="Newspaper Advertising Channel Link" [href]="channels.url" target="_blank">{{ channels.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let rate of footerLinkData.advertisingRates">
+                                <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let location of footerLinkData.advertisingAgencies">
+                                <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (rate of footerLinkData.advertisingRates; track rate) {
-                  <li>
-                    <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (location of footerLinkData.advertisingAgencies; track location) {
-                  <li>
-                    <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-}
+</div>
 <!-- Footer Link Data end -->

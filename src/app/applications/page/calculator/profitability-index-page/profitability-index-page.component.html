@@ -1,318 +1,300 @@
 <!-- background -->
 <section class="section-featured-services profitability-background common-padding">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h1 class="text-white"></h1>
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-          class="roas-form p-4 border custom-border mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0 text-center">
-              <label class="form-label fw-bolder">Present Value of Future Cash Flows</label>
-              <input
-                type="number"
-                formControlName="conversionRevenue"
-                class="form-control border-danger" placeholder="Enter Value"
-                />
-              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
-                <div class="text-danger small">
-                  @if (conversionRevenue?.errors?.['required']) {
-                    <div>
-                      Present Value of Future Cash Flows is required.
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Present Value of Future Cash Flows</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Present Value of Future Cash Flows is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Present Value of Future Cash Flows must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Initial Investment</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Initial Investment is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Initial Investment must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  }
-                  @if (conversionRevenue?.errors?.['min']) {
-                    <div>
-                      Present Value of Future Cash Flows must be greater than 0.
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
-                  }
-                </div>
-              }
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">Profitability Index</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
             </div>
-
-            <div class="col-md-6 text-center">
-              <label class="form-label fw-bolder">Initial Investment</label>
-              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-              @if (adSpend?.invalid && adSpend?.touched) {
-                <div class="text-danger small">
-                  @if (adSpend?.errors?.['required']) {
-                    <div>
-                      Initial Investment is required.
-                    </div>
-                  }
-                  @if (adSpend?.errors?.['min']) {
-                    <div>
-                      Initial Investment must be greater than 0.
-                    </div>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
-          </div>
-
-          <div class="text-center col-md-6 mx-auto">
-            <label class="form-label fw-bolder">Profitability Index</label>
-            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-          </div>
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-  <div class="container default-content">
-    <div class="row align-items-center">
-      <!-- Left Image Column -->
-      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-        <img src="assets/page/calculators/profitability-index/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-      </div>
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/profitability-index/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
 
-      <!-- Right Text Column -->
-      <div class="col-md-7">
-        <h2 class="fw-bold text-danger mb-0 display-1">Profitability</h2>
-        <h1 class="fw-bold text-danger mb-3">Index Calculator</h1>
-        <p class="fs-5">
-          Quickly assess investment opportunities with our <strong>Profitability Index Calculator</strong>. It helps evaluate whether a project will generate more value than its cost, enabling you to make informed and sustainable business decisions.
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0 display-1">Profitability</h2>
+                <h1 class="fw-bold text-danger mb-3">Index Calculator</h1>
+                <p class="fs-5">
+                    Quickly assess investment opportunities with our <strong>Profitability Index Calculator</strong>. It helps evaluate whether a project will generate more value than its cost, enabling you to make informed and sustainable business decisions.
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
+
+        <div>
+            <div class="d-flex" style="align-items: baseline;">
+                <img src="assets/page/calculators/profitability-index/right-arrow.png" alt="right-arrow" class="img-fluid me-1" style="max-height: 16px;">
+                <h3 class="text-black mb-0">Profitability Index Formula & Example</h3>
+            </div>
+            <p class="ms-4">
+                Formula for Profitability Index (PI):
+            </p>
+            <div>
+                <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                    PI = Present Value of Future Cash Flows / Initial Investment
+                </h2>
+                <p><strong>Where:</strong></p>
+                <ul class="p-0">
+                    <li class="d-flex align-items-start">
+                      <span class="ms-2">
+                        The <strong>Present Value of future cash flows</strong> shows the present value of all future cash inflows expected from an investment, discounted to reflect the time value of money.
+                      </span>
+                    </li>
+                    <li class="d-flex align-items-start">
+                      <span class="ms-2">
+                        The Initial Investment is the money that has been invested at the beginning of a project set up.
+                      </span>
+                    </li>
+                </ul>
+                <p><strong>Interpretation:</strong></p>
+                <ul class="p-0">
+                    <li class="d-flex align-items-start">
+                      <span class="ms-2">
+                        If PI > 1, the project is running through profit. ( Further Investment is acceptable.)
+                      </span>
+                    </li>
+                    <li class="d-flex align-items-start">
+                      <span class="ms-2">
+                        If PI = 1, the project is at its break-even point. ( No gain or no loss)
+                      </span>
+                    </li>
+                    <li class="d-flex align-items-start">
+                       <span class="ms-2">
+                           If PI < 1, the project profitability is low. (Avoid making further investment) 
+                       </span>
+                    </li>
+                </ul>
+                <p><strong>Example:</strong></p>
+                <p>Suppose there’s a project that demands an initial investment of $ 50,000, and the current value of the future cash flow is $1,00,000.</p>
+                <p>PI = 1,00,000 / 50,000</p>
+                <p class="ms-4">= 2</p>
+                <p>Now that PI > 1, we can say that the project is gaining profit.</p>
+            
+            </div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Why use a calculator to access your Profitability Index?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Using a <strong>Profitability Index Calculator</strong> for your profitability Index measurement can help you ensure accuracy, efficiency and knowledge-based decision making. By assessing the value produced per investment unit, the PI supports business decisions that drive profitability. While a calculation made using the profitability Index formula can give a quick analysis of the clear profitability ratio through Net Present Value (NPV) and initial investment, a manual calculation can create errors and inaccuracies. This ensures business firms and investors that investment decisions are secure with this index measurement.
+            </p>
+        </div>
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Advantages of using the Profitability Index Ratio
+            </li>
+        </ul>
+        <p>
+            There are several benefits of the Profitability Index Ratio calculated by the Profitability Index Calculator, which are as follows:
         </p>
-      </div>
-      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
-    </div>
-
-    <div>
-      <div class="d-flex" style="align-items: baseline;">
-        <img src="assets/page/calculators/profitability-index/right-arrow.png" alt="right-arrow" class="img-fluid me-1" style="max-height: 16px;">
-        <h3 class="text-black mb-0">Profitability Index Formula & Example</h3>
-      </div>
-      <p class="ms-4">
-        Formula for Profitability Index (PI):
-      </p>
-      <div>
-        <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-          PI = Present Value of Future Cash Flows / Initial Investment
-        </h2>
-        <p><strong>Where:</strong></p>
         <ul class="p-0">
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              The <strong>Present Value of future cash flows</strong> shows the present value of all future cash inflows expected from an investment, discounted to reflect the time value of money.
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              The Initial Investment is the money that has been invested at the beginning of a project set up.
-            </span>
-          </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Quick and Accurate Decision Making: </strong>
+                Using a PI calculator can eliminate your time-based efforts and manual calculations and enhance the process of calculation, which helps businesses assess their projects more effectively.
+              </span>
+            </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Helps in Reviewing Investment Opportunities: </strong>
+                The ratio you get from the Profitability Index Calculator can help you assess multiple projects. If the calculated PI is greater than 1, it indicates that the project is profitable and worth investing more. And if a PI is less than 1, that indicates a loss-making probability for that project investment.    
+              </span>
+            </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Effective in Capital Rationing: </strong>
+                Projects with the greatest value per unit of investment are ranked with the PI ratio when companies have limited funds. Companies can utilize resources efficiently by comparing the difference between the present value of future cash flows and cash outflows. 
+              </span>
+            </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Time Value of Money (TMV) Taken into account: </strong>
+                The discount rate is considered by the Profitability Index (PI), which ensures that future cash inflows are discounted to their present value appropriately. This analyses cash inflows and initial cash withdrawals to help one in making risk-adjusted investing choices.
+              </span>
+            </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Examines the Scale Of Investment: </strong>
+                The PI ratio is important for comparing projects of varying sizes because, unlike other metrics like Net Present Value (NPV), it simplifies project evaluation by measuring benefits against initial cash outlays.
+              </span>
+            </li>
         </ul>
-        <p><strong>Interpretation:</strong></p>
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Profitability Index vs. NPV: What is the Difference?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Several businesses and financial analysts rely on a range of capital budgeting methods when it comes to investment opportunities evaluation. Two of the highly preferred methods are Net Present Value (NPV) and The Profitability Index (PI), both of which are used to test the financial viability of a project with their different approaches and interpretations.
+            </p>
+        </div>
         <ul class="p-0">
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              If PI > 1, the project is running through profit. ( Further Investment is acceptable.)
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              If PI = 1, the project is at its break-even point. ( No gain or no loss)
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              If PI < 1, the project profitability is low. (Avoid making further investment)
-            </span>
-          </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Comprehension of Net Present Value (NPV):</strong>
+              </span>
+            </li>
         </ul>
-        <p><strong>Example:</strong></p>
-        <p>Suppose there’s a project that demands an initial investment of $ 50,000, and the current value of the future cash flow is $1,00,000.</p>
-        <p>PI = 1,00,000 / 50,000</p>
-        <p class="ms-4">= 2</p>
-        <p>Now that PI > 1, we can say that the project is gaining profit.</p>
-
-      </div>
+        <div class="ms-4">
+            <p>
+                Through the subtraction of the cost of initial investment and discounting future cash inflows to present value, NPV calculates the total investment value which is expected to generate in future. 
+            </p>
+            <p><strong>NPV Formula:</strong></p>
+            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                NPV = ∑(1+r)tCt−C0
+            </h2>
+            <p><strong>Where:</strong></p>
+            <p>Ct = Cash flow for the time frame t</p>
+            <p>r = Discount rate</p>
+            <p>C0 = Initial Investment</p>
+        </div>
+        <ul class="p-0">
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Comprehension of Profitability Index (PI):</strong>
+              </span>
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                The PI Calculator ratio, also considered as the Profitability Index (PI), is an indicator of the overall profitability of an Investment. In order to calculate it, the cost of initial investment should be divided by the present value of future cash inflows.  
+            </p>
+            <p><strong>Profitability Index Formula:</strong></p>
+            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                PI = Initial Investment Cost / Present Value of Future Cash Flows
+            </h2>
+            <p><strong>Key Differences between Profitability Index and NPV</strong></p>
+            <p><strong>Net Present Value (NPV)</strong> is a financial metric used to calculate the profitability of a project by analyzing the net cash value it generates. The decision rule for NPV is straightforward: a project should be considered if the NPV > 0. This indicates that the project is expected to generate a net financial gain. NPV is particularly suitable for large-sized projects where absolute returns are of prime importance.</p>
+            <p><strong>The Profitability Index (PI),</strong> on the other hand, measures the ratio of relative profitability. It evaluates how much value is created for each dollar invested. According to the decision criteria, a project is considered viable if the PI > 1. This method is especially useful for comparing projects of different sizes, as it allows for easier comparison of investment efficiency.</p>
+            <p>Overall, PI becomes easy to calculate with the <strong>Profitability Index Calculator</strong> simply by entering initial investment, discount rate, and anticipated cash flows. For efficient calculation of PI and NPV, there are many spreadsheets and financial tools available with in-built functionality.</p>
+        </div>
     </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Why use a calculator to access your Profitability Index?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        Using a <strong>Profitability Index Calculator</strong> for your profitability Index measurement can help you ensure accuracy, efficiency and knowledge-based decision making. By assessing the value produced per investment unit, the PI supports business decisions that drive profitability. While a calculation made using the profitability Index formula can give a quick analysis of the clear profitability ratio through Net Present Value (NPV) and initial investment, a manual calculation can create errors and inaccuracies. This ensures business firms and investors that investment decisions are secure with this index measurement.
-      </p>
-    </div>
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Advantages of using the Profitability Index Ratio
-      </li>
-    </ul>
-    <p>
-      There are several benefits of the Profitability Index Ratio calculated by the Profitability Index Calculator, which are as follows:
-    </p>
-    <ul class="p-0">
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Quick and Accurate Decision Making: </strong>
-          Using a PI calculator can eliminate your time-based efforts and manual calculations and enhance the process of calculation, which helps businesses assess their projects more effectively.
-        </span>
-      </li>
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Helps in Reviewing Investment Opportunities: </strong>
-          The ratio you get from the Profitability Index Calculator can help you assess multiple projects. If the calculated PI is greater than 1, it indicates that the project is profitable and worth investing more. And if a PI is less than 1, that indicates a loss-making probability for that project investment.
-        </span>
-      </li>
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Effective in Capital Rationing: </strong>
-          Projects with the greatest value per unit of investment are ranked with the PI ratio when companies have limited funds. Companies can utilize resources efficiently by comparing the difference between the present value of future cash flows and cash outflows.
-        </span>
-      </li>
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Time Value of Money (TMV) Taken into account: </strong>
-          The discount rate is considered by the Profitability Index (PI), which ensures that future cash inflows are discounted to their present value appropriately. This analyses cash inflows and initial cash withdrawals to help one in making risk-adjusted investing choices.
-        </span>
-      </li>
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Examines the Scale Of Investment: </strong>
-          The PI ratio is important for comparing projects of varying sizes because, unlike other metrics like Net Present Value (NPV), it simplifies project evaluation by measuring benefits against initial cash outlays.
-        </span>
-      </li>
-    </ul>
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Profitability Index vs. NPV: What is the Difference?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        Several businesses and financial analysts rely on a range of capital budgeting methods when it comes to investment opportunities evaluation. Two of the highly preferred methods are Net Present Value (NPV) and The Profitability Index (PI), both of which are used to test the financial viability of a project with their different approaches and interpretations.
-      </p>
-    </div>
-    <ul class="p-0">
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Comprehension of Net Present Value (NPV):</strong>
-        </span>
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        Through the subtraction of the cost of initial investment and discounting future cash inflows to present value, NPV calculates the total investment value which is expected to generate in future.
-      </p>
-      <p><strong>NPV Formula:</strong></p>
-      <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-        NPV = ∑(1+r)tCt−C0
-      </h2>
-      <p><strong>Where:</strong></p>
-      <p>Ct = Cash flow for the time frame t</p>
-      <p>r = Discount rate</p>
-      <p>C0 = Initial Investment</p>
-    </div>
-    <ul class="p-0">
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Comprehension of Profitability Index (PI):</strong>
-        </span>
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        The PI Calculator ratio, also considered as the Profitability Index (PI), is an indicator of the overall profitability of an Investment. In order to calculate it, the cost of initial investment should be divided by the present value of future cash inflows.
-      </p>
-      <p><strong>Profitability Index Formula:</strong></p>
-      <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-        PI = Initial Investment Cost / Present Value of Future Cash Flows
-      </h2>
-      <p><strong>Key Differences between Profitability Index and NPV</strong></p>
-      <p><strong>Net Present Value (NPV)</strong> is a financial metric used to calculate the profitability of a project by analyzing the net cash value it generates. The decision rule for NPV is straightforward: a project should be considered if the NPV > 0. This indicates that the project is expected to generate a net financial gain. NPV is particularly suitable for large-sized projects where absolute returns are of prime importance.</p>
-      <p><strong>The Profitability Index (PI),</strong> on the other hand, measures the ratio of relative profitability. It evaluates how much value is created for each dollar invested. According to the decision criteria, a project is considered viable if the PI > 1. This method is especially useful for comparing projects of different sizes, as it allows for easier comparison of investment efficiency.</p>
-      <p>Overall, PI becomes easy to calculate with the <strong>Profitability Index Calculator</strong> simply by entering initial investment, discount rate, and anticipated cash flows. For efficient calculation of PI and NPV, there are many spreadsheets and financial tools available with in-built functionality.</p>
-    </div>
-  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="section-heading text-center mb-5">
-          <h2>FAQs</h2>
-          <span class="separator mb-2"></span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion faq-accordion" id="faqAccordion" >
-            @for (item of faqList; track item; let i = $index) {
-              <div class="accordion-item" itemscope itemprop="mainEntity"
-                itemtype="https://schema.org/Question">
-                <h6 class="accordion-header" id="heading{{i}}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                  </button>
-                </h6>
-                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                  itemtype="https://schema.org/Answer" >
-                  <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                  </div>
-                  <div class="text-center">
-                    @if (item?.buttonname) {
-                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                    }
-                  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-  <div class="container">
-    <!-- Related Calculator -->
-    <div class="row g-md-4 g-3">
-      <h2 class="text-center">Related Calculator</h2>
-      @for (card of cards; track card) {
-        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-          <div class="media-list-card shadow">
-            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-              <img [src]="card.image" loading="lazy" class="card-img-top"
-                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-              <div class="card-body px-0">
-                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                <p class="card-text line-clamp">{{ card.description }}</p>
-              </div>
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        <!-- Related Calculator -->
     </div>
-    <!-- Related Calculator -->
-  </div>
 </section>

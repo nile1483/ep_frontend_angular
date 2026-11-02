@@ -1,262 +1,244 @@
 <!-- background -->
 <section class="section-featured-services adsenserpm-background common-padding">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h1 class="text-white"></h1>
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-          class="roas-form p-4 border custom-border mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0 text-center">
-              <label class="form-label fw-bolder">Estimated Earnings</label>
-              <input
-                type="number"
-                formControlName="conversionRevenue"
-                class="form-control border-danger"
-                placeholder="Enter Value"/>
-              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
-                <div class="text-danger small">
-                  @if (conversionRevenue?.errors?.['required']) {
-                    <div>
-                      Estimated Earnings is required.
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Estimated Earnings</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger"
+                              placeholder="Enter Value"/>
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Estimated Earnings is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Estimated Earnings must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Number of impressions</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value"/>
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Number of impressions is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Number of impressions must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  }
-                  @if (conversionRevenue?.errors?.['min']) {
-                    <div>
-                      Estimated Earnings must be greater than 0.
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
-                  }
-                </div>
-              }
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">RPM</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
             </div>
-
-            <div class="col-md-6 text-center">
-              <label class="form-label fw-bolder">Number of impressions</label>
-              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value"/>
-              @if (adSpend?.invalid && adSpend?.touched) {
-                <div class="text-danger small">
-                  @if (adSpend?.errors?.['required']) {
-                    <div>
-                      Number of impressions is required.
-                    </div>
-                  }
-                  @if (adSpend?.errors?.['min']) {
-                    <div>
-                      Number of impressions must be greater than 0.
-                    </div>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
-          </div>
-
-          <div class="text-center col-md-6 mx-auto">
-            <label class="form-label fw-bolder">RPM</label>
-            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-          </div>
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-  <div class="container default-content">
-    <div class="row align-items-center">
-      <!-- Left Image Column -->
-      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-        <img src="assets/page/calculators/adsense-rpm/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-      </div>
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/adsense-rpm/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
 
-      <!-- Right Text Column -->
-      <div class="col-md-7">
-        <h2 class="fw-bold text-danger mb-0">Adsense RPM</h2>
-        <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
-        <p class="fs-5">
-          Measure your website’s revenue potential with our AdSense RPM calculator. You will get the accurate estimation of your revenue generation per thousand impressions to help you in optimizing your monetization strategy. Apply this now!
-        </p>
-        <p class="fs-5">
-          This AdSense RPM calculator lets you calculate the revenue generation of popular AdSense platforms like Google and Yahoo. Revenue Per Thousand Impressions (RPM) measures how much ad revenue you earn for every thousand impressions on your website. Our calculator makes it easy to estimate your website's ad revenue potential by quickly calculating RPM, helping you maximize your earnings.
-        </p>
-      </div>
-      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0">Adsense RPM</h2>
+                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+                <p class="fs-5">
+                    Measure your website’s revenue potential with our AdSense RPM calculator. You will get the accurate estimation of your revenue generation per thousand impressions to help you in optimizing your monetization strategy. Apply this now!
+                </p>
+                <p class="fs-5">
+                    This AdSense RPM calculator lets you calculate the revenue generation of popular AdSense platforms like Google and Yahoo. Revenue Per Thousand Impressions (RPM) measures how much ad revenue you earn for every thousand impressions on your website. Our calculator makes it easy to estimate your website's ad revenue potential by quickly calculating RPM, helping you maximize your earnings.
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What is an AdSense RPM calculator? 
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                An AdSense RPM calculator is a tool that helps you estimate how much revenue you can earn from Google AdSense for every 1,000 ad impressions on your website. RPM (Revenue Per Thousand Impressions) is calculated using the formula:
+            </p>
+            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                RPM = Estimated earnings*100/ Number of impressions
+            </h2>
+            <p>By inputting your estimated earnings and impressions, the calculator gives you a clear idea of your potential ad revenue, helping you optimize your ad performance and maximize profits.</p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                How is AdSense RPM calculated?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                AdSense RPM (Revenue Per Thousand Impressions) shows how much money you earn for every 1,000 times ads are shown on your website. A higher RPM means your ads are performing well and generating more income. It helps you understand how effectively your website is monetizing traffic, allowing you to adjust your ad placements and content strategy to maximize revenue.
+            </p>
+            <p><strong>Example:</strong></p>
+            <p>If your estimated earnings are <strong>₹500</strong> from <strong>10,000 impressions,</strong> the RPM would be:</p>
+            <p>500*100/1000 =50 </p>
+            <p>This means you’re earning <strong>₹50</strong> for every <strong>1,000 ad impressions</strong> on your website.</p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                How much does AdSense pay per 1000 views?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                The amount AdSense pays per 1,000 views (RPM) can vary depending on factors like your website's niche, audience location, ad quality, and user engagement. On average, AdSense pays between ₹100 to ₹600 per 1,000 views for Indian traffic, while for US or European traffic, it can range from $1 to $10 or even higher. For example, if your website earns ₹300 for 10,000 views, your RPM would be ₹30 (₹300 ÷ 10 = ₹30 per 1,000 views). High-paying niches like finance, technology, and health tend to have higher RPMs, whereas entertainment or general content may have lower rates.
+            </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Factors affecting AdSense earnings  
+            </li>
+        </ul>
+        <div class="ms-4">
+            <ul class="p-0">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Niche/Industry –</strong>
+                    High-paying niches like finance, technology, and health tend to have higher RPMs compared to entertainment or general content.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Traffic Source –</strong>
+                    Traffic from countries like the US, UK, and Canada generally results in higher payouts than traffic from developing countries.   
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Ad Placement –</strong>
+                    Strategically placing ads where they are more likely to be seen and clicked (like above the fold or within content) increases revenue.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Ad Type and Format –</strong>
+                    Display ads, video, and native ads have different payout rates, with video ads usually paying more. 
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Audience Engagement –</strong>
+                    Higher click-through rates (CTR) and longer time spent on-site increase the chances of higher earnings. 
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                    <span class="ms-2">
+                      <strong>Device Type –</strong>
+                      Earnings can vary depending on whether the traffic comes from desktop, mobile, or tablet, as desktop traffic often generates higher revenue.
+                    </span>
+                </li>
+                <li class="d-flex align-items-start">
+                    <span class="ms-2">
+                      <strong>Ad Blockers –</strong>
+                      If users have ad blockers enabled, your ads won’t be shown, reducing your potential earnings.
+                    </span>
+                </li>
+            </ul>
+        </div>
+
     </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        What is an AdSense RPM calculator?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        An AdSense RPM calculator is a tool that helps you estimate how much revenue you can earn from Google AdSense for every 1,000 ad impressions on your website. RPM (Revenue Per Thousand Impressions) is calculated using the formula:
-      </p>
-      <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-        RPM = Estimated earnings*100/ Number of impressions
-      </h2>
-      <p>By inputting your estimated earnings and impressions, the calculator gives you a clear idea of your potential ad revenue, helping you optimize your ad performance and maximize profits.</p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        How is AdSense RPM calculated?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        AdSense RPM (Revenue Per Thousand Impressions) shows how much money you earn for every 1,000 times ads are shown on your website. A higher RPM means your ads are performing well and generating more income. It helps you understand how effectively your website is monetizing traffic, allowing you to adjust your ad placements and content strategy to maximize revenue.
-      </p>
-      <p><strong>Example:</strong></p>
-      <p>If your estimated earnings are <strong>₹500</strong> from <strong>10,000 impressions,</strong> the RPM would be:</p>
-      <p>500*100/1000 =50 </p>
-      <p>This means you’re earning <strong>₹50</strong> for every <strong>1,000 ad impressions</strong> on your website.</p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        How much does AdSense pay per 1000 views?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        The amount AdSense pays per 1,000 views (RPM) can vary depending on factors like your website's niche, audience location, ad quality, and user engagement. On average, AdSense pays between ₹100 to ₹600 per 1,000 views for Indian traffic, while for US or European traffic, it can range from $1 to $10 or even higher. For example, if your website earns ₹300 for 10,000 views, your RPM would be ₹30 (₹300 ÷ 10 = ₹30 per 1,000 views). High-paying niches like finance, technology, and health tend to have higher RPMs, whereas entertainment or general content may have lower rates.
-      </p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Factors affecting AdSense earnings
-      </li>
-    </ul>
-    <div class="ms-4">
-      <ul class="p-0">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Niche/Industry –</strong>
-            High-paying niches like finance, technology, and health tend to have higher RPMs compared to entertainment or general content.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Traffic Source –</strong>
-            Traffic from countries like the US, UK, and Canada generally results in higher payouts than traffic from developing countries.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Ad Placement –</strong>
-            Strategically placing ads where they are more likely to be seen and clicked (like above the fold or within content) increases revenue.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Ad Type and Format –</strong>
-            Display ads, video, and native ads have different payout rates, with video ads usually paying more.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Audience Engagement –</strong>
-            Higher click-through rates (CTR) and longer time spent on-site increase the chances of higher earnings.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Device Type –</strong>
-            Earnings can vary depending on whether the traffic comes from desktop, mobile, or tablet, as desktop traffic often generates higher revenue.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Ad Blockers –</strong>
-            If users have ad blockers enabled, your ads won’t be shown, reducing your potential earnings.
-          </span>
-        </li>
-      </ul>
-    </div>
-
-  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="section-heading text-center mb-5">
-          <h2>FAQs</h2>
-          <span class="separator mb-2"></span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion faq-accordion" id="faqAccordion" >
-            @for (item of faqList; track item; let i = $index) {
-              <div class="accordion-item" itemscope itemprop="mainEntity"
-                itemtype="https://schema.org/Question">
-                <h6 class="accordion-header" id="heading{{i}}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                  </button>
-                </h6>
-                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                  itemtype="https://schema.org/Answer" >
-                  <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                  </div>
-                  <div class="text-center">
-                    @if (item?.buttonname) {
-                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                    }
-                  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-  <div class="container">
-    <!-- Related Calculator -->
-    <div class="row g-md-4 g-3">
-      <h2 class="text-center">Related Calculator</h2>
-      @for (card of cards; track card) {
-        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-          <div class="media-list-card shadow">
-            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-              <img [src]="card.image" loading="lazy" class="card-img-top"
-                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-              <div class="card-body px-0">
-                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                <p class="card-text line-clamp">{{ card.description }}</p>
-              </div>
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        <!-- Related Calculator -->
     </div>
-    <!-- Related Calculator -->
-  </div>
 </section>

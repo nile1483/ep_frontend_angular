@@ -1,262 +1,244 @@
 <!-- background -->
 <section class="section-featured-services ecpm-background common-padding">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h1 class="text-white"></h1>
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-          class="roas-form p-4 border custom-border mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0 text-center">
-              <label class="form-label fw-bolder">Total Earnings</label>
-              <input
-                type="number"
-                formControlName="conversionRevenue"
-                class="form-control border-danger" placeholder="Enter Value"
-                />
-              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
-                <div class="text-danger small">
-                  @if (conversionRevenue?.errors?.['required']) {
-                    <div>
-                      Total Earnings is required.
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Total Earnings</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Total Earnings is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Total Earnings must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Total Impressions</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Total Impressions is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Total Impressions must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  }
-                  @if (conversionRevenue?.errors?.['min']) {
-                    <div>
-                      Total Earnings must be greater than 0.
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
-                  }
-                </div>
-              }
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">eCPM</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
             </div>
-
-            <div class="col-md-6 text-center">
-              <label class="form-label fw-bolder">Total Impressions</label>
-              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-              @if (adSpend?.invalid && adSpend?.touched) {
-                <div class="text-danger small">
-                  @if (adSpend?.errors?.['required']) {
-                    <div>
-                      Total Impressions is required.
-                    </div>
-                  }
-                  @if (adSpend?.errors?.['min']) {
-                    <div>
-                      Total Impressions must be greater than 0.
-                    </div>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
-          </div>
-
-          <div class="text-center col-md-6 mx-auto">
-            <label class="form-label fw-bolder">eCPM</label>
-            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-          </div>
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-  <div class="container default-content">
-    <div class="row align-items-center">
-      <!-- Left Image Column -->
-      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-        <img src="assets/page/calculators/ecpm/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-      </div>
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/ecpm/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
 
-      <!-- Right Text Column -->
-      <div class="col-md-7">
-        <h2 class="fw-bold text-danger mb-0 display-1">ECPM</h2>
-        <h1 class="fw-bold text-danger mb-3">Calculator</h1>
-        <p class="fs-5">The eCPM calculator helps in knowing the approximate ad impressions your advertisement will generate if you invest a certain amount of money. This calculator helps in maximizing the advertising revenue by calculating the ad impressions. This calculator helps in forming an effective ad strategy and revenue optimization.</p>
-        <p class="fs-5">The abbreviation of eCPM stands for an effective cost-per-mile calculator. It is a calculator of the kind that is utilized to understand the revenue earned per thousand impressions of ads. The calculator assists publishers and advertisers in knowing the profitability and effectiveness of their ad campaigns. By providing the relevant information, such as total earnings and total ad impressions, the calculator gives the value of eCPM. This calculator helps companies earn high revenue and optimize their ad strategy.</p>
-      </div>
-      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
-    </div>
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0 display-1">ECPM</h2>
+                <h1 class="fw-bold text-danger mb-3">Calculator</h1>
+                <p class="fs-5">The eCPM calculator helps in knowing the approximate ad impressions your advertisement will generate if you invest a certain amount of money. This calculator helps in maximizing the advertising revenue by calculating the ad impressions. This calculator helps in forming an effective ad strategy and revenue optimization.</p>
+                <p class="fs-5">The abbreviation of eCPM stands for an effective cost-per-mile calculator. It is a calculator of the kind that is utilized to understand the revenue earned per thousand impressions of ads. The calculator assists publishers and advertisers in knowing the profitability and effectiveness of their ad campaigns. By providing the relevant information, such as total earnings and total ad impressions, the calculator gives the value of eCPM. This calculator helps companies earn high revenue and optimize their ad strategy.</p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
 
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        What Is Effective Cost Per Mille (eCPM)?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>Effective Cost Per Mille (eCPM) is among the most significant ad metrics, and it is defined as a measure of revenue earned per 1,000 views of an advertisement. eCPM helps publishers and advertisers to measure how well their ads are generating revenue, whether using Cost Per Click (CPC), Cost Per Acquisition (CPA), or any other payment mechanism. Normalizing the revenues across different ad formats, eCPM allows companies to calculate campaign profitability and make data-driven decisions.</p>
-      <p>To advertisers, eCPM helps to decide how profitable different placements of ads are, so they get the best return on investment. To publishers, it provides them with knowledge of the ad spaces that are most profitable and, therefore, can make their monetization plan more optimized. Better ad performance is seen in the higher eCPM, so it is an important measure in optimizing revenue as well as fine-tuning ad strategies.</p>
-    </div>
-
-    <div>
-      <div class="d-flex" style="align-items: baseline;">
-        <img src="assets/page/calculators/ecpm/right-arrow.png" alt="right-arrow" class="img-fluid me-1" style="max-height: 16px;">
-        <h3 class="text-black mb-0">How Is eCPM Calculated?</h3>
-      </div>
-      <div>
-        <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-          eCPM=(Total Impressions/Total Earnings)×1000
-        </h2>
-        <p>Explanation: <br></p>
-        <ul class="p-0">
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              Total Earnings – This is the entire revenue brought from ad impressions.
-            </span>
-          </li>
-          <li class="d-flex align-items-start">
-            <span class="ms-2">
-              Total Impressions – How many times the ad appears.
-            </span>
-          </li>
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What Is Effective Cost Per Mille (eCPM)?
+            </li>
         </ul>
-        <p>This formula assists in the computation of effective cost per thousand impressions, offering ad performance and revenue efficiency insights.</p>
-        <p>For example:</p>
-        <p>Total earnings = 500 rs</p>
-        <p>Total impressions = 2,00,000</p>
-        <p>eCPM=(200,000/500)×1000</p>
-        <p>eCPM=(0.0025)×1000</p>
-        <p>eCPM = 2.5</p>
-        <p>So the eCPM is 2.50 Rs. This means that the advertiser will earn 2,50 rs from every 1000 ad impressions. </p>
-      </div>
-    </div>
+        <div class="ms-4">
+            <p>Effective Cost Per Mille (eCPM) is among the most significant ad metrics, and it is defined as a measure of revenue earned per 1,000 views of an advertisement. eCPM helps publishers and advertisers to measure how well their ads are generating revenue, whether using Cost Per Click (CPC), Cost Per Acquisition (CPA), or any other payment mechanism. Normalizing the revenues across different ad formats, eCPM allows companies to calculate campaign profitability and make data-driven decisions.</p>
+            <p>To advertisers, eCPM helps to decide how profitable different placements of ads are, so they get the best return on investment. To publishers, it provides them with knowledge of the ad spaces that are most profitable and, therefore, can make their monetization plan more optimized. Better ad performance is seen in the higher eCPM, so it is an important measure in optimizing revenue as well as fine-tuning ad strategies.</p>
+        </div>
 
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        What Is the Difference Between CPM and eCPM?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        CPM (Cost Per Thousand Impressions) and eCPM (Effective Cost Per Thousand Impressions) are two metrics applied in online advertising, yet they are utilized for distinct reasons. CPM is the price an advertiser pays for each 1,000 impressions of an ad, without knowing how much engagement or revenue he will make. It is a fixed charge determined by publishers or ad networks and assists advertisers in estimating the cost of displaying an ad campaign by impressions.
-      </p>
-      <p>
-        On the other hand, eCPM is an effectiveness-based measurement that computes revenue made per 1,000 impressions. It offers a picture of how an ad is performing by considering overall earnings and the impressions delivered. eCPM is widely applied by publishers to analyze ad income by campaign so they can optimize their inventory for maximum returns.
-      </p>
-      <p>
-        While CPM focuses on the advertiser's cost, eCPM measures the publisher's revenue efficiency. Advertisers use CPM to plan and budget their campaigns, while publishers analyze eCPM to maximize their ad earnings. Understanding both metrics is essential for balancing ad spending, optimizing revenue, and improving overall campaign performance.
-      </p>
-    </div>
+        <div>
+            <div class="d-flex" style="align-items: baseline;">
+                <img src="assets/page/calculators/ecpm/right-arrow.png" alt="right-arrow" class="img-fluid me-1" style="max-height: 16px;">
+                <h3 class="text-black mb-0">How Is eCPM Calculated?</h3>
+            </div>
+            <div>
+                <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                    eCPM=(Total Impressions/Total Earnings)×1000
+                </h2>
+                <p>Explanation: <br></p>
+                <ul class="p-0">
+                    <li class="d-flex align-items-start">
+                      <span class="ms-2">
+                        Total Earnings – This is the entire revenue brought from ad impressions.
+                      </span>
+                    </li>
+                    <li class="d-flex align-items-start">
+                      <span class="ms-2">
+                        Total Impressions – How many times the ad appears.   
+                      </span>
+                    </li>
+                </ul>
+                <p>This formula assists in the computation of effective cost per thousand impressions, offering ad performance and revenue efficiency insights.</p>
+                <p>For example:</p>
+                <p>Total earnings = 500 rs</p>
+                <p>Total impressions = 2,00,000</p>
+                <p>eCPM=(200,000/500)×1000</p>
+                <p>eCPM=(0.0025)×1000</p>
+                <p>eCPM = 2.5</p>
+                <p>So the eCPM is 2.50 Rs. This means that the advertiser will earn 2,50 rs from every 1000 ad impressions. </p>
+            </div>
+        </div>
 
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        How to Increase eCPM and Earn More Revenue?
-      </li>
-    </ul>
-    <ul class="p-0">
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Optimize your ad placements</strong>
-          Positioning ads in high-visibility areas, such as at the start of a website or with engaging content, increases viewability and click-through rates.
-        </span>
-      </li>
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Use high-impactful ad formats</strong>
-          Engaging and high-end graphic usage ads make a great impact. In the current ad trends, CGI videos are trending, and big companies are leveraging this type of video to gain engagement. This results in higher eCPM.
-        </span>
-      </li>
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Leverage Header Bidding</strong>
-          Implementing header bidding allows multiple advertisers to bid in real time, increasing competition and maximizing ad revenue.
-        </span>
-      </li>
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Target the right audience</strong>
-          Making the best use of data-driven strategies and utilizing AI-powered ad targeting ads helps in reaching the most relevant audience, which leads to better engagement and higher bids.
-        </span>
-      </li>
-      <li class="d-flex align-items-start">
-        <span class="ms-2">
-          <strong>Experiment with multiple ad networks </strong>
-          Working with multiple ad networks and demand partners helps publishers access better-paying advertisers, improving overall eCPM.
-        </span>
-      </li>
-    </ul>
-  </div>
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What Is the Difference Between CPM and eCPM?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                CPM (Cost Per Thousand Impressions) and eCPM (Effective Cost Per Thousand Impressions) are two metrics applied in online advertising, yet they are utilized for distinct reasons. CPM is the price an advertiser pays for each 1,000 impressions of an ad, without knowing how much engagement or revenue he will make. It is a fixed charge determined by publishers or ad networks and assists advertisers in estimating the cost of displaying an ad campaign by impressions.
+            </p>
+            <p>
+                On the other hand, eCPM is an effectiveness-based measurement that computes revenue made per 1,000 impressions. It offers a picture of how an ad is performing by considering overall earnings and the impressions delivered. eCPM is widely applied by publishers to analyze ad income by campaign so they can optimize their inventory for maximum returns.
+            </p>
+            <p>
+                While CPM focuses on the advertiser's cost, eCPM measures the publisher's revenue efficiency. Advertisers use CPM to plan and budget their campaigns, while publishers analyze eCPM to maximize their ad earnings. Understanding both metrics is essential for balancing ad spending, optimizing revenue, and improving overall campaign performance.
+            </p>     
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                How to Increase eCPM and Earn More Revenue?
+            </li>
+        </ul> 
+        <ul class="p-0">
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Optimize your ad placements</strong>
+                Positioning ads in high-visibility areas, such as at the start of a website or with engaging content, increases viewability and click-through rates.
+              </span>
+            </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Use high-impactful ad formats</strong>
+                Engaging and high-end graphic usage ads make a great impact. In the current ad trends, CGI videos are trending, and big companies are leveraging this type of video to gain engagement. This results in higher eCPM.   
+              </span>
+            </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Leverage Header Bidding</strong>
+                Implementing header bidding allows multiple advertisers to bid in real time, increasing competition and maximizing ad revenue.
+              </span>
+            </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Target the right audience</strong>
+                Making the best use of data-driven strategies and utilizing AI-powered ad targeting ads helps in reaching the most relevant audience, which leads to better engagement and higher bids. 
+              </span>
+            </li>
+            <li class="d-flex align-items-start">
+              <span class="ms-2">
+                <strong>Experiment with multiple ad networks </strong>
+                Working with multiple ad networks and demand partners helps publishers access better-paying advertisers, improving overall eCPM. 
+              </span>
+            </li>
+        </ul>
+    </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="section-heading text-center mb-5">
-          <h2>FAQs</h2>
-          <span class="separator mb-2"></span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion faq-accordion" id="faqAccordion" >
-            @for (item of faqList; track item; let i = $index) {
-              <div class="accordion-item" itemscope itemprop="mainEntity"
-                itemtype="https://schema.org/Question">
-                <h6 class="accordion-header" id="heading{{i}}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                  </button>
-                </h6>
-                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                  itemtype="https://schema.org/Answer" >
-                  <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                  </div>
-                  <div class="text-center">
-                    @if (item?.buttonname) {
-                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                    }
-                  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-  <div class="container">
-    <!-- Related Calculator -->
-    <div class="row g-md-4 g-3">
-      <h2 class="text-center">Related Calculator</h2>
-      @for (card of cards; track card) {
-        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-          <div class="media-list-card shadow">
-            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-              <img [src]="card.image" loading="lazy" class="card-img-top"
-                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-              <div class="card-body px-0">
-                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                <p class="card-text line-clamp">{{ card.description }}</p>
-              </div>
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        <!-- Related Calculator -->
     </div>
-    <!-- Related Calculator -->
-  </div>
 </section>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShoppingCartService } from '@app-media-services';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -9,16 +9,15 @@ import { AppURL } from 'src/app/app-url';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-campaign-detail',
-    templateUrl: './campaign-detail.component.html',
-    styleUrls: ['./campaign-detail.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-campaign-detail',
+  templateUrl: './campaign-detail.component.html',
+  styleUrls: ['./campaign-detail.component.css']
 })
 export class CampaignDetailComponent implements OnInit {
 
   webURL: string = AppURL.webURL;
-  metaData: any = META_DATA['campaigndetail'];
+  metaData: any = META_DATA['campaign-detail'];
+
   campaignData: any = false;
   campaignCurrencyTotals: any = false;
   campaignId: number = 0;

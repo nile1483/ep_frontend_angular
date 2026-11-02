@@ -1,280 +1,242 @@
 <section class="detail-page">
-  @if (mediaDetail != false) {
-    <section class="bg-linear-gradient service-detail-header">
-      <div class="container">
+<section class="bg-linear-gradient service-detail-header" *ngIf="mediaDetail != false">
+    <div class="container">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a aria-label="Link" href="{{webURL}}" itemprop="item">
-                <span itemprop="name"><b> Home</b></span>
-              </a>
-              <meta itemprop="position" content="1" />
-            </li>
-            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a aria-label="Link" href="{{webURL}}/cinema" itemprop="item">
-                <span itemprop="name">  Cinema </span>
-              </a>
-              <meta itemprop="position" content="2" />
-            </li>
-            <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <span itemprop="name">{{mediaDetail?.name}}</span>
-              <meta itemprop="position" content="3" />
-            </li>
-          </ol>
+            <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a aria-label="Link" href="{{webURL}}" itemprop="item">
+                        <span itemprop="name"><b> Home</b></span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a aria-label="Link" href="{{webURL}}/cinema" itemprop="item">
+                        <span itemprop="name">  Cinema </span>
+                    </a>
+                    <meta itemprop="position" content="2" />
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">{{mediaDetail?.name}}</span>
+                    <meta itemprop="position" content="3" />
+                </li>
+            </ol>
         </nav>
         <div class="services-detail-header-card">
-          <div class="services-header-image-content">
-            <div class="services-header-image">
-              <img loading="lazy" src="{{mediaDetail?.image}}" width="214" height="90"  class="" alt="{{mediaDetail?.name}}" title="{{mediaDetail?.name}}">
+            <div class="services-header-image-content">
+                <div class="services-header-image">
+                    <img loading="lazy" src="{{mediaDetail?.image}}" width="214" height="90"  class="" alt="{{mediaDetail?.name}}" title="{{mediaDetail?.name}}">
+                </div>
+                <div class="services-header-content">
+                    <h1> Advertising in {{mediaDetail?.name}} </h1>
+                    <a  *ngIf="mediaDetail?.google_map_location" aria-label="Link" target="_blank" href="{{mediaDetail?.google_map_location}}">
+                        <span itemprop="name"><b> Google Map Location</b></span>
+                    </a>
+                    <p> {{mediaDetail?.short_description}} </p>
+                </div>
             </div>
-            <div class="services-header-content">
-              <h1> Advertising in {{mediaDetail?.name}} </h1>
-              @if (mediaDetail?.google_map_location) {
-                <a  aria-label="Link" target="_blank" href="{{mediaDetail?.google_map_location}}">
-                  <span itemprop="name"><b> Google Map Location</b></span>
-                </a>
-              }
-              <p> {{mediaDetail?.short_description}} </p>
-            </div>
-          </div>
-          @if (mediaDetail?.keyInsights) {
-            <div class="services-header-bottom-content">
-              <h5> Key Insights </h5>
-              @for (item of $safeNavigationMigration(mediaDetail?.keyInsights) | keyvalue; track item) {
-                <span class="badge m-1">
-                  {{item.key}} <strong> {{item.value}} </strong>
+            <div class="services-header-bottom-content" *ngIf="mediaDetail?.keyInsights">
+                <h5> Key Insights </h5>
+                <span class="badge m-1" *ngFor="let item of mediaDetail?.keyInsights | keyvalue">
+                    {{item.key}} <strong> {{item.value}} </strong>
                 </span>
-              }
             </div>
-          }
         </div>
-      </div>
-    </section>
-  }
+    </div>
+</section>
 
-  <!-- media price list start -->
-  @if (mediaDetail != false) {
-    <section class="services-detail-media-list">
-      <div class="container">
+<!-- media price list start -->
+<section class="services-detail-media-list" *ngIf="mediaDetail != false; else pageNotFound;">
+    <div class="container">
         <h2 class="text-center price-heading" > Advertising Options</h2>
         <span class="separator mb-4"></span>
         <div class="row justify-content-center gy-4">
-          @for (price of mediaDetail?.price; track price) {
-            <div class="col-12 col-md-4 col-services-detail">
-              <div class="services-detail-card">
-                <div class="services-detail-card-image">
-                  <img loading="lazy" src="{{price?.image}}" width="326" height="137"  alt="{{price?.name}}">
-                </div>
-                <div class="services-detail-card-body">
-                  <p class="services-detail-card-title"> {{price?.name}} </p>
-                  <div class="pb-3 price-description" [innerHTML]="$safeNavigationMigration(price?.description)"></div>
-                  @if (isAuthenticated && price.price_on_request == 0) {
-                    <div class="services-card-price-row d-flex">
-                      <div class="services-card-price-col price-week">
-                        <span>
-                          <div class="price-week-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
-                          <div class="price-week-currency d-inline-block"> {{$safeNavigationMigration(price?.offer_rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                        </span>
-                        <span> {{price?.unit}} </span>
-                      </div>
-                      <div class="services-card-price-col price-bill">
-                        <span>
-                          <div class="price-bill-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
-                          <div class="price-bill-currency d-inline-block"> {{$safeNavigationMigration(price?.minimum_billing) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
-                        </span>
-                        <span> Minimum Billing </span>
-                      </div>
+            <div class="col-12 col-md-4 col-services-detail" *ngFor="let price of mediaDetail?.price">
+                <div class="services-detail-card">
+                    <div class="services-detail-card-image">
+                        <img loading="lazy" src="{{price?.image}}" width="326" height="137"  alt="{{price?.name}}">
                     </div>
-                  }
-                  <hr>
-                    <div class="row services-card-bottom justify-content-center ">
-                      @if (isAuthenticated) {
-                        <div class="col-auto">
-                          @if (price.price_on_request == 0) {
-                            <button type="button" class="btn btn-primary add-to-plan" (click)="openAddToPlanDialog(price)"> Add to Plan </button>
-                          }
-                          @if (price.price_on_request == 1) {
-                            <button type="button" class="btn btn-primary price-on-request" (click)="openPriceOnRequestDialog(price)"> Price on Request </button>
-                          }
+                    <div class="services-detail-card-body">
+                        <p class="services-detail-card-title"> {{price?.name}} </p>
+
+                        <div class="pb-3 price-description" [innerHTML]="price?.description"></div>
+
+                        <div class="services-card-price-row d-flex" *ngIf="isAuthenticated && price.price_on_request == 0">
+                            <div class="services-card-price-col price-week">
+                                <span>
+                                    <div class="price-week-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
+                                    <div class="price-week-currency d-inline-block"> {{price?.offer_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                </span>
+                                <span> {{price?.unit}} </span>
+                            </div>
+                            <div class="services-card-price-col price-bill">
+                                <span>
+                                    <div class="price-bill-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
+                                    <div class="price-bill-currency d-inline-block"> {{price?.minimum_billing | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                </span>
+                                <span> Minimum Billing </span>
+                            </div>
                         </div>
-                      }
-                      @if (!isAuthenticated) {
-                        <div class="col-auto">
-                          <button type="button" class="btn btn-primary view-price" [attr.data-item-name]="mediaDetail.name" [attr.data-item-price-name]="price.name" (click)="openUserLoginDialog($safeNavigationMigration(mediaDetail?.name))"> Login to View Price </button>
+                        <hr>
+                        <div class="row services-card-bottom justify-content-center ">
+                            <div class="col-auto" *ngIf="isAuthenticated">
+                                <button type="button" class="btn btn-primary add-to-plan" (click)="openAddToPlanDialog(price)" *ngIf="price.price_on_request == 0"> Add to Plan </button>
+                                <button type="button" class="btn btn-primary price-on-request" (click)="openPriceOnRequestDialog(price)" *ngIf="price.price_on_request == 1"> Price on Request </button>
+                            </div>
+                            <div class="col-auto" *ngIf="!isAuthenticated">
+                                <button type="button" class="btn btn-primary view-price" [attr.data-item-name]="mediaDetail.name" [attr.data-item-price-name]="price.name" (click)="openUserLoginDialog(mediaDetail?.name)"> Login to View Price </button>
+                            </div>
                         </div>
-                      }
+
                     </div>
-                  </div>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+
         </div>
-      </section>
-    } @else {
-      @if (isDataLoaded) {
-        <app-sec-heading-pagenotfound ></app-sec-heading-pagenotfound>
-      }
-      <app-search-result></app-search-result>
-    }
-    <!-- media price list end -->
+    </div>
+</section>
+<!-- media price list end -->
 
-    <!-- pageNotFound start -->
-    <!-- pageNotFound end -->
+<!-- pageNotFound start -->
+<ng-template #pageNotFound>
+    <app-sec-heading-pagenotfound *ngIf="isDataLoaded" ></app-sec-heading-pagenotfound>
+    <app-search-result></app-search-result>
+</ng-template>
+<!-- pageNotFound end -->
 
-    @if (mediaDetail != false;) {
-      <section  class="common-padding bg-gradient-gray">
-        <div class="container">
-          <div class="default-content">
-            <p>
-              Theatre Advertising in {{mediaDetail?.name}} offers a variety of both Onscreen Cinema Advertising and Off-screen Cinema Advertising, both of which are executed in a highly seamless manner. Having a total of {{mediaDetail?.total_screen}} Screens
-              in India, {{mediaDetail?.name}} caters to an audience of {{mediaDetail?.seats}}+ people per show. Present in a very suitable location, in majorIndia States, {{mediaDetail?.name}} is the preferred
-              cinema for a majority of the population there, and attracts a wide recurring audience.Clubbed with the impressive execution of on-screen advertisement through, Cinema Advertising in {{mediaDetail?.name}}
-              will ensure an Advertising Campaign with a High ROI and an impressive Ad recall rate.
-            </p>
-            <p>
-              Therefore, an advertising campaign through {{mediaDetail?.name}} would ensure maximum brand visibility amongst a wide audience, leading to an optimum utilisation of your Advertising Budget.
-            </p>
-          </div>
-        </div>
-      </section>
-    }
-    <!-- description start -->
-    @if (pageDescription) {
-      <app-content-builder [contentDetail]="pageDescription"></app-content-builder>
-    }
-    <!-- description end -->
+<section  class="common-padding bg-gradient-gray" *ngIf="mediaDetail != false;">
+    <div class="container">
+    <div class="default-content">
+        <p>
+            Theatre Advertising in {{mediaDetail?.name}} offers a variety of both Onscreen Cinema Advertising and Off-screen Cinema Advertising, both of which are executed in a highly seamless manner. Having a total of {{mediaDetail?.total_screen}} Screens
+            in India, {{mediaDetail?.name}} caters to an audience of {{mediaDetail?.seats}}+ people per show. Present in a very suitable location, in majorIndia States, {{mediaDetail?.name}} is the preferred
+            cinema for a majority of the population there, and attracts a wide recurring audience.Clubbed with the impressive execution of on-screen advertisement through, Cinema Advertising in {{mediaDetail?.name}}
+            will ensure an Advertising Campaign with a High ROI and an impressive Ad recall rate.
+        </p>
+        <p>
+            Therefore, an advertising campaign through {{mediaDetail?.name}} would ensure maximum brand visibility amongst a wide audience, leading to an optimum utilisation of your Advertising Budget.
+        </p>
+    </div>
+</div>
+</section>
+<!-- description start -->
+<app-content-builder [contentDetail]="pageDescription" *ngIf="pageDescription"></app-content-builder>
+<!-- description end -->
 
-  </section>
-  <!-- call to action media start -->
-  <!-- <app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
+</section>
+<!-- call to action media start -->
+<!-- <app-call-to-action-media [mediaCallToActionData]="callToActionData" *ngIf="callToActionData?.title">
 </app-call-to-action-media> -->
 <!-- call to action media end -->
 
 <!-- Footer Link Data start -->
-@if ((isDataLoaded == true && footerLinkData)) {
-  <div class="col-12 footer-dropdown" style="background-color: #e7e7e7 ;">
+<div class="col-12 footer-dropdown" style="background-color: #e7e7e7 ;" *ngIf="(isDataLoaded == true && footerLinkData)">
+
     <div class="container" role="group" aria-label="Dropdown buttons">
-      <div class="row btn-group btn-group-lg ">
-        <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panel1">
-          Cinema Advertising Chains <span class="caret"></span>
-        </button>
-        <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panel2">
-          Advertising Prices & Rates <span class="caret"></span>
-        </button>
-        <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panel3">
-          Ad Agency By Location <span class="caret"></span>
-        </button>
-      </div>
+        <div class="row btn-group btn-group-lg ">
+            <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panel1">
+                Cinema Advertising Chains <span class="caret"></span>
+            </button>
+            <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panel2">
+                Advertising Prices & Rates <span class="caret"></span>
+            </button>
+            <button class="btn btn-danger w-100 footer-dropdown-toggle collapsed col-lg-4 col-md-6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panel3">
+                Ad Agency By Location <span class="caret"></span>
+            </button>
+        </div>
+
     </div>
+
     <!-- Accordion panels -->
     <div class="panel container">
-      <!-- Panel 1 -->
-      <div id="panel1" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
-        <div class="card card-body">
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (chains of footerLinkData.cinemaAdvertisingChains; track chains) {
-                  <li>
-                    <a aria-label="Cinema Advertising Chain Link" [href]="chains.url" target="_blank">{{ chains.name }}</a>
-                  </li>
-                }
-              </ul>
+        <!-- Panel 1 -->
+        <div id="panel1" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let chains of footerLinkData.cinemaAdvertisingChains">
+                                <a aria-label="Cinema Advertising Chain Link" [href]="chains.url" target="_blank">{{ chains.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let rate of footerLinkData.advertisingRates">
+                                <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let location of footerLinkData.advertisingAgencies">
+                                <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (rate of footerLinkData.advertisingRates; track rate) {
-                  <li>
-                    <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (location of footerLinkData.advertisingAgencies; track location) {
-                  <li>
-                    <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
-      <!-- Panel 2 -->
-      <div id="panel2" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
-        <div class="card card-body">
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (chains of footerLinkData.cinemaAdvertisingChains; track chains) {
-                  <li>
-                    <a aria-label="Cinema Advertising Chain Link" [href]="chains.url" target="_blank">{{ chains.name }}</a>
-                  </li>
-                }
-              </ul>
+
+        <!-- Panel 2 -->
+        <div id="panel2" class="collapse mt-2 accordion-collapse" data-bs-parent=".panel">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let chains of footerLinkData.cinemaAdvertisingChains">
+                                <a aria-label="Cinema Advertising Chain Link" [href]="chains.url" target="_blank">{{ chains.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let rate of footerLinkData.advertisingRates">
+                                <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let location of footerLinkData.advertisingAgencies">
+                                <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (rate of footerLinkData.advertisingRates; track rate) {
-                  <li>
-                    <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (location of footerLinkData.advertisingAgencies; track location) {
-                  <li>
-                    <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
-      <!-- Panel 3 -->
-      <div id="panel3" class="collapse mt-2 " data-bs-parent=".panel">
-        <div class="card card-body">
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (chains of footerLinkData.cinemaAdvertisingChains; track chains) {
-                  <li>
-                    <a aria-label="Cinema Advertising Chain Link" [href]="chains.url" target="_blank">{{ chains.name }}</a>
-                  </li>
-                }
-              </ul>
+
+        <!-- Panel 3 -->
+        <div id="panel3" class="collapse mt-2 " data-bs-parent=".panel">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let chains of footerLinkData.cinemaAdvertisingChains">
+                                <a aria-label="Cinema Advertising Chain Link" [href]="chains.url" target="_blank">{{ chains.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let rate of footerLinkData.advertisingRates">
+                                <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="list-unstyled list-inline-mob">
+                            <li *ngFor="let location of footerLinkData.advertisingAgencies">
+                                <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (rate of footerLinkData.advertisingRates; track rate) {
-                  <li>
-                    <a aria-label="Advertising Rate Link" [href]="rate.url" target="_blank">{{ rate.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <ul class="list-unstyled list-inline-mob">
-                @for (location of footerLinkData.advertisingAgencies; track location) {
-                  <li>
-                    <a aria-label="Advertising Location Link" [href]="location.url" target="_blank">{{ location.name }}</a>
-                  </li>
-                }
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-}
+</div>
 <!-- Footer Link Data end -->

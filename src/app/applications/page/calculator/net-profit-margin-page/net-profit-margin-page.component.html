@@ -1,215 +1,197 @@
 <!-- background -->
 <section class="section-featured-services netprofitmargin-background common-padding">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h1 class="text-white"></h1>
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-          class="roas-form p-4 border custom-border mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0 text-center">
-              <label class="form-label fw-bolder">Net Income</label>
-              <input
-                type="number"
-                formControlName="conversionRevenue"
-                class="form-control border-danger" placeholder="Enter Value"
-                />
-              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
-                <div class="text-danger small">
-                  @if (conversionRevenue?.errors?.['required']) {
-                    <div>
-                      Net Income is required.
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Net Income</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Net Income is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Net Income must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Revenue</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Revenue is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Revenue must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  }
-                  @if (conversionRevenue?.errors?.['min']) {
-                    <div>
-                      Net Income must be greater than 0.
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
-                  }
-                </div>
-              }
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">Net Profit Margin %</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
             </div>
-
-            <div class="col-md-6 text-center">
-              <label class="form-label fw-bolder">Revenue</label>
-              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-              @if (adSpend?.invalid && adSpend?.touched) {
-                <div class="text-danger small">
-                  @if (adSpend?.errors?.['required']) {
-                    <div>
-                      Revenue is required.
-                    </div>
-                  }
-                  @if (adSpend?.errors?.['min']) {
-                    <div>
-                      Revenue must be greater than 0.
-                    </div>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
-          </div>
-
-          <div class="text-center col-md-6 mx-auto">
-            <label class="form-label fw-bolder">Net Profit Margin %</label>
-            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-          </div>
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-  <div class="container default-content">
-    <div class="row align-items-center">
-      <!-- Left Image Column -->
-      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-        <img src="assets/page/calculators/net-profit-margin/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-      </div>
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/net-profit-margin/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
 
-      <!-- Right Text Column -->
-      <div class="col-md-7">
-        <h2 class="fw-bold text-danger mb-0 display-1">Net Profit</h2>
-        <h1 class="fw-bold text-danger mb-3">Margin Calculator</h1>
-        <p class="fs-5">
-          The Net Profit Margin Calculator helps to measure the profit earned as a percentage of revenue after all costs, taxes, and interest, which is important for the company's evaluation of profitability. Insights given by this tool relate to the financial efficiency, cost control, and general profitability of the company. With the calculator, companies may determine ways of boosting their profitability, price adjustments, and find ways of improving upon their operations, leading to better strategic planning and increased competitiveness in the market.
-        </p>
-      </div>
-      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
-    </div>
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0 display-1">Net Profit</h2>
+                <h1 class="fw-bold text-danger mb-3">Margin Calculator</h1>
+                <p class="fs-5">
+                    The Net Profit Margin Calculator helps to measure the profit earned as a percentage of revenue after all costs, taxes, and interest, which is important for the company's evaluation of profitability. Insights given by this tool relate to the financial efficiency, cost control, and general profitability of the company. With the calculator, companies may determine ways of boosting their profitability, price adjustments, and find ways of improving upon their operations, leading to better strategic planning and increased competitiveness in the market.
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
 
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        What Is Net Profit Margin?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        The net profit margin is one of the key profitability measures by which a company judges a profit. It tells how much of every rupee in revenue a company retains as profit after <strong>operating expenses</strong>, taxes, and interest have been deducted. The company thus applies the knowledge with the help of a <strong>net profit margin calculator</strong> to assess itself rightly in terms of efficiency from a financial perspective. A high net profit margin indicates better cost control and higher profitability, and a low net profit margin indicates poorly run operations. Knowing your <strong>net income margin</strong> should push your strategic planning about how to boost your company's bottom line and be competitive.
-      </p>
-    </div>
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What Is Net Profit Margin?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                The net profit margin is one of the key profitability measures by which a company judges a profit. It tells how much of every rupee in revenue a company retains as profit after <strong>operating expenses</strong>, taxes, and interest have been deducted. The company thus applies the knowledge with the help of a <strong>net profit margin calculator</strong> to assess itself rightly in terms of efficiency from a financial perspective. A high net profit margin indicates better cost control and higher profitability, and a low net profit margin indicates poorly run operations. Knowing your <strong>net income margin</strong> should push your strategic planning about how to boost your company's bottom line and be competitive.
+            </p>
+        </div>
 
-    <div>
-      <div class="d-flex" style="align-items: baseline;">
-        <img src="assets/page/calculators/net-profit-margin/right-arrow.png" alt="right-arrow" class="img-fluid me-1" style="max-height: 16px;">
-        <h3 class="text-black mb-0">Formula and Calculation for Net Profit Margin</h3>
-      </div>
-      <p class="ms-4">
-        The <strong>net profit margin formula</strong> is easy yet effective.
-      </p>
-      <div>
-        <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-          Net Profit Margin = (Net Income / Revenue) x 100
-        </h2>
-      </div>
-      <p class="ms-4">
-        This computation reflects the profit as a percentage of total revenue. With the Net Profit Margin Calculator, companies may establish how much profit they keep from every rupee of revenue, considering all operating expenses. This is imperative in understanding whether a company is controlling costs well and whether it is producing satisfactory profit as a percentage of sales. It permits price and cost control decision-making as well as investment.
-      </p>
-    </div>
+        <div>
+            <div class="d-flex" style="align-items: baseline;">
+                <img src="assets/page/calculators/net-profit-margin/right-arrow.png" alt="right-arrow" class="img-fluid me-1" style="max-height: 16px;">
+                <h3 class="text-black mb-0">Formula and Calculation for Net Profit Margin</h3>
+            </div>
+            <p class="ms-4">
+                The <strong>net profit margin formula</strong> is easy yet effective.
+            </p>
+            <div>
+                <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                    Net Profit Margin = (Net Income / Revenue) x 100
+                </h2>
+            </div>
+            <p class="ms-4">
+                This computation reflects the profit as a percentage of total revenue. With the Net Profit Margin Calculator, companies may establish how much profit they keep from every rupee of revenue, considering all operating expenses. This is imperative in understanding whether a company is controlling costs well and whether it is producing satisfactory profit as a percentage of sales. It permits price and cost control decision-making as well as investment.
+            </p>
+        </div>
 
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Example of the net profit margin
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>The company, while making INR 1,00,000 in revenue with a net income of INR 10,000, would calculate its net profit margin with the following formula:</p>
-      <p>Net Profit Margin = (10,000 / 1,00,000) x 100 = 10%</p>
-      <p>
-        This shows that the business attains a profit margin of 10% of its total revenue. You can easily review such numbers and make good decisions to maximize profitability using a <strong>net profit margin calculator</strong>. Whether reviewing your business or competitors', this ratio provides a clear image of financial performance.
-      </p>
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Example of the net profit margin
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>The company, while making INR 1,00,000 in revenue with a net income of INR 10,000, would calculate its net profit margin with the following formula:</p>
+            <p>Net Profit Margin = (10,000 / 1,00,000) x 100 = 10%</p>
+            <p>
+              This shows that the business attains a profit margin of 10% of its total revenue. You can easily review such numbers and make good decisions to maximize profitability using a <strong>net profit margin calculator</strong>. Whether reviewing your business or competitors', this ratio provides a clear image of financial performance.
+            </p>
+        </div>
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Is there an optimal net profit margin ratio?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>The net profit margin varies with business industries and the structure of a particular business. Technology firms, for instance, have a high margin as their cost of operating is relatively low, while retail businesses run on a relatively thin margin. More importantly, a comparison should be concerned with how its net profit margin compares with that of other competitors in the same industry and to its internal targets. The introduction of a <strong>profit margin calculator</strong>, however, has opened a clear picture for its users involved with their competitors, detection of weak areas, and increased organization in terms of overall efficiency. Thus, keeping a reasonable net profit margin should prove crucial, proving important in terms of the continuity of the success of any given firm, owing to profit margins that will eventually lead the way to success-focused parameters on growth and sustainability.</p>
+        </div>
     </div>
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Is there an optimal net profit margin ratio?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>The net profit margin varies with business industries and the structure of a particular business. Technology firms, for instance, have a high margin as their cost of operating is relatively low, while retail businesses run on a relatively thin margin. More importantly, a comparison should be concerned with how its net profit margin compares with that of other competitors in the same industry and to its internal targets. The introduction of a <strong>profit margin calculator</strong>, however, has opened a clear picture for its users involved with their competitors, detection of weak areas, and increased organization in terms of overall efficiency. Thus, keeping a reasonable net profit margin should prove crucial, proving important in terms of the continuity of the success of any given firm, owing to profit margins that will eventually lead the way to success-focused parameters on growth and sustainability.</p>
-    </div>
-  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="section-heading text-center mb-5">
-          <h2>FAQs</h2>
-          <span class="separator mb-2"></span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion faq-accordion" id="faqAccordion" >
-            @for (item of faqList; track item; let i = $index) {
-              <div class="accordion-item" itemscope itemprop="mainEntity"
-                itemtype="https://schema.org/Question">
-                <h6 class="accordion-header" id="heading{{i}}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                  </button>
-                </h6>
-                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                  itemtype="https://schema.org/Answer" >
-                  <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                  </div>
-                  <div class="text-center">
-                    @if (item?.buttonname) {
-                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                    }
-                  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-  <div class="container">
-    <!-- Related Calculator -->
-    <div class="row g-md-4 g-3">
-      <h2 class="text-center">Related Calculator</h2>
-      @for (card of cards; track card) {
-        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-          <div class="media-list-card shadow">
-            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-              <img [src]="card.image" loading="lazy" class="card-img-top"
-                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-              <div class="card-body px-0">
-                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                <p class="card-text line-clamp">{{ card.description }}</p>
-              </div>
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        <!-- Related Calculator -->
     </div>
-    <!-- Related Calculator -->
-  </div>
 </section>

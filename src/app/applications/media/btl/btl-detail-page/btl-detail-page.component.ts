@@ -1,4 +1,4 @@
-import { Component, OnInit, Optional, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BtlService } from '@app-media-services';
@@ -12,11 +12,9 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-btl-detail-page',
-    templateUrl: './btl-detail-page.component.html',
-    styleUrls: ['./btl-detail-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-btl-detail-page',
+  templateUrl: './btl-detail-page.component.html',
+  styleUrls: ['./btl-detail-page.component.css']
 })
 export class BtlDetailPageComponent implements OnInit {
 

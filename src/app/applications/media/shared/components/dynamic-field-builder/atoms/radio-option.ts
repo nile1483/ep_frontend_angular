@@ -1,27 +1,21 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-    selector: 'radio-option',
-    template: `
-      <div [formGroup]="form">
-        <div [formGroupName]="'options'" >
-          <mat-label>{{field.name}}</mat-label><br>
+  selector: 'radio-option',
+  template: `
+      <div [formGroup]="form"> 
+        <div [formGroupName]="'options'" >       
+        <mat-label>{{field.name}}</mat-label><br> 
           <mat-radio-group [formControlName]="field.code">
-            @for (opt of field.values; track opt) {
-              <mat-radio-button class="ms-2" [value]="opt.name" color="primary" >
-                {{opt.name}}
-              </mat-radio-button>
-            }
+            <mat-radio-button class="ms-2" [value]="opt.name" color="primary" *ngFor="let opt of field.values" > 
+            {{opt.name}} 
+            </mat-radio-button>
           </mat-radio-group>
-          @if (isRequired) {
-            <mat-error> This is required </mat-error>
-          }
-        </div>
-      </div>
-      `,
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+          <mat-error *ngIf="isRequired"> This is required </mat-error>
+        </div> 
+      </div> 
+    `
 })
 export class RadioOptionComponent {
   @Input() field: any = {};

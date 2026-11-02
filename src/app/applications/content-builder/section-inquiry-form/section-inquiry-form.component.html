@@ -1,110 +1,103 @@
 <div class="mb-5">
-  <div id="quickInquirypage" #myElem class="section-heading text-center mb-lg-3 pb-lg-2 pt-lg-5 mt-lg-5 mt-5">
-    <h2>Quick Inquiry</h2>
-  </div>
-  <div class="card border-0 inquiry-card contact-inquiry-card">
-    @if (!inquirySubmit) {
-      <form class="row g-3" [formGroup]="userInquiryForm" (ngSubmit)="inquiryFormSubmit()">
-        <div class="col-md-6 m-0">
-          <label class="form-label">Name<span>*</span></label>
-          <input type="text" class="form-control" [formControl]="userInquiryForm.controls['name']"
-            placeholder="Your Name">
-          <div class="text-danger form-error">
-            @if (userInquiryForm.controls['name'].hasError('required') && userInquiryForm.controls['name'].touched) {
-              <span
-                >
-              Name is required </span>
-            }
-          </div>
-        </div>
-        <div class="col-md-6 m-0">
-          <label class="form-label">Email address<span>*</span></label>
-          <input type="email" class="form-control" [formControl]="userInquiryForm.controls['email']"
-            placeholder="Your Email Id">
-          <div class="text-danger form-error">
-            @if (userInquiryForm.controls['email'].hasError('required') && userInquiryForm.controls['email'].touched) {
-              <span
-                >
-              Email address is required </span>
-            }
-            @if (userInquiryForm.controls['email'].hasError('email') && userInquiryForm.controls['email'].touched) {
-              <span
-                >
-              Invalid email address </span>
-            }
-            @if (userInquiryForm.controls['email'].hasError('isPersonal')) {
-              <span> Only business email
-              account is valid.</span>
-            }
-          </div>
-        </div>
-        <div class="col-md-6 m-0">
-          <label class="form-label"> Phone no. <span>*</span></label>
-          <div class="phone-number-with-country">
-            <div class="d-flex">
-              <div class="dropdown">
-                <a class="drop-down-link dropdown-toggle" href="#" role="button"
-                  id="countruCodeDropdown" data-bs-toggle="dropdown"
-                aria-expanded="false">{{selectedCountry?.dialCode}}</a>
-                <ul class="dropdown-menu" aria-labelledby="countruCodeDropdown">
-                  <div class="country-list-search mb-2">
-                    <input type="search" class="form-control country-search" placeholder="Search..."
-                      aria-label="Search" (input)="onSearchChange($event.target.value)">
-                  </div>
-                  <div class="country-list default-scroll">
-                    @for (country of countryFilteredList; track country) {
-                      <li class="dropdown-item"
-                        (click)="selectCountry(country)">
-                        {{country?.name}}
-                        <span>({{country?.dialCode}})</span>
-                      </li>
-                    }
-                  </div>
-                </ul>
-              </div>
-              <input type="number" class="form-control phone-number"
-                [formControl]="userInquiryForm.controls['contact']" placeholder="Your Contact No."
-                autocomplete="off">
+    <div id="quickInquirypage" #myElem class="section-heading text-center mb-lg-3 pb-lg-2 pt-lg-5 mt-lg-5 mt-5">
+        <h2>Quick Inquiry</h2>
+    </div>
+    <div class="card border-0 inquiry-card contact-inquiry-card">
+        <form class="row g-3" [formGroup]="userInquiryForm" (ngSubmit)="inquiryFormSubmit()" *ngIf="!inquirySubmit">
+            <div class="col-md-6 m-0">
+                <label class="form-label">Name<span>*</span></label>
+                <input type="text" class="form-control" [formControl]="userInquiryForm.controls['name']"
+                    placeholder="Your Name">
+                <div class="text-danger form-error">
+                    <span
+                        *ngIf="userInquiryForm.controls['name'].hasError('required') && userInquiryForm.controls['name'].touched">
+                        Name is required </span>
+                </div>
             </div>
-            <div class="text-danger form-error w-100">
-              @if (userInquiryForm.controls['contact'].hasError('required') && userInquiryForm.controls['contact'].touched) {
-                <span
-                  >
-                Phone no. field is Required </span>
-              }
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 m-0">
-          <label class="form-label">City<span>*</span></label>
-          <input type="text" class="form-control" [formControl]="userInquiryForm.controls['city']"
-            placeholder="Your City">
-          <div class="text-danger form-error">
-            @if (userInquiryForm.controls['city'].hasError('required') && userInquiryForm.controls['city'].touched) {
-              <span
-                >
-              City is required </span>
-            }
-          </div>
-        </div>
-        <div class="col-md-6 m-0">
-          <label class="form-label">Company name </label>
-          <input type="text" class="form-control" [formControl]="userInquiryForm.controls['company']"
-            placeholder="Your Company Name">
-        </div>
-        <div class="col-md-12">
-          <label class="form-label"> Message </label>
-          <textarea class="form-control" rows="3" [formControl]="userInquiryForm.controls['comment']"
-          placeholder="Drop Your Message"></textarea>
-        </div>
-        <div class="col-12 text-md-start text-center">
-          <button type="submit" class="btn btn-primary"> Contact now </button>
-        </div>
-      </form>
-    }
+            <div class="col-md-6 m-0">
+                <label class="form-label">Email address<span>*</span></label>
+                <input type="email" class="form-control" [formControl]="userInquiryForm.controls['email']"
+                    placeholder="Your Email Id">
 
-    @if (inquirySubmit) {
-      <h5 class="text-center" [innerHTML]="inquiryMessage | safeHtml"> </h5>
-    }
-  </div>
+                <div class="text-danger form-error">
+                    <span
+                        *ngIf="userInquiryForm.controls['email'].hasError('required') && userInquiryForm.controls['email'].touched">
+                        Email address is required </span>
+                    <span
+                        *ngIf="userInquiryForm.controls['email'].hasError('email') && userInquiryForm.controls['email'].touched">
+                        Invalid email address </span>
+                    <span *ngIf="userInquiryForm.controls['email'].hasError('isPersonal')"> Only business email
+                        account is valid.</span>
+                </div>
+            </div>
+            <div class="col-md-6 m-0">
+                <label class="form-label"> Phone no. <span>*</span></label>
+                <div class="phone-number-with-country">
+                    <div class="d-flex">
+                        <div class="dropdown">
+                            <a class="drop-down-link dropdown-toggle" href="#" role="button"
+                                id="countruCodeDropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">{{selectedCountry?.dialCode}}</a>
+
+
+                            <ul class="dropdown-menu" aria-labelledby="countruCodeDropdown">
+                                <div class="country-list-search mb-2">
+                                    <input type="search" class="form-control country-search" placeholder="Search..."
+                                        aria-label="Search" (input)="onSearchChange($event.target.value)">
+                                </div>
+                                <div class="country-list default-scroll">
+                                    <li class="dropdown-item" *ngFor="let country of countryFilteredList"
+                                        (click)="selectCountry(country)">
+                                        {{country?.name}}
+                                        <span>({{country?.dialCode}})</span>
+                                    </li>
+                                </div>
+                            </ul>
+
+                        </div>
+
+                        <input type="number" class="form-control phone-number"
+                            [formControl]="userInquiryForm.controls['contact']" placeholder="Your Contact No."
+                            autocomplete="off">
+
+
+                    </div>
+                    <div class="text-danger form-error w-100">
+                        <span
+                            *ngIf="userInquiryForm.controls['contact'].hasError('required') && userInquiryForm.controls['contact'].touched">
+                            Phone no. field is Required </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6 m-0">
+                <label class="form-label">City<span>*</span></label>
+                <input type="text" class="form-control" [formControl]="userInquiryForm.controls['city']"
+                    placeholder="Your City">
+
+                <div class="text-danger form-error">
+                    <span
+                        *ngIf="userInquiryForm.controls['city'].hasError('required') && userInquiryForm.controls['city'].touched">
+                        City is required </span>
+                </div>
+            </div>
+            <div class="col-md-6 m-0">
+                <label class="form-label">Company name </label>
+                <input type="text" class="form-control" [formControl]="userInquiryForm.controls['company']"
+                    placeholder="Your Company Name">
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Message </label>
+                <textarea class="form-control" rows="3" [formControl]="userInquiryForm.controls['comment']"
+                    placeholder="Drop Your Message"></textarea>
+            </div>
+
+            <div class="col-12 text-md-start text-center">
+                <button type="submit" class="btn btn-primary"> Contact now </button>
+            </div>
+        </form>
+
+        <h5 *ngIf="inquirySubmit" class="text-center" [innerHTML]="inquiryMessage | safeHtml"> </h5>
+    </div>
 </div>

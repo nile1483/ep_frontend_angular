@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderService } from 'src/app/shared/services/loader.service';
@@ -7,11 +7,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '@app-shared-services';
 
 @Component({
-    selector: 'app-client-rate-my-service',
-    templateUrl: './client-rate-my-service.component.html',
-    styleUrl: './client-rate-my-service.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-client-rate-my-service',
+  templateUrl: './client-rate-my-service.component.html',
+  styleUrl: './client-rate-my-service.component.css'
 })
 export class ClientRateMyServiceComponent {
 

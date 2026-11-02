@@ -1,16 +1,20 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppURL } from 'src/app/app-url';
+import { MetaInformation } from '@app-shared-model';
+import { META_DATA } from '@app-shared-constants';
+import { CommonService } from '@app-shared-services';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-calculator-list-page',
-    templateUrl: './calculator-list-page.component.html',
-    styleUrl: './calculator-list-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-calculator-list-page',
+  templateUrl: './calculator-list-page.component.html',
+  styleUrl: './calculator-list-page.component.css',
 })
 export class CalculatorListPageComponent {
 
   webURL: string = AppURL.webURL;
+
+  metaData: any = META_DATA['calculators'];
 
   cards = [
     {
@@ -129,4 +133,32 @@ export class CalculatorListPageComponent {
     },
   ];
 
+
+  constructor(
+    private router: Router,
+    private commonService: CommonService,
+  ) { }
+
+  ngOnInit(): void {
+    this.setMetaData();
+  }
+
+  setMetaData() {
+    let metaInfo = new MetaInformation();
+    metaInfo.meta_title = this.metaData?.meta_title ?? '';
+    metaInfo.meta_description = this.metaData?.meta_description ?? '';
+    metaInfo.meta_keywords = this.metaData?.meta_keywords ?? '';
+    metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
+    //og data          
+    metaInfo.og_url = `${this.webURL}`;
+    metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
+
+    this.commonService.setMetaData(metaInfo);
+
+    //************************// 
+    //   Google Tag Manager   //
+    //************************//
+
+    this.commonService.gtmPageEvents('Company', 'Calculator');
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
@@ -15,11 +15,9 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-magazine-list-page',
-    templateUrl: './magazine-list-page.component.html',
-    styleUrls: ['./magazine-list-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-magazine-list-page',
+  templateUrl: './magazine-list-page.component.html',
+  styleUrls: ['./magazine-list-page.component.css']
 }) export class MagazineListPageComponent implements OnInit {
 
   media: string = 'magazine';

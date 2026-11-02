@@ -1,15 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import SwiperCore, { SwiperOptions, Pagination, Autoplay } from 'swiper';
 // install Swiper components
 SwiperCore.use([Pagination, Autoplay]);
 
 @Component({
-    selector: 'app-about-new',
-    templateUrl: './about-new.component.html',
-    styleUrls: ['./about-new.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-about-new',
+  templateUrl: './about-new.component.html',
+  styleUrls: ['./about-new.component.css']
 })
 export class AboutNewComponent implements OnInit {
 

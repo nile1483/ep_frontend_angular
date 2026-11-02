@@ -1,11 +1,10 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '@app-shared-services';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LoaderService } from '@app-shared-services';
 import { CommonService } from '@app-shared-services';
-import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 import { FORBIDDEN_EMAIL_DOMAINS } from 'src/app/shared/constants/forbidden-email-domain-list';
 import { PageService } from '../../page.service';
 
@@ -27,26 +26,21 @@ export function isPersonalEmailValidatorWorldCup(control: UntypedFormControl): V
 }
 
 @Component({
-    selector: 'app-world-cup-inquiry-dialog',
-    templateUrl: './world-cup-inquiry-dialog.component.html',
-    styleUrls: ['./world-cup-inquiry-dialog.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-world-cup-inquiry-dialog',
+  templateUrl: './world-cup-inquiry-dialog.component.html',
+  styleUrls: ['./world-cup-inquiry-dialog.component.css']
 })
-
 
 export class WorldCupInquiryDialogComponent implements OnInit {
 
-  app_svg_icon_list = APP_SVG_ICON_LIST;
   selectedCountry: any = { "name": "India", "dialCode": "+91", "code": "IN" };
   countryList: any = [];
   countryFilteredList: any = [];
 
-  inquiryType : string = 'worldcup';
-  media : string = 'worldcup';
+  inquiryType: string = 'worldcup';
+  media: string = 'worldcup';
   userInquiryForm !: UntypedFormGroup;
   href: any = "";
-
 
   constructor(
     private userService: UserService,

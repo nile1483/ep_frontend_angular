@@ -1,40 +1,56 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { AdvertisingPageService } from '../advertising-page.service';
-import { UserService } from '@app-shared-services';
 import { AppURL } from 'src/app/app-url';
+import { META_DATA } from '@app-shared-constants';
+import { MetaInformation } from '@app-shared-model';
 import { CommonService } from '@app-shared-services';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-advertising-page-list',
-    templateUrl: './advertising-page-list.component.html',
-    styleUrls: ['./advertising-page-list.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-advertising-page-list',
+  templateUrl: './advertising-page-list.component.html',
+  styleUrls: ['./advertising-page-list.component.css']
 })
 export class AdvertisingPageListComponent implements OnInit {
 
-  webURL : string = AppURL.webURL;
-  param: any = {};
+  webURL: string = AppURL.webURL;
+  metaData: any = META_DATA['advertising'];
+
   advertisingPageList: any = [];
-  lpMedia: string = "";
   isDataLoaded: boolean = false;
 
-  productdata: any = [];
-  dataList: any[] = [];
-  filterData: any[] = [];
-  contentList: any[] = [];
+  href: any = "";
 
-  constructor(   
+  constructor(
     private advertisingPageService: AdvertisingPageService,
-    private userService: UserService,
-    private router: Router,
     private commonService: CommonService,
-    private route: ActivatedRoute) { }
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+    this.href = this.router.url;
+
+    this.setMetaData();
     this.getAllAdvertisingPage();
+  }
+
+  setMetaData() {
+    let metaInfo = new MetaInformation();
+    metaInfo.meta_title = this.metaData?.meta_title ?? '';
+    metaInfo.meta_description = this.metaData?.meta_description ?? '';
+    metaInfo.meta_keywords = this.metaData?.meta_keywords ?? '';
+    metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
+    //og data          
+    metaInfo.og_url = `${this.webURL}`;
+    metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
+
+    this.commonService.setMetaData(metaInfo);
+
+    //************************// 
+    //   Google Tag Manager   //
+    //************************//
+
+    this.commonService.gtmPageEvents('Company', 'Advertising Page');
   }
 
   getAllAdvertisingPage() {
@@ -43,6 +59,4 @@ export class AdvertisingPageListComponent implements OnInit {
       this.advertisingPageList = result?.data ?? [];
     });
   }
-  
-
 }

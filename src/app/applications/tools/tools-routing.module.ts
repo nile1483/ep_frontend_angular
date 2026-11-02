@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MediaPlanningComponent } from './media-planning/media-planning.component';
 
-
 const routes: Routes = [
   { path: 'media-planning', component: MediaPlanningComponent}
 ];

@@ -1,9 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AddToPlanDialogComponent } from '@app-media-shared-components';
-import { LOCAL_STORAGE } from 'src/app/shared/constants/local-storage';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { LocalstorageService } from 'src/app/shared/services/localstorage.service';
 import { ShoppingCartService } from '@app-media-services';
@@ -14,18 +13,17 @@ import { AppURL } from 'src/app/app-url';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-cart',
-    templateUrl: './cart.component.html',
-    styleUrls: ['./cart.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
 
-  app_svg_icon_list = APP_SVG_ICON_LIST;
-
   webURL: string = AppURL.webURL;
   metaData: any = META_DATA['cart'];
+
+  app_svg_icon_list = APP_SVG_ICON_LIST;
+
   cartData: any = [];
   currencyTotals: any = [];
   isAuthenticated: boolean = false;
@@ -35,7 +33,6 @@ export class CartComponent implements OnInit {
   campaignForm = new UntypedFormGroup({
     campaignName: new UntypedFormControl('', Validators.required)
   });
-
 
   couponCodeMsg: string = '';
   isCouponCodeValid: boolean = false;
@@ -49,7 +46,6 @@ export class CartComponent implements OnInit {
 
   constructor(
     private shoppingCartService: ShoppingCartService,
-    private localstorageService: LocalstorageService,
     private userService: UserService,
     private router: Router,
     public dialog: MatDialog,
@@ -67,12 +63,9 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.setCartData();
     this.setMetaData();
     this.getLastCampaignList();
-
   }
-
 
   getLastCampaignList() {
     this.shoppingCartService.shoppingCartLastCampaignList().subscribe(result => {
@@ -94,7 +87,6 @@ export class CartComponent implements OnInit {
     });
   }
 
-
   createCampaignName() {
     if (this.cartData.items.length > 0) {
       let cartId = this.cartData.id;
@@ -102,16 +94,10 @@ export class CartComponent implements OnInit {
       let data = this.cartData.items;
       let mediaName = data[0].media;
       let createName = 'Campaign' + cartId + mediaName;
-      
-      this.campaignForm.setValue({campaignName: createName});
+
+      this.campaignForm.setValue({ campaignName: createName });
     }
   }
-
-  // setCartData() {
-  //   let item = this.localstorageService.getItem(LOCAL_STORAGE.addtoplan);
-  //   this.cartData = (item != null) ? JSON.parse(item) : [];
-  // }
-
 
   deleteItem(itemId: number) {
     let serviceData: any = [];
@@ -138,7 +124,6 @@ export class CartComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // this.setCartData();
       this.shoppingCartService.isEditCart = false;
     });
   }
@@ -171,7 +156,6 @@ export class CartComponent implements OnInit {
     });
   }
 
-
   orderCampaign() {
 
     this.campaignForm.markAllAsTouched();
@@ -198,7 +182,6 @@ export class CartComponent implements OnInit {
 
       }
     });
-
   }
 
   setMetaData() {
@@ -224,7 +207,6 @@ export class CartComponent implements OnInit {
   ngOnDestroy(): void {
     this.userDataObs.unsubscribe();
   }
-
 
   checkCouponCode() {
 

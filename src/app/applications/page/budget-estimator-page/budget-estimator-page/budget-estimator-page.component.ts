@@ -1,41 +1,30 @@
 
-import { Component, AfterViewInit, Inject, ElementRef, ViewChild, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, AfterViewInit, Inject, ElementRef, ViewChild } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { C2A_TITLE_DATA, META_DATA } from '@app-shared-constants';
 import { PLATFORM_ID } from '@angular/core';
 import { AppURL } from 'src/app/app-url';
 import { MetaInformation } from '@app-shared-model';
-import { Router } from 'express';
-import { CommonService, UserService } from '@app-shared-services';
+import { CommonService } from '@app-shared-services';
 import { PageService } from '../../page.service';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { FormControl, FormsModule, ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent, MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
+import { FormControl, UntypedFormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { MatIconModule } from '@angular/material/icon';
-import { AsyncPipe } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { Utilities } from '@app-shared-helpers';
 import { LocationParm } from '@app-media-models';
 
 declare var Chart: any;
 
 @Component({
-    selector: 'app-budget-estimator-page',
-    templateUrl: './budget-estimator-page.component.html',
-    styleUrls: ['./budget-estimator-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-budget-estimator-page',
+  templateUrl: './budget-estimator-page.component.html',
+  styleUrls: ['./budget-estimator-page.component.css']
 })
 export class BudgetEstimatorPageComponent implements AfterViewInit {
 
-
-  metaData: any = META_DATA['budgetestimator'];
-  callToActionData: CallToAction = { title: C2A_TITLE_DATA['budgetestimator'], inquiryUser: {} };
   webURL: string = AppURL.webURL;
+  metaData: any = META_DATA['budget-estimator'];
+  callToActionData: CallToAction = { title: C2A_TITLE_DATA['budgetestimator'], inquiryUser: {} };
 
   ngOnInit(): void {
     this.setMetaData();
@@ -52,7 +41,6 @@ export class BudgetEstimatorPageComponent implements AfterViewInit {
     });
   }
 
-
   setMetaData() {
     let metaInfo = new MetaInformation();
     metaInfo.meta_title = this.metaData?.meta_title ?? '';
@@ -68,7 +56,7 @@ export class BudgetEstimatorPageComponent implements AfterViewInit {
     //   Google Tag Manager   //
     //************************//
 
-    this.commonService.gtmPageEvents('Company', 'Company');
+    this.commonService.gtmPageEvents('Company', 'Budget Estimator Page');
   }
 
 
@@ -140,9 +128,9 @@ export class BudgetEstimatorPageComponent implements AfterViewInit {
   }
 
   private generateBudgetCombinations() {
-      this.budgetData = {}; // reset before regenerating
+    this.budgetData = {}; // reset before regenerating
 
-  if (!this.selectedCities || this.selectedCities.length === 0) return;
+    if (!this.selectedCities || this.selectedCities.length === 0) return;
 
     // Generate all city combinations (max 2 as per your rule)
     const getCityCombos = <T>(arr: T[], max: number): T[][] => {

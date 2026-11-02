@@ -1,11 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-    selector: 'field-builder',
-    templateUrl: './field-builder.component.html',
-    styleUrls: ['./field-builder.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'field-builder',
+  templateUrl: './field-builder.component.html',
+  styleUrls: ['./field-builder.component.css']
+  
 })
 export class FieldBuilderComponent implements OnInit {
   @Input() field:any;

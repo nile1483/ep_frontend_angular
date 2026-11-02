@@ -20,7 +20,6 @@ export class PageService {
 
   iplUrl = AppURL.iplUrl;
   sportUrl = AppURL.sportUrl;
-  asiacupUrl = AppURL.asiacupUrl;
   worldcupUrl = AppURL.worldcupUrl;
   budgetestimatorUrl = AppURL.budgetestimatorUrl;
   industryInsightsUrl = AppURL.industryInsightsUrl;
@@ -113,17 +112,6 @@ export class PageService {
         tap(data => {
         }),
         catchError(this.handleError<any>(this.moduleName + ' Sports Detail', { "status": false, "message": "Get " + this.moduleName + " Sports Detail Error" }))
-      );
-  }
-
-  // AsiaCup page data
-  getAsiaCupPageData(): Observable<any> {
-    const url = `${this.asiacupUrl}/asiacupdetail`;
-    return this.http.get<any>(url)
-      .pipe(
-        tap(data => {
-        }),
-        catchError(this.handleError<any>(this.moduleName + ' AsiaCup Detail', { "status": false, "message": "Get " + this.moduleName + " AsiaCup Detail Error" }))
       );
   }
 

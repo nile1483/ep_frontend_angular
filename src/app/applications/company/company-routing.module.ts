@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AboutComponent, ClienteleComponent, CareerComponent, CareerDetailComponent, CareerQuestionsFormComponent } from '@app-company-components';
 import { TeamComponent, ContactComponent, HireAPlannerComponent } from '@app-company-components';
 import { TermsConditionsComponent, RefundPolicyComponent } from '@app-company-components';
 import { TestimonialsComponent, ServicesComponent, SitemapComponent} from '@app-company-components';
 import { SearchComponent, LifeAtExcellentComponent} from '@app-company-components';
+
 import { AboutNewComponent } from './about-new/about-new.component';
 import { LifeAtExcellentNewComponent } from './life-at-excellent-new/life-at-excellent-new.component';
 

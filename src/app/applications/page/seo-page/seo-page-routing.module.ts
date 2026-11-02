@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { SeoPageDetailComponent } from './seo-page-detail/seo-page-detail.component';
 
 const routes: Routes = [
-  { path: ':alias', component: SeoPageDetailComponent},
+  { path: ':alias', component: SeoPageDetailComponent },
 ];
 
 @NgModule({

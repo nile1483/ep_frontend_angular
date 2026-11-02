@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SERVICE_LIST } from 'src/app/shared/constants/common';
 import { META_DATA } from 'src/app/shared/constants/metadata'; 
 import { CommonService } from '@app-shared-services';
@@ -9,11 +9,9 @@ import { Router } from '@angular/router';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-services',
-    templateUrl: './services.component.html',
-    styleUrls: ['./services.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-services',
+  templateUrl: './services.component.html',
+  styleUrls: ['./services.component.css']
 })
 export class ServicesComponent implements OnInit {
 

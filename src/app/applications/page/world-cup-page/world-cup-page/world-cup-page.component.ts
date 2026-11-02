@@ -1,33 +1,26 @@
-import { Component, OnInit, HostListener, ChangeDetectionStrategy } from '@angular/core';
-import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA, C2A_TITLE_DATA} from '@app-shared-constants';
+import { Component, OnInit } from '@angular/core';
+import { C2A_TITLE_DATA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { WorldCupInquiryDialogComponent } from '../world-cup-inquiry-dialog/world-cup-inquiry-dialogcomponent';
 import { MatDialog } from '@angular/material/dialog';
-import { PageService } from '../../page.service'; 
-import { ActivatedRoute, Router } from '@angular/router';
+import { PageService } from '../../page.service';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-world-cup-page',
-    templateUrl: './world-cup-page.component.html',
-    styleUrls: ['./world-cup-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-world-cup-page',
+  templateUrl: './world-cup-page.component.html',
+  styleUrls: ['./world-cup-page.component.css']
 })
 export class WorldCupPageComponent implements OnInit {
 
   media: string = 'worldcup';
   webURL: string = AppURL.webURL;
-  media_icons: any = SVG_ICON_FOR_MEDIA
-  serviceList: any = SERVICE_LIST_WITH_SVG_ICON;
-  app_svg_icon_list = APP_SVG_ICON_LIST;
-  metaData: any = META_DATA['worldcup'];
-  selectedCurrency: any;
+  metaData: any = META_DATA['world-cup'];
   pageContentData: any;
-
-  callToActionData: CallToAction = { title: C2A_TITLE_DATA['worldcup'], inquiryUser: {}};
+  callToActionData: CallToAction = { title: C2A_TITLE_DATA['worldcup'], inquiryUser: {} };
 
   constructor(
     private router: Router,
@@ -37,18 +30,11 @@ export class WorldCupPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    //Currency
-    this.selectedCurrency = this.commonService.getSelectedCurrency();
-    this.commonService.getCurrency().subscribe(currency => {
-      this.selectedCurrency = this.commonService.getSelectedCurrency();
-    });
-
     this.setMetaData();
     this.getWorldCupPageData();
   }
 
-  getWorldCupPageData(){
+  getWorldCupPageData() {
     this.pageService.getWorldCupPageData().subscribe(result => {
       if (result.status == true) {
         this.callToActionData.inquiryUser = result.data?.inquiryUser;
@@ -73,14 +59,14 @@ export class WorldCupPageComponent implements OnInit {
     //   Google Tag Manager   //
     //************************//
 
-    this.commonService.gtmPageEvents('Company', 'Company');
+    this.commonService.gtmPageEvents('Company', 'World Cup Page');
   }
 
   openFormDialog(): void {
- 
+
     const dialogRef = this.dialog.open(WorldCupInquiryDialogComponent, {
       width: '700px',
-      data: { }
+      data: {}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -91,6 +77,4 @@ export class WorldCupPageComponent implements OnInit {
     });
 
   }
-
-  
 }

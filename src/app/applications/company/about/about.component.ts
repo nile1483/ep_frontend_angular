@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { META_DATA } from 'src/app/shared/constants/metadata';
 import SwiperCore, { SwiperOptions, Pagination } from 'swiper';
 import { AppURL } from 'src/app/app-url';
@@ -8,11 +8,9 @@ import { APP_SVG_ICON_LIST} from '@app-shared-constants';
 
 // SwiperCore.use([Pagination]);
 @Component({
-    selector: 'app-about',
-    templateUrl: './about.component.html',
-    styleUrls: ['./about.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
   app_svg_icon_list = APP_SVG_ICON_LIST; 

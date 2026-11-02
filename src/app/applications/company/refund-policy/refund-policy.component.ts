@@ -1,14 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 @Component({
-    selector: 'app-refund-policy',
-    templateUrl: './refund-policy.component.html',
-    styleUrls: ['./refund-policy.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-refund-policy',
+  templateUrl: './refund-policy.component.html',
+  styleUrls: ['./refund-policy.component.css']
 })
 export class RefundPolicyComponent implements OnInit {
   

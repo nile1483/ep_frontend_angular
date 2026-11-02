@@ -1,293 +1,275 @@
 <!-- background -->
 <section class="section-featured-services bouncerate-background common-padding">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h1 class="text-white"></h1>
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-          class="roas-form p-4 border custom-border mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0 text-center">
-              <label class="form-label fw-bolder">Total Customers</label>
-              <input
-                type="number"
-                formControlName="conversionRevenue"
-                class="form-control border-danger" placeholder="Enter Value"
-                />
-              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
-                <div class="text-danger small">
-                  @if (conversionRevenue?.errors?.['required']) {
-                    <div>
-                      Total Customers is required.
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">Total Customers</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                Total Customers is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                Total Customers must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Total Leads</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Total Leads is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Total Leads must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  }
-                  @if (conversionRevenue?.errors?.['min']) {
-                    <div>
-                      Total Customers must be greater than 0.
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
-                  }
-                </div>
-              }
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">Bounce Rate</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
             </div>
-
-            <div class="col-md-6 text-center">
-              <label class="form-label fw-bolder">Total Leads</label>
-              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-              @if (adSpend?.invalid && adSpend?.touched) {
-                <div class="text-danger small">
-                  @if (adSpend?.errors?.['required']) {
-                    <div>
-                      Total Leads is required.
-                    </div>
-                  }
-                  @if (adSpend?.errors?.['min']) {
-                    <div>
-                      Total Leads must be greater than 0.
-                    </div>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
-          </div>
-
-          <div class="text-center col-md-6 mx-auto">
-            <label class="form-label fw-bolder">Bounce Rate</label>
-            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-          </div>
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-  <div class="container default-content">
-    <div class="row align-items-center">
-      <!-- Left Image Column -->
-      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-        <img src="assets/page/calculators/bounce-rate/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-      </div>
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/bounce-rate/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
 
-      <!-- Right Text Column -->
-      <div class="col-md-7">
-        <h2 class="fw-bold text-danger mb-0">Bounce Rate</h2>
-        <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
-        <p class="fs-5">
-          Using Excellent Publicity’s <strong>Bounce Rate Calculator</strong> or Site Engagement Meter can help you understand visitor engagement with your website page. It shows the overall performance of your website, presenting the bounce rate of your website by users.
-        </p>
-      </div>
-      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0">Bounce Rate</h2>
+                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+                <p class="fs-5">
+                    Using Excellent Publicity’s <strong>Bounce Rate Calculator</strong> or Site Engagement Meter can help you understand visitor engagement with your website page. It shows the overall performance of your website, presenting the bounce rate of your website by users.  
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What is bounce rate?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                Bounce rate presents the percentage of visitors who arrive on a web page and quit without further engagement. If your website’s bounce rate goes high, that means there is content irrelevance, slow loading times, or an unsatisfactory user experience. 
+            </p>
+            <p>This indicator is frequently employed to gauge a website’s level of engagement. According to the result gained by this metric, if the bounce rate is higher, that means your website’s engagement ratio is lower. Using a <strong>Bounce rate calculator</strong> can help you analyze and rectify the leading causes. </p>
+            <p>
+                As e-mail marketing is also one of the ways to increase the engagement of your website pages, using the <strong>E-mail Bounce Rate Calculator</strong> can assist you in measuring the effectiveness of your website through analysis, monitoring and optimization. 
+            </p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                How to calculate the bounce rate?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                If you want to calculate the bounce rate of your website, there is a <strong>bounce rate formula</strong> that you can utilize. You can calculate the <strong>number of bounces</strong> or single-page visits to the overall number of visitors, which will give you insights into your website’s gross performance during a certain tenure.
+            </p>
+            <p><strong>Bounce Rate Calculator:</strong></p>
+            <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                Bounce Rate = (Total Bounces / Total Visitors) × 100
+            </h2>
+            <p>Let’s understand:</p>
+            <ul class="p-0">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Total Bounces:</strong>
+                    It shows the number of people who view a website and quit it before making any further activities.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Total Visitors:</strong>
+                    It represents the number of visitors who engage with the website for a particular period.   
+                  </span>
+                </li>
+            </ul>
+            <p>For example, while a total of 1000 visitors come to engage with the website and 600 of them head out without making any interaction, the bounce rate will be:</p>
+            <p>= 600 / 1000 × 100</p>
+            <p>= 60%</p>
+            <p>The high bounce rate is an indication that your website performance is sluggish, presence of irrelevant content, or poor <strong>user experience.</strong></p>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Types of Bounces
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                In terms of website analytics, three types of bounce rates show the engagement performance of visitors:
+            </p>
+            
+            <ul class="p-0">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Hard Bounce:</strong>
+                    Hard bounce takes place when visitors enter the webpage but quit it in no time without engaging further. This shows that users are minimally interactive with slight scrolling or avoid scrolling, indicating little or zero consumer interest.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Medium Bounce:</strong>
+                    Medium Bounce visitors eventually spend a short time on the page before scrolling away. Though they are not your target audience, they can probably become one-time shoppers who will come back and purchase sometime down the line.   
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Soft Bounce:</strong>
+                    Soft bounce visitors spend a required amount of time on the landing page overall, exploring the content simply by scrolling, clicking, and surfing through various sections.  Even while interacting with websites, they end up not doing what they are meant to do. They show their interest, but something prevents them from converting or engaging with more of the website content.
+                  </span>
+                </li>
+            </ul>
+        </div>      
+ 
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What causes high email bounce rates?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p class="ms-4">
+                There are many reasons for occurring high bounce rates of your website that indicate different user behaviour. The following are some key types:
+            </p>
+
+            <ul class="p-0 ms-4">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Invalid or Fake Email Addresses:</strong>
+                    Typing errors, old addresses, or phoney emails can lead to hard bounces.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Spam Filters:</strong>
+                    Emails that cover an abundance of links, terrible formatting, and inappropriate content may be flagged as spam and restricted. 
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Crowded Mailboxes:</strong>
+                    You can receive new emails if the inbox of recipient is full.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Server errors:</strong>
+                    Delivery Interruption can occur from the recipient’s or server’s mail servers.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Blocked IPs or Domains:</strong>
+                    If mail is sent through negatively reputed IPs or domains, it can get banned.
+                  </span>
+                </li>
+            </ul>
+            <p class="ms-4">
+                Minimizing bounce rates is crucial in terms of elevating the quality of email performance. It’s advisable to clean your inboxes, verification before sending, double opt-in verification should be done, and content must comply with best practices to stay away from spam filters in terms of bounce rate reduction.
+            </p>
+        </div>
     </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        What is bounce rate?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        Bounce rate presents the percentage of visitors who arrive on a web page and quit without further engagement. If your website’s bounce rate goes high, that means there is content irrelevance, slow loading times, or an unsatisfactory user experience.
-      </p>
-      <p>This indicator is frequently employed to gauge a website’s level of engagement. According to the result gained by this metric, if the bounce rate is higher, that means your website’s engagement ratio is lower. Using a <strong>Bounce rate calculator</strong> can help you analyze and rectify the leading causes. </p>
-      <p>
-        As e-mail marketing is also one of the ways to increase the engagement of your website pages, using the <strong>E-mail Bounce Rate Calculator</strong> can assist you in measuring the effectiveness of your website through analysis, monitoring and optimization.
-      </p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        How to calculate the bounce rate?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        If you want to calculate the bounce rate of your website, there is a <strong>bounce rate formula</strong> that you can utilize. You can calculate the <strong>number of bounces</strong> or single-page visits to the overall number of visitors, which will give you insights into your website’s gross performance during a certain tenure.
-      </p>
-      <p><strong>Bounce Rate Calculator:</strong></p>
-      <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-        Bounce Rate = (Total Bounces / Total Visitors) × 100
-      </h2>
-      <p>Let’s understand:</p>
-      <ul class="p-0">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Total Bounces:</strong>
-            It shows the number of people who view a website and quit it before making any further activities.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Total Visitors:</strong>
-            It represents the number of visitors who engage with the website for a particular period.
-          </span>
-        </li>
-      </ul>
-      <p>For example, while a total of 1000 visitors come to engage with the website and 600 of them head out without making any interaction, the bounce rate will be:</p>
-      <p>= 600 / 1000 × 100</p>
-      <p>= 60%</p>
-      <p>The high bounce rate is an indication that your website performance is sluggish, presence of irrelevant content, or poor <strong>user experience.</strong></p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Types of Bounces
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        In terms of website analytics, three types of bounce rates show the engagement performance of visitors:
-      </p>
-
-      <ul class="p-0">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Hard Bounce:</strong>
-            Hard bounce takes place when visitors enter the webpage but quit it in no time without engaging further. This shows that users are minimally interactive with slight scrolling or avoid scrolling, indicating little or zero consumer interest.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Medium Bounce:</strong>
-            Medium Bounce visitors eventually spend a short time on the page before scrolling away. Though they are not your target audience, they can probably become one-time shoppers who will come back and purchase sometime down the line.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Soft Bounce:</strong>
-            Soft bounce visitors spend a required amount of time on the landing page overall, exploring the content simply by scrolling, clicking, and surfing through various sections.  Even while interacting with websites, they end up not doing what they are meant to do. They show their interest, but something prevents them from converting or engaging with more of the website content.
-          </span>
-        </li>
-      </ul>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        What causes high email bounce rates?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p class="ms-4">
-        There are many reasons for occurring high bounce rates of your website that indicate different user behaviour. The following are some key types:
-      </p>
-
-      <ul class="p-0 ms-4">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Invalid or Fake Email Addresses:</strong>
-            Typing errors, old addresses, or phoney emails can lead to hard bounces.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Spam Filters:</strong>
-            Emails that cover an abundance of links, terrible formatting, and inappropriate content may be flagged as spam and restricted.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Crowded Mailboxes:</strong>
-            You can receive new emails if the inbox of recipient is full.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Server errors:</strong>
-            Delivery Interruption can occur from the recipient’s or server’s mail servers.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Blocked IPs or Domains:</strong>
-            If mail is sent through negatively reputed IPs or domains, it can get banned.
-          </span>
-        </li>
-      </ul>
-      <p class="ms-4">
-        Minimizing bounce rates is crucial in terms of elevating the quality of email performance. It’s advisable to clean your inboxes, verification before sending, double opt-in verification should be done, and content must comply with best practices to stay away from spam filters in terms of bounce rate reduction.
-      </p>
-    </div>
-  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="section-heading text-center mb-5">
-          <h2>FAQs</h2>
-          <span class="separator mb-2"></span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion faq-accordion" id="faqAccordion" >
-            @for (item of faqList; track item; let i = $index) {
-              <div class="accordion-item" itemscope itemprop="mainEntity"
-                itemtype="https://schema.org/Question">
-                <h6 class="accordion-header" id="heading{{i}}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                  </button>
-                </h6>
-                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                  itemtype="https://schema.org/Answer" >
-                  <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                  </div>
-                  <div class="text-center">
-                    @if (item?.buttonname) {
-                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                    }
-                  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-  <div class="container">
-    <!-- Related Calculator -->
-    <div class="row g-md-4 g-3">
-      <h2 class="text-center">Related Calculator</h2>
-      @for (card of cards; track card) {
-        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-          <div class="media-list-card shadow">
-            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-              <img [src]="card.image" loading="lazy" class="card-img-top"
-                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-              <div class="card-body px-0">
-                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                <p class="card-text line-clamp">{{ card.description }}</p>
-              </div>
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        <!-- Related Calculator -->
     </div>
-    <!-- Related Calculator -->
-  </div>
 </section>

@@ -1,331 +1,313 @@
 <!-- background -->
 <section class="section-featured-services sustainablegrowthrate-background common-padding">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h1 class="text-white"></h1>
+    <div class="container">
+        <div class="section-heading text-center">
+            <h1 class="text-white"></h1>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--- Calculator --->
 <section class="common-padding shadow">
-  <div class="container get-section">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-          class="roas-form p-4 border custom-border mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0 text-center">
-              <label class="form-label fw-bolder">ROE</label>
-              <input
-                type="number"
-                formControlName="conversionRevenue"
-                class="form-control border-danger" placeholder="Enter Value"
-                />
-              @if (conversionRevenue?.invalid && conversionRevenue?.touched) {
-                <div class="text-danger small">
-                  @if (conversionRevenue?.errors?.['required']) {
-                    <div>
-                      ROE is required.
+    <div class="container get-section">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
+                    class="roas-form p-4 border custom-border mx-auto">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0 text-center">
+                            <label class="form-label fw-bolder">ROE</label>
+                            <input
+                              type="number"
+                              formControlName="conversionRevenue"
+                              class="form-control border-danger" placeholder="Enter Value"
+                            />
+                            <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
+                              <div *ngIf="conversionRevenue?.errors?.['required']">
+                                ROE is required.
+                              </div>
+                              <div *ngIf="conversionRevenue?.errors?.['min']">
+                                ROE must be greater than 0.
+                              </div>
+                            </div>
+                          </div>
+
+                        <div class="col-md-6 text-center">
+                            <label class="form-label fw-bolder">Retentional Ratio</label>
+                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
+                                <div *ngIf="adSpend?.errors?.['required']">
+                                    Retentional Ratio is required.
+                                </div>
+                                <div *ngIf="adSpend?.errors?.['min']">
+                                    Retentional Ratio must be greater than 0.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  }
-                  @if (conversionRevenue?.errors?.['min']) {
-                    <div>
-                      ROE must be greater than 0.
+
+                    <div class="text-center mb-3">
+                        <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
-                  }
-                </div>
-              }
+
+                    <div class="text-center col-md-6 mx-auto">
+                        <label class="form-label fw-bolder">SGR %</label>
+                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                    </div>
+                </form>
+
             </div>
-
-            <div class="col-md-6 text-center">
-              <label class="form-label fw-bolder">Retentional Ratio</label>
-              <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
-              @if (adSpend?.invalid && adSpend?.touched) {
-                <div class="text-danger small">
-                  @if (adSpend?.errors?.['required']) {
-                    <div>
-                      Retentional Ratio is required.
-                    </div>
-                  }
-                  @if (adSpend?.errors?.['min']) {
-                    <div>
-                      Retentional Ratio must be greater than 0.
-                    </div>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
-          </div>
-
-          <div class="text-center col-md-6 mx-auto">
-            <label class="form-label fw-bolder">SGR %</label>
-            <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
-          </div>
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Detail -->
 
 <section class="common-padding shadow">
-  <div class="container default-content">
-    <div class="row align-items-center">
-      <!-- Left Image Column -->
-      <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
-        <img src="assets/page/calculators/sustainable-growth-rate/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
-      </div>
+    <div class="container default-content">
+        <div class="row align-items-center">
+            <!-- Left Image Column -->
+            <div class="col-md-5 mb-4 mb-md-0 calculator-illustration">
+                <img src="assets/page/calculators/sustainable-growth-rate/icon.jpg" alt="Calculator Illustration" class="img-fluid" style="max-height: 300px;" />
+            </div>
 
-      <!-- Right Text Column -->
-      <div class="col-md-7">
-        <h2 class="fw-bold text-danger mb-0">Sustainable Growth Rate</h2>
-        <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
-        <p class="fs-5">
-          This calculator assists in determining the sustainable growth rate (SGR). It gives precise growth projections, which benefit long-term strategic planning and financial security.
-        </p>
-        <p class="fs-5">
-          An SGR calculator helps in determining how quickly a business can expand without taking on more debt or issuing additional capital. A calculator enables companies to achieve growth and stability of finances through rates such as return on equity (ROE) and the retention rate. By entering fiscal data, the calculator can approximate a sustainable growth rate, which firms can use in planning appropriately and taking control of finances.
-        </p>
-      </div>
-      <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+            <!-- Right Text Column -->
+            <div class="col-md-7">
+                <h2 class="fw-bold text-danger mb-0">Sustainable Growth Rate</h2>
+                <h1 class="fw-bold text-danger mb-3 display-1">Calculator</h1>
+                <p class="fs-5">
+                    This calculator assists in determining the sustainable growth rate (SGR). It gives precise growth projections, which benefit long-term strategic planning and financial security.
+                </p>
+                <p class="fs-5">
+                    An SGR calculator helps in determining how quickly a business can expand without taking on more debt or issuing additional capital. A calculator enables companies to achieve growth and stability of finances through rates such as return on equity (ROE) and the retention rate. By entering fiscal data, the calculator can approximate a sustainable growth rate, which firms can use in planning appropriately and taking control of finances.
+                </p>
+            </div>
+            <div class="my-5" style="border: 1.5px solid #c01625; width: 50%; margin: 0 auto;"></div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                What is the sustainable growth rate?
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p>
+                The sustainable growth rate calculator helps in determining the maximum rate at which a business will grow its earnings, sales, and dividends while borrowing money from outside or taking any additional equity financing. This calculation combines the key financial metrics to give you a clear picture of a business’s growth potential while maintaining financial health. With the use of this calculator, businesses can plan their growth strategy. This helps in making sure that they don’t extend their financial potentiality.
+            </p>  
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Sustainable Growth Rate Example
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p><strong>Example of Sustainable Growth Rate (SGR)</strong></p>
+            <p>Suppose a company, ABC Ltd., has the following financial details:</p>
+            <ul class="p-0">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Return on Equity (ROE):</strong>15%
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Retention Ratio:</strong>
+                    60% (The company retains 60% of its earnings and distributes the rest as dividends.)
+                  </span>
+                </li>
+            </ul>
+            <p>The formula for <strong>Sustainable Growth Rate (SGR) is: </strong></p>
+        </div>
+
+        <div>
+            <div>
+                <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
+                    SGR = ROE*Retention ratio <br>
+                    SGR = 15% * 60% <br>
+                    SGR = 9%                    
+                </h2>
+                <p>This example shows that ABC Ltd can grow by 9% without taking any external financial borrowings or other equity funding help. If the company wants to expand beyond this rate, then it will require external financial borrowing.
+                </p>
+            </div>
+        </div>
+
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Advantages of using the Sustainable Growth Rate
+            </li>
+        </ul>
+        <div class="ms-4">
+            <ul class="p-0">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Aids in Strategic Planning:</strong>
+                    SGR gives a clear indication of how rapidly a business is able to grow without recourse to further financing, enabling companies to make realistic growth plans.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Sustains Financial Stability</strong>
+                    By expanding at a sustainable pace, businesses are able to prevent over-leveraging or liquidity crises, which leads to long-term financial stability.   
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Enhances Profitability:</strong>
+                    Emphasis on sustainable growth enables companies to realize stable profit margins and steer clear of risks that come with aggressive, unsustainable growth.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Optimizes Resource Allocation:</strong>
+                    SGR helps businesses allocate resources more effectively by balancing reinvestment and shareholder returns.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>Enhances Investor Confidence:</strong>
+                    A well-managed sustainable growth rate signals to investors that the company is stable and capable of managing growth responsibly, boosting market confidence.
+                  </span>
+                </li>
+            </ul>
+        </div>     
+        <ul class="p-0 ml-0">
+            <li class="d-flex align-items-start h3 text-danger">
+                Sustainable Growth Rate (SGR) vs. Internal Growth Rate (IGR)
+            </li>
+        </ul>
+        <div class="ms-4">
+            <p class="ms-4"><strong>1.	Impact on Business Strategy:</strong></p>
+            <ul class="p-0 ms-4">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                   Companies aiming for <strong>aggressive expansion</strong> may focus more on <strong>SGR,</strong> as it allows for controlled debt financing to accelerate growth.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    Businesses that prefer <strong>financial independence</strong> and want to avoid debt will prioritize <strong>IGR,</strong> growing only through retained earnings. 
+                  </span>
+                </li>
+            </ul>
+            <p class="ms-4"><strong>2.	Industry Relevance:</strong></p>
+            <ul class="p-0 ms-4">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>SGR</strong> is more relevant for industries that require continuous investment in assets, such as manufacturing and retail, where moderate debt can support expansion.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                   <strong>IGR</strong> is crucial for industries with lower capital needs, like software or consulting, where internal cash flow is often sufficient for growth. 
+                  </span>
+                </li>
+            </ul>
+            <p class="ms-4"><strong>3.	Investor Perspective:</strong></p>
+            <ul class="p-0 ms-4">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    Investors analyzing <strong>SGR</strong> assess whether a company can sustain its growth without financial strain.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    Investors looking at <strong>IGR</strong> check if a company can grow independently, making it more attractive to conservative investors who prefer lower debt levels. 
+                  </span>
+                </li>
+            </ul>
+            <p class="ms-4"><strong>4.	Macroeconomic Influence:</strong></p>
+            <ul class="p-0 ms-4">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    During periods of <strong>low-interest rates,</strong> businesses may lean towards <strong>SGR,</strong> as borrowing becomes cheaper and more attractive.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    In <strong>economic downturns,</strong> companies may prefer <strong>IGR</strong> to avoid debt risks and ensure stable operations. 
+                  </span>
+                </li>
+            </ul>
+            <p class="ms-4"><strong>5.	Flexibility in Financial Planning:</strong></p>
+            <ul class="p-0 ms-4">
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>SGR</strong> provides companies with a roadmap to balance debt and equity financing for sustainable growth.
+                  </span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <span class="ms-2">
+                    <strong>IGR</strong> serves as a benchmark for businesses that want to grow organically without financial dependence on external sources. 
+                  </span>
+                </li>
+            </ul>
+        </div>
+              
+
+        
+
     </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        What is the sustainable growth rate?
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p>
-        The sustainable growth rate calculator helps in determining the maximum rate at which a business will grow its earnings, sales, and dividends while borrowing money from outside or taking any additional equity financing. This calculation combines the key financial metrics to give you a clear picture of a business’s growth potential while maintaining financial health. With the use of this calculator, businesses can plan their growth strategy. This helps in making sure that they don’t extend their financial potentiality.
-      </p>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Sustainable Growth Rate Example
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p><strong>Example of Sustainable Growth Rate (SGR)</strong></p>
-      <p>Suppose a company, ABC Ltd., has the following financial details:</p>
-      <ul class="p-0">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Return on Equity (ROE):</strong>15%
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Retention Ratio:</strong>
-            60% (The company retains 60% of its earnings and distributes the rest as dividends.)
-          </span>
-        </li>
-      </ul>
-      <p>The formula for <strong>Sustainable Growth Rate (SGR) is: </strong></p>
-    </div>
-
-    <div>
-      <div>
-        <h2 class="p-4 text-center custom-border text-danger shadow-lg my-5">
-          SGR = ROE*Retention ratio <br>
-          SGR = 15% * 60% <br>
-          SGR = 9%
-        </h2>
-        <p>This example shows that ABC Ltd can grow by 9% without taking any external financial borrowings or other equity funding help. If the company wants to expand beyond this rate, then it will require external financial borrowing.
-        </p>
-      </div>
-    </div>
-
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Advantages of using the Sustainable Growth Rate
-      </li>
-    </ul>
-    <div class="ms-4">
-      <ul class="p-0">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Aids in Strategic Planning:</strong>
-            SGR gives a clear indication of how rapidly a business is able to grow without recourse to further financing, enabling companies to make realistic growth plans.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Sustains Financial Stability</strong>
-            By expanding at a sustainable pace, businesses are able to prevent over-leveraging or liquidity crises, which leads to long-term financial stability.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Enhances Profitability:</strong>
-            Emphasis on sustainable growth enables companies to realize stable profit margins and steer clear of risks that come with aggressive, unsustainable growth.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Optimizes Resource Allocation:</strong>
-            SGR helps businesses allocate resources more effectively by balancing reinvestment and shareholder returns.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>Enhances Investor Confidence:</strong>
-            A well-managed sustainable growth rate signals to investors that the company is stable and capable of managing growth responsibly, boosting market confidence.
-          </span>
-        </li>
-      </ul>
-    </div>
-    <ul class="p-0 ml-0">
-      <li class="d-flex align-items-start h3 text-danger">
-        Sustainable Growth Rate (SGR) vs. Internal Growth Rate (IGR)
-      </li>
-    </ul>
-    <div class="ms-4">
-      <p class="ms-4"><strong>1.	Impact on Business Strategy:</strong></p>
-      <ul class="p-0 ms-4">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            Companies aiming for <strong>aggressive expansion</strong> may focus more on <strong>SGR,</strong> as it allows for controlled debt financing to accelerate growth.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            Businesses that prefer <strong>financial independence</strong> and want to avoid debt will prioritize <strong>IGR,</strong> growing only through retained earnings.
-          </span>
-        </li>
-      </ul>
-      <p class="ms-4"><strong>2.	Industry Relevance:</strong></p>
-      <ul class="p-0 ms-4">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>SGR</strong> is more relevant for industries that require continuous investment in assets, such as manufacturing and retail, where moderate debt can support expansion.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>IGR</strong> is crucial for industries with lower capital needs, like software or consulting, where internal cash flow is often sufficient for growth.
-          </span>
-        </li>
-      </ul>
-      <p class="ms-4"><strong>3.	Investor Perspective:</strong></p>
-      <ul class="p-0 ms-4">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            Investors analyzing <strong>SGR</strong> assess whether a company can sustain its growth without financial strain.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            Investors looking at <strong>IGR</strong> check if a company can grow independently, making it more attractive to conservative investors who prefer lower debt levels.
-          </span>
-        </li>
-      </ul>
-      <p class="ms-4"><strong>4.	Macroeconomic Influence:</strong></p>
-      <ul class="p-0 ms-4">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            During periods of <strong>low-interest rates,</strong> businesses may lean towards <strong>SGR,</strong> as borrowing becomes cheaper and more attractive.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            In <strong>economic downturns,</strong> companies may prefer <strong>IGR</strong> to avoid debt risks and ensure stable operations.
-          </span>
-        </li>
-      </ul>
-      <p class="ms-4"><strong>5.	Flexibility in Financial Planning:</strong></p>
-      <ul class="p-0 ms-4">
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>SGR</strong> provides companies with a roadmap to balance debt and equity financing for sustainable growth.
-          </span>
-        </li>
-        <li class="d-flex align-items-start">
-          <span class="ms-2">
-            <strong>IGR</strong> serves as a benchmark for businesses that want to grow organically without financial dependence on external sources.
-          </span>
-        </li>
-      </ul>
-    </div>
-
-
-
-
-  </div>
 </section>
 
 <!-- FAQs -->
 <section class="bg-gradient-gray common-padding">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="section-heading text-center mb-5">
-          <h2>FAQs</h2>
-          <span class="separator mb-2"></span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion faq-accordion" id="faqAccordion" >
-            @for (item of faqList; track item; let i = $index) {
-              <div class="accordion-item" itemscope itemprop="mainEntity"
-                itemtype="https://schema.org/Question">
-                <h6 class="accordion-header" id="heading{{i}}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
-                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
-                  </button>
-                </h6>
-                <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
-                  data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
-                  itemtype="https://schema.org/Answer" >
-                  <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
-                  </div>
-                  <div class="text-center">
-                    @if (item?.buttonname) {
-                      <button class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
-                    }
-                  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>FAQs</h2>
+                    <span class="separator mb-2"></span>
                 </div>
-              </div>
-            }
-          </div>
+            </div>
+            <div class="col-12">
+                <div class="" itemscope itemtype="https://schema.org/FAQPage">
+                    <div class="accordion faq-accordion" id="faqAccordion" >
+                        <div class="accordion-item" *ngFor="let item of faqList; let i=index" itemscope itemprop="mainEntity"
+                        itemtype="https://schema.org/Question">
+                            <h6 class="accordion-header" id="heading{{i}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapse{{i}}">
+                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                </button>
+                            </h6>
+                            <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
+                                data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer" >
+                                <div class="accordion-body default-content" itemprop="text">
+                                    <p [innerHTML]="item?.answer"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a style="color: white;" href="{{item?.buttonlink}}">{{item?.buttonname}}</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Related Calculator start -->
 <section class="media-list">
-  <div class="container">
-    <!-- Related Calculator -->
-    <div class="row g-md-4 g-3">
-      <h2 class="text-center">Related Calculator</h2>
-      @for (card of cards; track card) {
-        <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-          <div class="media-list-card shadow">
-            <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
-              <img [src]="card.image" loading="lazy" class="card-img-top"
-                [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
-              <div class="card-body px-0">
-                <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
-                <p class="card-text line-clamp">{{ card.description }}</p>
-              </div>
+    <div class="container">
+        <!-- Related Calculator -->
+        <div class="row g-md-4 g-3">
+            <h2 class="text-center">Related Calculator</h2>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3" *ngFor="let card of cards">
+                <div class="media-list-card shadow">
+                    <div class="card" [routerLink]="[card.link]" style="border:1px solid #c01625 !important;">
+                        <img [src]="card.image" loading="lazy" class="card-img-top"
+                             [title]="card.title" [alt]="card.title" data-item-link-type="Item thumbnail">
+                        <div class="card-body px-0">
+                          <h5 class="card-title title-clamp" [matTooltip]="card.title">{{ card.title }}</h5>
+                          <p class="card-text line-clamp">{{ card.description }}</p>
+                        </div>
+                      </div>
+                </div>
             </div>
-          </div>
         </div>
-      }
+        <!-- Related Calculator -->
     </div>
-    <!-- Related Calculator -->
-  </div>
 </section>

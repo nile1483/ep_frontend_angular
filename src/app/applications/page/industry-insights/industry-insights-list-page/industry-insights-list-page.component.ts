@@ -1,16 +1,20 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppURL } from 'src/app/app-url';
+import { MetaInformation } from '@app-shared-model';
+import { META_DATA } from '@app-shared-constants';
+import { CommonService } from '@app-shared-services';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-industry-insights-list-page',
-    templateUrl: './industry-insights-list-page.component.html',
-    styleUrl: './industry-insights-list-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-industry-insights-list-page',
+  templateUrl: './industry-insights-list-page.component.html',
+  styleUrl: './industry-insights-list-page.component.css',
 })
 export class IndustryInsightsListPageComponent {
 
   webURL: string = AppURL.webURL;
+
+  metaData: any = META_DATA['industry-insights'];
 
   faqList = [
     {
@@ -26,7 +30,6 @@ export class IndustryInsightsListPageComponent {
       "answer": "They’re expert interpretations of advertising data that guide how brands should act, spend, and strategize in response to market changes",
     },
   ];
-
 
   cards = [
     {
@@ -150,5 +153,33 @@ export class IndustryInsightsListPageComponent {
       description: ''
     },
   ];
+
+  constructor(
+    private router: Router,
+    private commonService: CommonService,
+  ) { }
+
+  ngOnInit(): void {
+    this.setMetaData();
+  }
+
+  setMetaData() {
+    let metaInfo = new MetaInformation();
+    metaInfo.meta_title = this.metaData?.meta_title ?? '';
+    metaInfo.meta_description = this.metaData?.meta_description ?? '';
+    metaInfo.meta_keywords = this.metaData?.meta_keywords ?? '';
+    metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
+    //og data          
+    metaInfo.og_url = `${this.webURL}`;
+    metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
+
+    this.commonService.setMetaData(metaInfo);
+
+    //************************// 
+    //   Google Tag Manager   //
+    //************************//
+
+    this.commonService.gtmPageEvents('Company', 'Industry Insights');
+  }
 
 }

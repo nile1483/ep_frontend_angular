@@ -1,31 +1,28 @@
-@if (isloded) {
-  <section class="section-services-grid white-background common-margin" >
+<section class="section-services-grid white-background common-margin"  *ngIf="isloded">
     <div class="container">
-      <div class="row justify-content-center">
-        @if ((searchResult.length > 0)) {
-          <div class="col-12 col-md-8">
-            <div class="search-items">
-              <ul>
-                @for (item of searchResult; track item) {
-                  <li class="w-100">
-                    <a aria-label="Link" [routerLink]="['/',item.media,item.slug]">
-                      <div class="row align-middle">
-                        <div class="col-md-10 col-12"> {{item.term}} </div>
-                        <div class="small text-muted text-end text-capitalize col-md-2 col-12"> {{item.media}}
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                }
-              </ul>
+        
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8" *ngIf="(searchResult.length > 0); else noDataFound">
+                <div class="search-items">
+                    <ul>
+                        <li *ngFor="let item of searchResult" class="w-100">
+                            <a aria-label="Link" [routerLink]="['/',item.media,item.slug]">
+                                <div class="row align-middle">
+                                    <div class="col-md-10 col-12"> {{item.term}} </div>
+                                    <div class="small text-muted text-end text-capitalize col-md-2 col-12"> {{item.media}}
+                                    </div>
+                                </div>
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </div>
-        } @else {
-          <app-no-results></app-no-results>
-        }
-        <!-- If Data not found start-->
-        <!-- If Data not found end-->
-      </div>
+             <!-- If Data not found start-->
+            <ng-template #noDataFound>
+                <app-no-results></app-no-results>    
+            </ng-template>
+             <!-- If Data not found end-->
+        </div>
     </div>
-  </section>
-}
+</section>

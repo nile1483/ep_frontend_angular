@@ -1,39 +1,35 @@
 <div class="container">
 
-  <div class="section-heading text-center mb-5">
-    <h2>Our Services</h2>
-    <span class="separator mb-2" ></span>
-  </div>
-  <div class="row g-md-3 g-2">
-    @for (service of serviceList; track service) {
-      <div class="col-xl-2 col-lg-3 col-md-3 col-4 services-col">
-        <div class="services-card">
-          @if (service?.title != 'Corporate Gifting') {
-            <a aria-label="Link" [routerLink]="['/',service.url]">
-              <div class="services-icon" [innerHTML]="service.icon | safeHtml">
-                <!-- <i class="fa-solid {{service?.icon}}"></i> -->
-              </div>
-              <div class="services-body">
-                <h5>{{service?.title}}</h5>
-                <p> {{service?.reach}}</p>
-                <p> {{service?.subTitle}} </p>
-              </div>
-            </a>
-          }
-          @if (service?.title == 'Corporate Gifting') {
-            <a aria-label="Link" href="{{service.url}}">
-              <div class="services-icon" [innerHTML]="service.icon | safeHtml">
-                <!-- <i class="fa-solid {{service?.icon}}"></i> -->
-              </div>
-              <div class="services-body">
-                <h5>{{service?.title}}</h5>
-                <p> {{service?.reach}}</p>
-                <p> {{service?.subTitle}} </p>
-              </div>
-            </a>
-          }
+    <div class="section-heading text-center mb-5">
+        <h2>Our Services</h2>
+        <span class="separator mb-2" ></span>
+    </div>
+    <div class="row g-md-3 g-2">
+        <div class="col-xl-2 col-lg-3 col-md-3 col-4 services-col" *ngFor="let service of serviceList">
+            <div class="services-card">
+
+                <a aria-label="Link" [routerLink]="['/',service.url]" *ngIf="service?.title != 'Corporate Gifting'">
+                    <div class="services-icon" [innerHTML]="service.icon | safeHtml">
+                        <!-- <i class="fa-solid {{service?.icon}}"></i> -->
+                    </div>
+                    <div class="services-body">
+                        <h5>{{service?.title}}</h5>
+                        <p> {{service?.reach}}</p>
+                        <p> {{service?.subTitle}} </p>
+                    </div>
+                </a>
+
+                <a aria-label="Link" href="{{service.url}}" *ngIf="service?.title == 'Corporate Gifting'">
+                    <div class="services-icon" [innerHTML]="service.icon | safeHtml">
+                        <!-- <i class="fa-solid {{service?.icon}}"></i> -->
+                    </div>
+                    <div class="services-body">
+                        <h5>{{service?.title}}</h5>
+                        <p> {{service?.reach}}</p>
+                        <p> {{service?.subTitle}} </p>
+                    </div>
+                </a>
+            </div>
         </div>
-      </div>
-    }
-  </div>
+    </div>
 </div>

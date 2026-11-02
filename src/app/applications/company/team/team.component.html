@@ -1,94 +1,85 @@
 <section class="common-padding bg-linear-gradient team-page-header">
-  <div class="container">
-    <div class="section-heading text-center mb-5">
-      <h1> Team Excellent </h1>
-      <p> A bunch of young energetic folks who are media experts, Planners and Executors, and just want to make things happen.
-        If you feel the agency life is what gets you going, leave us a mail on <a aria-label="Link" href="mailto:chahal@excellentpublicity.com">chahal&#64;excellentpublicity.com</a>
-      </p>
-    </div>
-    <div class="section-heading text-center mb-4 pb-2">
-      <h2 class="mb-0"> Co- founders </h2>
-    </div>
-    <div class="row text-center justify-content-center partner-row">
-      @for (coFounders of teamExcellentList?.coFounders; track coFounders) {
-        <div class="col-6 col-md-6 col-lg-4">
-          <div class="card team-card border-0 h-100 text-center image-animation">
-            <img loading="lazy" src="{{coFounders?.image_formal}}" class="team-img"  title="{{coFounders?.name}}" alt="{{coFounders?.name}}">
-            <img loading="lazy" src="{{coFounders?.image_informal}}" class="team-img image-animation image-hover" alt="{{coFounders.name}}"  title="{{coFounders?.name}}" >
-            <div class="card-body py-0 px-2">
-              <h5>{{coFounders?.name}}</h5>
-              <p class="mt-1 mt-md-2 mb-0"> ({{coFounders?.designation}}) </p>
-            </div>
-          </div>
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <h1> Team Excellent </h1>
+            <p> A bunch of young energetic folks who are media experts, Planners and Executors, and just want to make things happen.
+                If you feel the agency life is what gets you going, leave us a mail on <a aria-label="Link" href="mailto:chahal@excellentpublicity.com">chahal&#64;excellentpublicity.com</a>
+                 </p>
         </div>
-      }
+        <div class="section-heading text-center mb-4 pb-2">
+            <h2 class="mb-0"> Co- founders </h2>
+        </div>
+        <div class="row text-center justify-content-center partner-row">
+            <div class="col-6 col-md-6 col-lg-4" *ngFor="let coFounders of teamExcellentList?.coFounders"> 
+                <div class="card team-card border-0 h-100 text-center image-animation">
+                    <img loading="lazy" src="{{coFounders?.image_formal}}" class="team-img"  title="{{coFounders?.name}}" alt="{{coFounders?.name}}">
+                    <img loading="lazy" src="{{coFounders?.image_informal}}" class="team-img image-animation image-hover" alt="{{coFounders.name}}"  title="{{coFounders?.name}}" >
+                    <div class="card-body py-0 px-2">
+                        <h5>{{coFounders?.name}}</h5>
+                        <p class="mt-1 mt-md-2 mb-0"> ({{coFounders?.designation}}) </p>
+                    </div>
+                </div>
+            </div>       
+        </div>   
     </div>
-  </div>
 </section>
 
 <section class="common-padding team-section ">
-  <div class="container">
-    <div class="section-heading text-center mb-4 pb-md-2">
-      <h2 class="mb-0"> Partner </h2>
-    </div>
-    <div class="row text-center justify-content-center partner-row">
-      @for (partner of teamExcellentList?.partner; track partner) {
-        <div class="col-6 col-md-6 col-lg-4">
-          <div class="card team-card border-0 h-100 text-center image-animation">
-            <img loading="lazy" src="{{partner?.image_formal}}" class="team-img"  title="{{partner?.name}}" alt="{{partner?.name}}">
-            <img loading="lazy" src="{{partner?.image_informal}}" class="team-img image-animation image-hover" alt="{{partner.name}}"  title="{{partner?.name}}" >
-            <div class="card-body py-0 px-2">
-              <h5>{{partner?.name}}</h5>
-              <p class="mt-1 mt-md-2 mb-0"> ({{partner?.designation}}) </p>
-            </div>
-          </div>
+    <div class="container">
+        <div class="section-heading text-center mb-4 pb-md-2">
+            <h2 class="mb-0"> Partner </h2>
         </div>
-      }
-    </div>
-    <div class="section-heading text-center mt-5 pt-md-4 mb-4 pb-md-2">
-      <h2 class="mb-0"> Our Key management </h2>
-    </div>
-    <div class="row text-center justify-content-center gy-md-4 g-3">
-      @for (team of teamExcellentList?.keyManagement; track team) {
-        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-          <div class="card team-card team-round-img border-0 h-100 text-center">
-            <!-- /assets/team/resized/
-            /assets/team/resized/ -->
-            <img loading="lazy" src="{{team?.image_formal}}" class="rounded-circle" alt="{{team?.name}}"  title="{{team?.name}}" >
-            <img loading="lazy" src="{{team?.image_informal}}" class="rounded-circle image-animation image-hover" alt="{{team.name}}"  title="{{team?.name}}" >
-            <div class="card-body py-3 px-2">
-              <h6>{{team.name}}</h6>
-              <p class="my-1"> {{team.designation}} </p>
-              <p  class="my-1 text-grey-light mb-0"> {{team.designation_2}} </p>
-            </div>
-          </div>
+        <div class="row text-center justify-content-center partner-row">
+            <div class="col-6 col-md-6 col-lg-4" *ngFor="let partner of teamExcellentList?.partner"> 
+                <div class="card team-card border-0 h-100 text-center image-animation">
+                    <img loading="lazy" src="{{partner?.image_formal}}" class="team-img"  title="{{partner?.name}}" alt="{{partner?.name}}">
+                    <img loading="lazy" src="{{partner?.image_informal}}" class="team-img image-animation image-hover" alt="{{partner.name}}"  title="{{partner?.name}}" >
+                    <div class="card-body py-0 px-2">
+                        <h5>{{partner?.name}}</h5>
+                        <p class="mt-1 mt-md-2 mb-0"> ({{partner?.designation}}) </p>
+                    </div>
+                </div>
+            </div>             
         </div>
-      }
-    </div>
-    @if (teamExcellentList?.team) {
-      <div class="section-heading text-center mt-5 pt-md-4 mb-4 pb-md-2">
-        <h2 class="mb-0">The people that make Excellent</h2>
-      </div>
-    }
-    <div class="row text-center justify-content-center gy-md-4 g-3">
-      @for (team of teamExcellentList?.team; track team) {
-        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
-          <div class="card team-card team-round-img border-0 h-100 text-center">
-            <!-- /assets/team/resized/
-            /assets/team/resized/ -->
-            <img loading="lazy" src="{{team?.image_formal}}" class="rounded-circle" alt="{{team?.name}}"  title="{{team?.name}}" >
-            <img loading="lazy" src="{{team?.image_informal}}" class="rounded-circle image-animation image-hover" alt="{{team.name}}"  title="{{team?.name}}" >
-            <div class="card-body py-3 px-2">
-              <h6>{{team.name}}</h6>
-              <p class="my-1"> {{team.designation}} </p>
-              <p  class="my-1 text-grey-light mb-0"> {{team.designation_2}} </p>
-            </div>
-          </div>
+        <div class="section-heading text-center mt-5 pt-md-4 mb-4 pb-md-2">
+            <h2 class="mb-0"> Our Key management </h2>
         </div>
-      }
+        <div class="row text-center justify-content-center gy-md-4 g-3">
+            <div class="col-6 col-md-6 col-lg-4 col-xl-3" *ngFor="let team of teamExcellentList?.keyManagement"> 
+                <div class="card team-card team-round-img border-0 h-100 text-center">
+                    <!-- /assets/team/resized/
+                    /assets/team/resized/ -->
+                    <img loading="lazy" src="{{team?.image_formal}}" class="rounded-circle" alt="{{team?.name}}"  title="{{team?.name}}" >
+                    <img loading="lazy" src="{{team?.image_informal}}" class="rounded-circle image-animation image-hover" alt="{{team.name}}"  title="{{team?.name}}" >
+                    <div class="card-body py-3 px-2">
+                        <h6>{{team.name}}</h6>
+                        <p class="my-1"> {{team.designation}} </p>
+                        <p  class="my-1 text-grey-light mb-0"> {{team.designation_2}} </p>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <div class="section-heading text-center mt-5 pt-md-4 mb-4 pb-md-2" *ngIf="teamExcellentList?.team">
+            <h2 class="mb-0">The people that make Excellent</h2>
+        </div>
+        <div class="row text-center justify-content-center gy-md-4 g-3">
+            <div class="col-6 col-md-6 col-lg-4 col-xl-3" *ngFor="let team of teamExcellentList?.team"> 
+                <div class="card team-card team-round-img border-0 h-100 text-center">
+                    <!-- /assets/team/resized/
+                    /assets/team/resized/ -->
+                    <img loading="lazy" src="{{team?.image_formal}}" class="rounded-circle" alt="{{team?.name}}"  title="{{team?.name}}" >
+                    <img loading="lazy" src="{{team?.image_informal}}" class="rounded-circle image-animation image-hover" alt="{{team.name}}"  title="{{team?.name}}" >
+                    <div class="card-body py-3 px-2">
+                        <h6>{{team.name}}</h6>
+                        <p class="my-1"> {{team.designation}} </p>
+                        <p  class="my-1 text-grey-light mb-0"> {{team.designation_2}} </p>
+                    </div>
+                </div>
+            </div>  
+        </div>
     </div>
-  </div>
 </section>
 
-
-<app-call-to-action></app-call-to-action>
+ 
+<app-call-to-action></app-call-to-action> 
+ 

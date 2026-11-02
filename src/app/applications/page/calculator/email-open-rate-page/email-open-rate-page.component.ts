@@ -1,13 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-email-open-rate-page',
-    templateUrl: './email-open-rate-page.component.html',
-    styleUrl: './email-open-rate-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-email-open-rate-page',
+  templateUrl: './email-open-rate-page.component.html',
+  styleUrl: './email-open-rate-page.component.css'
 })
 export class EmailOpenRatePageComponent {
 

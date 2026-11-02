@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CareerService } from "@app-company-services";
 import { AppURL } from 'src/app/app-url';
@@ -23,11 +23,9 @@ export class CareerFilters {
 
 
 @Component({
-    selector: 'app-career',
-    templateUrl: './career.component.html',
-    styleUrls: ['./career.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-career',
+  templateUrl: './career.component.html',
+  styleUrls: ['./career.component.css']
 })
 export class CareerComponent implements OnInit {
 

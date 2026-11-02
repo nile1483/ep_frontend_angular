@@ -1,4 +1,3 @@
-
 .contact-item {
   display: flex;
   margin-bottom: 16px;
@@ -58,21 +57,18 @@
   width: 34px;
 }
 
-
 @media (max-width: 575px) {
   .contact-item .contact-item-content.email-list .google-link {
-      width: 40px;
-      height: 40px;
+    width: 40px;
+    height: 40px;
   }
 
   .contact-item .contact-item-content.email-list .google-link img {
-      width: 30px;
+    width: 30px;
   }
 
-
   .contact-item .contact-item-content.email-list .email-link {
-      max-width: calc(100% - 50px);
-
+    max-width: calc(100% - 50px);
   }
 }
 
@@ -81,11 +77,9 @@
   margin: 0 auto;
 }
 
-
-.phone-number-with-country .drop-down-link{
-   
-  text-align: center; 
-  min-width: 90px;  
+.phone-number-with-country .drop-down-link {
+  text-align: center;
+  min-width: 90px;
   display: block;
   width: 100%;
   padding: 13px;
@@ -98,7 +92,7 @@
   border-radius: 5px 0px 0px 5px;
 }
 
-.phone-number{
+.phone-number {
   border-radius: 0px 5px 5px 0px;
 }
 
@@ -109,32 +103,27 @@
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   background-color: var(--bs-white);
-  border: 0; 
+  border: 0;
   min-width: 280px;
 }
-.phone-number-with-country .dropdown-menu .country-list{
+.phone-number-with-country .dropdown-menu .country-list {
   max-height: 110px;
-  overflow-y: auto;  
+  overflow-y: auto;
 }
-.phone-number-with-country .dropdown-menu li{
+.phone-number-with-country .dropdown-menu li {
   cursor: pointer;
   border-radius: 4px;
   white-space: normal;
 }
-.phone-number-with-country .dropdown-menu .dropdown-item.active, .phone-number-with-country .dropdown-menu .dropdown-item:active {
+.phone-number-with-country .dropdown-menu .dropdown-item.active,
+.phone-number-with-country .dropdown-menu .dropdown-item:active {
   color: #fff;
   background-color: var(--gray-3);
 }
 
-.country-search{
+.country-search {
   padding: 5px 10px !important;
 }
-
-
-
-
-
-
 
 @media (min-width: 1400px) {
   .card.container {
@@ -174,8 +163,6 @@ img {
   /* line-height: 1.6; */
   font-size: 15px !important;
 }
-
-
 
 .input-group-append {
   border-top-left-radius: 5px !important;
@@ -231,7 +218,7 @@ h2 {
   font-size: 1.7rem;
 }
 
-@media (max-width:991px) {
+@media (max-width: 991px) {
   .cta-section .section-heading {
     max-width: 325px;
   }
@@ -240,9 +227,6 @@ h2 {
 .highlight-yellow {
   color: yellow;
 }
-
-
-
 
 /* CASE STUDIES */
 
@@ -295,9 +279,14 @@ flip-container {
   color: #fff;
 }
 
+.h1,
+h1 {
+  font-size: calc(1.3rem + 0.6vw);
+}
 
-
-
-
-
-
+@media (min-width: 1200px) {
+  .h1,
+  h1 {
+    font-size: 1.75rem;
+  }
+}

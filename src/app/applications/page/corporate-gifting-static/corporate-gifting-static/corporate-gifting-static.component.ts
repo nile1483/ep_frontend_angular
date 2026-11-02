@@ -1,16 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '@app-shared-services';
-import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA } from '@app-shared-constants';
-import { CORPORATE_META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
-
 import { MatDialog } from '@angular/material/dialog';
 import { PageService } from '../../page.service';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { FORBIDDEN_EMAIL_DOMAINS } from 'src/app/shared/constants/forbidden-email-domain-list';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { META_DATA } from '@app-shared-constants';
 
 export function isPersonalEmailValidatorStatic(control: UntypedFormControl): ValidationErrors | null {
 
@@ -31,22 +29,15 @@ export function isPersonalEmailValidatorStatic(control: UntypedFormControl): Val
 
 
 @Component({
-    selector: 'app-corporate-gifting-static',
-    templateUrl: './corporate-gifting-static.component.html',
-    styleUrls: ['./corporate-gifting-static.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-corporate-gifting-static',
+  templateUrl: './corporate-gifting-static.component.html',
+  styleUrls: ['./corporate-gifting-static.component.css']
 })
 export class CorporateGiftingStaticComponent implements OnInit {
 
   media: string = 'corporate-gifting';
   webURL: string = AppURL.webURL;
-  media_icons: any = SVG_ICON_FOR_MEDIA
-  serviceList: any = SERVICE_LIST_WITH_SVG_ICON;
-  app_svg_icon_list = APP_SVG_ICON_LIST;
-  metaData: any = CORPORATE_META_DATA['corporategifting'];
-  selectedCurrency: any;
-  pageContentData: any;
+  metaData: any = META_DATA[this.media];
 
   selectedCountry: any = { "name": "India", "dialCode": "+91", "code": "IN" };
   countryList: any = [];
@@ -79,12 +70,6 @@ export class CorporateGiftingStaticComponent implements OnInit {
   ngOnInit(): void {
     this.getCountryCodeData();
     this.setMetaData();
-
-    //Currency
-    this.selectedCurrency = this.commonService.getSelectedCurrency();
-    this.commonService.getCurrency().subscribe(currency => {
-      this.selectedCurrency = this.commonService.getSelectedCurrency();
-    });
   }
 
   getCountryCodeData() {
@@ -181,7 +166,7 @@ export class CorporateGiftingStaticComponent implements OnInit {
     {
       "question": "What types of corporate gifts do you offer in your catalog?",
       "answer": "At Excellent Publicity, our catalog boasts an extensive array of corporate gifts designed to meet a variety of preferences and occasions. Our offerings include: </br>\n- Food and Beverages </br> \n- Grooming Kits and Perfumes </br>\n- Travel Companions and Accessories </br>\n- Writing Instruments and Stationery </br>\n- Lifestyle Products </br>\n- Home Appliances and Kitchen Utility </br>\n- Personalized Items </br>\nOur diverse selection ensures that you can find the perfect corporate gift to suit your specific needs, whether you're looking to impress clients, reward employees, or mark special events and milestones."
-    },  
+    },
     {
       "question": "How can I place an order for corporate gifts?",
       "answer": "Placing an order for corporate gifts is easy. You can visit our website and browse our catalog. Once you've selected the items you want, simply add them to your cart and proceed to the checkout. Our ordering process is user-friendly and provides step-by-step guidance.",

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { AdvertisingPageService } from '../advertising-page.service';
@@ -8,14 +8,12 @@ import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 import { Subscription } from 'rxjs';
-
+import { DOCUMENT } from '@angular/common';
 
 @Component({
-    selector: 'app-advertising-page-detail',
-    templateUrl: './advertising-page-detail.component.html',
-    styleUrls: ['./advertising-page-detail.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-advertising-page-detail',
+  templateUrl: './advertising-page-detail.component.html',
+  styleUrls: ['./advertising-page-detail.component.css']
 })
 export class AdvertisingPageDetailComponent implements OnInit {
 

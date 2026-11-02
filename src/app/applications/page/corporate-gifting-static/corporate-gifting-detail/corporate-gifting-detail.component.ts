@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,20 +8,19 @@ import { PageService } from '../../page.service';
 import { CORPORATE_META_DATA } from '@app-shared-constants';
 import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
+import { META_DATA } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-corporate-gifting-detail',
-    templateUrl: './corporate-gifting-detail.component.html',
-    styleUrls: ['./corporate-gifting-detail.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-corporate-gifting-detail',
+  templateUrl: './corporate-gifting-detail.component.html',
+  styleUrls: ['./corporate-gifting-detail.component.css']
 })
 export class CorporateGiftingDetailComponent implements OnInit {
 
   downloadType: string = '';
-  metaData: any = CORPORATE_META_DATA['corporategifting'];
+  metaData: any = META_DATA['corporate-gifting'];
   webURL: string = AppURL.webURL;
-  
+
   downloadLinkBase: string = 'https://asset.apiexcellent.com/app/public/images/medias/corporategifting/download/';
 
   isRegisteredGift: boolean = false;
@@ -111,11 +110,9 @@ export class CorporateGiftingDetailComponent implements OnInit {
 
 
 @Component({
-    selector: 'catalog-download-inquiry-dialog',
-    templateUrl: 'catalog-download-inquiry-dialog.html',
-    styles: ['.mat-mdc-dialog-actions { padding-top: 0px !important; }'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'catalog-download-inquiry-dialog',
+  templateUrl: 'catalog-download-inquiry-dialog.html',
+  styles: ['.mat-mdc-dialog-actions { padding-top: 0px !important; }']
 })
 
 export class CatalogDownloadInquiryDialog {
@@ -154,7 +151,7 @@ export class CatalogDownloadInquiryDialog {
   selectCountry(country: any) {
     this.selectedCountry = country;
   }
-  
+
   downloadInquiryForm = new UntypedFormGroup({
     inquiryType: new UntypedFormControl('catalogdownload', [Validators.required]),
     inquiryPage: new UntypedFormControl('excellentbasket', [Validators.required]),

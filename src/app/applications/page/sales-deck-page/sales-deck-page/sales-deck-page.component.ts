@@ -1,8 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { UserService } from '@app-shared-services';
 import { CommonService } from '@app-shared-services';
-import { ActivatedRoute, Router } from '@angular/router';
 import { FORBIDDEN_EMAIL_DOMAINS } from 'src/app/shared/constants/forbidden-email-domain-list';
 import { PageService } from '../../../page/page.service';
 import { Categories } from '../mock';
@@ -25,11 +23,9 @@ export function isPersonalEmailValidatorContact(control: UntypedFormControl): Va
 
 
 @Component({
-    selector: 'app-sales-deck-page',
-    templateUrl: './sales-deck-page.component.html',
-    styleUrl: './sales-deck-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-sales-deck-page',
+  templateUrl: './sales-deck-page.component.html',
+  styleUrl: './sales-deck-page.component.css'
 })
 export class SalesDeckPageComponent {
 
@@ -41,11 +37,8 @@ export class SalesDeckPageComponent {
   productGroups = [];
 
   constructor(
-    private userService: UserService,
     private pageService: PageService,
     private commonService: CommonService,
-    private route: ActivatedRoute,
-    private router: Router
   ) {
   }
 

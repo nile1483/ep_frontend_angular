@@ -1,11 +1,9 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-content-builder',
-    templateUrl: './content-builder.component.html',
-    styleUrls: ['./content-builder.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-content-builder',
+  templateUrl: './content-builder.component.html',
+  styleUrls: ['./content-builder.component.css']
 })
 export class ContentBuilderComponent implements OnInit {
 

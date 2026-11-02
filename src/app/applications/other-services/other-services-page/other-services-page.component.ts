@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { META_DATA } from '@app-shared-constants';
@@ -25,11 +25,9 @@ export function isPersonalEmailValidatorOtherServicesPage(control: UntypedFormCo
 }
 
 @Component({
-    selector: 'app-other-services-page',
-    templateUrl: './other-services-page.component.html',
-    styleUrls: ['./other-services-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-other-services-page',
+  templateUrl: './other-services-page.component.html',
+  styleUrls: ['./other-services-page.component.css']
 })
 export class OtherServicesPageComponent implements OnInit {
   webURL: string = AppURL.webURL;
@@ -161,16 +159,6 @@ export class OtherServicesPageComponent implements OnInit {
 
   setPageInfo() {
     switch (this.url) {
-
-      case 'airport-advertising':
-        this.inquiryType = 'airport';
-        this.media = 'airport';
-        this.page = 'Airport';
-        this.title = 'for Airport';
-        this.subTitle = '';
-        this.pageTitle = 'Airport Branding made easy with us at the cheapest rate across India.';
-        this.metaDescription = "Want to showcase your business or brand at the airport? Don't worry, we are here to help you with all your business needs. Write to us with all your needs.";
-        break;
 
       case 'design-solutions':
         this.inquiryType = 'designsolutions';

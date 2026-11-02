@@ -3,8 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core'
 import { Utilities } from '@app-shared-helpers'
 
 @Pipe({
-    name: 'filter',
-    standalone: false
+  name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 

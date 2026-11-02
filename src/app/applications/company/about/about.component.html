@@ -205,11 +205,11 @@
 
             </swiper>
             <div class="media-coverage-slider-action">
-                <div class="left-swiper media-coverage-previous swiper-button" role="button" aria-label="Previous slide" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['angle-left']) | safeHtml">
+                <div class="left-swiper media-coverage-previous swiper-button" role="button" aria-label="Previous slide" [innerHTML]="app_svg_icon_list?.['angle-left'] | safeHtml">
                     <!-- <i class="fa-regular fa-angle-left"></i> -->
                 </div>
                 <div class="media-coverage-pagination"></div>
-                <div class="right-swiper media-coverage-next swiper-button" role="button" aria-label="Next slide" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['angle-right']) | safeHtml">
+                <div class="right-swiper media-coverage-next swiper-button" role="button" aria-label="Next slide" [innerHTML]="app_svg_icon_list?.['angle-right'] | safeHtml">
                     <!-- <i class="fa-regular fa-angle-right" ></i> -->
                 </div>
             </div>

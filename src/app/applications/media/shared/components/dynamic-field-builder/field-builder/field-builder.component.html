@@ -1,24 +1,10 @@
 <div [formGroup]="shoppingCartForm">
-  <div class="g-3">
-    @switch (field.type) {
-      @case ('number') {
-        <number [field]="field" [form]="shoppingCartForm"></number>
-      }
-      @case ('text') {
-        <textbox [field]="field" [form]="shoppingCartForm"></textbox>
-      }
-      @case ('radio-attribute') {
-        <radio-attribute [field]="field" [form]="shoppingCartForm"></radio-attribute>
-      }
-      @case ('radio-option') {
-        <radio-option [field]="field" [form]="shoppingCartForm"></radio-option>
-      }
-      @case ('dropdown-attribute') {
-        <dropdown-attribute (onResetAttribute)="resetAttribute($event)" (onChangeAttributeValue)="changeAttributeValue($event)" [field]="field" [form]="shoppingCartForm"></dropdown-attribute>
-      }
-      @case ('dropdown-option') {
-        <dropdown-option [field]="field" [form]="shoppingCartForm"></dropdown-option>
-      }
-    }
-  </div>
+    <div [ngSwitch]="field.type" class="g-3">
+        <number *ngSwitchCase="'number'" [field]="field" [form]="shoppingCartForm"></number>
+        <textbox *ngSwitchCase="'text'" [field]="field" [form]="shoppingCartForm"></textbox>
+        <radio-attribute *ngSwitchCase="'radio-attribute'" [field]="field" [form]="shoppingCartForm"></radio-attribute>
+        <radio-option *ngSwitchCase="'radio-option'" [field]="field" [form]="shoppingCartForm"></radio-option>
+        <dropdown-attribute (onResetAttribute)="resetAttribute($event)" (onChangeAttributeValue)="changeAttributeValue($event)" *ngSwitchCase="'dropdown-attribute'" [field]="field" [form]="shoppingCartForm"></dropdown-attribute>
+        <dropdown-option *ngSwitchCase="'dropdown-option'" [field]="field" [form]="shoppingCartForm"></dropdown-option>
+    </div>
 </div>

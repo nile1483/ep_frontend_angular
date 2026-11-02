@@ -1,12 +1,10 @@
-import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-    selector: 'app-dialog-price-on-request',
-    templateUrl: './dialog-price-on-request.component.html',
-    styleUrls: ['./dialog-price-on-request.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-dialog-price-on-request',
+  templateUrl: './dialog-price-on-request.component.html',
+  styleUrls: ['./dialog-price-on-request.component.css']
 })
 export class DialogPriceOnRequestComponent implements OnInit {
 

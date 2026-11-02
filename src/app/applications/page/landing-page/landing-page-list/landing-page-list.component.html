@@ -1,35 +1,30 @@
-@if (landingPageList.length > 0) {
-  <section class="common-padding bg-linear-gradient contact-page-header">
+<section class="common-padding bg-linear-gradient contact-page-header" *ngIf="landingPageList.length > 0">
     <div class="container">
-      <div class="section-heading text-center mb-0">
-        <h2>{{lpMedia}} Landing Pages</h2>
-      </div>
+        <div class="section-heading text-center mb-0">
+            <h1>{{lpMedia}} Landing Pages</h1>
+        </div>
     </div>
-  </section>
-}
+</section>
 
-@if (landingPageList.length > 0) {
-  <section class="services-detail-media-list">
+<section class="services-detail-media-list" *ngIf="landingPageList.length > 0;else pageNotFound">
     <div class="container">
-      <div class="row justify-content-center g-md-3 g-2">
-        @for (landingPage of landingPageList ; track landingPage) {
-          <div class="col-sm-6 col-lg-4">
-            <div class="services-card">
-              <a aria-label="Detail Page Link" [routerLink]="['/media',landingPage.media,landingPage.segment,landingPage.alias]">
-                {{landingPage?.name}}
-              </a>
+        <div class="row justify-content-center g-md-3 g-2">
+
+            <div class="col-sm-6 col-lg-4" *ngFor="let landingPage of landingPageList ">
+                <div class="services-card">
+                    <a aria-label="Detail Page Link" [routerLink]="['/media',landingPage.media,landingPage.segment,landingPage.alias]">
+                        {{landingPage?.name}}
+                    </a>
+                </div>
             </div>
-          </div>
-        }
-      </div>
+
+        </div>
     </div>
-  </section>
-} @else {
-  @if (isDataLoaded) {
-    <app-sec-heading-pagenotfound ></app-sec-heading-pagenotfound>
-  }
-  <app-search-result></app-search-result>
-}
+</section>
 
 <!-- pageNotFound start -->
+<ng-template #pageNotFound>
+    <app-sec-heading-pagenotfound *ngIf="isDataLoaded" ></app-sec-heading-pagenotfound>
+    <app-search-result></app-search-result>
+</ng-template>
 <!-- pageNotFound end -->

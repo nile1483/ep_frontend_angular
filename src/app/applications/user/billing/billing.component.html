@@ -1,267 +1,224 @@
 <section class="common-padding bg-linear-gradient terms-condition-page-header w-850">
-  <div class="container">
-    <div class="section-heading text-center mb-0">
-      <h2> Billing </h2>
+    <div class="container">
+        <div class="section-heading text-center mb-0">
+            <h2> Billing </h2>
 
-      <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a aria-label="Home Page Link" [routerLink]="['/']"> <b> Home</b></a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page"> Billing </li>
-        </ol>
-      </nav>
+            <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a aria-label="Home Page Link" [routerLink]="['/']"> <b> Home</b></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page"> Billing </li>
+                </ol>
+            </nav>
+        </div>
     </div>
-  </div>
 </section>
 
-@if (!isAuthenticated) {
-  <section class="common-padding">
+<section class="common-padding" *ngIf="!isAuthenticated">
     <div class="container">
-      <div class="row">
-        <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
-          <p class="h4 m-5"> Login to see your created campaigns. </p>
+        <div class="row">
+            <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
+                <p class="h4 m-5"> Login to see your created campaigns. </p>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-}
+</section>
 
-@if (isAuthenticated) {
-  <section class="common-padding order-process-section">
+<section class="common-padding order-process-section" *ngIf="isAuthenticated">
     <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-8 order-process-details-col">
-          @if (billingInfoData?.billingAddressList.length > 0 && showBillingAddress) {
-            <div class="card border-0 billing-address-card">
-              <div class="card-header px-0 bg-white">
-                <h6 class="mb-0">1. Select Billing Address</h6>
-              </div>
-              @for (address of billingInfoData?.billingAddressList; track address; let i = $index) {
-                <div class="card-body px-0 pb-1 mb-1">
-                  <div class="billing-address">
-                    <div class="billing-address-heading d-flex">
-                      <div class="form-check" style="width: 85%;">
-                        <input class="form-check-input sel-address" type="radio" name="exampleRadios" id="exampleRadios{{i}}" value="option1" (click)="UseThisAddress(address)">
-                        <label class="form-check-label sel-address" for="exampleRadios{{i}}">
-                          <h5>{{address?.fullname}}</h5>
-                        </label>
-                        <div class="billing-address-detail">
-                          <p class="mb-0 fw-bold">{{address?.company_name}} </p>
-                          <p class="mb-0">
-                            @if (address?.address) {
-                              <span>{{address?.address}}</span>
-                            }
-                          </p>
-                          <p class="mb-0">
-                            @if (address?.city) {
-                              <span> {{address?.city}}</span>
-                            }
-                            @if (address?.state) {
-                              <span>, {{address?.state}}</span>
-                            }
-                            @if (address?.zipcode) {
-                              <span> - {{address?.zipcode}}</span>
-                            }
-                            @if (address?.country) {
-                              <span>, {{address?.country}}</span>
-                            }
-                          </p>
+        <div class="row">
+            <div class="col-12 col-lg-8 order-process-details-col">
+                <div class="card border-0 billing-address-card" *ngIf="billingInfoData?.billingAddressList.length > 0 && showBillingAddress">
+                    <div class="card-header px-0 bg-white">
+                        <h6 class="mb-0">1. Select Billing Address</h6>
+                    </div>
+                    <div class="card-body px-0 pb-1 mb-1" *ngFor="let address of billingInfoData?.billingAddressList; let i=index">
+                        <div class="billing-address">
+                            <div class="billing-address-heading d-flex">
+                                <div class="form-check" style="width: 85%;">
+                                    <input class="form-check-input sel-address" type="radio" name="exampleRadios" id="exampleRadios{{i}}" value="option1" (click)="UseThisAddress(address)">
+                                    <label class="form-check-label sel-address" for="exampleRadios{{i}}">
+                                        <h5>{{address?.fullname}}</h5>
+                                    </label>
+                                    <div class="billing-address-detail">
+                                        <p class="mb-0 fw-bold">{{address?.company_name}} </p>
+                                        <p class="mb-0">
+                                            <span *ngIf="address?.address">{{address?.address}}</span>
+                                        </p>
+                                        <p class="mb-0">
+                                            <span *ngIf="address?.city"> {{address?.city}}</span>
+                                            <span *ngIf="address?.state">, {{address?.state}}</span>
+                                            <span *ngIf="address?.zipcode"> - {{address?.zipcode}}</span>
+                                            <span *ngIf="address?.country">, {{address?.country}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="billing-address-action">
+                                    <button class="btn-sm btn btn-outline-dark icon-btn" (click)="editAddress(address?.id)">
+                                        <span [innerHTML]="app_svg_icon_list?.['pen-line'] | safeHtml"></span>
+                                        <!-- <i class="fa-solid fa-pen-line"></i> -->
+                                    </button>
+                                    <button class="btn-sm btn btn-outline-dark icon-btn ms-md-2 mt-md-0 mt-2" (click)="removeAddress(address?.id)">
+                                        <span [innerHTML]="app_svg_icon_list?.['trash-can'] | safeHtml"></span>
+                                        <!-- <i class="fa-solid fa-trash-can"></i> -->
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="billing-address-action">
-                        <button class="btn-sm btn btn-outline-dark icon-btn" (click)="editAddress($safeNavigationMigration(address?.id))">
-                          <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['pen-line']) | safeHtml"></span>
-                          <!-- <i class="fa-solid fa-pen-line"></i> -->
-                        </button>
-                        <button class="btn-sm btn btn-outline-dark icon-btn ms-md-2 mt-md-0 mt-2" (click)="removeAddress($safeNavigationMigration(address?.id))">
-                          <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['trash-can']) | safeHtml"></span>
-                          <!-- <i class="fa-solid fa-trash-can"></i> -->
-                        </button>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              }
-            </div>
-          }
-          <!-- <div *ngIf="isAddAddress == false">
-          <h4 class="mb-4" *ngIf="billingInfoData?.billingAddressList.length == 0">Please Add Billing Address</h4>
-          <button class="add-new-billing-add-btn card border-0 w-100 mt-3" type="submit" (click)="addNewAddress(true)"> Add New Billing Address</button>
-        </div> -->
-        @if (isAddAddress == false) {
-          <div>
-            @if (billingInfoData?.billingAddressList.length == 0) {
-              <h4 class="mb-4">Please Add Billing Address</h4>
-            }
-            <button class=" border-0 w-40 mt-3 btn btn-primary" type="submit" (click)="addNewAddress(true)"> Add New Billing Address</button>
-          </div>
-        }
-        <!-- *ngIf="addNewAddress" -->
-        @if (isAddAddress) {
-          <div class="mt-3">
-            <div class="card border-0 billing-address-form">
-              <form [formGroup]="addNewAddressForm" class="address-part">
-                <!-- <h4>Add a new address</h4> -->
-                <div class="row">
-                  <div class="col-12">
-                    <div class="form-width form-100-width">
-                      <mat-form-field>
-                        <mat-label>Enter Company Name</mat-label>
-                        <input matInput type="text" name="company_name" [formControl]="addNewAddressForm.controls['company_name']">
-                      </mat-form-field>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-width form-100-width">
-                      <mat-form-field>
-                        <mat-label>Enter Full Name</mat-label>
-                        <input matInput type="text" name="full_name" [formControl]="addNewAddressForm.controls['full_name']">
-                        @if (addNewAddressForm.controls['full_name'].hasError('required') ) {
-                          <mat-error>
-                          Full Name Required</mat-error>
-                        }
-                      </mat-form-field>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-5">
-                    <div class="form-width form-100-width">
-                      <mat-form-field>
-                        <mat-label>Enter City</mat-label>
-                        <input matInput type="text" name="city" [formControl]="addNewAddressForm.controls['city']">
-                        @if (addNewAddressForm.controls['city'].hasError('required') ) {
-                          <mat-error>
-                          City Required</mat-error>
-                        }
-                      </mat-form-field>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="form-width form-100-width">
-                      <mat-form-field>
-                        <mat-label>Enter State</mat-label>
-                        <input matInput type="text" name="state" [formControl]="addNewAddressForm.controls['state']">
-                        @if (addNewAddressForm.controls['state'].hasError('required') ) {
-                          <mat-error>
-                          State Required</mat-error>
-                        }
-                      </mat-form-field>
-                    </div>
-                  </div>
-                  <dev class="col-12 col-lg-3">
-                    <div class="form-width form-100-width">
-                      <mat-form-field>
-                        <mat-label>Enter Pincode</mat-label>
-                        <input matInput type="number" name="zipcode" [formControl]="addNewAddressForm.controls['zipcode']">
-                        @if (addNewAddressForm.controls['zipcode'].hasError('required') ) {
-                          <mat-error>
-                          Filter Name Required</mat-error>
-                        }
-                      </mat-form-field>
-                    </div>
-                  </dev>
-                  <div class="col-12">
-                    <div class="form-width form-100-width">
-                      <mat-form-field>
-                        <mat-label>Enter Address</mat-label>
-                        <textarea matInput name="address" [formControl]="addNewAddressForm.controls['address']" rows="6">
-                        </textarea>
-                        @if (addNewAddressForm.controls['address'].hasError('required') ) {
-                          <mat-error>
-                          Filter Name Required</mat-error>
-                        }
-                      </mat-form-field>
-                    </div>
-                  </div>
+
+                
+                <!-- <div *ngIf="isAddAddress == false">
+                    <h4 class="mb-4" *ngIf="billingInfoData?.billingAddressList.length == 0">Please Add Billing Address</h4>
+                    <button class="add-new-billing-add-btn card border-0 w-100 mt-3" type="submit" (click)="addNewAddress(true)"> Add New Billing Address</button>
+                </div> -->
+
+                <div *ngIf="isAddAddress == false">
+                    <h4 class="mb-4" *ngIf="billingInfoData?.billingAddressList.length == 0">Please Add Billing Address</h4>
+                    <button class=" border-0 w-40 mt-3 btn btn-primary" type="submit" (click)="addNewAddress(true)"> Add New Billing Address</button>
                 </div>
-              </form>
-              <div class="action mt-3 d-flex align-items-center justify-content-center">
-                @if (isEditAddress) {
-                  <button class="btn btn-primary" type="button" (click)="editAddressSubmit()"> Update </button>
-                }
-                @if (!isEditAddress) {
-                  <button class="btn btn-primary" type="submit" (click)="addNewAddressSubmit()"> Save </button>
-                }
-                <button class="btn btn-dark ms-1" (click)="addNewAddress(false)">Cancel</button>
-              </div>
-            </div>
-          </div>
-        }
-        <div class="card border-0 billing-address-card select-payment-card mt-3">
-          <div class="card-header px-0 bg-white">
-            <h6 class="mb-0">2. Select Payment Method</h6>
-          </div>
-          <div class="card-body px-0 pb-0">
-            @for (method of paymentMethodInfoData; track method; let i = $index) {
-              <div class="form-check select-payment-check">
-                @if (!(method.alias == 'razorpay' && method.price < billingInfoData?.cartDetail?.grand_total)) {
-                  <span>
-                    @if (!(method.alias == 'razorpay' && billingInfoData?.cartDetail?.grand_total == 0)) {
-                      <label class="form-check-label" for="paymentMethod{{i}}">
-                        @if (!(method.alias == 'razorpay' && billingInfoData?.cartDetail?.grand_total == 0)) {
-                          <input class="form-check-input" type="radio" name="selectPayment"  checked ="{{method?.isDefault == '1' ? 'checked' : paymentProceedData.payment_method.alias == 'purchaseorder' ? 'checked' : ''}}" id="paymentMethod{{i}}" (change)="changePaymentMethod($event)" value="{{method?.alias}}">
-                        }{{method?.name}}</label>
-                      }
-                    </span>
-                  }
+
+                <!-- *ngIf="addNewAddress" -->
+                <div class="mt-3" *ngIf="isAddAddress">
+                    <div class="card border-0 billing-address-form">
+                        <form [formGroup]="addNewAddressForm" class="address-part">
+                            <!-- <h4>Add a new address</h4> -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-width form-100-width">
+                                        <mat-form-field>
+                                            <mat-label>Enter Company Name</mat-label>
+                                            <input matInput type="text" name="company_name" [formControl]="addNewAddressForm.controls['company_name']">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-width form-100-width">
+                                        <mat-form-field>
+                                            <mat-label>Enter Full Name</mat-label>
+                                            <input matInput type="text" name="full_name" [formControl]="addNewAddressForm.controls['full_name']">
+                                            <mat-error *ngIf="addNewAddressForm.controls['full_name'].hasError('required') ">
+                                                Full Name Required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-5">
+                                    <div class="form-width form-100-width">
+                                        <mat-form-field>
+                                            <mat-label>Enter City</mat-label>
+                                            <input matInput type="text" name="city" [formControl]="addNewAddressForm.controls['city']">
+                                            <mat-error *ngIf="addNewAddressForm.controls['city'].hasError('required') ">
+                                                City Required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="form-width form-100-width">
+                                        <mat-form-field>
+                                            <mat-label>Enter State</mat-label>
+                                            <input matInput type="text" name="state" [formControl]="addNewAddressForm.controls['state']">
+                                            <mat-error *ngIf="addNewAddressForm.controls['state'].hasError('required') ">
+                                                State Required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <dev class="col-12 col-lg-3">
+                                    <div class="form-width form-100-width">
+                                        <mat-form-field>
+                                            <mat-label>Enter Pincode</mat-label>
+                                            <input matInput type="number" name="zipcode" [formControl]="addNewAddressForm.controls['zipcode']">
+                                            <mat-error *ngIf="addNewAddressForm.controls['zipcode'].hasError('required') ">
+                                                Filter Name Required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </dev>
+                                <div class="col-12">
+                                    <div class="form-width form-100-width">
+                                        <mat-form-field>
+                                            <mat-label>Enter Address</mat-label>
+                                            <textarea matInput name="address" [formControl]="addNewAddressForm.controls['address']" rows="6">
+                                        </textarea>
+                                            <mat-error *ngIf="addNewAddressForm.controls['address'].hasError('required') ">
+                                                Filter Name Required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="action mt-3 d-flex align-items-center justify-content-center">
+                            <button class="btn btn-primary" *ngIf="isEditAddress" type="button" (click)="editAddressSubmit()"> Update </button>
+                            <button class="btn btn-primary" *ngIf="!isEditAddress" type="submit" (click)="addNewAddressSubmit()"> Save </button>
+                            <button class="btn btn-dark ms-1" (click)="addNewAddress(false)">Cancel</button>
+                        </div>
+                    </div>
                 </div>
-              }
+
+                <div class="card border-0 billing-address-card select-payment-card mt-3">
+                    <div class="card-header px-0 bg-white">
+                        <h6 class="mb-0">2. Select Payment Method</h6>
+                    </div>
+                    <div class="card-body px-0 pb-0">
+                        <div class="form-check select-payment-check" *ngFor="let method of paymentMethodInfoData;let i=index">
+                            <span *ngIf="!(method.alias == 'razorpay' && method.price < billingInfoData?.cartDetail?.grand_total)">
+                                <label class="form-check-label" for="paymentMethod{{i}}" *ngIf="!(method.alias == 'razorpay' && billingInfoData?.cartDetail?.grand_total == 0)">
+                                <input class="form-check-input" type="radio" name="selectPayment" *ngIf="!(method.alias == 'razorpay' && billingInfoData?.cartDetail?.grand_total == 0)"  checked ="{{method?.isDefault == '1' ? 'checked' : paymentProceedData.payment_method.alias == 'purchaseorder' ? 'checked' : ''}}" id="paymentMethod{{i}}" (change)="changePaymentMethod($event)" value="{{method?.alias}}">{{method?.name}}</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div class="col-12 col-lg-4 order-process-price-detail-col mt-md-0 mt-4" *ngIf="billingInfoData?.cartDetail">
+                <div class="cart border-0 price-detail-card">
+                    <div class="card-header px-0">
+                        <h6 class="mb-0">Price Detail</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-10">
+                                <h6 class="fw-medium mb-0">{{billingInfoData?.cartDetail?.campaign_name}}</h6>
+                            </div>
+
+                        </div>
+                        <div class="order-process-price-block">
+                            <div class="order-process-price-list">
+                                <div class="price-lable">Sub total</div>
+                                <div class="price-lable fw-medium">
+                                    ₹ {{billingInfoData?.cartDetail?.sub_total | number : '1.2-2'}}/-
+                                </div>
+                            </div>
+                            <div class="order-process-price-list">
+                                <div class="price-lable">Total Tax</div>
+                                <div class="price-lable fw-medium">
+                                    ₹ {{billingInfoData?.cartDetail?.tax_total | number : '1.2-2'}}/-
+                                </div>
+                            </div>
+                            <div class="order-process-price-list" *ngIf="billingInfoData?.cartDetail?.discount_amount > 0">
+                                <div class="price-lable">Total Discount</div>
+                                <div class="price-lable fw-medium">
+                                    ₹ {{billingInfoData?.cartDetail?.discount_amount | number : '1.2-2'}}/-
+                                </div>
+                            </div>
+                            <div class="order-process-price-list total-amount">
+                                <div class="price-lable"><strong>Total Amount</strong></div>
+                                <div class="price-lable text-red">
+                                    <strong>
+                                        ₹ {{billingInfoData?.cartDetail?.grand_total | number : '1.2-2'}}/-
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        @if (billingInfoData?.cartDetail) {
-          <div class="col-12 col-lg-4 order-process-price-detail-col mt-md-0 mt-4">
-            <div class="cart border-0 price-detail-card">
-              <div class="card-header px-0">
-                <h6 class="mb-0">Price Detail</h6>
-              </div>
-              <div class="card-body">
-                <div class="row g-2 align-items-center">
-                  <div class="col-10">
-                    <h6 class="fw-medium mb-0">{{billingInfoData?.cartDetail?.campaign_name}}</h6>
-                  </div>
-                </div>
-                <div class="order-process-price-block">
-                  <div class="order-process-price-list">
-                    <div class="price-lable">Sub total</div>
-                    <div class="price-lable fw-medium">
-                      ₹ {{$safeNavigationMigration(billingInfoData?.cartDetail?.sub_total) | number : '1.2-2'}}/-
-                    </div>
-                  </div>
-                  <div class="order-process-price-list">
-                    <div class="price-lable">Total Tax</div>
-                    <div class="price-lable fw-medium">
-                      ₹ {{$safeNavigationMigration(billingInfoData?.cartDetail?.tax_total) | number : '1.2-2'}}/-
-                    </div>
-                  </div>
-                  @if (billingInfoData?.cartDetail?.discount_amount > 0) {
-                    <div class="order-process-price-list">
-                      <div class="price-lable">Total Discount</div>
-                      <div class="price-lable fw-medium">
-                        ₹ {{$safeNavigationMigration(billingInfoData?.cartDetail?.discount_amount) | number : '1.2-2'}}/-
-                      </div>
-                    </div>
-                  }
-                  <div class="order-process-price-list total-amount">
-                    <div class="price-lable"><strong>Total Amount</strong></div>
-                    <div class="price-lable text-red">
-                      <strong>
-                        ₹ {{$safeNavigationMigration(billingInfoData?.cartDetail?.grand_total) | number : '1.2-2'}}/-
-                      </strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        }
-      </div>
-      <div class="paymentmethod-proceed-btn mt-4 mt-md-5 text-center">
-        @if (billingHasError) {
-          <span class="text-danger d-block pb-1">Select Billing Address</span>
-        }
-        <a class="btn btn-danger " href="javascript:void(0);" (click)="paymentProceed()">Proceed </a>
-      </div>
+        <div class="paymentmethod-proceed-btn mt-4 mt-md-5 text-center">
+            <span class="text-danger d-block pb-1" *ngIf="billingHasError">Select Billing Address</span>
+            <a class="btn btn-danger " href="javascript:void(0);" (click)="paymentProceed()">Proceed </a>
+        </div>
     </div>
-  </section>
-}
+</section>

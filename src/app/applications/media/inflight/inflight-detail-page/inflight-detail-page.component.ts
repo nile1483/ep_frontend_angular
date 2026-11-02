@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InflightService } from '@app-media-services';
@@ -11,11 +11,9 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-inflight-detail-page',
-    templateUrl: './inflight-detail-page.component.html',
-    styleUrls: ['./inflight-detail-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-inflight-detail-page',
+  templateUrl: './inflight-detail-page.component.html',
+  styleUrls: ['./inflight-detail-page.component.css']
 })
 export class InflightDetailPageComponent implements OnInit {
 

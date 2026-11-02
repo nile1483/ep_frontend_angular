@@ -1,11 +1,9 @@
-import { Component, Input, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector: 'section-table-of-content',
-    templateUrl: './section-table-of-content.component.html',
-    styleUrls: ['./section-table-of-content.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'section-table-of-content',
+  templateUrl: './section-table-of-content.component.html',
+  styleUrls: ['./section-table-of-content.component.css']
 })
 export class SectionTableOfContentComponent implements OnInit {
 

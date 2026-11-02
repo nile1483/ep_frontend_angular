@@ -1,17 +1,14 @@
-import { Component, ElementRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { UserService } from '@app-shared-services';
-import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
-
 import { MatDialog } from '@angular/material/dialog';
 import { PageService } from '../../page.service';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { FORBIDDEN_EMAIL_DOMAINS } from 'src/app/shared/constants/forbidden-email-domain-list';
-import { ActivatedRoute, Router } from '@angular/router';
-
+import { Router } from '@angular/router';
 
 export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): ValidationErrors | null {
   var emailTemp = control.value;
@@ -29,24 +26,16 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
   return isValid ? null : { 'isPersonal': true };
 }
 
-
 @Component({
-    selector: 'app-media-page',
-    templateUrl: './media-page.component.html',
-    styleUrls: ['./media-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-media-page',
+  templateUrl: './media-page.component.html',
+  styleUrls: ['./media-page.component.css']
 })
 export class MediaPageComponent implements OnInit {
 
-
   webURL: string = AppURL.webURL;
-  media_icons: any = SVG_ICON_FOR_MEDIA
-  serviceList: any = SERVICE_LIST_WITH_SVG_ICON;
-  app_svg_icon_list = APP_SVG_ICON_LIST;
   metaData: any = META_DATA['mediapage'];
-  selectedCurrency: any;
-  pageContentData: any;
+
   selectedCountry: any = { "name": "India", "dialCode": "+91", "code": "IN" };
   countryList: any = [];
   countryFilteredList: any = [];
@@ -65,7 +54,6 @@ export class MediaPageComponent implements OnInit {
   selectFileName: any = null;
   selectFilePath: any = null;
 
-
   constructor(
     private router: Router,
     private commonService: CommonService,
@@ -77,18 +65,11 @@ export class MediaPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.href = this.router.url;
 
     this.getCountryCodeData();
     this.setMetaData();
     this.createForm();
-
-    //Currency
-    this.selectedCurrency = this.commonService.getSelectedCurrency();
-    this.commonService.getCurrency().subscribe(currency => {
-      this.selectedCurrency = this.commonService.getSelectedCurrency();
-    });
   }
 
   getCountryCodeData() {
@@ -103,7 +84,6 @@ export class MediaPageComponent implements OnInit {
       }
     });
   }
-
 
   private createForm() {
     this.userInquiryForm = new UntypedFormGroup({
@@ -121,7 +101,6 @@ export class MediaPageComponent implements OnInit {
     });
   }
 
-
   setMetaData() {
     let metaInfo = new MetaInformation();
     metaInfo.meta_title = this.metaData?.meta_title ?? '';
@@ -138,7 +117,7 @@ export class MediaPageComponent implements OnInit {
     //   Google Tag Manager   //
     //************************//
 
-    this.commonService.gtmPageEvents('Company', 'Company');
+    this.commonService.gtmPageEvents('Company', 'Media Page');
   }
 
 
@@ -183,9 +162,7 @@ export class MediaPageComponent implements OnInit {
     else {
       return;
     }
-
   }
-
 
   fileUpload(event: any) {
 

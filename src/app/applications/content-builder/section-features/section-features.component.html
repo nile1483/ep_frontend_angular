@@ -1,30 +1,25 @@
 <div class="row">
-  <!-- Hide title for desktop -->
-  <div class="col-12 d-md-none d-block">
-    <div class="section-heading mb-3 text-center px-md-0 px-4">
-      <h2>{{pageBlock?.title}}</h2>
-      @if (pageBlock?.simple_description) {
-        <p>{{pageBlock?.simple_description}}</p>
-      }
+    <!-- Hide title for desktop -->
+    <div class="col-12 d-md-none d-block">
+        <div class="section-heading mb-3 text-center px-md-0 px-4">
+            <h2>{{pageBlock?.title}}</h2>
+            <p *ngIf="pageBlock?.simple_description">{{pageBlock?.simple_description}}</p>
 
+        </div>
+    </div>    
+    <div class="col-12 col-md-6 order-md-0 order-1">
+         <!-- Hide title for Mobile -->
+        <div class="section-heading mb-5 d-md-block d-none">
+            <h2>{{pageBlock?.title}}</h2>
+            <p *ngIf="pageBlock?.simple_description">{{pageBlock?.simple_description}}</p>
+            
+        </div>
+        <div class="benifit-list default-content"  [innerHTML]="pageBlock?.description"> </div>
     </div>
-  </div>
-  <div class="col-12 col-md-6 order-md-0 order-1">
-    <!-- Hide title for Mobile -->
-    <div class="section-heading mb-5 d-md-block d-none">
-      <h2>{{pageBlock?.title}}</h2>
-      @if (pageBlock?.simple_description) {
-        <p>{{pageBlock?.simple_description}}</p>
-      }
-
+    <div class="col-12 col-md-6 order-md-1 order-0 mb-md-0 mb-4">
+        <div class="img-block px-md-0 px-4">
+            <img *ngIf="pageBlock?.image" src="{{pageBlock?.image}}" alt="{{pageBlock?.title}}" loading="lazy"> 
+        </div>
     </div>
-    <div class="benifit-list default-content"  [innerHTML]="$safeNavigationMigration(pageBlock?.description)"> </div>
-  </div>
-  <div class="col-12 col-md-6 order-md-1 order-0 mb-md-0 mb-4">
-    <div class="img-block px-md-0 px-4">
-      @if (pageBlock?.image) {
-        <img src="{{pageBlock?.image}}" alt="{{pageBlock?.title}}" loading="lazy">
-      }
-    </div>
-  </div>
 </div>
+ 

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, QueryList, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
 import { forkJoin, Subscription } from 'rxjs';
@@ -14,14 +14,12 @@ import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
-import { isPlatformBrowser, LocationStrategy } from '@angular/common';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
-    selector: 'app-nontraditional-list-page',
-    templateUrl: './nontraditional-list-page.component.html',
-    styleUrls: ['./nontraditional-list-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-nontraditional-list-page',
+  templateUrl: './nontraditional-list-page.component.html',
+  styleUrls: ['./nontraditional-list-page.component.css']
 })
 export class NontraditionalListPageComponent implements OnInit {
 
@@ -76,7 +74,6 @@ export class NontraditionalListPageComponent implements OnInit {
     private commonService: CommonService,
     private location: LocationStrategy,
     private elementRef: ElementRef,
-    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
 
   }
@@ -128,13 +125,11 @@ export class NontraditionalListPageComponent implements OnInit {
 
     //static data use
     // preventing back button in browser implemented by "Samba Siva"  
-    if (isPlatformBrowser(this.platformId)) {
+    history.pushState(null, '', window.location.href);
+    this.location.onPopState(() => {
       history.pushState(null, '', window.location.href);
-      this.location.onPopState(() => {
-        history.pushState(null, '', window.location.href);
-        window.location.reload();
-      });
-    }
+      window.location.reload();
+    });
 
     if (!(Object.keys(queryParams).length === 0)) {
 
@@ -194,6 +189,7 @@ export class NontraditionalListPageComponent implements OnInit {
   }
 
   setMediaData(result: any) {
+    
     this.isDataLoaded = true;
     this.isLoadingMore = false;
     if (result.status == true) {
@@ -212,7 +208,6 @@ export class NontraditionalListPageComponent implements OnInit {
 
   // get media list
   getMediaList() {
-
     this._srCurrentMedia.getMediaList(this.params).subscribe(result => {
       this.setMediaData(result);
     });
@@ -512,7 +507,6 @@ export class NontraditionalListPageComponent implements OnInit {
     metaInfo.og_url = `${this.webURL}` + `${this.media}`;
     metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
     this.commonService.setMetaData(metaInfo);
-
   }
 
 

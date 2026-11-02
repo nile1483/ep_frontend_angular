@@ -1,10 +1,9 @@
 export class AppURL {
 
     public static webURL = 'https://www.excellentpublicity.com';
-    // Keep API calls on the current application host. In development these
-    // requests are forwarded by proxy.conf.json; during SSR the interceptor
-    // resolves them against the incoming request host.
-    public static prefix = '/api';
+    public static prefix  =`${AppURL.webURL}/api`;
+    // public static webURL = '';
+    // public static prefix = 'api';
     public static version_1 = 'v1';
     public static version_2 = 'v2';
     
@@ -101,7 +100,6 @@ export class AppURL {
     public static inquiry                   = AppURL.frontend + '/' + 'inquiry';
     public static iplUrl                    = AppURL.frontend + '/' + 'ipl';
     public static sportUrl                  = AppURL.frontend + '/' + 'sports';
-    public static asiacupUrl                = AppURL.frontend + '/' + 'asiacup';
     public static worldcupUrl               = AppURL.frontend + '/' + 'worldcup';
     public static budgetestimatorUrl        = AppURL.frontend + '/' + 'budgetestimator';
     public static industryInsightsUrl       = AppURL.frontend + '/' + 'industryinsights';

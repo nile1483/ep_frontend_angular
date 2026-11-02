@@ -25,7 +25,6 @@ import { RadioAdCostPageComponent } from './radio-ad-cost-page/radio-ad-cost-pag
 import { FacebookAdsRoiPageComponent } from './facebook-ads-roi-page/facebook-ads-roi-page.component';
 import { CtorPageComponent } from './ctor-page/ctor-page.component';
 
-
 @NgModule({
   declarations: [
     CalculatorListPageComponent,

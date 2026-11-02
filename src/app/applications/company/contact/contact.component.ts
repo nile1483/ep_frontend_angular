@@ -1,5 +1,4 @@
-import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { UserService } from '@app-shared-services';
 import { META_DATA } from 'src/app/shared/constants/metadata';
@@ -28,11 +27,9 @@ export function isPersonalEmailValidatorContact(control: UntypedFormControl) : V
 }
 
 @Component({
-    selector: 'app-contact',
-    templateUrl: './contact.component.html',
-    styleUrls: ['./contact.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
 
@@ -55,8 +52,7 @@ export class ContactComponent implements OnInit {
     private pageService: PageService,
     private commonService: CommonService,
     private route: ActivatedRoute,
-    private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object
+    private router: Router
   ) {
 
     const queryParams = this.route.snapshot.queryParams;
@@ -106,11 +102,9 @@ export class ContactComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => {
-        this.scrollToTitle()
-      }, 1000)
-    }
+    setTimeout(() => {
+      this.scrollToTitle()
+    }, 1000)
 
   }
 
@@ -158,8 +152,7 @@ export class ContactComponent implements OnInit {
   }
 
   scrollToTitle() {
-    if (isPlatformBrowser(this.platformId)) {
-      document.querySelector('#quickInquiry')?.scrollIntoView();
-    }
+    const element: any = document.querySelector('#quickInquiry');
+    element.scrollIntoView();
   }
 }

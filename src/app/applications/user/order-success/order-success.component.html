@@ -1,57 +1,55 @@
 <section class="common-padding bg-linear-gradient terms-condition-page-header w-850">
-  <div class="container">
-    <div class="section-heading text-center mb-0">
-      <h2> Order Success </h2>
+    <div class="container">
+        <div class="section-heading text-center mb-0">
+            <h2> Order Success </h2>
 
-      <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a aria-label="Home Link" [routerLink]="['/']"> <b> Home</b></a>
-          </li>
-          <li class="breadcrumb-item">
-            <a aria-label="Home Link" [routerLink]="['/user','order']"> <b> Orders </b></a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page"> Order Success </li>
-        </ol>
-      </nav>
+            <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a aria-label="Home Link" [routerLink]="['/']"> <b> Home</b></a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a aria-label="Home Link" [routerLink]="['/user','order']"> <b> Orders </b></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page"> Order Success </li>
+                </ol>
+            </nav>
+        </div>
     </div>
-  </div>
 </section>
 
 <section class="order-process-section">
-  <div class="container mb-5">
-    <div class="row">
-      <div class="col-md-6 mx-auto mt-5">
-        @if (orderData != null) {
-          <div class="payment">
-            <div class="payment_header_success">
-              <div class="check">
-                <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['check']) | safeHtml"></span>
-                <!-- <i class="fa-solid fa-check"></i> -->
-              </div>
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto mt-5">
+                <div class="payment" *ngIf="orderData != null">
+                    <div class="payment_header_success">
+                        <div class="check">
+                            <span [innerHTML]="app_svg_icon_list?.['check'] | safeHtml"></span>
+                            <!-- <i class="fa-solid fa-check"></i> -->
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h1>Order Success !</h1>
+                        <p><b>Order No:</b> {{orderData?.order_no}}</p>
+                        <a class="p-2 px-3 btn-danger rounded-pill" routerLink="/user/order"> Order History </a>
+                    </div>
+
+                </div>
+                <div class="payment" *ngIf="orderData == null">
+                    <div class="payment_header_fail">
+                        <div class="check">
+                            <span [innerHTML]="app_svg_icon_list?.['xmark'] | safeHtml"></span>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h1>Something went wrong</h1>
+                        <a aria-label="link" routerLink="/">Go To Home</a>
+                    </div>
+
+                </div>
             </div>
-            <div class="content">
-              <h1>Order Success !</h1>
-              <p><b>Order No:</b> {{orderData?.order_no}}</p>
-              <a class="p-2 px-3 btn-danger rounded-pill" routerLink="/user/order"> Order History </a>
-            </div>
-          </div>
-        }
-        @if (orderData == null) {
-          <div class="payment">
-            <div class="payment_header_fail">
-              <div class="check">
-                <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['xmark']) | safeHtml"></span>
-                <!-- <i class="fa-solid fa-xmark"></i> -->
-              </div>
-            </div>
-            <div class="content">
-              <h1>Something went wrong</h1>
-              <a aria-label="link" routerLink="/">Go To Home</a>
-            </div>
-          </div>
-        }
-      </div>
+        </div>
     </div>
-  </div>
 </section>

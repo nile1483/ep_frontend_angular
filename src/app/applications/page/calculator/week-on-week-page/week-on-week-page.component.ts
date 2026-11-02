@@ -1,13 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-week-on-week-page',
-    templateUrl: './week-on-week-page.component.html',
-    styleUrl: './week-on-week-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-week-on-week-page',
+  templateUrl: './week-on-week-page.component.html',
+  styleUrl: './week-on-week-page.component.css'
 })
 export class WeekOnWeekPageComponent {
 

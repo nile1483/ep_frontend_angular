@@ -1,331 +1,271 @@
 <section class="common-padding bg-linear-gradient terms-condition-page-header w-850">
-  <div class="container">
-    <div class="section-heading text-center mb-0">
-      <h2> Campaign </h2>
-
-      <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a aria-label="Home Page Link" [routerLink]="['/']"> <b> Home</b></a></li>
-          <li class="breadcrumb-item"> <a aria-label="Campaign Page Link" [routerLink]="['/user/campaign']"> Campaigns </a></li>
-          <li class="breadcrumb-item active" aria-current="page"> {{campaignData?.campaign_name}} </li>
-        </ol>
-      </nav>
+    <div class="container">
+        <div class="section-heading text-center mb-0">
+            <h2> Campaign </h2>
+            
+            <nav aria-label="breadcrumb" class="mt-3 d-flex justify-content-center mb-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a aria-label="Home Page Link" [routerLink]="['/']"> <b> Home</b></a></li>
+                    <li class="breadcrumb-item"> <a aria-label="Campaign Page Link" [routerLink]="['/user/campaign']"> Campaigns </a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> {{campaignData?.campaign_name}} </li>
+                </ol>
+            </nav>
+        </div>
     </div>
-  </div>
 </section>
 
-@if (campaignData?.campaign_name) {
-  <section class="media-filter" >
-    <div class="container">
-      <div class="row">
-        <div class="col-auto">
-          <label>Campaign Name</label> : <b> {{campaignData?.campaign_name}} </b>
+<section class="media-filter"  *ngIf="campaignData?.campaign_name">
+    <div class="container"> 
+        <div class="row">
+            <div class="col-auto">
+                <label>Campaign Name</label> : <b> {{campaignData?.campaign_name}} </b>
+            </div>
+            <!-- <div class="col text-end" >
+                <b> Total : </b> ₹ {{campaignData?.grand_total | number : '1.2-2'}}
+            </div> -->
+            <div class="col text-end">
+                <div class="float-end" >
+                    <table>
+                        <tr>
+                            <td colspan="3"><b>Campaign Total</b></td>
+                        </tr>
+                        <tr *ngFor="let total of campaignCurrencyTotals">
+                            <td>{{total?.code}}</td>
+                            <td>: </td>
+                            <td>
+                                <div class="d-inline-block px-1">{{total?.symbol}}</div> 
+                                <div class="d-inline-block"> {{total?.amount | number : '1.2-2'}}</div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="campaignCurrencyTotals.length > 0 && campaignData.discount_amount > 0">
+                            <td>Discount Total <br>
+                                <strong>(Code: {{campaignData?.additional_information?.code}})</strong></td>
+                            <td>: </td>
+                            <td>
+                                <div *ngIf="campaignCurrencyTotals.length == 1" class="d-inline-block px-1">{{campaignCurrencyTotals[0]?.symbol}}</div>
+                                <div *ngIf="campaignCurrencyTotals.length == 1" class="d-inline-block"> {{campaignData.discount_amount | convertToExchange: campaignCurrencyTotals[0] | number : '1.2-2'}}</div>
+                                <div *ngIf="campaignCurrencyTotals.length > 1" class="d-inline-block"> {{campaignData.discount_amount | number : '1.2-2'}}</div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="campaignCurrencyTotals.length == 1 && campaignData.discount_amount > 0">
+                            <td>Grand Total</td>
+                            <td>: </td>
+                            <td>
+                                <div class="d-inline-block px-1">{{campaignCurrencyTotals[0]?.symbol}}</div>
+                                <div class="d-inline-block"> {{this.campaignData.grand_total | convertToExchange: campaignCurrencyTotals[0] | number : '1.2-2'}}</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
         </div>
-        <!-- <div class="col text-end" >
-        <b> Total : </b> ₹ {{campaignData?.grand_total | number : '1.2-2'}}
-      </div> -->
-      <div class="col text-end">
-        <div class="float-end" >
-          <table>
-            <tr>
-              <td colspan="3"><b>Campaign Total</b></td>
-            </tr>
-            @for (total of campaignCurrencyTotals; track total) {
-              <tr>
-                <td>{{total?.code}}</td>
-                <td>: </td>
-                <td>
-                  <div class="d-inline-block px-1">{{total?.symbol}}</div>
-                  <div class="d-inline-block"> {{$safeNavigationMigration(total?.amount) | number : '1.2-2'}}</div>
-                </td>
-              </tr>
-            }
-            @if (campaignCurrencyTotals.length > 0 && campaignData.discount_amount > 0) {
-              <tr>
-                <td>Discount Total <br>
-                  <strong>(Code: {{campaignData?.additional_information?.code}})</strong></td>
-                  <td>: </td>
-                  <td>
-                    @if (campaignCurrencyTotals.length == 1) {
-                      <div class="d-inline-block px-1">{{campaignCurrencyTotals[0]?.symbol}}</div>
-                    }
-                    @if (campaignCurrencyTotals.length == 1) {
-                      <div class="d-inline-block"> {{campaignData.discount_amount | convertToExchange: campaignCurrencyTotals[0] | number : '1.2-2'}}</div>
-                    }
-                    @if (campaignCurrencyTotals.length > 1) {
-                      <div class="d-inline-block"> {{campaignData.discount_amount | number : '1.2-2'}}</div>
-                    }
-                  </td>
-                </tr>
-              }
-              @if (campaignCurrencyTotals.length == 1 && campaignData.discount_amount > 0) {
-                <tr>
-                  <td>Grand Total</td>
-                  <td>: </td>
-                  <td>
-                    <div class="d-inline-block px-1">{{campaignCurrencyTotals[0]?.symbol}}</div>
-                    <div class="d-inline-block"> {{this.campaignData.grand_total | convertToExchange: campaignCurrencyTotals[0] | number : '1.2-2'}}</div>
-                  </td>
-                </tr>
-              }
-            </table>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
-}
+</section>
 
 
-@if (campaignData != false && isAuthenticated) {
-  <section class="common-padding">
+<section class="common-padding" *ngIf="campaignData != false && isAuthenticated">
     <div class="container ">
-      @for (item of campaignData?.items; track item; let i = $index) {
-        <div class="cart-card p-4">
-          <div class="row">
-            <div class="col-12">
-              <h6 class="mb-0">{{item?.name}} ({{item?.price_details?.selectedPrice?.name}})</h6>
-            </div>
-          </div>
-          <hr class="w-100">
-          <div class="row justify-content-start p-0">
-            <div class="col-12 col-md-3">
-              <div class="cart-img-box">
-                <img loading="lazy" src="{{item?.image_url}}" class="cart-image" alt="{{item?.name}}">
-              </div>
-            </div>
-            @if (item?.applied_variant.length > 0) {
-              <div class="col-12 col-md-3">
-                @for (variant of item?.applied_variant; track variant) {
-                  <div class="w-100">
-                    <b>{{variant?.attribute}}</b> : {{variant?.value}}
-                  </div>
-                }
-              </div>
-            }
-            @if (item?.applied_priceunit.length > 0) {
-              <div class="col-12 col-md-3">
-                @for (priceUnit of item?.applied_priceunit; track priceUnit) {
-                  <div class="w-100">
-                    <b>{{priceUnit?.name}}</b> : {{priceUnit?.value}}
-                  </div>
-                }
-              </div>
-            }
-            <!-- classified_text_ads -->
-            @if (item?.media == 'newspaper' && item?.ad_type == 'classified_text_ads' ) {
-              <div class="col-12 col-md-3">
-                <div class="w-100">
-                  <b>Ad Type</b> : Classified Text Ads
+        <div class="cart-card p-4" *ngFor="let item of campaignData?.items; let i=index">
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="mb-0">{{item?.name}} ({{item?.price_details?.selectedPrice?.name}})</h6>
                 </div>
-                <div class="w-100">
-                  <b>Offer Information</b> : {{ item?.newspaper?.applied_offer?.info}}
+            </div>
+            <hr class="w-100">
+            <div class="row justify-content-start p-0">
+                
+                <div class="col-12 col-md-3">
+                    <div class="cart-img-box">
+                        <img loading="lazy" src="{{item?.image_url}}" class="cart-image" alt="{{item?.name}}">
+                    </div>
                 </div>
-                <div class="w-100">
-                  <b>Language</b> : {{ item?.newspaper?.applied_offer?.language?.name}}
+                <div class="col-12 col-md-3" *ngIf="item?.applied_variant.length > 0">
+                    <div class="w-100" *ngFor="let variant of item?.applied_variant">
+                        <b>{{variant?.attribute}}</b> : {{variant?.value}}
+                    </div>
                 </div>
-                <div class="w-100">
-                  <b>Release Date</b> : @for (releaseInfo of item?.newspaper?.release_info; track releaseInfo) {
-                  <span> {{releaseInfo | date:'d/MM/y' }},</span>
-                }
-              </div>
-              @if (item?.newspaper?.applied_offer?.ad_value) {
-                <div class="w-100">
-                  <b>Ad Creative</b> : {{item?.newspaper?.applied_offer?.ad_value}}
+                <div class="col-12 col-md-3" *ngIf="item?.applied_priceunit.length > 0">
+                    <div class="w-100" *ngFor="let priceUnit of item?.applied_priceunit">
+                        <b>{{priceUnit?.name}}</b> : {{priceUnit?.value}}
+                    </div>
                 </div>
-              }
-            </div>
-          }
-          @if (item?.media == 'newspaper' && item?.ad_type == 'classified_text_ads' ) {
-            <div class="col-12 col-md-3">
-              @if (item?.newspaper?.applied_offer?.background_color) {
-                <div class="w-100">
-                  <b>Background Color</b> : {{ item?.newspaper?.applied_offer?.background_color?.value?.color_name}}
+
+                <!-- classified_text_ads -->
+                <div class="col-12 col-md-3" *ngIf="item?.media == 'newspaper' && item?.ad_type == 'classified_text_ads' ">
+                    <div class="w-100">
+                        <b>Ad Type</b> : Classified Text Ads
+                    </div>
+                    <div class="w-100">
+                        <b>Offer Information</b> : {{ item?.newspaper?.applied_offer?.info}}
+                    </div>
+                    <div class="w-100">
+                        <b>Language</b> : {{ item?.newspaper?.applied_offer?.language?.name}}
+                    </div>
+                    <div class="w-100">
+                        <b>Release Date</b> : <span *ngFor="let releaseInfo of item?.newspaper?.release_info"> {{releaseInfo | date:'d/MM/y' }},</span>
+                    </div>
+                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.ad_value">
+                        <b>Ad Creative</b> : {{item?.newspaper?.applied_offer?.ad_value}}
+                    </div>
                 </div>
-              }
-              @if (item?.newspaper?.applied_offer?.border_color) {
-                <div class="w-100">
-                  <b>Border Color</b> : {{ item?.newspaper?.applied_offer?.border_color?.value?.color_name}}
+                <div class="col-12 col-md-3" *ngIf="item?.media == 'newspaper' && item?.ad_type == 'classified_text_ads' ">
+                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.background_color">
+                        <b>Background Color</b> : {{ item?.newspaper?.applied_offer?.background_color?.value?.color_name}}
+                    </div>
+                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.border_color">
+                        <b>Border Color</b> : {{ item?.newspaper?.applied_offer?.border_color?.value?.color_name}}
+                    </div>
+                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.ad_addon">
+                        <b>Ad Addon</b><br> 
+                        <span *ngFor="let adaddon of item?.newspaper?.applied_offer?.ad_addon?.value">
+                            <strong>Label</strong> {{adaddon.label}} <br>
+                            <strong>Description</strong> {{adaddon.description}} <br>
+                        </span>
+                    </div>
                 </div>
-              }
-              @if (item?.newspaper?.applied_offer?.ad_addon) {
-                <div class="w-100">
-                  <b>Ad Addon</b><br>
-                  @for (adaddon of item?.newspaper?.applied_offer?.ad_addon?.value; track adaddon) {
-                    <span>
-                      <strong>Label</strong> {{adaddon.label}} <br>
-                      <strong>Description</strong> {{adaddon.description}} <br>
-                    </span>
-                  }
+
+                <!-- classified_display_ads -->
+                <div class="col-12 col-md-5" *ngIf="item?.media == 'newspaper' && item?.ad_type == 'classified_display_ads' ">
+                    <div class="w-100">
+                        <b>Ad Type</b> : Classified Display Ads
+                    </div>
+                    <div class="w-100">
+                        <b>Release Date</b> : <span *ngFor="let releaseInfo of item?.newspaper?.release_info"> {{releaseInfo | date:'d/MM/y' }},</span>
+                    </div>
+                    <div class="w-100">
+                        <b>Variant</b> : {{item?.newspaper?.applied_offer?.variant?.position }} - {{item?.newspaper?.applied_offer?.variant?.format }}
+                    </div>
+                    <div class="w-100">
+                        <b>Size</b> :  Width : {{item?.newspaper?.applied_offer?.size?.width }}, Height : {{item?.newspaper?.applied_offer?.size?.height }}
+                    </div>
+                    <div class="w-100">
+                        <b>Variant Rate</b> : {{item?.newspaper?.applied_offer?.variant_rate }}
+                    </div>
+                    <div class="w-100" *ngIf="item?.newspaper?.applied_offer?.specify_creative_mode == 'use_my_creative'">
+                        <b>Ad Creative</b> :
+                        <span *ngIf="item?.newspaper?.applied_offer?.file">
+                            <a aria-label="link" target="_blank" href="{{item?.newspaper?.applied_offer?.file}}">View</a>
+                        </span>
+                        <span *ngIf="!item?.newspaper?.applied_offer?.file"> Not Uploaded</span>
+                    </div>
                 </div>
-              }
+
+                <!-- display_ads -->
+                <div class="col-12 col-md-5" *ngIf="item?.media == 'newspaper' && item?.ad_type == 'display_ads' ">
+                    <div class="w-100">
+                        <b>Ad Type</b> : Display Ads
+                    </div>
+                    <div class="w-100">
+                        <b>Release Date</b> : <span *ngFor="let releaseInfo of item?.newspaper?.release_info"> {{releaseInfo | date:'d/MM/y' }},</span>
+                    </div>
+                    <div class="w-100">
+                        <b>Variant</b> : {{item?.newspaper?.applied_offer?.variant?.position }} - {{item?.newspaper?.applied_offer?.variant?.format }}
+                    </div>
+                    <div class="w-100">
+                        <b>Size</b> :  Width : {{item?.newspaper?.applied_offer?.size?.width }}, Height : {{item?.newspaper?.applied_offer?.size?.height }}
+                    </div>
+                    <div class="w-100">
+                        <b>Variant Rate</b> : {{item?.newspaper?.applied_offer?.variant_rate }}
+                    </div>
+                    <div class="w-100">
+                        <b>Ad Creative</b> :
+                        <span *ngIf="item?.newspaper?.applied_offer?.file">
+                            <a aria-label="link" target="_blank" href="{{item?.newspaper?.applied_offer?.file}}">View</a>
+                        </span>
+                        <span *ngIf="!item?.newspaper?.applied_offer?.file"> Not Uploaded</span>
+                    </div>
+                </div>
+               
+
+                <div class="col-12 col-md-3 ms-md-auto">
+                    <div class="w-100">
+                        <table>
+                            <tr>
+                                <td>Rate</td>
+                                <td>: </td>
+                                <td> 
+                                    <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
+                                    <div class="d-inline-block"> {{item?.price | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Quantity</td>
+                                <td>: </td>
+                                <td> {{item?.quantity}} </td>
+                            </tr>
+                            <tr>
+                                <td>Sub Total</td>
+                                <td>: </td>
+                                <td>
+                                    <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
+                                    <div class="d-inline-block"> {{item?.extended_price | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                </td>
+                            </tr>
+                             
+                            <tr *ngFor="let option of item?.applied_options">
+                                <td> {{option?.name}} ( {{option?.value}}) </td>
+                                <td>: </td>
+                                <td>
+                                    <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
+                                    <div class="d-inline-block"> {{option?.price | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                </td>
+                            </tr>
+                            <tr *ngIf="item?.applied_options?.length > 0">
+                                <td>Total</td>
+                                <td>: </td>
+                                <td>
+                                    <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
+                                    <div class="d-inline-block"> {{option?.total | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>GST ({{item?.tax_percentage}}%)</td>
+                                <td>: </td>
+                                <td>
+                                    <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
+                                    <div class="d-inline-block"> {{item?.tax_amount | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                </td>
+                            </tr>
+                            <tr class="border-top">
+                                <td><strong>Item Total</strong></td>
+                                <td>: </td>
+                                <td> <strong> 
+                                    <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
+                                    <div class="d-inline-block"> {{item?.line_total | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                </strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
-          }
-          <!-- classified_display_ads -->
-          @if (item?.media == 'newspaper' && item?.ad_type == 'classified_display_ads' ) {
-            <div class="col-12 col-md-5">
-              <div class="w-100">
-                <b>Ad Type</b> : Classified Display Ads
-              </div>
-              <div class="w-100">
-                <b>Release Date</b> : @for (releaseInfo of item?.newspaper?.release_info; track releaseInfo) {
-                <span> {{releaseInfo | date:'d/MM/y' }},</span>
-              }
-            </div>
-            <div class="w-100">
-              <b>Variant</b> : {{item?.newspaper?.applied_offer?.variant?.position }} - {{item?.newspaper?.applied_offer?.variant?.format }}
-            </div>
-            <div class="w-100">
-              <b>Size</b> :  Width : {{item?.newspaper?.applied_offer?.size?.width }}, Height : {{item?.newspaper?.applied_offer?.size?.height }}
-            </div>
-            <div class="w-100">
-              <b>Variant Rate</b> : {{item?.newspaper?.applied_offer?.variant_rate }}
-            </div>
-            @if (item?.newspaper?.applied_offer?.specify_creative_mode == 'use_my_creative') {
-              <div class="w-100">
-                <b>Ad Creative</b> :
-                @if (item?.newspaper?.applied_offer?.file) {
-                  <span>
-                    <a aria-label="link" target="_blank" href="{{item?.newspaper?.applied_offer?.file}}">View</a>
-                  </span>
-                }
-                @if (!item?.newspaper?.applied_offer?.file) {
-                  <span> Not Uploaded</span>
-                }
-              </div>
-            }
-          </div>
-        }
-        <!-- display_ads -->
-        @if (item?.media == 'newspaper' && item?.ad_type == 'display_ads' ) {
-          <div class="col-12 col-md-5">
-            <div class="w-100">
-              <b>Ad Type</b> : Display Ads
-            </div>
-            <div class="w-100">
-              <b>Release Date</b> : @for (releaseInfo of item?.newspaper?.release_info; track releaseInfo) {
-              <span> {{releaseInfo | date:'d/MM/y' }},</span>
-            }
-          </div>
-          <div class="w-100">
-            <b>Variant</b> : {{item?.newspaper?.applied_offer?.variant?.position }} - {{item?.newspaper?.applied_offer?.variant?.format }}
-          </div>
-          <div class="w-100">
-            <b>Size</b> :  Width : {{item?.newspaper?.applied_offer?.size?.width }}, Height : {{item?.newspaper?.applied_offer?.size?.height }}
-          </div>
-          <div class="w-100">
-            <b>Variant Rate</b> : {{item?.newspaper?.applied_offer?.variant_rate }}
-          </div>
-          <div class="w-100">
-            <b>Ad Creative</b> :
-            @if (item?.newspaper?.applied_offer?.file) {
-              <span>
-                <a aria-label="link" target="_blank" href="{{item?.newspaper?.applied_offer?.file}}">View</a>
-              </span>
-            }
-            @if (!item?.newspaper?.applied_offer?.file) {
-              <span> Not Uploaded</span>
-            }
-          </div>
         </div>
-      }
-      <div class="col-12 col-md-3 ms-md-auto">
-        <div class="w-100">
-          <table>
-            <tr>
-              <td>Rate</td>
-              <td>: </td>
-              <td>
-                <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div>
-                <div class="d-inline-block"> {{$safeNavigationMigration(item?.price) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
-              </td>
-            </tr>
-            <tr>
-              <td>Quantity</td>
-              <td>: </td>
-              <td> {{item?.quantity}} </td>
-            </tr>
-            <tr>
-              <td>Sub Total</td>
-              <td>: </td>
-              <td>
-                <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div>
-                <div class="d-inline-block"> {{$safeNavigationMigration(item?.extended_price) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
-              </td>
-            </tr>
-            @for (option of item?.applied_options; track option) {
-              <tr>
-                <td> {{option?.name}} ( {{option?.value}}) </td>
-                <td>: </td>
-                <td>
-                  <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div>
-                  <div class="d-inline-block"> {{$safeNavigationMigration(option?.price) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
-                </td>
-              </tr>
-            }
-            @if (item?.applied_options?.length > 0) {
-              <tr>
-                <td>Total</td>
-                <td>: </td>
-                <td>
-                  <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div>
-                  <div class="d-inline-block"> {{$safeNavigationMigration(option?.total) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
-                </td>
-              </tr>
-            }
-            <tr>
-              <td>GST ({{item?.tax_percentage}}%)</td>
-              <td>: </td>
-              <td>
-                <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div>
-                <div class="d-inline-block"> {{$safeNavigationMigration(item?.tax_amount) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
-              </td>
-            </tr>
-            <tr class="border-top">
-              <td><strong>Item Total</strong></td>
-              <td>: </td>
-              <td> <strong>
-                <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div>
-                <div class="d-inline-block"> {{$safeNavigationMigration(item?.line_total) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
-              </strong>
-            </td>
-          </tr>
-        </table>
-      </div>
+        <div class="row text-center mt-3 mt-md-5">
+            <div class="col">
+                <button class="btn btn-primary" (click)="orderCampaign()"> Order Now </button>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-}
-<div class="row text-center mt-3 mt-md-5">
-  <div class="col">
-    <button class="btn btn-primary" (click)="orderCampaign()"> Order Now </button>
-  </div>
-</div>
-</div>
 </section>
-}
 
 
-@if (!isAuthenticated) {
-  <section class="py-5">
+<section class="py-5" *ngIf="!isAuthenticated">
     <div class="container">
-      <div class="row">
-        <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
-          <p class="h4 m-5"> Login to see the items you added previously. </p>
+        <div class="row">
+            <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
+                <p class="h4 m-5"> Login to see the items you added previously. </p>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-}
+</section>
 
-@if (campaignData == false && isAuthenticated) {
-  <section class="py-5">
+<section class="py-5" *ngIf="campaignData == false && isAuthenticated">
     <div class="container">
-      <div class="row">
-        <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
-          <p class="h4 m-5"> Your Cart Is Empty. </p>
+        <div class="row">
+            <div class="col-12 cart shadow border-0 p-3 m-2 text-center">
+                <p class="h4 m-5"> Your Cart Is Empty. </p>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-}
+</section>

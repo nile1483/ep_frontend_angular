@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from '../blog.service';
 import { CommonService } from '@app-shared-services';
@@ -10,11 +10,9 @@ import { PageService } from '../../page/page.service';
 import { log } from 'node:console';
 
 @Component({
-    selector: 'app-blog-detail-page',
-    templateUrl: './blog-detail-page.component.html',
-    styleUrls: ['./blog-detail-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-blog-detail-page',
+  templateUrl: './blog-detail-page.component.html',
+  styleUrls: ['./blog-detail-page.component.css']
 })
 export class BlogDetailPageComponent implements OnInit {
 

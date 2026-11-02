@@ -1,16 +1,14 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { LoaderService } from 'src/app/shared/services/loader.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { CommonService } from '@app-shared-services';
 
 @Component({
-    selector: 'app-courier-confirmation-not-received',
-    templateUrl: './courier-confirmation-not-received.component.html',
-    styleUrl: './courier-confirmation-not-received.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-courier-confirmation-not-received',
+  templateUrl: './courier-confirmation-not-received.component.html',
+  styleUrl: './courier-confirmation-not-received.component.css'
 })
 export class CourierConfirmationNotReceivedComponent {
 
@@ -19,7 +17,6 @@ export class CourierConfirmationNotReceivedComponent {
 
   constructor(
     private shoppingCartService: ShoppingCartService,
-    private loaderService: LoaderService,
     private route: ActivatedRoute,
     public commonService: CommonService,
   ) { }

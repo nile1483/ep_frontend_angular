@@ -1,11 +1,9 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'section-card-with-image',
-    templateUrl: './section-card-with-image.component.html',
-    styleUrls: ['./section-card-with-image.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'section-card-with-image',
+  templateUrl: './section-card-with-image.component.html',
+  styleUrls: ['./section-card-with-image.component.css']
 })
 export class SectionCardWithImageComponent implements OnInit {
 

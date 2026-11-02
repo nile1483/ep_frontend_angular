@@ -2,8 +2,8 @@
 <!-- secondory-background -->
 <section class="page-background" [style.background-image]="'url(' + content?.value?.image + ')'">
     <div class="page-title-text">
-        <h1 style="color: white;" [innerHTML]="$safeNavigationMigration(content?.value?.title)"></h1>
-        <p style="color: white;" [innerHTML]="$safeNavigationMigration(content?.value?.subtitle)"></p>
+        <h1 style="color: white;" [innerHTML]="content?.value?.title"></h1>
+        <p style="color: white;" [innerHTML]="content?.value?.subtitle"></p>
     </div>
 </section>
 

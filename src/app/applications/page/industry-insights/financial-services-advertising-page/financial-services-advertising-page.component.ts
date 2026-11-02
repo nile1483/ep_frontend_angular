@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA, C2A_TITLE_DATA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
@@ -11,11 +11,9 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-financial-services-advertising-page',
-    templateUrl: './financial-services-advertising-page.component.html',
-    styleUrl: './financial-services-advertising-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-financial-services-advertising-page',
+  templateUrl: './financial-services-advertising-page.component.html',
+  styleUrl: './financial-services-advertising-page.component.css'
 })
 export class FinancialServicesAdvertisingPageComponent {
 

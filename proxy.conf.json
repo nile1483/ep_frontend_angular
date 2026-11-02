@@ -1,8 +1,8 @@
 {
-  "/api": {
-    "target": "http://www.allexcellentpublicity.com",
-    "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": true
+    "/api": { 
+      "target": "http://www.excellentpublicity13.com",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
   }
-}

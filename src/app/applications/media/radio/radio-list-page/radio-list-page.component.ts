@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
 import { forkJoin, Subscription } from 'rxjs';
@@ -14,11 +14,9 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-radio-list-page',
-    templateUrl: './radio-list-page.component.html',
-    styleUrls: ['./radio-list-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-radio-list-page',
+  templateUrl: './radio-list-page.component.html',
+  styleUrls: ['./radio-list-page.component.css']
 })
 
 export class RadioListPageComponent implements OnInit {
@@ -62,7 +60,7 @@ export class RadioListPageComponent implements OnInit {
 
   selectedCurrency: any;
   footerLinkData: any;
-  
+
   @ViewChildren('accordionRef') accordions !: QueryList<ElementRef>;
 
   constructor(
@@ -151,7 +149,7 @@ export class RadioListPageComponent implements OnInit {
 
   // set media filters, inquiryUser data, sorting column list, footer inquiry data
   setConfigData(result: any) {
-    
+
     if (result.status == true) {
       this.filterList = result.data.filters;
       this.callToActionData.inquiryUser = result.data?.inquiryUser;
@@ -166,11 +164,12 @@ export class RadioListPageComponent implements OnInit {
         this.selectedSortBy = (sort.length > 0) ? sort[0] : this.sortingList[0];
         this.params.sortBy = this.selectedSortBy.value;
       }
-      this.setCheckedFilterValue(); 
+      this.setCheckedFilterValue();
     }
   }
 
   setMediaData(result: any) {
+
     this.isDataLoaded = true;
     this.isLoadingMore = false;
     if (result.status == true) {
@@ -490,6 +489,7 @@ export class RadioListPageComponent implements OnInit {
     //og data           
     metaInfo.og_url = `${this.webURL}` + `${this.media}`;
     metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
+
     this.commonService.setMetaData(metaInfo);
   }
 
@@ -517,6 +517,6 @@ export class RadioListPageComponent implements OnInit {
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-  
+
 
 }
