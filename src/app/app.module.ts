@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration, TransferState } from '@angular/platform-browser';
+import { NgModule, TransferState } from '@angular/core';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { GoogleTagManagerModule } from 'angular-google-tag-manager';
 import { StatusCodeResponseService } from '@app-shared-services';
@@ -22,37 +22,31 @@ import { SalesOrderPaymentComponent } from './applications/sales-order-payment/s
 import { SalesOrderPaymentFailComponent } from './applications/sales-order-payment-fail/sales-order-payment-fail.component';
 import { SalesOrderPaymentSuccessComponent } from './applications/sales-order-payment-success/sales-order-payment-success.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    ManualPaymentComponent,
-    ManualPaymentSuccessComponent,
-    ManualPaymentFailComponent,
-    ClientRateMyServiceComponent,
-    VendorRateMyServiceComponent,
-    CourierConfirmationReceivedComponent,
-    CourierConfirmationNotReceivedComponent,
-    SalesInvoiceDownloadComponent,
-    SalesOrderPaymentComponent,
-    SalesOrderPaymentFailComponent,
-    SalesOrderPaymentSuccessComponent
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    SharedModule,
-    GoogleTagManagerModule.forRoot({
-      id: 'GTM-MT5BHP',
-    }),
-  ],
-  providers: [
-    provideClientHydration(),
-    { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
-    { provide: TransferState },
-    StatusCodeResponseService
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        ManualPaymentComponent,
+        ManualPaymentSuccessComponent,
+        ManualPaymentFailComponent,
+        ClientRateMyServiceComponent,
+        VendorRateMyServiceComponent,
+        CourierConfirmationReceivedComponent,
+        CourierConfirmationNotReceivedComponent,
+        SalesInvoiceDownloadComponent,
+        SalesOrderPaymentComponent,
+        SalesOrderPaymentFailComponent,
+        SalesOrderPaymentSuccessComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        SharedModule,
+        GoogleTagManagerModule.forRoot({
+            id: 'GTM-MT5BHP',
+        })], providers: [
+        provideClientHydration(),
+        { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
+        { provide: TransferState },
+        StatusCodeResponseService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
