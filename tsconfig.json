@@ -14,7 +14,7 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
@@ -36,6 +36,9 @@
       "@app-media-models": ["src/app/applications/media/shared/models/index"],
       "@app-media-shared-components": ["src/app/applications/media/shared/components/index"],
       "@app-page-services": ["src/app/shared/services/page/index"],
+      "swiper": ["node_modules/swiper"],
+      "swiper/angular": ["node_modules/swiper/angular"],
+      "dom7": ["node_modules/dom7"],
     },
   },
   "angularCompilerOptions": {
