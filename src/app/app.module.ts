@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-import { TransferHttpCacheModule } from '@nguniversal/common'; // HERE
 import { GoogleTagManagerModule } from 'angular-google-tag-manager';
 import { StatusCodeResponseService } from '@app-shared-services';
 import { AppHttpInterceptorService } from '@app-shared-services';
@@ -43,7 +42,6 @@ import { SalesOrderPaymentSuccessComponent } from './applications/sales-order-pa
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    TransferHttpCacheModule, // AND HERE
     SharedModule,
     GoogleTagManagerModule.forRoot({
       id: 'GTM-MT5BHP',

@@ -1,5 +1,5 @@
 import { Inject, Injectable, Optional } from '@angular/core';
-import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { RESPONSE } from 'src/express.tokens';
 import { Response } from 'express';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
