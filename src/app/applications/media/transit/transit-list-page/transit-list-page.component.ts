@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, QueryList, ViewChildren, DOCUMENT } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -10,7 +10,7 @@ import { TransitService } from '@app-media-services';
 import { LocationParm } from '@app-media-models';
 import { TransitFilters, TransitParams } from '@app-media-models';
 import { AppURL } from 'src/app/app-url';
-import { DOCUMENT } from '@angular/common';
+
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA} from '@app-shared-constants';

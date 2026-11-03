@@ -1,6 +1,6 @@
-import { DOCUMENT } from '@angular/common';
+
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, DOCUMENT } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Meta, Title } from '@angular/platform-browser';
 import { Observable, of, Subject } from 'rxjs';

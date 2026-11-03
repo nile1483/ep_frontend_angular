@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { Component, Inject, OnInit, Optional, DOCUMENT } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RadioService } from '@app-media-services';
@@ -10,7 +10,7 @@ import { MetaInformation } from '@app-shared-model';
 import { C2A_TITLE_DATA } from '@app-shared-constants';
 import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
-import { DOCUMENT } from '@angular/common';
+
 
 @Component({
     selector: 'app-radio-detail-page',

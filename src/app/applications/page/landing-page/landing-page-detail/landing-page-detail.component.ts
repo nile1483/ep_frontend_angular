@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, DOCUMENT } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LandingPageService } from '../landingpage.service';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
-import { DOCUMENT } from '@angular/common';
+
 
 @Component({
     selector: 'app-landing-page-detail',

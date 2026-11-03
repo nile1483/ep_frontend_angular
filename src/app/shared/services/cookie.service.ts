@@ -2,8 +2,8 @@
 // not use `DOCUMENT` injection and therefore doesn't work well with AoT production builds.
 // Package: https://github.com/BCJTI/ng2-cookies
 
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID, DOCUMENT } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 export type SameSite = 'Lax' | 'None' | 'Strict';
 
