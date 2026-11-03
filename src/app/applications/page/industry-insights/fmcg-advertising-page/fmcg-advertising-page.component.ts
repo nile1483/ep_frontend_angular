@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-fmcg-advertising-page',
-  templateUrl: './fmcg-advertising-page.component.html',
-  styleUrl: './fmcg-advertising-page.component.css'
+    selector: 'app-fmcg-advertising-page',
+    templateUrl: './fmcg-advertising-page.component.html',
+    styleUrl: './fmcg-advertising-page.component.css',
+    standalone: false
 })
 export class FmcgAdvertisingPageComponent {
 

@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-travel-and-tourism-page',
-  templateUrl: './travel-and-tourism-page.component.html',
-  styleUrl: './travel-and-tourism-page.component.css'
+    selector: 'app-travel-and-tourism-page',
+    templateUrl: './travel-and-tourism-page.component.html',
+    styleUrl: './travel-and-tourism-page.component.css',
+    standalone: false
 })
 export class TravelAndTourismPageComponent {
 

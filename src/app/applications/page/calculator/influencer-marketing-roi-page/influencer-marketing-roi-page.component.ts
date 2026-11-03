@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-influencer-marketing-roi-page',
-  templateUrl: './influencer-marketing-roi-page.component.html',
-  styleUrl: './influencer-marketing-roi-page.component.css'
+    selector: 'app-influencer-marketing-roi-page',
+    templateUrl: './influencer-marketing-roi-page.component.html',
+    styleUrl: './influencer-marketing-roi-page.component.css',
+    standalone: false
 })
 export class InfluencerMarketingRoiPageComponent {
 

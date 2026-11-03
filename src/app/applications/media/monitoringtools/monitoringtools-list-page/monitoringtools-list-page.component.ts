@@ -14,9 +14,10 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-monitoringtools-list-page',
-  templateUrl: './monitoringtools-list-page.component.html',
-  styleUrl: './monitoringtools-list-page.component.css'
+    selector: 'app-monitoringtools-list-page',
+    templateUrl: './monitoringtools-list-page.component.html',
+    styleUrl: './monitoringtools-list-page.component.css',
+    standalone: false
 })
 export class MonitoringtoolsListPageComponent {
 

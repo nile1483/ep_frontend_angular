@@ -14,9 +14,10 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-btl-list-page',
-  templateUrl: './btl-list-page.component.html',
-  styleUrls: ['./btl-list-page.component.css']
+    selector: 'app-btl-list-page',
+    templateUrl: './btl-list-page.component.html',
+    styleUrls: ['./btl-list-page.component.css'],
+    standalone: false
 })
 
 export class BtlListPageComponent implements OnInit {

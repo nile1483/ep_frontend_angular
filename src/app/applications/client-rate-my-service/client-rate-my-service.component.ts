@@ -7,9 +7,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '@app-shared-services';
 
 @Component({
-  selector: 'app-client-rate-my-service',
-  templateUrl: './client-rate-my-service.component.html',
-  styleUrl: './client-rate-my-service.component.css'
+    selector: 'app-client-rate-my-service',
+    templateUrl: './client-rate-my-service.component.html',
+    styleUrl: './client-rate-my-service.component.css',
+    standalone: false
 })
 export class ClientRateMyServiceComponent {
 

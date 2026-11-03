@@ -25,9 +25,10 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
 }
 
 @Component({
-  selector: 'app-cricket-advertising-page',
-  templateUrl: './cricket-advertising-page.component.html',
-  styleUrl: './cricket-advertising-page.component.css'
+    selector: 'app-cricket-advertising-page',
+    templateUrl: './cricket-advertising-page.component.html',
+    styleUrl: './cricket-advertising-page.component.css',
+    standalone: false
 })
 export class CricketAdvertisingPageComponent {
 

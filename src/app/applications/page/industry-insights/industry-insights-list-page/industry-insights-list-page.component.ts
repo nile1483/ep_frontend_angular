@@ -6,9 +6,10 @@ import { CommonService } from '@app-shared-services';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-industry-insights-list-page',
-  templateUrl: './industry-insights-list-page.component.html',
-  styleUrl: './industry-insights-list-page.component.css',
+    selector: 'app-industry-insights-list-page',
+    templateUrl: './industry-insights-list-page.component.html',
+    styleUrl: './industry-insights-list-page.component.css',
+    standalone: false
 })
 export class IndustryInsightsListPageComponent {
 

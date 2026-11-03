@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-content-builder',
-  templateUrl: './content-builder.component.html',
-  styleUrls: ['./content-builder.component.css']
+    selector: 'app-content-builder',
+    templateUrl: './content-builder.component.html',
+    styleUrls: ['./content-builder.component.css'],
+    standalone: false
 })
 export class ContentBuilderComponent implements OnInit {
 

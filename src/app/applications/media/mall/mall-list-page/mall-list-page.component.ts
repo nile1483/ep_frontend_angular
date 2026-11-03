@@ -15,9 +15,10 @@ import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 
 @Component({
-  selector: 'app-mall-list-page',
-  templateUrl: './mall-list-page.component.html',
-  styleUrls: ['./mall-list-page.component.css']
+    selector: 'app-mall-list-page',
+    templateUrl: './mall-list-page.component.html',
+    styleUrls: ['./mall-list-page.component.css'],
+    standalone: false
 })
 export class MallListPageComponent implements OnInit {
 

@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-print-advertising-page',
-  templateUrl: './print-advertising-page.component.html',
-  styleUrl: './print-advertising-page.component.css'
+    selector: 'app-print-advertising-page',
+    templateUrl: './print-advertising-page.component.html',
+    styleUrl: './print-advertising-page.component.css',
+    standalone: false
 })
 export class PrintAdvertisingPageComponent {
 

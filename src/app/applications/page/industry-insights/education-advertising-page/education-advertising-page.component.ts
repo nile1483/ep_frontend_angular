@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-education-advertising-page',
-  templateUrl: './education-advertising-page.component.html',
-  styleUrl: './education-advertising-page.component.css'
+    selector: 'app-education-advertising-page',
+    templateUrl: './education-advertising-page.component.html',
+    styleUrl: './education-advertising-page.component.css',
+    standalone: false
 })
 export class EducationAdvertisingPageComponent {
 

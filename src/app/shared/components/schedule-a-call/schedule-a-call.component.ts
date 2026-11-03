@@ -2,9 +2,10 @@ import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-  selector: 'app-schedule-a-call',
-  templateUrl: './schedule-a-call.component.html',
-  styleUrl: './schedule-a-call.component.css'
+    selector: 'app-schedule-a-call',
+    templateUrl: './schedule-a-call.component.html',
+    styleUrl: './schedule-a-call.component.css',
+    standalone: false
 })
 export class ScheduleACallComponent {
 

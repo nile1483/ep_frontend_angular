@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-outdoor-advertising-page',
-  templateUrl: './outdoor-advertising-page.component.html',
-  styleUrl: './outdoor-advertising-page.component.css'
+    selector: 'app-outdoor-advertising-page',
+    templateUrl: './outdoor-advertising-page.component.html',
+    styleUrl: './outdoor-advertising-page.component.css',
+    standalone: false
 })
 export class OutdoorAdvertisingPageComponent {
 

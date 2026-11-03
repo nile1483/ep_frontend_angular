@@ -13,9 +13,10 @@ import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-radio-detail-page',
-  templateUrl: './radio-detail-page.component.html',
-  styleUrls: ['./radio-detail-page.component.css']
+    selector: 'app-radio-detail-page',
+    templateUrl: './radio-detail-page.component.html',
+    styleUrls: ['./radio-detail-page.component.css'],
+    standalone: false
 })
 export class RadioDetailPageComponent implements OnInit {
 

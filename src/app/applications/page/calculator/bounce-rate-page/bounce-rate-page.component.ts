@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-bounce-rate-page',
-  templateUrl: './bounce-rate-page.component.html',
-  styleUrl: './bounce-rate-page.component.css'
+    selector: 'app-bounce-rate-page',
+    templateUrl: './bounce-rate-page.component.html',
+    styleUrl: './bounce-rate-page.component.css',
+    standalone: false
 })
 export class BounceRatePageComponent {
 

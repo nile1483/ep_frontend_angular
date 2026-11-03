@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-advertising-page-detail',
-  templateUrl: './advertising-page-detail.component.html',
-  styleUrls: ['./advertising-page-detail.component.css']
+    selector: 'app-advertising-page-detail',
+    templateUrl: './advertising-page-detail.component.html',
+    styleUrls: ['./advertising-page-detail.component.css'],
+    standalone: false
 })
 export class AdvertisingPageDetailComponent implements OnInit {
 

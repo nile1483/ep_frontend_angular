@@ -28,9 +28,10 @@ export function isPersonalEmailValidatorContact(control: UntypedFormControl) : V
 }
 
 @Component({
-  selector: 'section-inquiry-form',
-  templateUrl: './section-inquiry-form.component.html',
-  styleUrl: './section-inquiry-form.component.css'
+    selector: 'section-inquiry-form',
+    templateUrl: './section-inquiry-form.component.html',
+    styleUrl: './section-inquiry-form.component.css',
+    standalone: false
 })
 export class SectionInquiryFormComponent {
 

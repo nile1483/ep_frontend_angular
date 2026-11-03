@@ -5,9 +5,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-  selector: 'app-sales-invoice-download',
-  templateUrl: './sales-invoice-download.component.html',
-  styleUrl: './sales-invoice-download.component.css'
+    selector: 'app-sales-invoice-download',
+    templateUrl: './sales-invoice-download.component.html',
+    styleUrl: './sales-invoice-download.component.css',
+    standalone: false
 })
 export class SalesInvoiceDownloadComponent {
 

@@ -8,9 +8,10 @@ import { AppURL } from 'src/app/app-url';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-order-detail',
-  templateUrl: './order-detail.component.html',
-  styleUrls: ['./order-detail.component.css']
+    selector: 'app-order-detail',
+    templateUrl: './order-detail.component.html',
+    styleUrls: ['./order-detail.component.css'],
+    standalone: false
 })
 export class OrderDetailComponent implements OnInit {
 

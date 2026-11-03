@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-agriculture-farming-advertising-page',
-  templateUrl: './agriculture-farming-advertising-page.component.html',
-  styleUrl: './agriculture-farming-advertising-page.component.css'
+    selector: 'app-agriculture-farming-advertising-page',
+    templateUrl: './agriculture-farming-advertising-page.component.html',
+    styleUrl: './agriculture-farming-advertising-page.component.css',
+    standalone: false
 })
 export class AgricultureFarmingAdvertisingPageComponent {
   media: string = 'agriculturefarmingadvertising';

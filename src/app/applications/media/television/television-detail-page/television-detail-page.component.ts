@@ -12,9 +12,10 @@ import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-television-detail-page',
-  templateUrl: './television-detail-page.component.html',
-  styleUrls: ['./television-detail-page.component.css']
+    selector: 'app-television-detail-page',
+    templateUrl: './television-detail-page.component.html',
+    styleUrls: ['./television-detail-page.component.css'],
+    standalone: false
 })
 export class TelevisionDetailPageComponent implements OnInit {
 

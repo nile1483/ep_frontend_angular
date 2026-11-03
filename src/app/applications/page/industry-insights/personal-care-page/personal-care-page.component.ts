@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-personal-care-page',
-  templateUrl: './personal-care-page.component.html',
-  styleUrl: './personal-care-page.component.css'
+    selector: 'app-personal-care-page',
+    templateUrl: './personal-care-page.component.html',
+    styleUrl: './personal-care-page.component.css',
+    standalone: false
 })
 export class PersonalCarePageComponent {
   media: string = 'personalcareadvertising';

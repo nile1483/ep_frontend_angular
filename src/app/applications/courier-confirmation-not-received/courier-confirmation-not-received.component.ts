@@ -6,9 +6,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { CommonService } from '@app-shared-services';
 
 @Component({
-  selector: 'app-courier-confirmation-not-received',
-  templateUrl: './courier-confirmation-not-received.component.html',
-  styleUrl: './courier-confirmation-not-received.component.css'
+    selector: 'app-courier-confirmation-not-received',
+    templateUrl: './courier-confirmation-not-received.component.html',
+    styleUrl: './courier-confirmation-not-received.component.css',
+    standalone: false
 })
 export class CourierConfirmationNotReceivedComponent {
 

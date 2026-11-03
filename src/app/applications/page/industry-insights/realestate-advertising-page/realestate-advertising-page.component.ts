@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-realestate-advertising-page',
-  templateUrl: './realestate-advertising-page.component.html',
-  styleUrl: './realestate-advertising-page.component.css'
+    selector: 'app-realestate-advertising-page',
+    templateUrl: './realestate-advertising-page.component.html',
+    styleUrl: './realestate-advertising-page.component.css',
+    standalone: false
 })
 export class RealEstateAdvertisingPageComponent {
 

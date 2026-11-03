@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-e-commerce-advertising-page',
-  templateUrl: './e-commerce-advertising-page.component.html',
-  styleUrl: './e-commerce-advertising-page.component.css'
+    selector: 'app-e-commerce-advertising-page',
+    templateUrl: './e-commerce-advertising-page.component.html',
+    styleUrl: './e-commerce-advertising-page.component.css',
+    standalone: false
 })
 export class ECommerceAdvertisingPageComponent {
 

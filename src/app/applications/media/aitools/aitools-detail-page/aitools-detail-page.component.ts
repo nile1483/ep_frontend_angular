@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-aitools-detail-page',
-  templateUrl: './aitools-detail-page.component.html',
-  styleUrls: ['./aitools-detail-page.component.css']
+    selector: 'app-aitools-detail-page',
+    templateUrl: './aitools-detail-page.component.html',
+    styleUrls: ['./aitools-detail-page.component.css'],
+    standalone: false
 })
 export class AitoolsDetailPageComponent implements OnInit {
 

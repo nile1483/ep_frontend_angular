@@ -10,9 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../../page/page.service';
 
 @Component({
-  selector: 'app-career-questions-form',
-  templateUrl: './career-questions-form.component.html',
-  styleUrl: './career-questions-form.component.css'
+    selector: 'app-career-questions-form',
+    templateUrl: './career-questions-form.component.html',
+    styleUrl: './career-questions-form.component.css',
+    standalone: false
 })
 export class CareerQuestionsFormComponent {
 

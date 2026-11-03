@@ -12,9 +12,10 @@ import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-influencer-detail-page',
-  templateUrl: './influencer-detail-page.component.html',
-  styleUrls: ['./influencer-detail-page.component.css']
+    selector: 'app-influencer-detail-page',
+    templateUrl: './influencer-detail-page.component.html',
+    styleUrls: ['./influencer-detail-page.component.css'],
+    standalone: false
 })
 export class InfluencerDetailPageComponent implements OnInit {
 

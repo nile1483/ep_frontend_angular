@@ -6,9 +6,10 @@ import { CommonService } from '@app-shared-services';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-calculator-list-page',
-  templateUrl: './calculator-list-page.component.html',
-  styleUrl: './calculator-list-page.component.css',
+    selector: 'app-calculator-list-page',
+    templateUrl: './calculator-list-page.component.html',
+    styleUrl: './calculator-list-page.component.css',
+    standalone: false
 })
 export class CalculatorListPageComponent {
 

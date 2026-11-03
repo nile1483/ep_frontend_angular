@@ -13,9 +13,10 @@ import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-cinema-detail-page',
-  templateUrl: './cinema-detail-page.component.html',
-  styleUrls: ['./cinema-detail-page.component.css']
+    selector: 'app-cinema-detail-page',
+    templateUrl: './cinema-detail-page.component.html',
+    styleUrls: ['./cinema-detail-page.component.css'],
+    standalone: false
 })
 export class CinemaDetailPageComponent implements OnInit {
 

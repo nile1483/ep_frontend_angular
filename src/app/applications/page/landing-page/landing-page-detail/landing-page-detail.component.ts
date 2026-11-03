@@ -8,9 +8,10 @@ import { AppURL } from 'src/app/app-url';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-landing-page-detail',
-  templateUrl: './landing-page-detail.component.html',
-  styleUrls: ['./landing-page-detail.component.css']
+    selector: 'app-landing-page-detail',
+    templateUrl: './landing-page-detail.component.html',
+    styleUrls: ['./landing-page-detail.component.css'],
+    standalone: false
 })
 export class LandingPageDetailComponent implements OnInit {
   webURL: string = AppURL.webURL;

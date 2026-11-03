@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-gross-margin-page',
-  templateUrl: './gross-margin-page.component.html',
-  styleUrl: './gross-margin-page.component.css'
+    selector: 'app-gross-margin-page',
+    templateUrl: './gross-margin-page.component.html',
+    styleUrl: './gross-margin-page.component.css',
+    standalone: false
 })
 export class GrossMarginPageComponent {
 

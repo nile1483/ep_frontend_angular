@@ -10,9 +10,10 @@ SwiperCore.use([
 ]);
 
 @Component({
-  selector: 'app-header-menu',
-  templateUrl: './header-menu.component.html',
-  styleUrls: ['./header-menu.component.css']
+    selector: 'app-header-menu',
+    templateUrl: './header-menu.component.html',
+    styleUrls: ['./header-menu.component.css'],
+    standalone: false
 })
 export class HeaderMenuComponent implements OnInit {
 

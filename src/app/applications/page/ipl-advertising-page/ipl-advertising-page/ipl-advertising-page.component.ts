@@ -12,9 +12,10 @@ import { AfterViewInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-  selector: 'app-ipl-advertising-page',
-  templateUrl: './ipl-advertising-page.component.html',
-  styleUrls: ['./ipl-advertising-page.component.css']
+    selector: 'app-ipl-advertising-page',
+    templateUrl: './ipl-advertising-page.component.html',
+    styleUrls: ['./ipl-advertising-page.component.css'],
+    standalone: false
 })
 export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
 

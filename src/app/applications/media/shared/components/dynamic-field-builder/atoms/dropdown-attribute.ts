@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'dropdown-attribute',
-  template: `
+    selector: 'dropdown-attribute',
+    template: `
       <div [formGroup]="form">
         <div [formGroupName]="'attribute'" >
         
@@ -17,9 +17,10 @@ import { FormGroup } from '@angular/forms';
         </div> 
       </div> 
     `,
-  styles: [
-    '::ng-deep ::-webkit-scrollbar {width: 5px;} ::ng-deep ::-webkit-scrollbar-thumb { background: var(--bs-primary); }'
-  ]     
+    styles: [
+        '::ng-deep ::-webkit-scrollbar {width: 5px;} ::ng-deep ::-webkit-scrollbar-thumb { background: var(--bs-primary); }'
+    ],
+    standalone: false
 })
 export class DropDownAttributeComponent {
   @Input() field: any = {};

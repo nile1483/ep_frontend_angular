@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'radio-option',
-  template: `
+    selector: 'radio-option',
+    template: `
       <div [formGroup]="form"> 
         <div [formGroupName]="'options'" >       
         <mat-label>{{field.name}}</mat-label><br> 
@@ -15,7 +15,8 @@ import { FormGroup } from '@angular/forms';
           <mat-error *ngIf="isRequired"> This is required </mat-error>
         </div> 
       </div> 
-    `
+    `,
+    standalone: false
 })
 export class RadioOptionComponent {
   @Input() field: any = {};

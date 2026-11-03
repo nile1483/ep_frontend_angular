@@ -29,9 +29,10 @@ export function isPersonalEmailValidatorStatic(control: UntypedFormControl): Val
 
 
 @Component({
-  selector: 'app-corporate-gifting-static',
-  templateUrl: './corporate-gifting-static.component.html',
-  styleUrls: ['./corporate-gifting-static.component.css']
+    selector: 'app-corporate-gifting-static',
+    templateUrl: './corporate-gifting-static.component.html',
+    styleUrls: ['./corporate-gifting-static.component.css'],
+    standalone: false
 })
 export class CorporateGiftingStaticComponent implements OnInit {
 

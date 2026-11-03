@@ -6,9 +6,10 @@ import { CommonService } from '@app-shared-services';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-media-insights-list-page',
-  templateUrl: './media-insights-list-page.component.html',
-  styleUrl: './media-insights-list-page.component.css',
+    selector: 'app-media-insights-list-page',
+    templateUrl: './media-insights-list-page.component.html',
+    styleUrl: './media-insights-list-page.component.css',
+    standalone: false
 })
 export class MediaInsightsListPageComponent {
 

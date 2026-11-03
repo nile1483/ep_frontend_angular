@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-packaged-rice-page',
-  templateUrl: './packaged-rice-page.component.html',
-  styleUrl: './packaged-rice-page.component.css'
+    selector: 'app-packaged-rice-page',
+    templateUrl: './packaged-rice-page.component.html',
+    styleUrl: './packaged-rice-page.component.css',
+    standalone: false
 })
 export class PackagedRicePageComponent {
 

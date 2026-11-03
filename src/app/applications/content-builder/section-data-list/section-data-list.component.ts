@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { log } from 'node:console';
 
 @Component({
-  selector: 'section-data-list',
-  templateUrl: './section-data-list.component.html',
-  styleUrls: ['./section-data-list.component.css']
+    selector: 'section-data-list',
+    templateUrl: './section-data-list.component.html',
+    styleUrls: ['./section-data-list.component.css'],
+    standalone: false
 })
 export class SectionDataListComponent implements OnInit {
 

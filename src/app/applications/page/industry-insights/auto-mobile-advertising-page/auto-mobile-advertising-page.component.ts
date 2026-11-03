@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-auto-mobile-advertising-page',
-  templateUrl: './auto-mobile-advertising-page.component.html',
-  styleUrl: './auto-mobile-advertising-page.component.css'
+    selector: 'app-auto-mobile-advertising-page',
+    templateUrl: './auto-mobile-advertising-page.component.html',
+    styleUrl: './auto-mobile-advertising-page.component.css',
+    standalone: false
 })
 export class AutoMobileAdvertisingPageComponent {
 

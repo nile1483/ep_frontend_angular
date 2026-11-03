@@ -17,9 +17,10 @@ import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 import { LocationStrategy } from '@angular/common';
 
 @Component({
-  selector: 'app-nontraditional-list-page',
-  templateUrl: './nontraditional-list-page.component.html',
-  styleUrls: ['./nontraditional-list-page.component.css']
+    selector: 'app-nontraditional-list-page',
+    templateUrl: './nontraditional-list-page.component.html',
+    styleUrls: ['./nontraditional-list-page.component.css'],
+    standalone: false
 })
 export class NontraditionalListPageComponent implements OnInit {
 

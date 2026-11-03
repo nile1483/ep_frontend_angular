@@ -17,9 +17,10 @@ import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 
 @Component({
-  selector: 'app-digital-list-page',
-  templateUrl: './digital-list-page.component.html',
-  styleUrls: ['./digital-list-page.component.css']
+    selector: 'app-digital-list-page',
+    templateUrl: './digital-list-page.component.html',
+    styleUrls: ['./digital-list-page.component.css'],
+    standalone: false
 })
 export class DigitalListPageComponent implements OnInit {
 

@@ -5,9 +5,10 @@ import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-  selector: 'app-terms-conditions',
-  templateUrl: './terms-conditions.component.html',
-  styleUrls: ['./terms-conditions.component.css']
+    selector: 'app-terms-conditions',
+    templateUrl: './terms-conditions.component.html',
+    styleUrls: ['./terms-conditions.component.css'],
+    standalone: false
 })
 export class TermsConditionsComponent implements OnInit {
 

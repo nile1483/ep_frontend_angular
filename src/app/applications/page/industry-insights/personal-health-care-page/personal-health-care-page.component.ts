@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-personal-health-care-page',
-  templateUrl: './personal-health-care-page.component.html',
-  styleUrl: './personal-health-care-page.component.css'
+    selector: 'app-personal-health-care-page',
+    templateUrl: './personal-health-care-page.component.html',
+    styleUrl: './personal-health-care-page.component.css',
+    standalone: false
 })
 export class PersonalHealthCarePageComponent {
   media: string = 'personalhealthcareadvertising';

@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-sales-forecast-page',
-  templateUrl: './sales-forecast-page.component.html',
-  styleUrl: './sales-forecast-page.component.css'
+    selector: 'app-sales-forecast-page',
+    templateUrl: './sales-forecast-page.component.html',
+    styleUrl: './sales-forecast-page.component.css',
+    standalone: false
 })
 export class SalesForecastPageComponent {
 

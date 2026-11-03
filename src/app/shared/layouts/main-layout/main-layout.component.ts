@@ -13,10 +13,11 @@ import { map } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-main-layout',
-  templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.css'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-main-layout',
+    templateUrl: './main-layout.component.html',
+    styleUrls: ['./main-layout.component.css'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 
 export class MainLayoutComponent implements OnInit {

@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-digital-detail-page',
-  templateUrl: './digital-detail-page.component.html',
-  styleUrls: ['./digital-detail-page.component.css']
+    selector: 'app-digital-detail-page',
+    templateUrl: './digital-detail-page.component.html',
+    styleUrls: ['./digital-detail-page.component.css'],
+    standalone: false
 })
 export class DigitalDetailPageComponent implements OnInit {
 

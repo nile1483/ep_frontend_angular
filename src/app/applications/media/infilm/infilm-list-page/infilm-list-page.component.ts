@@ -15,9 +15,10 @@ import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 
 @Component({
-  selector: 'app-infilm-list-page',
-  templateUrl: './infilm-list-page.component.html',
-  styleUrl: './infilm-list-page.component.css'
+    selector: 'app-infilm-list-page',
+    templateUrl: './infilm-list-page.component.html',
+    styleUrl: './infilm-list-page.component.css',
+    standalone: false
 })
 export class InfilmListPageComponent {
 

@@ -10,9 +10,10 @@ SwiperCore.use([
 ]);
 
 @Component({
-  selector: 'section-header-navigation',
-  templateUrl: './section-header-navigation.component.html',
-  styleUrl: './section-header-navigation.component.css'
+    selector: 'section-header-navigation',
+    templateUrl: './section-header-navigation.component.html',
+    styleUrl: './section-header-navigation.component.css',
+    standalone: false
 })
 export class SectionHeaderNavigationComponent {
 

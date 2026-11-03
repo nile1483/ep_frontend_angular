@@ -26,9 +26,10 @@ export function isPersonalEmailValidatorWorldCup(control: UntypedFormControl): V
 }
 
 @Component({
-  selector: 'app-world-cup-inquiry-dialog',
-  templateUrl: './world-cup-inquiry-dialog.component.html',
-  styleUrls: ['./world-cup-inquiry-dialog.component.css']
+    selector: 'app-world-cup-inquiry-dialog',
+    templateUrl: './world-cup-inquiry-dialog.component.html',
+    styleUrls: ['./world-cup-inquiry-dialog.component.css'],
+    standalone: false
 })
 
 export class WorldCupInquiryDialogComponent implements OnInit {

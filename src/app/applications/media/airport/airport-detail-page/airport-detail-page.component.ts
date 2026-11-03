@@ -13,9 +13,10 @@ import { Meta } from '@angular/platform-browser';
 
 
 @Component({
-  selector: 'app-airport-detail-page',
-  templateUrl: './airport-detail-page.component.html',
-  styleUrl: './airport-detail-page.component.css'
+    selector: 'app-airport-detail-page',
+    templateUrl: './airport-detail-page.component.html',
+    styleUrl: './airport-detail-page.component.css',
+    standalone: false
 })
 export class AirportDetailPageComponent {
 

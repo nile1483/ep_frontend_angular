@@ -23,9 +23,10 @@ export function isPersonalEmailValidatorContact(control: UntypedFormControl): Va
 
 
 @Component({
-  selector: 'app-sales-deck-page',
-  templateUrl: './sales-deck-page.component.html',
-  styleUrl: './sales-deck-page.component.css'
+    selector: 'app-sales-deck-page',
+    templateUrl: './sales-deck-page.component.html',
+    styleUrl: './sales-deck-page.component.css',
+    standalone: false
 })
 export class SalesDeckPageComponent {
 

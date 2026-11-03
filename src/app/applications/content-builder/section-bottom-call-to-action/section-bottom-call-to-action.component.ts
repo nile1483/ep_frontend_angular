@@ -3,9 +3,10 @@ import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'section-bottom-call-to-action',
-  templateUrl: './section-bottom-call-to-action.component.html',
-  styleUrl: './section-bottom-call-to-action.component.css'
+    selector: 'section-bottom-call-to-action',
+    templateUrl: './section-bottom-call-to-action.component.html',
+    styleUrl: './section-bottom-call-to-action.component.css',
+    standalone: false
 })
 export class SectionBottomCallToActionComponent {
 

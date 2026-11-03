@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-ipl-advertising-page',
-  templateUrl: './ipl-advertising-page.component.html',
-  styleUrl: './ipl-advertising-page.component.css'
+    selector: 'app-ipl-advertising-page',
+    templateUrl: './ipl-advertising-page.component.html',
+    styleUrl: './ipl-advertising-page.component.css',
+    standalone: false
 })
 export class IplAdvertisingPageComponent {
 

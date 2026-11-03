@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'section-card-horizontal',
-  templateUrl: './section-card-horizontal.component.html',
-  styleUrls: ['./section-card-horizontal.component.css']
+    selector: 'section-card-horizontal',
+    templateUrl: './section-card-horizontal.component.html',
+    styleUrls: ['./section-card-horizontal.component.css'],
+    standalone: false
 })
 export class SectionCardHorizontalComponent implements OnInit {
 

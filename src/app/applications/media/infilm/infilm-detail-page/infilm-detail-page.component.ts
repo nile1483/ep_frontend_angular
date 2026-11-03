@@ -13,9 +13,10 @@ import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-infilm-detail-page',
-  templateUrl: './infilm-detail-page.component.html',
-  styleUrl: './infilm-detail-page.component.css'
+    selector: 'app-infilm-detail-page',
+    templateUrl: './infilm-detail-page.component.html',
+    styleUrl: './infilm-detail-page.component.css',
+    standalone: false
 })
 export class InfilmDetailPageComponent {
 

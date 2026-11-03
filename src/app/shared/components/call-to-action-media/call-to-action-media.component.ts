@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 @Component({
-  selector: 'app-call-to-action-media',
-  templateUrl: './call-to-action-media.component.html',
-  styleUrls: ['./call-to-action-media.component.css']
+    selector: 'app-call-to-action-media',
+    templateUrl: './call-to-action-media.component.html',
+    styleUrls: ['./call-to-action-media.component.css'],
+    standalone: false
 })
 export class CallToActionMediaComponent implements OnInit {
 

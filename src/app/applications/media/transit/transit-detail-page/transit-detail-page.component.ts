@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 @Component({
-  selector: 'app-transit-detail-page',
-  templateUrl: './transit-detail-page.component.html',
-  styleUrls: ['./transit-detail-page.component.css']
+    selector: 'app-transit-detail-page',
+    templateUrl: './transit-detail-page.component.html',
+    styleUrls: ['./transit-detail-page.component.css'],
+    standalone: false
 })
 export class TransitDetailPageComponent implements OnInit {
 

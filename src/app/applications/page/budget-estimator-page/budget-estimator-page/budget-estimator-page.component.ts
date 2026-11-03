@@ -16,9 +16,10 @@ import { LocationParm } from '@app-media-models';
 declare var Chart: any;
 
 @Component({
-  selector: 'app-budget-estimator-page',
-  templateUrl: './budget-estimator-page.component.html',
-  styleUrls: ['./budget-estimator-page.component.css']
+    selector: 'app-budget-estimator-page',
+    templateUrl: './budget-estimator-page.component.html',
+    styleUrls: ['./budget-estimator-page.component.css'],
+    standalone: false
 })
 export class BudgetEstimatorPageComponent implements AfterViewInit {
 

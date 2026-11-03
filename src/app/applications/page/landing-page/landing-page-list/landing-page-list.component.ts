@@ -7,9 +7,10 @@ import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-  selector: 'app-landing-page-list',
-  templateUrl: './landing-page-list.component.html',
-  styleUrls: ['./landing-page-list.component.css']
+    selector: 'app-landing-page-list',
+    templateUrl: './landing-page-list.component.html',
+    styleUrls: ['./landing-page-list.component.css'],
+    standalone: false
 })
 export class LandingPageListComponent implements OnInit {
 

@@ -15,9 +15,10 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-magazine-list-page',
-  templateUrl: './magazine-list-page.component.html',
-  styleUrls: ['./magazine-list-page.component.css']
+    selector: 'app-magazine-list-page',
+    templateUrl: './magazine-list-page.component.html',
+    styleUrls: ['./magazine-list-page.component.css'],
+    standalone: false
 }) export class MagazineListPageComponent implements OnInit {
 
   media: string = 'magazine';

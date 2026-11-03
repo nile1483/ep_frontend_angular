@@ -25,9 +25,10 @@ export function isPersonalEmailValidatorHireAPlanner(control: UntypedFormControl
 }
 
 @Component({
-  selector: 'app-hire-a-planner',
-  templateUrl: './hire-a-planner.component.html',
-  styleUrls: ['./hire-a-planner.component.css']
+    selector: 'app-hire-a-planner',
+    templateUrl: './hire-a-planner.component.html',
+    styleUrls: ['./hire-a-planner.component.css'],
+    standalone: false
 })
 export class HireAPlannerComponent implements OnInit {
 

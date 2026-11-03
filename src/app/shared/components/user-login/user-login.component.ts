@@ -49,9 +49,10 @@ export function isPersonalEmailValidator(domainList: any)  {
 // }
 
 @Component({
-  selector: 'app-user-login',
-  templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css']
+    selector: 'app-user-login',
+    templateUrl: './user-login.component.html',
+    styleUrls: ['./user-login.component.css'],
+    standalone: false
 })
 
 

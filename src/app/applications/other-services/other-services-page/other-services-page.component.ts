@@ -25,9 +25,10 @@ export function isPersonalEmailValidatorOtherServicesPage(control: UntypedFormCo
 }
 
 @Component({
-  selector: 'app-other-services-page',
-  templateUrl: './other-services-page.component.html',
-  styleUrls: ['./other-services-page.component.css']
+    selector: 'app-other-services-page',
+    templateUrl: './other-services-page.component.html',
+    styleUrls: ['./other-services-page.component.css'],
+    standalone: false
 })
 export class OtherServicesPageComponent implements OnInit {
   webURL: string = AppURL.webURL;

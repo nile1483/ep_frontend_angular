@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-gaming-advertising-page',
-  templateUrl: './gaming-advertising-page.component.html',
-  styleUrl: './gaming-advertising-page.component.css'
+    selector: 'app-gaming-advertising-page',
+    templateUrl: './gaming-advertising-page.component.html',
+    styleUrl: './gaming-advertising-page.component.css',
+    standalone: false
 })
 export class GamingAdvertisingPageComponent {
 

@@ -4,9 +4,10 @@ import { SectionInquiryFormDialogComponent } from './../section-inquiry-form-dia
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'section-card-with-media-icon-link',
-  templateUrl: './section-card-with-media-icon-link.component.html',
-  styleUrl: './section-card-with-media-icon-link.component.css'
+    selector: 'section-card-with-media-icon-link',
+    templateUrl: './section-card-with-media-icon-link.component.html',
+    styleUrl: './section-card-with-media-icon-link.component.css',
+    standalone: false
 })
 export class SectionCardWithMediaIconLinkComponent {
 

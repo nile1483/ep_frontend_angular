@@ -13,9 +13,10 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 SwiperCore.use([Pagination, Autoplay]);
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+    selector: 'app-home-page',
+    templateUrl: './home-page.component.html',
+    styleUrls: ['./home-page.component.css'],
+    standalone: false
 })
 export class HomePageComponent implements OnInit {
 
@@ -227,8 +228,9 @@ export class HomePageComponent implements OnInit {
 
 
 @Component({
-  selector: 'home-page-note-dialog',
-  templateUrl: 'home-page-note-dialog.html',
+    selector: 'home-page-note-dialog',
+    templateUrl: 'home-page-note-dialog.html',
+    standalone: false
 })
 
 export class HomePageNoteDialog {

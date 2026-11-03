@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-lifestyle-apparel-advertising-page',
-  templateUrl: './lifestyle-apparel-advertising-page.component.html',
-  styleUrl: './lifestyle-apparel-advertising-page.component.css'
+    selector: 'app-lifestyle-apparel-advertising-page',
+    templateUrl: './lifestyle-apparel-advertising-page.component.html',
+    styleUrl: './lifestyle-apparel-advertising-page.component.css',
+    standalone: false
 })
 export class LifestyleApparelAdvertisingPageComponent {
 

@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-sustainable-growth-rate-page',
-  templateUrl: './sustainable-growth-rate-page.component.html',
-  styleUrl: './sustainable-growth-rate-page.component.css'
+    selector: 'app-sustainable-growth-rate-page',
+    templateUrl: './sustainable-growth-rate-page.component.html',
+    styleUrl: './sustainable-growth-rate-page.component.css',
+    standalone: false
 })
 export class SustainableGrowthRatePageComponent {
 

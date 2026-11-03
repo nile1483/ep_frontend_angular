@@ -9,9 +9,10 @@ import { META_DATA } from 'src/app/shared/constants/metadata';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-blog-list-page',
-  templateUrl: './blog-list-page.component.html',
-  styleUrls: ['./blog-list-page.component.css']
+    selector: 'app-blog-list-page',
+    templateUrl: './blog-list-page.component.html',
+    styleUrls: ['./blog-list-page.component.css'],
+    standalone: false
 })
 export class BlogListPageComponent implements OnInit {
 

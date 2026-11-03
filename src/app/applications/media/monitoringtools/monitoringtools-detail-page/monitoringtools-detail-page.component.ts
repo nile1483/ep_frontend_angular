@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-monitoringtools-detail-page',
-  templateUrl: './monitoringtools-detail-page.component.html',
-  styleUrl: './monitoringtools-detail-page.component.css'
+    selector: 'app-monitoringtools-detail-page',
+    templateUrl: './monitoringtools-detail-page.component.html',
+    styleUrl: './monitoringtools-detail-page.component.css',
+    standalone: false
 })
 export class MonitoringtoolsDetailPageComponent {
 

@@ -5,9 +5,10 @@ import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
 import { TestimonialsService} from "@app-company-services";
 @Component({
-  selector: 'app-testimonials',
-  templateUrl: './testimonials.component.html',
-  styleUrls: ['./testimonials.component.css']
+    selector: 'app-testimonials',
+    templateUrl: './testimonials.component.html',
+    styleUrls: ['./testimonials.component.css'],
+    standalone: false
 })
 export class TestimonialsComponent implements OnInit {
   webURL : string = AppURL.webURL;

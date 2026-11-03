@@ -5,9 +5,10 @@ import { cloneDeep } from 'lodash-es';
 
 
 @Component({
-  selector: 'app-add-to-plan-dialog',
-  templateUrl: './add-to-plan-dialog.component.html',
-  styleUrls: ['./add-to-plan-dialog.component.css']
+    selector: 'app-add-to-plan-dialog',
+    templateUrl: './add-to-plan-dialog.component.html',
+    styleUrls: ['./add-to-plan-dialog.component.css'],
+    standalone: false
 })
 export class AddToPlanDialogComponent implements OnInit {
 

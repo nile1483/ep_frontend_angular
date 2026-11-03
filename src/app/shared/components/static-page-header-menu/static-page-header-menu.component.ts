@@ -11,9 +11,10 @@ SwiperCore.use([
 
 
 @Component({
-  selector: 'app-static-page-header-menu',
-  templateUrl: './static-page-header-menu.component.html',
-  styleUrl: './static-page-header-menu.component.css'
+    selector: 'app-static-page-header-menu',
+    templateUrl: './static-page-header-menu.component.html',
+    styleUrl: './static-page-header-menu.component.css',
+    standalone: false
 })
 export class StaticPageHeaderMenuComponent {
 

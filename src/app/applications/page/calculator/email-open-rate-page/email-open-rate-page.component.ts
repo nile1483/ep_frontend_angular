@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-email-open-rate-page',
-  templateUrl: './email-open-rate-page.component.html',
-  styleUrl: './email-open-rate-page.component.css'
+    selector: 'app-email-open-rate-page',
+    templateUrl: './email-open-rate-page.component.html',
+    styleUrl: './email-open-rate-page.component.css',
+    standalone: false
 })
 export class EmailOpenRatePageComponent {
 

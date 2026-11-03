@@ -14,7 +14,8 @@ import { FormGroup } from '@angular/forms';
           </mat-form-field>
         </div> 
       </div> 
-    `
+    `,
+    standalone: false
 }) 
 export class DropDownOptionComponent {
     @Input() field:any = {};

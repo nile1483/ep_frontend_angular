@@ -16,9 +16,10 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-influencer-list-page',
-  templateUrl: './influencer-list-page.component.html',
-  styleUrls: ['./influencer-list-page.component.css']
+    selector: 'app-influencer-list-page',
+    templateUrl: './influencer-list-page.component.html',
+    styleUrls: ['./influencer-list-page.component.css'],
+    standalone: false
 })
 export class InfluencerListPageComponent implements OnInit {
 

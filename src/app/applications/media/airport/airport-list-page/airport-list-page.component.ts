@@ -14,9 +14,10 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA} from '@app-shared-constants';
 
 @Component({
-  selector: 'app-airport-list-page',
-  templateUrl: './airport-list-page.component.html',
-  styleUrl: './airport-list-page.component.css'
+    selector: 'app-airport-list-page',
+    templateUrl: './airport-list-page.component.html',
+    styleUrl: './airport-list-page.component.css',
+    standalone: false
 })
 export class AirportListPageComponent {
 

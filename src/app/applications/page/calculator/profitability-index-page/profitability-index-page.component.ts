@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-profitability-index-page',
-  templateUrl: './profitability-index-page.component.html',
-  styleUrl: './profitability-index-page.component.css'
+    selector: 'app-profitability-index-page',
+    templateUrl: './profitability-index-page.component.html',
+    styleUrl: './profitability-index-page.component.css',
+    standalone: false
 })
 export class ProfitabilityIndexPageComponent {
 

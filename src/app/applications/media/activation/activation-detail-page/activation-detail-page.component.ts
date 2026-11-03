@@ -13,9 +13,10 @@ import { Meta } from '@angular/platform-browser';
 
 
 @Component({
-  selector: 'app-activation-detail-page',
-  templateUrl: './activation-detail-page.component.html',
-  styleUrls: ['./activation-detail-page.component.css']
+    selector: 'app-activation-detail-page',
+    templateUrl: './activation-detail-page.component.html',
+    styleUrls: ['./activation-detail-page.component.css'],
+    standalone: false
 })
 export class ActivationDetailPageComponent implements OnInit {
 

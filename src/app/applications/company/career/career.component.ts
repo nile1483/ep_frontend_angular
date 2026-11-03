@@ -23,9 +23,10 @@ export class CareerFilters {
 
 
 @Component({
-  selector: 'app-career',
-  templateUrl: './career.component.html',
-  styleUrls: ['./career.component.css']
+    selector: 'app-career',
+    templateUrl: './career.component.html',
+    styleUrls: ['./career.component.css'],
+    standalone: false
 })
 export class CareerComponent implements OnInit {
 

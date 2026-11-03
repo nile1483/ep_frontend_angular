@@ -12,9 +12,10 @@ import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-magazine-detail-page',
-  templateUrl: './magazine-detail-page.component.html',
-  styleUrls: ['./magazine-detail-page.component.css']
+    selector: 'app-magazine-detail-page',
+    templateUrl: './magazine-detail-page.component.html',
+    styleUrls: ['./magazine-detail-page.component.css'],
+    standalone: false
 })
 export class MagazineDetailPageComponent implements OnInit {
 

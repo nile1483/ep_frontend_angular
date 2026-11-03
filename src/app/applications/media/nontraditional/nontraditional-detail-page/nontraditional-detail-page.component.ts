@@ -11,9 +11,10 @@ import { C2A_TITLE_DATA } from '@app-shared-constants';
 import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 @Component({
-  selector: 'app-nontraditional-detail-page',
-  templateUrl: './nontraditional-detail-page.component.html',
-  styleUrls: ['./nontraditional-detail-page.component.css']
+    selector: 'app-nontraditional-detail-page',
+    templateUrl: './nontraditional-detail-page.component.html',
+    styleUrls: ['./nontraditional-detail-page.component.css'],
+    standalone: false
 })
 export class NontraditionalDetailPageComponent implements OnInit {
 

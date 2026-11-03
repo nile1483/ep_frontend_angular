@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-year-on-year-growth-page',
-  templateUrl: './year-on-year-growth-page.component.html',
-  styleUrl: './year-on-year-growth-page.component.css'
+    selector: 'app-year-on-year-growth-page',
+    templateUrl: './year-on-year-growth-page.component.html',
+    styleUrl: './year-on-year-growth-page.component.css',
+    standalone: false
 })
 export class YearOnYearGrowthPageComponent {
 

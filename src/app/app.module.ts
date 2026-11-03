@@ -1,4 +1,4 @@
-import { NgModule, TransferState } from '@angular/core';
+import { APP_ID, NgModule, TransferState } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,13 +36,14 @@ import { SalesOrderPaymentSuccessComponent } from './applications/sales-order-pa
         SalesOrderPaymentFailComponent,
         SalesOrderPaymentSuccessComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         SharedModule,
         GoogleTagManagerModule.forRoot({
             id: 'GTM-MT5BHP',
         })], providers: [
+        { provide: APP_ID, useValue: 'serverApp' },
         provideClientHydration(),
         { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
         { provide: TransferState },

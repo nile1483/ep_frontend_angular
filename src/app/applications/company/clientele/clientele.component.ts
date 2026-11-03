@@ -5,10 +5,10 @@ import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 @Component({
-  selector: 'app-clientele',
-  templateUrl: './clientele.component.html',
-  styleUrls: ['./clientele.component.css'],
- 
+    selector: 'app-clientele',
+    templateUrl: './clientele.component.html',
+    styleUrls: ['./clientele.component.css'],
+    standalone: false
 })
 export class ClienteleComponent implements OnInit {
   webURL : string = AppURL.webURL;

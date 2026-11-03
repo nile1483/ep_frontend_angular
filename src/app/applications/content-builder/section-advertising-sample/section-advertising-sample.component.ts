@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AppSettingspContent } from 'src/app/app-url';
 
 @Component({
-  selector: 'section-advertising-sample',
-  templateUrl: './section-advertising-sample.component.html',
-  styleUrls: ['./section-advertising-sample.component.css']
+    selector: 'section-advertising-sample',
+    templateUrl: './section-advertising-sample.component.html',
+    styleUrls: ['./section-advertising-sample.component.css'],
+    standalone: false
 })
 export class SectionAdvertisingSampleComponent implements OnInit {
 

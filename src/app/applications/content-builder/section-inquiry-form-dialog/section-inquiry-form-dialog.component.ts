@@ -24,9 +24,10 @@ export function isPersonalEmailValidatorDownload(control: UntypedFormControl): V
 }
 
 @Component({
-  selector: 'section-inquiry-form-dialog',
-  templateUrl: './section-inquiry-form-dialog.component.html',
-  styleUrl: './section-inquiry-form-dialog.component.css'
+    selector: 'section-inquiry-form-dialog',
+    templateUrl: './section-inquiry-form-dialog.component.html',
+    styleUrl: './section-inquiry-form-dialog.component.css',
+    standalone: false
 })
 export class SectionInquiryFormDialogComponent {
 

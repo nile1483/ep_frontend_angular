@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-gifting-detail-page',
-  templateUrl: './gifting-detail-page.component.html',
-  styleUrls: ['./gifting-detail-page.component.css']
+    selector: 'app-gifting-detail-page',
+    templateUrl: './gifting-detail-page.component.html',
+    styleUrls: ['./gifting-detail-page.component.css'],
+    standalone: false
 })
 export class GiftingDetailPageComponent implements OnInit {
 

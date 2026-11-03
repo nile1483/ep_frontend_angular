@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 @Component({
-  selector: 'app-mall-detail-page',
-  templateUrl: './mall-detail-page.component.html',
-  styleUrls: ['./mall-detail-page.component.css']
+    selector: 'app-mall-detail-page',
+    templateUrl: './mall-detail-page.component.html',
+    styleUrls: ['./mall-detail-page.component.css'],
+    standalone: false
 })
 export class MallDetailPageComponent implements OnInit {
 

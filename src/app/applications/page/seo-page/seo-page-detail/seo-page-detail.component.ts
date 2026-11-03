@@ -6,9 +6,10 @@ import { AppURL } from 'src/app/app-url';
 import { LandingPageService } from '../../landing-page/landingpage.service';
 
 @Component({
-  selector: 'app-seo-page-detail',
-  templateUrl: './seo-page-detail.component.html',
-  styleUrls: ['./seo-page-detail.component.css']
+    selector: 'app-seo-page-detail',
+    templateUrl: './seo-page-detail.component.html',
+    styleUrls: ['./seo-page-detail.component.css'],
+    standalone: false
 })
 export class SeoPageDetailComponent implements OnInit {
 

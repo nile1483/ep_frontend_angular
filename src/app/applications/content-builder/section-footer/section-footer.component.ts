@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'section-footer',
-  templateUrl: './section-footer.component.html',
-  styleUrl: './section-footer.component.css'
+    selector: 'section-footer',
+    templateUrl: './section-footer.component.html',
+    styleUrl: './section-footer.component.css',
+    standalone: false
 })
 export class SectionFooterComponent {
 

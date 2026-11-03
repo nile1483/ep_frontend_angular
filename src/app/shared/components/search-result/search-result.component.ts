@@ -3,9 +3,10 @@ import { MetaInformation } from '@app-shared-model';
 import { CommonService, HomeService } from '@app-shared-services';
 
 @Component({
-  selector: 'app-search-result',
-  templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.css']
+    selector: 'app-search-result',
+    templateUrl: './search-result.component.html',
+    styleUrls: ['./search-result.component.css'],
+    standalone: false
 })
 export class SearchResultComponent implements OnInit {
 

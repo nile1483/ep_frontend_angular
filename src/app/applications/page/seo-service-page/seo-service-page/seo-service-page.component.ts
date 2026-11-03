@@ -30,9 +30,10 @@ export function isPersonalEmailValidatoSeoServicePage(control: UntypedFormContro
 
 
 @Component({
-  selector: 'app-seo-service-page',
-  templateUrl: './seo-service-page.component.html',
-  styleUrls: ['./seo-service-page.component.css']
+    selector: 'app-seo-service-page',
+    templateUrl: './seo-service-page.component.html',
+    styleUrls: ['./seo-service-page.component.css'],
+    standalone: false
 })
 export class SeoServicePageComponent implements OnInit {
 

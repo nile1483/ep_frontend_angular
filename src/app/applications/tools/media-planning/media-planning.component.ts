@@ -9,9 +9,10 @@ import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 
 @Component({
-  selector: 'app-media-planning',
-  templateUrl: './media-planning.component.html',
-  styleUrls: ['./media-planning.component.css']
+    selector: 'app-media-planning',
+    templateUrl: './media-planning.component.html',
+    styleUrls: ['./media-planning.component.css'],
+    standalone: false
 })
 export class MediaPlanningComponent implements OnInit {
 

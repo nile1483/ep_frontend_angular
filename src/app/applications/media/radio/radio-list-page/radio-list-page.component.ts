@@ -14,9 +14,10 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-radio-list-page',
-  templateUrl: './radio-list-page.component.html',
-  styleUrls: ['./radio-list-page.component.css']
+    selector: 'app-radio-list-page',
+    templateUrl: './radio-list-page.component.html',
+    styleUrls: ['./radio-list-page.component.css'],
+    standalone: false
 })
 
 export class RadioListPageComponent implements OnInit {

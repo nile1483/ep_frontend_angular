@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-ims-report-page',
-  templateUrl: './ims-report-page.component.html',
-  styleUrl: './ims-report-page.component.css'
+    selector: 'app-ims-report-page',
+    templateUrl: './ims-report-page.component.html',
+    styleUrl: './ims-report-page.component.css',
+    standalone: false
 })
 export class ImsReportPageComponent {
 

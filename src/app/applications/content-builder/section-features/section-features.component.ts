@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'section-features',
-  templateUrl: './section-features.component.html',
-  styleUrls: ['./section-features.component.css']
+    selector: 'section-features',
+    templateUrl: './section-features.component.html',
+    styleUrls: ['./section-features.component.css'],
+    standalone: false
 })
 export class SectionFeaturesComponent implements OnInit {
 

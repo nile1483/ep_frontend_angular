@@ -28,9 +28,10 @@ export function isPersonalEmailValidatorSeo(control: UntypedFormControl): Valida
 }
 
 @Component({
-  selector: 'app-seo-service-dialog',
-  templateUrl: './seo-service-dialog.component.html',
-  styleUrls: ['./seo-service-dialog.component.css']
+    selector: 'app-seo-service-dialog',
+    templateUrl: './seo-service-dialog.component.html',
+    styleUrls: ['./seo-service-dialog.component.css'],
+    standalone: false
 })
 
 

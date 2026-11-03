@@ -12,9 +12,10 @@ import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-outdoor-detail-page',
-  templateUrl: './outdoor-detail-page.component.html',
-  styleUrls: ['./outdoor-detail-page.component.css']
+    selector: 'app-outdoor-detail-page',
+    templateUrl: './outdoor-detail-page.component.html',
+    styleUrls: ['./outdoor-detail-page.component.css'],
+    standalone: false
 })
 export class OutdoorDetailPageComponent implements OnInit {
 

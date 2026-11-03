@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-radio-advertising-page',
-  templateUrl: './radio-advertising-page.component.html',
-  styleUrl: './radio-advertising-page.component.css'
+    selector: 'app-radio-advertising-page',
+    templateUrl: './radio-advertising-page.component.html',
+    styleUrl: './radio-advertising-page.component.css',
+    standalone: false
 })
 export class RadioAdvertisingPageComponent {
 

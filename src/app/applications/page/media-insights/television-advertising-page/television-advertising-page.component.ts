@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-television-advertising-page',
-  templateUrl: './television-advertising-page.component.html',
-  styleUrl: './television-advertising-page.component.css'
+    selector: 'app-television-advertising-page',
+    templateUrl: './television-advertising-page.component.html',
+    styleUrl: './television-advertising-page.component.css',
+    standalone: false
 })
 export class TelevisionAdvertisingPageComponent {
    

@@ -1,5 +1,5 @@
 import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr';
+import { CommonEngine } from '@angular/ssr/node';
 import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
@@ -15,7 +15,11 @@ export function app(): express.Express {
   const browserDistFolder = resolve(serverDistFolder, '../browser');
   const indexHtml = join(serverDistFolder, 'index.server.html');
 
-  const commonEngine = new CommonEngine();
+  // Hostnames (no ports) allowed to be server-rendered. Angular SSR >=19.2.21 rejects any other Host.
+  // localhost/127.0.0.1 cover Apache's `ProxyPass / http://localhost:4201/` when ProxyPreserveHost is Off.
+  const commonEngine = new CommonEngine({
+    allowedHosts: ['www.excellentpublicity.com', 'excellentpublicity.com', 'localhost', '127.0.0.1'],
+  });
 
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);

@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'section-card-with-image',
-  templateUrl: './section-card-with-image.component.html',
-  styleUrls: ['./section-card-with-image.component.css']
+    selector: 'section-card-with-image',
+    templateUrl: './section-card-with-image.component.html',
+    styleUrls: ['./section-card-with-image.component.css'],
+    standalone: false
 })
 export class SectionCardWithImageComponent implements OnInit {
 

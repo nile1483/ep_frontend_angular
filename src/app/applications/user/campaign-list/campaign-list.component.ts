@@ -8,9 +8,10 @@ import { AppURL } from 'src/app/app-url';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-campaign-list',
-  templateUrl: './campaign-list.component.html',
-  styleUrls: ['./campaign-list.component.css']
+    selector: 'app-campaign-list',
+    templateUrl: './campaign-list.component.html',
+    styleUrls: ['./campaign-list.component.css'],
+    standalone: false
 })
 export class CampaignListComponent implements OnInit {
 

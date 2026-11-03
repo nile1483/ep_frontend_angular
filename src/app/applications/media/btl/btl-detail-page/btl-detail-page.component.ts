@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-btl-detail-page',
-  templateUrl: './btl-detail-page.component.html',
-  styleUrls: ['./btl-detail-page.component.css']
+    selector: 'app-btl-detail-page',
+    templateUrl: './btl-detail-page.component.html',
+    styleUrls: ['./btl-detail-page.component.css'],
+    standalone: false
 })
 export class BtlDetailPageComponent implements OnInit {
 

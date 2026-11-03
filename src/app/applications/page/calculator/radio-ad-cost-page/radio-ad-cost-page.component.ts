@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-radio-ad-cost-page',
-  templateUrl: './radio-ad-cost-page.component.html',
-  styleUrl: './radio-ad-cost-page.component.css'
+    selector: 'app-radio-ad-cost-page',
+    templateUrl: './radio-ad-cost-page.component.html',
+    styleUrl: './radio-ad-cost-page.component.css',
+    standalone: false
 })
 export class RadioAdCostPageComponent {
 

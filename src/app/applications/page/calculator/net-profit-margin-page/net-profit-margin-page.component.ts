@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-net-profit-margin-page',
-  templateUrl: './net-profit-margin-page.component.html',
-  styleUrl: './net-profit-margin-page.component.css'
+    selector: 'app-net-profit-margin-page',
+    templateUrl: './net-profit-margin-page.component.html',
+    styleUrl: './net-profit-margin-page.component.css',
+    standalone: false
 })
 export class NetProfitMarginPageComponent {
   growthForm: FormGroup;

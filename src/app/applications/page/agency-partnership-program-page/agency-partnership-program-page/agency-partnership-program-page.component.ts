@@ -25,9 +25,10 @@ export function isPersonalEmailValidatoChannelPage(control: UntypedFormControl):
 }
 
 @Component({
-  selector: 'app-agency-partnership-program-page',
-  templateUrl: './agency-partnership-program-page.component.html',
-  styleUrls: ['./agency-partnership-program-page.component.css']
+    selector: 'app-agency-partnership-program-page',
+    templateUrl: './agency-partnership-program-page.component.html',
+    styleUrls: ['./agency-partnership-program-page.component.css'],
+    standalone: false
 })
 export class AgencyPartnershipProgramPageComponent implements OnInit {
 

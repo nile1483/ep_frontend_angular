@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+    selector: 'shopping-cart',
+    templateUrl: './shopping-cart.component.html',
+    styleUrls: ['./shopping-cart.component.css'],
+    standalone: false
 })
 export class ShoppingCartComponent implements OnInit {
   shoppingCartData: any = [];

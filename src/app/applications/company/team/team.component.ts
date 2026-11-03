@@ -6,9 +6,10 @@ import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-  selector: 'app-team',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.css']
+    selector: 'app-team',
+    templateUrl: './team.component.html',
+    styleUrls: ['./team.component.css'],
+    standalone: false
 })
 export class TeamComponent implements OnInit {
 

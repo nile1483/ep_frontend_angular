@@ -27,9 +27,10 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
 }
 
 @Component({
-  selector: 'app-free-startup-consultation-page',
-  templateUrl: './free-startup-consultation-page.component.html',
-  styleUrl: './free-startup-consultation-page.component.css'
+    selector: 'app-free-startup-consultation-page',
+    templateUrl: './free-startup-consultation-page.component.html',
+    styleUrl: './free-startup-consultation-page.component.css',
+    standalone: false
 })
 export class FreeStartupConsultationPageComponent {
 

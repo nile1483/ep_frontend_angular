@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-hospitality-page',
-  templateUrl: './hospitality-page.component.html',
-  styleUrl: './hospitality-page.component.css'
+    selector: 'app-hospitality-page',
+    templateUrl: './hospitality-page.component.html',
+    styleUrl: './hospitality-page.component.css',
+    standalone: false
 })
 export class HospitalityPageComponent {
   media: string = 'hospitalityadvertising';

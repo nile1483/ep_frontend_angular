@@ -27,9 +27,10 @@ export function isPersonalEmailValidatorContact(control: UntypedFormControl) : V
 }
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styleUrls: ['./contact.component.css'],
+    standalone: false
 })
 export class ContactComponent implements OnInit {
 

@@ -4,9 +4,10 @@ import { SectionInquiryFormDialogComponent } from './../section-inquiry-form-dia
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'section-card-with-image-link',
-  templateUrl: './section-card-with-image-link.component.html',
-  styleUrl: './section-card-with-image-link.component.css'
+    selector: 'section-card-with-image-link',
+    templateUrl: './section-card-with-image-link.component.html',
+    styleUrl: './section-card-with-image-link.component.css',
+    standalone: false
 })
 export class SectionCardWithImageLinkComponent {
 

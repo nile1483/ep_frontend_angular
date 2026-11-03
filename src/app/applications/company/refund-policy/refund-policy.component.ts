@@ -4,9 +4,10 @@ import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 @Component({
-  selector: 'app-refund-policy',
-  templateUrl: './refund-policy.component.html',
-  styleUrls: ['./refund-policy.component.css']
+    selector: 'app-refund-policy',
+    templateUrl: './refund-policy.component.html',
+    styleUrls: ['./refund-policy.component.css'],
+    standalone: false
 })
 export class RefundPolicyComponent implements OnInit {
   

@@ -13,9 +13,10 @@ import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 @Component({
-  selector: 'app-digitalpr-list-page',
-  templateUrl: './digitalpr-list-page.component.html',
-  styleUrls: ['./digitalpr-list-page.component.css']
+    selector: 'app-digitalpr-list-page',
+    templateUrl: './digitalpr-list-page.component.html',
+    styleUrls: ['./digitalpr-list-page.component.css'],
+    standalone: false
 })
 export class DigitalprListPageComponent implements OnInit {
 

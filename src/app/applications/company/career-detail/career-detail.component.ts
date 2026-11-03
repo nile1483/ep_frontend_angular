@@ -9,9 +9,10 @@ import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-career-detail',
-  templateUrl: './career-detail.component.html',
-  styleUrls: ['./career-detail.component.css']
+    selector: 'app-career-detail',
+    templateUrl: './career-detail.component.html',
+    styleUrls: ['./career-detail.component.css'],
+    standalone: false
 })
 export class CareerDetailComponent implements OnInit {
 

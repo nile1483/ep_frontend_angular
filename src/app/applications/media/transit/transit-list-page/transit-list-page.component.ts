@@ -16,9 +16,10 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA} from '@app-shared-constants';
 
 @Component({
-  selector: 'app-transit-list-page',
-  templateUrl: './transit-list-page.component.html',
-  styleUrls: ['./transit-list-page.component.css']
+    selector: 'app-transit-list-page',
+    templateUrl: './transit-list-page.component.html',
+    styleUrls: ['./transit-list-page.component.css'],
+    standalone: false
 })
 export class TransitListPageComponent implements OnInit {
   

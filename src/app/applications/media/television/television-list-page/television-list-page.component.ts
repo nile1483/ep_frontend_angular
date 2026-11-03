@@ -14,9 +14,10 @@ import { MetaInformation } from '@app-shared-model';
 import { APP_SVG_ICON_LIST, C2A_TITLE_DATA} from '@app-shared-constants';
 
 @Component({
-  selector: 'app-television-list-page',
-  templateUrl: './television-list-page.component.html',
-  styleUrls: ['./television-list-page.component.css']
+    selector: 'app-television-list-page',
+    templateUrl: './television-list-page.component.html',
+    styleUrls: ['./television-list-page.component.css'],
+    standalone: false
 })
 export class TelevisionListPageComponent implements OnInit {
   

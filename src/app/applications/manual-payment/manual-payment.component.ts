@@ -8,9 +8,10 @@ import { LoaderService } from 'src/app/shared/services/loader.service';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-manual-payment',
-  templateUrl: './manual-payment.component.html',
-  styleUrl: './manual-payment.component.css'
+    selector: 'app-manual-payment',
+    templateUrl: './manual-payment.component.html',
+    styleUrl: './manual-payment.component.css',
+    standalone: false
 })
 export class ManualPaymentComponent {
 

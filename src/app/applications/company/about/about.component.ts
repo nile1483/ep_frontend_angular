@@ -8,9 +8,10 @@ import { APP_SVG_ICON_LIST} from '@app-shared-constants';
 
 // SwiperCore.use([Pagination]);
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css'],
+    selector: 'app-about',
+    templateUrl: './about.component.html',
+    styleUrls: ['./about.component.css'],
+    standalone: false
 })
 export class AboutComponent implements OnInit {
   app_svg_icon_list = APP_SVG_ICON_LIST; 

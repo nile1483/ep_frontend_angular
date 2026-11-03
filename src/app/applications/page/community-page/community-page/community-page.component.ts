@@ -27,9 +27,10 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
 }
 
 @Component({
-  selector: 'app-community-page',
-  templateUrl: './community-page.component.html',
-  styleUrl: './community-page.component.css'
+    selector: 'app-community-page',
+    templateUrl: './community-page.component.html',
+    styleUrl: './community-page.component.css',
+    standalone: false
 })
 export class CommunityPageComponent {
 

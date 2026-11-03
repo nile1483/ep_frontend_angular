@@ -5,9 +5,10 @@ import { ShoppingCartService } from '@app-media-services';
 import { UserService } from './shared/services/user.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    standalone: false
 })
 export class AppComponent {
   title = 'Excellent Publicity';

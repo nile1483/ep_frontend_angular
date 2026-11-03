@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-jewellery-advertising-page',
-  templateUrl: './jewellery-advertising-page.component.html',
-  styleUrl: './jewellery-advertising-page.component.css'
+    selector: 'app-jewellery-advertising-page',
+    templateUrl: './jewellery-advertising-page.component.html',
+    styleUrl: './jewellery-advertising-page.component.css',
+    standalone: false
 })
 export class JewelleryAdvertisingPageComponent {
 

@@ -5,9 +5,10 @@ import SwiperCore, { SwiperOptions, Pagination, Autoplay } from 'swiper';
 SwiperCore.use([Pagination, Autoplay]);
 
 @Component({
-  selector: 'app-about-new',
-  templateUrl: './about-new.component.html',
-  styleUrls: ['./about-new.component.css']
+    selector: 'app-about-new',
+    templateUrl: './about-new.component.html',
+    styleUrls: ['./about-new.component.css'],
+    standalone: false
 })
 export class AboutNewComponent implements OnInit {
 

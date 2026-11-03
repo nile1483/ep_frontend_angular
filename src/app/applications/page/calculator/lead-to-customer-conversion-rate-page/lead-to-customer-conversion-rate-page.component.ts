@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-lead-to-customer-conversion-rate-page',
-  templateUrl: './lead-to-customer-conversion-rate-page.component.html',
-  styleUrl: './lead-to-customer-conversion-rate-page.component.css'
+    selector: 'app-lead-to-customer-conversion-rate-page',
+    templateUrl: './lead-to-customer-conversion-rate-page.component.html',
+    styleUrl: './lead-to-customer-conversion-rate-page.component.css',
+    standalone: false
 })
 export class LeadToCustomerConversionRatePageComponent {
 

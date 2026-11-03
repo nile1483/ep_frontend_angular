@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-sports-detail-page',
-  templateUrl: './sports-detail-page.component.html',
-  styleUrls: ['./sports-detail-page.component.css']
+    selector: 'app-sports-detail-page',
+    templateUrl: './sports-detail-page.component.html',
+    styleUrls: ['./sports-detail-page.component.css'],
+    standalone: false
 })
 export class SportsDetailPageComponent implements OnInit {
 

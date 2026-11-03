@@ -8,9 +8,10 @@ import { LoaderService } from 'src/app/shared/services/loader.service';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-sales-order-payment',
-  templateUrl: './sales-order-payment.component.html',
-  styleUrl: './sales-order-payment.component.css'
+    selector: 'app-sales-order-payment',
+    templateUrl: './sales-order-payment.component.html',
+    styleUrl: './sales-order-payment.component.css',
+    standalone: false
 })
 export class SalesOrderPaymentComponent {
 

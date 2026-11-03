@@ -8,9 +8,10 @@ import { AppURL } from 'src/app/app-url';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-order-success',
-  templateUrl: './order-success.component.html',
-  styleUrls: ['./order-success.component.css']
+    selector: 'app-order-success',
+    templateUrl: './order-success.component.html',
+    styleUrls: ['./order-success.component.css'],
+    standalone: false
 })
 export class OrderSuccessComponent implements OnInit {
 

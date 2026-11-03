@@ -7,9 +7,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-press-coverage-page',
-  templateUrl: './press-coverage-page.component.html',
-  styleUrl: './press-coverage-page.component.css'
+    selector: 'app-press-coverage-page',
+    templateUrl: './press-coverage-page.component.html',
+    styleUrl: './press-coverage-page.component.css',
+    standalone: false
 })
 export class PressCoveragePageComponent {
 

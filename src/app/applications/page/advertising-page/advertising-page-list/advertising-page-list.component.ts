@@ -7,9 +7,10 @@ import { CommonService } from '@app-shared-services';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-advertising-page-list',
-  templateUrl: './advertising-page-list.component.html',
-  styleUrls: ['./advertising-page-list.component.css']
+    selector: 'app-advertising-page-list',
+    templateUrl: './advertising-page-list.component.html',
+    styleUrls: ['./advertising-page-list.component.css'],
+    standalone: false
 })
 export class AdvertisingPageListComponent implements OnInit {
 

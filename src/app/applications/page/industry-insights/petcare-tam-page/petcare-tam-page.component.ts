@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-petcare-tam-page',
-  templateUrl: './petcare-tam-page.component.html',
-  styleUrl: './petcare-tam-page.component.css'
+    selector: 'app-petcare-tam-page',
+    templateUrl: './petcare-tam-page.component.html',
+    styleUrl: './petcare-tam-page.component.css',
+    standalone: false
 })
 export class PetcareTamPageComponent {
 

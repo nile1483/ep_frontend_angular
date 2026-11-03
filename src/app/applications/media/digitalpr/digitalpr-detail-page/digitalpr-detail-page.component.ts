@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 @Component({
-  selector: 'app-digitalpr-detail-page',
-  templateUrl: './digitalpr-detail-page.component.html',
-  styleUrls: ['./digitalpr-detail-page.component.css']
+    selector: 'app-digitalpr-detail-page',
+    templateUrl: './digitalpr-detail-page.component.html',
+    styleUrls: ['./digitalpr-detail-page.component.css'],
+    standalone: false
 })
 export class DigitalprDetailPageComponent implements OnInit {
 

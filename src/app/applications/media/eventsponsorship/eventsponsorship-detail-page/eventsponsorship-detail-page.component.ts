@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-eventsponsorship-detail-page',
-  templateUrl: './eventsponsorship-detail-page.component.html',
-  styleUrls: ['./eventsponsorship-detail-page.component.css']
+    selector: 'app-eventsponsorship-detail-page',
+    templateUrl: './eventsponsorship-detail-page.component.html',
+    styleUrls: ['./eventsponsorship-detail-page.component.css'],
+    standalone: false
 })
 export class EventsponsorshipDetailPageComponent implements OnInit {
 

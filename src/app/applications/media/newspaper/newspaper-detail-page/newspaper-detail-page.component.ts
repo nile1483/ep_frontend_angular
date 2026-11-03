@@ -12,9 +12,10 @@ import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-newspaper-detail-page',
-  templateUrl: './newspaper-detail-page.component.html',
-  styleUrls: ['./newspaper-detail-page.component.css']
+    selector: 'app-newspaper-detail-page',
+    templateUrl: './newspaper-detail-page.component.html',
+    styleUrls: ['./newspaper-detail-page.component.css'],
+    standalone: false
 })
 export class NewspaperDetailPageComponent implements OnInit {
 

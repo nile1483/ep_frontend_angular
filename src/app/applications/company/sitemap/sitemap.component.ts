@@ -5,9 +5,10 @@ import { AppURL } from 'src/app/app-url';
 import { META_DATA } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-sitemap',
-  templateUrl: './sitemap.component.html',
-  styleUrls: ['./sitemap.component.css']
+    selector: 'app-sitemap',
+    templateUrl: './sitemap.component.html',
+    styleUrls: ['./sitemap.component.css'],
+    standalone: false
 })
 export class SitemapComponent implements OnInit {
   webURL : string = AppURL.webURL;

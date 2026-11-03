@@ -10,9 +10,10 @@ import { PageService } from '../../page/page.service';
 import { log } from 'node:console';
 
 @Component({
-  selector: 'app-blog-detail-page',
-  templateUrl: './blog-detail-page.component.html',
-  styleUrls: ['./blog-detail-page.component.css']
+    selector: 'app-blog-detail-page',
+    templateUrl: './blog-detail-page.component.html',
+    styleUrls: ['./blog-detail-page.component.css'],
+    standalone: false
 })
 export class BlogDetailPageComponent implements OnInit {
 

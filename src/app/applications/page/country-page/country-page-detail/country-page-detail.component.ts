@@ -6,9 +6,10 @@ import { PageService } from '../../page.service';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-  selector: 'app-country-page-detail',
-  templateUrl: './country-page-detail.component.html',
-  styleUrl: './country-page-detail.component.css'
+    selector: 'app-country-page-detail',
+    templateUrl: './country-page-detail.component.html',
+    styleUrl: './country-page-detail.component.css',
+    standalone: false
 })
 export class CountryPageDetailComponent {
 

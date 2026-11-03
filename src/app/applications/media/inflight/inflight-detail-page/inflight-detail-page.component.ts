@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-inflight-detail-page',
-  templateUrl: './inflight-detail-page.component.html',
-  styleUrls: ['./inflight-detail-page.component.css']
+    selector: 'app-inflight-detail-page',
+    templateUrl: './inflight-detail-page.component.html',
+    styleUrls: ['./inflight-detail-page.component.css'],
+    standalone: false
 })
 export class InflightDetailPageComponent implements OnInit {
 

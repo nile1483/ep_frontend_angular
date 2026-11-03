@@ -26,9 +26,10 @@ export function isPersonalEmailValidatGarbaPage(control: UntypedFormControl): Va
 
 
 @Component({
-  selector: 'app-garba-sponsorships-page',
-  templateUrl: './garba-sponsorships-page.component.html',
-  styleUrls: ['./garba-sponsorships-page.component.css']
+    selector: 'app-garba-sponsorships-page',
+    templateUrl: './garba-sponsorships-page.component.html',
+    styleUrls: ['./garba-sponsorships-page.component.css'],
+    standalone: false
 })
 export class GarbaSponsorshipsPageComponent implements OnInit {
 

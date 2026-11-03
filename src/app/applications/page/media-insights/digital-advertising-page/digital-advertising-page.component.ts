@@ -11,9 +11,10 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-digital-advertising-page',
-  templateUrl: './digital-advertising-page.component.html',
-  styleUrl: './digital-advertising-page.component.css'
+    selector: 'app-digital-advertising-page',
+    templateUrl: './digital-advertising-page.component.html',
+    styleUrl: './digital-advertising-page.component.css',
+    standalone: false
 })
 export class DigitalAdvertisingPageComponent {
 

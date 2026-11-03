@@ -43,9 +43,10 @@ export function emailValidator(control: AbstractControl) {
 
 
 @Component({
-  selector: 'app-ipl-advertising-page-inquiry-dialog',
-  templateUrl: './ipl-advertising-page-inquiry-dialog.component.html',
-  styleUrls: ['./ipl-advertising-page-inquiry-dialog.component.css']
+    selector: 'app-ipl-advertising-page-inquiry-dialog',
+    templateUrl: './ipl-advertising-page-inquiry-dialog.component.html',
+    styleUrls: ['./ipl-advertising-page-inquiry-dialog.component.css'],
+    standalone: false
 })
 
 export class IPLAdvertisingPageInquiryDialogComponent implements OnInit {

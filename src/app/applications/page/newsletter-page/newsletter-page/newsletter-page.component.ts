@@ -7,9 +7,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-newsletter-page',
-  templateUrl: './newsletter-page.component.html',
-  styleUrl: './newsletter-page.component.css'
+    selector: 'app-newsletter-page',
+    templateUrl: './newsletter-page.component.html',
+    styleUrl: './newsletter-page.component.css',
+    standalone: false
 })
 export class NewsletterPageComponent {
 

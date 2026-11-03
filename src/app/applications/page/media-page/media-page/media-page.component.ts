@@ -27,9 +27,10 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
 }
 
 @Component({
-  selector: 'app-media-page',
-  templateUrl: './media-page.component.html',
-  styleUrls: ['./media-page.component.css']
+    selector: 'app-media-page',
+    templateUrl: './media-page.component.html',
+    styleUrls: ['./media-page.component.css'],
+    standalone: false
 })
 export class MediaPageComponent implements OnInit {
 
