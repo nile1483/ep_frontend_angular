@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
 import { CommonService } from '@app-shared-services';
@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
     selector: 'app-order-detail',
     templateUrl: './order-detail.component.html',
     styleUrls: ['./order-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class OrderDetailComponent implements OnInit {

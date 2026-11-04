@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, DOCUMENT } from '@angular/core';
+import { Component, Inject, OnInit, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TransitService } from '@app-media-services';
@@ -14,6 +14,7 @@ import { Meta } from '@angular/platform-browser';
     selector: 'app-transit-detail-page',
     templateUrl: './transit-detail-page.component.html',
     styleUrls: ['./transit-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TransitDetailPageComponent implements OnInit {

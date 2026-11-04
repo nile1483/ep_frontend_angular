@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderService } from 'src/app/shared/services/loader.service';
@@ -9,6 +9,7 @@ import { CommonService } from '@app-shared-services';
     selector: 'app-courier-confirmation-not-received',
     templateUrl: './courier-confirmation-not-received.component.html',
     styleUrl: './courier-confirmation-not-received.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CourierConfirmationNotReceivedComponent {

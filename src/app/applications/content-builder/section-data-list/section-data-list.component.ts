@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { log } from 'node:console';
 
 @Component({
     selector: 'section-data-list',
     templateUrl: './section-data-list.component.html',
     styleUrls: ['./section-data-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SectionDataListComponent implements OnInit {

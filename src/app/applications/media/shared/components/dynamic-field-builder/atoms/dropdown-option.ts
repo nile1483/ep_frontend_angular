@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -15,6 +15,7 @@ import { FormGroup } from '@angular/forms';
         </div> 
       </div> 
     `,
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 }) 
 export class DropDownOptionComponent {

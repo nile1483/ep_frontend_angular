@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NontraditionalService } from '@app-media-services';  
@@ -14,6 +14,7 @@ import { Meta } from '@angular/platform-browser';
     selector: 'app-nontraditional-detail-page',
     templateUrl: './nontraditional-detail-page.component.html',
     styleUrls: ['./nontraditional-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NontraditionalDetailPageComponent implements OnInit {

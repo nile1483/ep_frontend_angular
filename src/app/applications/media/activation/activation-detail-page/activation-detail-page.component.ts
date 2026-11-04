@@ -1,4 +1,4 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, OnInit, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ActivationService } from '@app-media-services';
@@ -16,6 +16,7 @@ import { Meta } from '@angular/platform-browser';
     selector: 'app-activation-detail-page',
     templateUrl: './activation-detail-page.component.html',
     styleUrls: ['./activation-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ActivationDetailPageComponent implements OnInit {

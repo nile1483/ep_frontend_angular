@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
@@ -8,6 +8,7 @@ import { META_DATA } from '@app-shared-constants';
     selector: 'app-sitemap',
     templateUrl: './sitemap.component.html',
     styleUrls: ['./sitemap.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SitemapComponent implements OnInit {

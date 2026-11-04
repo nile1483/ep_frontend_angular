@@ -24,14 +24,14 @@
                                 data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab"
                                 aria-controls="v-pills-home" aria-selected="true">
                                 <span class="prifile-tab-icon d-lg-inline-block d-none"
-                                    [innerHTML]="app_svg_icon_list?.['pen'] | safeHtml">
+                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['pen']) | safeHtml">
                                 </span>
 
                                 <!-- <i class="fa-solid fa-pen prifile-tab-icon d-lg-inline-block d-none"></i> -->
                                 <span class="pe-2">Edit Profile</span>
                                 <!-- <i class="fa-regular fa-chevron-right ms-auto d-lg-inline-block d-none"></i> -->
                                 <span class="ms-auto d-lg-inline-block d-none"
-                                    [innerHTML]="app_svg_icon_list?.['chevron-right'] | safeHtml">
+                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['chevron-right']) | safeHtml">
                                 </span>
                             </button>
 
@@ -40,12 +40,12 @@
                                 aria-controls="v-pills-profile" aria-selected="false" (click)="getBillingAddress()">
                                 <!-- <i class="fa-solid fa-address-card prifile-tab-icon d-lg-inline-block d-none"></i> -->
                                 <span class="prifile-tab-icon d-lg-inline-block d-none"
-                                    [innerHTML]="app_svg_icon_list?.['address-card'] | safeHtml">
+                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['address-card']) | safeHtml">
                                 </span>
                                 <span class="pe-2">Billing Address</span>
                                 <!-- <i class="fa-regular fa-chevron-right ms-auto d-lg-inline-block d-none"></i> -->
                                 <span class="ms-auto d-lg-inline-block d-none"
-                                    [innerHTML]="app_svg_icon_list?.['chevron-right'] | safeHtml">
+                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['chevron-right']) | safeHtml">
                                 </span>
                             </button>
 
@@ -53,7 +53,7 @@
                                 [routerLink]="['/contact']">
                                 <!-- <i class="fa-solid fa-circle-question prifile-tab-icon d-lg-inline-block d-none"></i> -->
                                 <span class="prifile-tab-icon d-lg-inline-block d-none"
-                                    [innerHTML]="app_svg_icon_list?.['circle-question'] | safeHtml">
+                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['circle-question']) | safeHtml">
                                 </span>
 
                                 <span class="pe-2">Help</span>
@@ -156,7 +156,7 @@
                                     <button class="btn-sm btn btn-outline-dark  mt-md-0 mt-2 float-end"
                                         (click)="addNewAddress(true)">
                                         <!-- <i class="fa-solid fa-plus"></i> -->
-                                        <span [innerHTML]="app_svg_icon_list?.['plus'] | safeHtml"></span>
+                                        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['plus']) | safeHtml"></span>
                                         Add New Address
                                     </button>
                                 </h5>
@@ -185,16 +185,16 @@
                                             </div>
                                             <div class="billing-address-action">
                                                 <button class="btn-sm btn btn-outline-dark icon-btn"
-                                                    (click)="editAddress(address?.id)">
+                                                    (click)="editAddress($safeNavigationMigration(address?.id))">
                                                     <span
-                                                        [innerHTML]="app_svg_icon_list?.['pen-line'] | safeHtml"></span>
+                                                        [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['pen-line']) | safeHtml"></span>
                                                     <!-- <i class="fa-solid fa-pen-line"></i> -->
                                                 </button>
                                                 <button
                                                     class="btn-sm btn btn-outline-dark icon-btn ms-md-2 mt-md-0 mt-2"
-                                                    (click)="removeAddress(address?.id)">
+                                                    (click)="removeAddress($safeNavigationMigration(address?.id))">
                                                     <span
-                                                        [innerHTML]="app_svg_icon_list?.['trash-can'] | safeHtml"></span>
+                                                        [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['trash-can']) | safeHtml"></span>
                                                     <!-- <i class="fa-solid fa-trash-can"></i> -->
                                                 </button>
                                             </div>

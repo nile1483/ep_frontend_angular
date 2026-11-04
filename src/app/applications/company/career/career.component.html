@@ -107,7 +107,7 @@
                         <div class="col-10">
                             <div class="wrapper">
                                 <div class="card front-face">
-                                    <h5 class="text-center px-2" [innerHTML]="currentOpening?.title"> </h5>
+                                    <h5 class="text-center px-2" [innerHTML]="$safeNavigationMigration(currentOpening?.title)"> </h5>
                                 </div>
                                 <div class="card back-face">
 

@@ -39,7 +39,7 @@
                     <div class="col-lg-6">
                         <ul class="list-unstyled  list-inline-mob">
                             <li *ngFor="let footer of footerData?.values">
-                                <a aria-label="Link" [href]="[footer?.url]"> {{footer?.label}} </a> 
+                                <a aria-label="Link" [href]="[$safeNavigationMigration(footer?.url)]"> {{footer?.label}} </a> 
                             </li>
                         </ul>
                     </div>
@@ -64,23 +64,23 @@
                 </ul>
                 <ul class="social-links d-flex align-items-center justify-content-center justify-content-lg-start mt-3">
                     <li>
-                        <a aria-label="Link" href="https://www.youtube.com/channel/UCy0nXadAHsfLsDxWuThbz4A" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['youtube'] | safeHtml">
+                        <a aria-label="Link" href="https://www.youtube.com/channel/UCy0nXadAHsfLsDxWuThbz4A" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['youtube']) | safeHtml">
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://x.com/EP_TALKIES" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['twitter'] | safeHtml">
+                        <a aria-label="Link" href="https://x.com/EP_TALKIES" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['twitter']) | safeHtml">
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://in.linkedin.com/company/excellent-publicity" rel="noreferrer" target="_blank" [innerHTML]="app_svg_icon_list?.['linkedin-in'] | safeHtml">
+                        <a aria-label="Link" href="https://in.linkedin.com/company/excellent-publicity" rel="noreferrer" target="_blank" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['linkedin-in']) | safeHtml">
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://www.facebook.com/ExcellentPublicity/" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['facebook-f'] | safeHtml">
+                        <a aria-label="Link" href="https://www.facebook.com/ExcellentPublicity/" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['facebook-f']) | safeHtml">
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://www.instagram.com/excellentpublicity" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['instagram'] | safeHtml">
+                        <a aria-label="Link" href="https://www.instagram.com/excellentpublicity" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['instagram']) | safeHtml">
                         </a>
                     </li>
                 </ul>
@@ -109,25 +109,25 @@
         <div class="row">
             <div class="col text-center border-end">
                 <a aria-label="Link" href="/">
-                    <span [innerHTML]="app_svg_icon_list?.['house'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['house']) | safeHtml"></span>
                     <!-- <i class="fa-solid fa-house"></i> -->
                 </a>
             </div>
             <div class="col text-center border-end">
                 <a aria-label="Link" href="tel:{{footerData?.mobile?.call?.value}}" class="c2atracking" [attr.data-c2a-type]="'Phone'" [attr.data-c2a-value]="footerData?.mobile?.call?.value" [attr.data-c2a-placement]="'Mobile Static'">
-                    <span [innerHTML]="app_svg_icon_list?.['phone'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['phone']) | safeHtml"></span>
                     <!-- <i class="fa-solid fa-phone" style="color: #07bf8e;"></i> -->
                 </a>
             </div>
             <div class="col text-center border-end">
                 <a aria-label="Link" href="https://wa.me/91{{footerData?.mobile?.whatsapp?.value}}?text=Hello%2C%20I'm%20interested%20in%20advertising." class="c2atracking" [attr.data-c2a-type]="'Whatsapp'" [attr.data-c2a-value]="footerData?.mobile?.whatsapp?.value" [attr.data-c2a-placement]="'Mobile Static'">
-                    <span [innerHTML]="app_svg_icon_list?.['whatsapp'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['whatsapp']) | safeHtml"></span>
                     <!-- <i class="fa-brands fa-whatsapp" style="color: #00e676;"></i> -->
                 </a>
             </div>
             <div class="col text-center">
                 <a aria-label="Link" href="mailto:{{footerData?.mobile?.email?.value}}" class="c2atracking" [attr.data-c2a-type]="'Email'" [attr.data-c2a-value]="footerData?.mobile?.email?.value" [attr.data-c2a-placement]="'Mobile Static'">
-                    <span [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml"></span>
                     <!-- <i class="fa-solid fa-envelope" style="color: #b23121;"></i> -->
                 </a>
             </div>
@@ -138,7 +138,7 @@
 <div class="chat d-lg-block d-none " style="margin-right: 195px; min-width: 285px; padding: 0 7px">
     <h3>
         <a aria-label="Link" href="mailto:inquiry@excellentpublicity.com" class="c2atracking" [attr.data-c2a-type]="'Email'" [attr.data-c2a-placement]="'Desktop Static'">
-            <span class="svg-icon-footer" [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml"></span> 
+            <span class="svg-icon-footer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml"></span> 
             inquiry&#64;excellentpublicity.com
         </a>
     </h3>
@@ -146,7 +146,7 @@
 <div class="chat d-lg-block d-none" style="min-width: 165px; padding: 0 7px">
     <h3 style="font-family: arial;">
         <a aria-label="Link" href="tel:506642069" class="c2atracking" [attr.data-c2a-type]="'Phone'" [attr.data-c2a-placement]="'Desktop Static'" [attr.data-c2a-value]="footerData?.desktop?.call?.value">
-            <span class="svg-icon-footer" [innerHTML]="app_svg_icon_list?.['phone'] | safeHtml"></span> 
+            <span class="svg-icon-footer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['phone']) | safeHtml"></span> 
             +971 50 664 2069
         </a>
     </h3>

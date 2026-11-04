@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { CommonService } from '@app-shared-services';
 import { FORBIDDEN_EMAIL_DOMAINS } from 'src/app/shared/constants/forbidden-email-domain-list';
@@ -26,6 +26,7 @@ export function isPersonalEmailValidatorContact(control: UntypedFormControl): Va
     selector: 'app-sales-deck-page',
     templateUrl: './sales-deck-page.component.html',
     styleUrl: './sales-deck-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SalesDeckPageComponent {

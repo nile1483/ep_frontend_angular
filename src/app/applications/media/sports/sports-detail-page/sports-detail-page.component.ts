@@ -1,4 +1,4 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, OnInit, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SportsService } from '@app-media-services';
@@ -15,6 +15,7 @@ import { Meta } from '@angular/platform-browser';
     selector: 'app-sports-detail-page',
     templateUrl: './sports-detail-page.component.html',
     styleUrls: ['./sports-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SportsDetailPageComponent implements OnInit {

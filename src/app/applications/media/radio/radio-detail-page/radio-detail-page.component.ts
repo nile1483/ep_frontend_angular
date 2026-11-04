@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, Optional, DOCUMENT } from '@angular/core';
+import { Component, Inject, OnInit, Optional, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RadioService } from '@app-media-services';
@@ -16,6 +16,7 @@ import { Meta } from '@angular/platform-browser';
     selector: 'app-radio-detail-page',
     templateUrl: './radio-detail-page.component.html',
     styleUrls: ['./radio-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class RadioDetailPageComponent implements OnInit {

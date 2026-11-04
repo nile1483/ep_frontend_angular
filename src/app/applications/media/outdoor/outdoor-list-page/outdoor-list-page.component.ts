@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
 import { forkJoin, Subscription } from 'rxjs';
@@ -17,6 +17,7 @@ import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
     selector: 'app-outdoor-list-page',
     templateUrl: './outdoor-list-page.component.html',
     styleUrls: ['./outdoor-list-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class OutdoorListPageComponent implements OnInit {

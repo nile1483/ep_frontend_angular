@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'section-card-horizontal',
     templateUrl: './section-card-horizontal.component.html',
     styleUrls: ['./section-card-horizontal.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SectionCardHorizontalComponent implements OnInit {

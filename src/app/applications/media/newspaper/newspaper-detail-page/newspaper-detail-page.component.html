@@ -3,7 +3,7 @@
 <section class="common-padding bg-linear-gradient newspaper-detail-page-header" *ngIf="mediaDetail != false; else pageNotFound;">
     <div class="container">
         <div class="section-heading text-center mb-0">
-            <h1 class="mb-lg-5 mb-md-4 mb-4"> Advertising in {{ mediaDetail?.name | titlecase }} </h1>
+            <h1 class="mb-lg-5 mb-md-4 mb-4"> Advertising in {{ $safeNavigationMigration(mediaDetail?.name) | titlecase }} </h1>
             <h3 class="mb-lg-4 mb-3">Select Ad Type</h3>
             <div class="ad-type-block d-lg-flex">
                 <div class="select-ad-type text-start flex-fill">
@@ -89,23 +89,23 @@
 
                                 <span  *ngIf="offer.ad_type == 'classified_display_ads' ">
                                     <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
-                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer?.prices?.card_rate[0]?.rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
                                     <span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span>
                                     <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
-                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
                                 </span>
 
                                 <span  *ngIf="offer.ad_type == 'display_ads' ">
                                     <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
-                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer?.prices?.card_rate[0]?.rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
                                     <span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span>
                                     <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
-                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
                                 </span>
                             </h6>
                         </div>
                         <button type="button" class="btn btn-outline-primary" *ngIf="isAuthenticated" (click)="composeProcess(offer)">Book Now</button>
-                        <button type="button" class="btn btn-outline-primary" *ngIf="!isAuthenticated" (click)="openUserLoginDialog(mediaDetail?.name)">Login to View Price</button>
+                        <button type="button" class="btn btn-outline-primary" *ngIf="!isAuthenticated" (click)="openUserLoginDialog($safeNavigationMigration(mediaDetail?.name))">Login to View Price</button>
                     </div>
                 </div>
             </div>
@@ -130,23 +130,23 @@
 
                                 <span  *ngIf="offer.ad_type == 'classified_display_ads' ">
                                     <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
-                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer?.prices?.card_rate[0]?.rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
                                     <span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span>
                                     <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
-                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
                                 </span>
 
                                 <span  *ngIf="offer.ad_type == 'display_ads' ">
                                     <span *ngIf="isAuthenticated" class="d-inline-block px-1 text-red">{{selectedCurrency?.symbol}}</span> 
-                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{offer?.prices?.card_rate[0]?.rate | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
+                                    <span *ngIf="isAuthenticated" class="d-inline-block text-red"> {{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}/</span>
                                     <span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span>
                                     <!-- <span *ngIf="isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | currency:"&#8377;" }}/</span><span *ngIf="isAuthenticated" class="fw-normal">Sq.Cm</span> -->
-                                    <span *ngIf="!isAuthenticated" class="text-red">{{offer?.prices?.card_rate[0]?.rate | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
+                                    <span *ngIf="!isAuthenticated" class="text-red">{{$safeNavigationMigration(offer?.prices?.card_rate[0]?.rate) | mask }}/</span><span *ngIf="!isAuthenticated" class="fw-normal">Sq.Cm</span>
                                 </span>
                             </h6>
                         </div>
                         <button type="button" class="btn btn-outline-primary" *ngIf="isAuthenticated" (click)="composeProcess(offer)">Book Now</button>
-                        <button type="button" class="btn btn-outline-primary" *ngIf="!isAuthenticated" (click)="openUserLoginDialog(mediaDetail?.name)">Login to View Price</button>
+                        <button type="button" class="btn btn-outline-primary" *ngIf="!isAuthenticated" (click)="openUserLoginDialog($safeNavigationMigration(mediaDetail?.name))">Login to View Price</button>
                     </div>
                 </div>
             </div>

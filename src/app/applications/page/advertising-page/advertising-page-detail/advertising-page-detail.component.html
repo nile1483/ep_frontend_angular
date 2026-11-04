@@ -84,7 +84,7 @@
                                 <div *ngIf="item.media == 'inflight' ">
                                     <p> Average Monthly Passengers: <b>{{item?.average_monthly_passengers}}</b> </p>
                                 </div>
-                                <p *ngIf="isAuthenticated">Price: <strong> ₹ {{item?.price?.offer_rate | number :
+                                <p *ngIf="isAuthenticated">Price: <strong> ₹ {{$safeNavigationMigration(item?.price?.offer_rate) | number :
                                         '1.2-2'}}
                                     </strong><br><span class="ps-5 fst-italic text-reset">({{item?.price?.unit}})</span>
                                 </p>
@@ -92,7 +92,7 @@
                                     <a type="button" *ngIf="isAuthenticated" data-item-link-type="View More" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" [routerLink]="['/',item.media,item.slug]" class="btn btn-outline-primary w-100 view-item-button">
                                         View More
                                     </a>
-                                    <a type="button" *ngIf="!isAuthenticated" href="javascript:void(0)" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" (click)="openUserLoginDialog(item?.name)" class="btn btn-outline-primary w-100 view-price">
+                                    <a type="button" *ngIf="!isAuthenticated" href="javascript:void(0)" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" (click)="openUserLoginDialog($safeNavigationMigration(item?.name))" class="btn btn-outline-primary w-100 view-price">
                                         Login to View Price
                                     </a>
                                 </div>
@@ -106,7 +106,7 @@
 
                     <a aria-label="Link" href="{{content.link_url}}" class="more-link more-link-with-text orange-link">
                         <span class="more-text"> {{content.link_title}} </span>
-                        <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml"></span>
+                        <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml"></span>
                     </a>
                 </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { APP_SVG_ICON_LIST, MENU_LIST_WITH_SVG_ICON } from '@app-shared-constants';
 
 // import Swiper core and required components
@@ -13,6 +13,7 @@ SwiperCore.use([
     selector: 'app-header-menu',
     templateUrl: './header-menu.component.html',
     styleUrls: ['./header-menu.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class HeaderMenuComponent implements OnInit {

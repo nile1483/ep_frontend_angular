@@ -1,8 +1,8 @@
 <div class="row d-flex align-items-center" *ngFor="let content of pageBlock?.content " [ngSwitch]="content?.type">
 
     <div class="col-12 col-md-7">
-        <h1 [innerHTML]="content?.value?.header"></h1>
-        <div [innerHTML]="content?.value?.sub_header"></div>
+        <h1 [innerHTML]="$safeNavigationMigration(content?.value?.header)"></h1>
+        <div [innerHTML]="$safeNavigationMigration(content?.value?.sub_header)"></div>
 
         <div class="row" *ngIf="content?.image">
             <div *ngIf="content?.value?.url != null && content?.value?.label != null">

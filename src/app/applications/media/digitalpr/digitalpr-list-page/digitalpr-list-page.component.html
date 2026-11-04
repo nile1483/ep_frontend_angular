@@ -54,7 +54,7 @@
                                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search"
                                     [(ngModel)]="searchGenre">
                                 <ul class="list-unstyled mt-3 filter-data">
-                                    <li *ngFor="let value of filterList?.genre?.values | filter:{name : searchGenre}">
+                                    <li *ngFor="let value of $safeNavigationMigration(filterList?.genre?.values) | filter:{name : searchGenre}">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" [checked]="value.checked"
                                                 value="{{value?.name}}" id="genre-{{value?.id}}"
@@ -89,7 +89,7 @@
                                     [(ngModel)]="searchLanguage">
                                 <ul class="list-unstyled mt-3 filter-data">
                                     <li
-                                        *ngFor="let value of filterList?.language?.values | filter:{name : searchLanguage}">
+                                        *ngFor="let value of $safeNavigationMigration(filterList?.language?.values) | filter:{name : searchLanguage}">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" [checked]="value.checked"
                                                 value="{{value?.name}}" id="language-{{value?.id}}"
@@ -124,7 +124,7 @@
                                     [(ngModel)]="searchPriceModel">
                                 <ul class="list-unstyled mt-3 filter-data">
                                     <li
-                                        *ngFor="let value of filterList?.price_model?.values | filter:{name : searchPriceModel}">
+                                        *ngFor="let value of $safeNavigationMigration(filterList?.price_model?.values) | filter:{name : searchPriceModel}">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" [checked]="value.checked"
                                                 value="{{value?.name}}" id="price_model-{{value?.id}}"
@@ -165,13 +165,13 @@
     <div class="media-sorting-button flex-fill" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort"
         aria-controls="CategoryMobileSort">
         Sort
-        <span [innerHTML]="app_svg_icon_list?.['arrow-down-wide-short'] | safeHtml"></span>
+        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-down-wide-short']) | safeHtml"></span>
         <!-- <i class="fa-light fa-arrow-down-wide-short"></i> -->
     </div>
     <div class="media-sorting-button flex-fill" (click)="setTempApplyedValue()" data-bs-toggle="offcanvas"
         data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter">
         Filters
-        <span [innerHTML]="app_svg_icon_list?.['filter'] | safeHtml"></span>
+        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['filter']) | safeHtml"></span>
         <!-- <i class="fa-light fa-filter"></i> -->
     </div>
 </div>
@@ -214,7 +214,7 @@
                         <p> Language: <b>{{item?.language}}</b></p>
                         <p *ngIf="isAuthenticated">Price: <strong>
                             <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                            <div class="d-inline-block"> {{item?.price?.offer_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                            <div class="d-inline-block"> {{$safeNavigationMigration(item?.price?.offer_rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                             </strong> <span class=" fst-italic text-reset">({{item?.price?.unit}})</span>
                         </p>
                         <div class="media-button">
@@ -224,7 +224,7 @@
                                 class="btn btn-outline-primary w-100 view-item-button"> View More</a>
                             <a aria-label="Button" type="button" href="javascript:void(0)"
                                 [attr.data-item-name]="item.name" [attr.data-item-order]="i+1"
-                                (click)="openUserLoginDialog(item?.name)"
+                                (click)="openUserLoginDialog($safeNavigationMigration(item?.name))"
                                 class="btn btn-outline-primary w-100 view-price" *ngIf="!isAuthenticated"> Login to View
                                 Price</a>
                         </div>
@@ -240,7 +240,7 @@
                 <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreItems()"
                     class="more-link more-link-with-text orange-link">
                     <span class="more-text">View More</span>
-                    <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml"></span>
+                    <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml"></span>
                 </a>
             </div>
             <ng-template #loadingMoreData>
@@ -315,7 +315,7 @@
                         <input type="search" class="form-control" placeholder="Search..." aria-label="Search"
                             [(ngModel)]="searchGenre">
                         <ul class="list-unstyled mt-3 filter-data ps-1">
-                            <li *ngFor="let value of filterList?.genre?.values | filter:{name : searchGenre}">
+                            <li *ngFor="let value of $safeNavigationMigration(filterList?.genre?.values) | filter:{name : searchGenre}">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" [checked]="value.checked"
                                         value="{{value?.name}}" id="mf-genre-{{value?.id}}"
@@ -336,7 +336,7 @@
                         <input type="search" class="form-control" placeholder="Search..." aria-label="Search"
                             [(ngModel)]="searchLanguage">
                         <ul class="list-unstyled mt-3 filter-data ps-1">
-                            <li *ngFor="let value of filterList?.language?.values | filter:{name : searchLanguage}">
+                            <li *ngFor="let value of $safeNavigationMigration(filterList?.language?.values) | filter:{name : searchLanguage}">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" [checked]="value.checked"
                                         value="{{value?.name}}" id="mf-language-{{value?.id}}"
@@ -358,7 +358,7 @@
                             [(ngModel)]="searchPriceModel">
                         <ul class="list-unstyled mt-3 filter-data ps-1">
                             <li
-                                *ngFor="let value of filterList?.price_model?.values | filter:{name : searchPriceModel}">
+                                *ngFor="let value of $safeNavigationMigration(filterList?.price_model?.values) | filter:{name : searchPriceModel}">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" [checked]="value.checked"
                                         value="{{value?.name}}" id="mf-price_model-{{value?.id}}"
@@ -398,7 +398,7 @@
             <li *ngFor="let item of sortingList; let i=index">
                 <div class="form-check  mb-1">
                     <input class="form-check-input" type="radio" name="sortfilter" id="sort{{i}}"
-                        (click)="changeSortByValue(item)" [checked]="item?.isDefault">
+                        (click)="changeSortByValue(item)" [checked]="$safeNavigationMigration(item?.isDefault)">
                     <label class="form-check-label p-1" for="sort{{i}}">
                         {{item?.label}}
                     </label>

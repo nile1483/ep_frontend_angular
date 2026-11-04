@@ -14,7 +14,7 @@
             <p *ngIf="pageBlock?.simple_description">{{pageBlock?.simple_description}}</p>
             
         </div>
-        <div class="benifit-list default-content"  [innerHTML]="pageBlock?.description"> </div>
+        <div class="benifit-list default-content"  [innerHTML]="$safeNavigationMigration(pageBlock?.description)"> </div>
     </div>
     <div class="col-12 col-md-6 order-md-1 order-0 mb-md-0 mb-4">
         <div class="img-block px-md-0 px-4">

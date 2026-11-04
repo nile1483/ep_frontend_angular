@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, Optional, DOCUMENT } from '@angular/core';
+import { Component, Inject, OnInit, Optional, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InfilmService } from '@app-media-services';
@@ -16,6 +16,7 @@ import { Meta } from '@angular/platform-browser';
     selector: 'app-infilm-detail-page',
     templateUrl: './infilm-detail-page.component.html',
     styleUrl: './infilm-detail-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class InfilmDetailPageComponent {

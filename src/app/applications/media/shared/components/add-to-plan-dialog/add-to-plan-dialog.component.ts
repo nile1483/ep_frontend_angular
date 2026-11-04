@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import {  MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ShoppingCartService } from '@app-media-services';
 import { cloneDeep } from 'lodash-es';
@@ -8,6 +8,7 @@ import { cloneDeep } from 'lodash-es';
     selector: 'app-add-to-plan-dialog',
     templateUrl: './add-to-plan-dialog.component.html',
     styleUrls: ['./add-to-plan-dialog.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AddToPlanDialogComponent implements OnInit {

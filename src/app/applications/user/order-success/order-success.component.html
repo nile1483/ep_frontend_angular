@@ -25,7 +25,7 @@
                 <div class="payment" *ngIf="orderData != null">
                     <div class="payment_header_success">
                         <div class="check">
-                            <span [innerHTML]="app_svg_icon_list?.['check'] | safeHtml"></span>
+                            <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['check']) | safeHtml"></span>
                             <!-- <i class="fa-solid fa-check"></i> -->
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                 <div class="payment" *ngIf="orderData == null">
                     <div class="payment_header_fail">
                         <div class="check">
-                            <span [innerHTML]="app_svg_icon_list?.['xmark'] | safeHtml"></span>
+                            <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['xmark']) | safeHtml"></span>
                             <!-- <i class="fa-solid fa-xmark"></i> -->
                         </div>
                     </div>

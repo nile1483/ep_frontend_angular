@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, DOCUMENT } from '@angular/core';
+import { Component, Inject, OnInit, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MagazineService } from '@app-media-services';
@@ -15,6 +15,7 @@ import { Meta } from '@angular/platform-browser';
     selector: 'app-magazine-detail-page',
     templateUrl: './magazine-detail-page.component.html',
     styleUrls: ['./magazine-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class MagazineDetailPageComponent implements OnInit {

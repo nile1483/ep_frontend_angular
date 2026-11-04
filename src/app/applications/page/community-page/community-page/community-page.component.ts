@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '@app-shared-services';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
@@ -30,6 +30,7 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
     selector: 'app-community-page',
     templateUrl: './community-page.component.html',
     styleUrl: './community-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CommunityPageComponent {

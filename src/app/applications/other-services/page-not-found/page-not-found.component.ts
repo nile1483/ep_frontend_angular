@@ -1,4 +1,4 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, OnInit, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import {  StatusCodeResponseService } from '@app-shared-services';
 import { AppURL } from 'src/app/app-url';
@@ -9,6 +9,7 @@ import { MetaInformation } from '@app-shared-model';
     selector: 'app-page-not-found',
     templateUrl: './page-not-found.component.html',
     styleUrls: ['./page-not-found.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PageNotFoundComponent implements OnInit {

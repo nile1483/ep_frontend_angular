@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
 import { C2A_TITLE_DATA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
@@ -15,6 +15,7 @@ import { isPlatformBrowser } from '@angular/common';
     selector: 'app-ipl-advertising-page',
     templateUrl: './ipl-advertising-page.component.html',
     styleUrls: ['./ipl-advertising-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '@app-shared-services';
@@ -31,6 +31,7 @@ export function isPersonalEmailValidatorSeo(control: UntypedFormControl): Valida
     selector: 'app-seo-service-dialog',
     templateUrl: './seo-service-dialog.component.html',
     styleUrls: ['./seo-service-dialog.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 

@@ -34,7 +34,7 @@
             <div class="terms-heading">
                 {{item?.title}}
             </div>
-            <div class="terms-content" [innerHTML]="item?.sub_title"></div>
+            <div class="terms-content" [innerHTML]="$safeNavigationMigration(item?.sub_title)"></div>
         </div>
     </div>
 </div>

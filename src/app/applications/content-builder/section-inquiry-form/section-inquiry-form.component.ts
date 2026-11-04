@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Input, ChangeDetectionStrategy } from '@angular/core';
 import { AbstractControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { UserService } from '@app-shared-services';
 import { META_DATA } from 'src/app/shared/constants/metadata';
@@ -31,6 +31,7 @@ export function isPersonalEmailValidatorContact(control: UntypedFormControl) : V
     selector: 'section-inquiry-form',
     templateUrl: './section-inquiry-form.component.html',
     styleUrl: './section-inquiry-form.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SectionInquiryFormComponent {

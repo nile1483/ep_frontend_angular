@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, DOCUMENT } from '@angular/core';
+import { Component, Inject, OnInit, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { AdvertisingPageService } from '../advertising-page.service';
@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
     selector: 'app-advertising-page-detail',
     templateUrl: './advertising-page-detail.component.html',
     styleUrls: ['./advertising-page-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AdvertisingPageDetailComponent implements OnInit {

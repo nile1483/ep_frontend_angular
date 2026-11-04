@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
@@ -6,6 +6,7 @@ import { APP_SVG_ICON_LIST } from '@app-shared-constants';
     selector: 'app-lead-to-customer-conversion-rate-page',
     templateUrl: './lead-to-customer-conversion-rate-page.component.html',
     styleUrl: './lead-to-customer-conversion-rate-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class LeadToCustomerConversionRatePageComponent {

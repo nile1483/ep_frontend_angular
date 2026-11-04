@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 @Component({
     selector: 'section-banner-call-to-action-link',
     templateUrl: './section-banner-call-to-action-link.component.html',
     styleUrls: ['./section-banner-call-to-action-link.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SectionBannerCallToActionLinkComponent implements OnInit {

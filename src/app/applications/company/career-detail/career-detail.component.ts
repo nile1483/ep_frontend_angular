@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CareerService } from "@app-company-services";
 import { AppURL } from 'src/app/app-url';
@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     selector: 'app-career-detail',
     templateUrl: './career-detail.component.html',
     styleUrls: ['./career-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CareerDetailComponent implements OnInit {

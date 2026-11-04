@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { META_DATA } from 'src/app/shared/constants/metadata';
 import SwiperCore, { SwiperOptions, Pagination } from 'swiper';
 import { AppURL } from 'src/app/app-url';
@@ -11,6 +11,7 @@ import { APP_SVG_ICON_LIST} from '@app-shared-constants';
     selector: 'app-about',
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AboutComponent implements OnInit {

@@ -10,7 +10,7 @@
                     <label class="big-lable"> Category </label>
                     <select class="form-control default-control" id="category" formControlName="category" (change)="selectValue('category',$event)" >
                         <option selected disabled value="">Select Category</option>
-                        <option *ngFor="let category of mediaplanConfigs?.categories" [value]="category?.name"> {{category?.name}}
+                        <option *ngFor="let category of mediaplanConfigs?.categories" [value]="$safeNavigationMigration(category?.name)"> {{category?.name}}
                         </option>
                     </select>
                     <div class="text-danger form-error ps-3">
@@ -125,7 +125,7 @@
                     <h5>Radio</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.radio | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.radio) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -137,7 +137,7 @@
                     <h5>Cinema</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.cinema | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.cinema) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -149,7 +149,7 @@
                     <h5>Outdoor</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.outdoor | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.outdoor) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -161,7 +161,7 @@
                     <h5>Newspaper</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.newspaper | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.newspaper) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -173,7 +173,7 @@
                     <h5>Television</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.television | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.television) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -185,7 +185,7 @@
                     <h5>Transit</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.transit | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.transit) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -197,7 +197,7 @@
                     <h5>Non Traditional</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.nontraditional | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.nontraditional) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -209,7 +209,7 @@
                     <h5>Magazine</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.magazine | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.magazine) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -221,7 +221,7 @@
                     <h5>Digital</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.digital | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.digital) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -233,7 +233,7 @@
                     <h5>Digitalpr</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.digitalpr | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.digitalpr) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -245,7 +245,7 @@
                     <h5>Influencer</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.influencer | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.influencer) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -257,7 +257,7 @@
                     <h5>Inflight</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.inflight | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.inflight) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>
@@ -269,7 +269,7 @@
                     <h5>Mall</h5>
                     <div class="small-divider"></div>
                     <span>Our Budget Recommendation</span>
-                    <h5 class="media-price">₹ {{mediaPlanData?.mall | number : '1.2-2'}}/-</h5>
+                    <h5 class="media-price">₹ {{$safeNavigationMigration(mediaPlanData?.mall) | number : '1.2-2'}}/-</h5>
                     <span>Reach With Target Audience</span>
                     <p>1 Million</p>
                     <a aria-label="Link" href="#">Detail Analysis</a>

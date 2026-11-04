@@ -1,4 +1,4 @@
-import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HomeService } from '@app-shared-services';
 import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
@@ -16,6 +16,7 @@ SwiperCore.use([Pagination, Autoplay]);
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class HomePageComponent implements OnInit {
@@ -230,6 +231,7 @@ export class HomePageComponent implements OnInit {
 @Component({
     selector: 'home-page-note-dialog',
     templateUrl: 'home-page-note-dialog.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 

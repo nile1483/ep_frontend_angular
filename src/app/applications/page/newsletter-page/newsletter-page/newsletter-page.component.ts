@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
     selector: 'app-newsletter-page',
     templateUrl: './newsletter-page.component.html',
     styleUrl: './newsletter-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NewsletterPageComponent {

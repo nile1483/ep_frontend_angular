@@ -55,12 +55,12 @@
                                     </div>
                                 </div>
                                 <div class="billing-address-action">
-                                    <button class="btn-sm btn btn-outline-dark icon-btn" (click)="editAddress(address?.id)">
-                                        <span [innerHTML]="app_svg_icon_list?.['pen-line'] | safeHtml"></span>
+                                    <button class="btn-sm btn btn-outline-dark icon-btn" (click)="editAddress($safeNavigationMigration(address?.id))">
+                                        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['pen-line']) | safeHtml"></span>
                                         <!-- <i class="fa-solid fa-pen-line"></i> -->
                                     </button>
-                                    <button class="btn-sm btn btn-outline-dark icon-btn ms-md-2 mt-md-0 mt-2" (click)="removeAddress(address?.id)">
-                                        <span [innerHTML]="app_svg_icon_list?.['trash-can'] | safeHtml"></span>
+                                    <button class="btn-sm btn btn-outline-dark icon-btn ms-md-2 mt-md-0 mt-2" (click)="removeAddress($safeNavigationMigration(address?.id))">
+                                        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['trash-can']) | safeHtml"></span>
                                         <!-- <i class="fa-solid fa-trash-can"></i> -->
                                     </button>
                                 </div>
@@ -188,26 +188,26 @@
                             <div class="order-process-price-list">
                                 <div class="price-lable">Sub total</div>
                                 <div class="price-lable fw-medium">
-                                    ₹ {{billingInfoData?.cartDetail?.sub_total | number : '1.2-2'}}/-
+                                    ₹ {{$safeNavigationMigration(billingInfoData?.cartDetail?.sub_total) | number : '1.2-2'}}/-
                                 </div>
                             </div>
                             <div class="order-process-price-list">
                                 <div class="price-lable">Total Tax</div>
                                 <div class="price-lable fw-medium">
-                                    ₹ {{billingInfoData?.cartDetail?.tax_total | number : '1.2-2'}}/-
+                                    ₹ {{$safeNavigationMigration(billingInfoData?.cartDetail?.tax_total) | number : '1.2-2'}}/-
                                 </div>
                             </div>
                             <div class="order-process-price-list" *ngIf="billingInfoData?.cartDetail?.discount_amount > 0">
                                 <div class="price-lable">Total Discount</div>
                                 <div class="price-lable fw-medium">
-                                    ₹ {{billingInfoData?.cartDetail?.discount_amount | number : '1.2-2'}}/-
+                                    ₹ {{$safeNavigationMigration(billingInfoData?.cartDetail?.discount_amount) | number : '1.2-2'}}/-
                                 </div>
                             </div>
                             <div class="order-process-price-list total-amount">
                                 <div class="price-lable"><strong>Total Amount</strong></div>
                                 <div class="price-lable text-red">
                                     <strong>
-                                        ₹ {{billingInfoData?.cartDetail?.grand_total | number : '1.2-2'}}/-
+                                        ₹ {{$safeNavigationMigration(billingInfoData?.cartDetail?.grand_total) | number : '1.2-2'}}/-
                                     </strong>
                                 </div>
                             </div>

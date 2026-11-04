@@ -6,7 +6,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Observable, of, Subject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { AppURL } from 'src/app/app-url';
-import { GoogleTagManagerService } from 'angular-google-tag-manager';
+import { GoogleTagManagerService } from 'src/app/shared/gtm/google-tag-manager';
 import { Router } from '@angular/router';
 import { LocalstorageService } from 'src/app/shared/services/localstorage.service';
 import { CookieService } from './cookie.service';

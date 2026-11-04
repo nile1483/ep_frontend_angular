@@ -1,12 +1,12 @@
 import { APP_ID, NgModule, TransferState } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration, withNoIncrementalHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-import { GoogleTagManagerModule } from 'angular-google-tag-manager';
+import { GoogleTagManagerModule } from 'src/app/shared/gtm/google-tag-manager';
 import { StatusCodeResponseService } from '@app-shared-services';
 import { AppHttpInterceptorService } from '@app-shared-services';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -44,10 +44,10 @@ import { SalesOrderPaymentSuccessComponent } from './applications/sales-order-pa
             id: 'GTM-MT5BHP',
         })], providers: [
         { provide: APP_ID, useValue: 'serverApp' },
-        provideClientHydration(),
+        provideClientHydration(withNoIncrementalHydration()),
         { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
         { provide: TransferState },
         StatusCodeResponseService,
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withXhr(), withInterceptorsFromDi())
     ] })
 export class AppModule { }

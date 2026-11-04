@@ -10,17 +10,17 @@
                 <ul class="login-list mt-4 mb-0 px-3">
                     <li class="d-flex align-items-center py-2">
                         <!-- <i class="fa-solid fa-shield-quartered me-3"></i> -->
-                        <span [innerHTML]="app_svg_icon_list?.['shield-quartered'] | safeHtml" class="me-3"></span>Fast
+                        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['shield-quartered']) | safeHtml" class="me-3"></span>Fast
                         & Secure Login
                     </li>
                     <li class="d-flex align-items-center py-2">
                         <!-- <i class="fa-solid fa-star-sharp me-3"></i> -->
-                        <span [innerHTML]="app_svg_icon_list?.['star-sharp'] | safeHtml" class="me-3"></span> Get
+                        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['star-sharp']) | safeHtml" class="me-3"></span> Get
                         instant rates for all <br> advertising media
                     </li>
                     <li class="d-flex align-items-center py-2">
                         <!-- <i class="fa-solid fa-tags me-3"></i>  -->
-                        <span [innerHTML]="app_svg_icon_list?.['tags'] | safeHtml" class="me-3"></span> Amazing deals on
+                        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['tags']) | safeHtml" class="me-3"></span> Amazing deals on
                         media buying
                     </li>
                 </ul>
@@ -217,7 +217,7 @@
                             <div class="message-box">
                                 <p class="message text-danger" *ngIf="userLoginError"> {{userLoginError?.message}} </p>
                                 <p class="message text-success" *ngIf="loginmessage?.message"
-                                    [innerHTML]="loginmessage?.message"> </p>
+                                    [innerHTML]="$safeNavigationMigration(loginmessage?.message)"> </p>
                             </div>
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control" id="floatingOtp" name="verificationCode"
@@ -245,18 +245,18 @@
                         </form>
                         <ul class="login-list mt-4 mb-0 px-3 d-md-none d-block">
                             <li class="d-flex align-items-center py-2">
-                                <span [innerHTML]="app_svg_icon_list?.['shield-quartered'] | safeHtml"
+                                <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['shield-quartered']) | safeHtml"
                                     class="me-3"></span>
                                 <!-- <i class="fa-solid fa-shield-quartered me-3"></i>  -->
                                 Fast & Secure Login
                             </li>
                             <li class="d-flex align-items-center py-2">
-                                <span [innerHTML]="app_svg_icon_list?.['star-sharp'] | safeHtml" class="me-3"></span>
+                                <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['star-sharp']) | safeHtml" class="me-3"></span>
                                 <!-- <i class="fa-solid fa-star-sharp me-3"></i>  -->
                                 Get instant rates for all <br> advertising media
                             </li>
                             <li class="d-flex align-items-center py-2">
-                                <span [innerHTML]="app_svg_icon_list?.['tags'] | safeHtml" class="me-3"></span>
+                                <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['tags']) | safeHtml" class="me-3"></span>
                                 <!-- <i class="fa-solid fa-tags me-3"></i> -->
                                 Amazing deals on media buying
                             </li>

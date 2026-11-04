@@ -48,7 +48,7 @@
                             <td>: </td>
                             <td>
                                 <div class="d-inline-block px-1">{{total?.symbol}}</div>
-                                <div class="d-inline-block"> {{total?.amount | number : '1.2-2'}}</div>
+                                <div class="d-inline-block"> {{$safeNavigationMigration(total?.amount) | number : '1.2-2'}}</div>
                             </td>
                         </tr>
                         <tr *ngIf="currencyTotals.length > 0 && discountAmount > 0">
@@ -103,7 +103,7 @@
             <div class="row">
                 <div class="col-9 col-lg-10">
                     <h6 class="mb-0"> <a aria-label="Link"
-                            [routerLink]="['/', product.price_details?.media, product.slug]">
+                            [routerLink]="['/', $safeNavigationMigration(product.price_details?.media), product.slug]">
                             {{product?.price_details?.name}}
                             ({{product?.price_details?.name}}) </a> </h6>
                 </div>
@@ -121,8 +121,8 @@
                         </div> -->
                         <!-- *ngIf="cartData.items.length > 1"  -->
                         <button class="btn-sm btn btn-outline-dark icon-btn ms-md-2 mt-md-0 mt-2"
-                            (click)="deleteItem(product?.id)">
-                            <span [innerHTML]="app_svg_icon_list?.['trash-can'] | safeHtml"></span>
+                            (click)="deleteItem($safeNavigationMigration(product?.id))">
+                            <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['trash-can']) | safeHtml"></span>
                             <!-- <i class="fa-solid fa-trash-can"></i> -->
                         </button>
                     </div>
@@ -265,8 +265,8 @@
                                             <div class="d-inline-block px-1">{{product?.selected_currency?.symbol}}
                                             </div>
                                             <div class="d-inline-block">
-                                                {{product?.price_details?.selectedPrice?.optionPrice |
-                                                convertToExchange: product?.selected_currency | number : '1.2-2'}}</div>
+                                                {{$safeNavigationMigration(product?.price_details?.selectedPrice?.optionPrice) |
+                                                convertToExchange: $safeNavigationMigration(product?.selected_currency) | number : '1.2-2'}}</div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -281,8 +281,8 @@
                                             <div class="d-inline-block px-1">{{product?.selected_currency?.symbol}}
                                             </div>
                                             <div class="d-inline-block">
-                                                {{product?.price_details?.selectedPrice?.subTotal | convertToExchange:
-                                                product?.selected_currency | number : '1.2-2'}}</div>
+                                                {{$safeNavigationMigration(product?.price_details?.selectedPrice?.subTotal) | convertToExchange:
+                                                $safeNavigationMigration(product?.selected_currency) | number : '1.2-2'}}</div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="product?.media != 'newspaper' ">
@@ -292,8 +292,8 @@
                                             <div class="d-inline-block px-1">{{product?.selected_currency?.symbol}}
                                             </div>
                                             <div class="d-inline-block">
-                                                {{product?.price_details?.selectedPrice?.minimum_billing |
-                                                convertToExchange: product?.selected_currency | number : '1.2-2'}}</div>
+                                                {{$safeNavigationMigration(product?.price_details?.selectedPrice?.minimum_billing) |
+                                                convertToExchange: $safeNavigationMigration(product?.selected_currency) | number : '1.2-2'}}</div>
                                         </td>
                                     </tr>
                                     <tr *ngFor="let option of product?.price_details?.selectedPrice?.option">
@@ -302,8 +302,8 @@
                                         <td>
                                             <div class="d-inline-block px-1">{{product?.selected_currency?.symbol}}
                                             </div>
-                                            <div class="d-inline-block"> {{option?.value?.price | convertToExchange:
-                                                product?.selected_currency | number : '1.2-2'}}</div>
+                                            <div class="d-inline-block"> {{$safeNavigationMigration(option?.value?.price) | convertToExchange:
+                                                $safeNavigationMigration(product?.selected_currency) | number : '1.2-2'}}</div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="product?.price_details?.selectedPrice?.option?.length > 0">
@@ -312,8 +312,8 @@
                                         <td>
                                             <div class="d-inline-block px-1">{{product?.selected_currency?.symbol}}
                                             </div>
-                                            <div class="d-inline-block"> {{product?.price_details?.selectedPrice?.total
-                                                | convertToExchange: product?.selected_currency | number : '1.2-2'}}
+                                            <div class="d-inline-block"> {{$safeNavigationMigration(product?.price_details?.selectedPrice?.total)
+                                                | convertToExchange: $safeNavigationMigration(product?.selected_currency) | number : '1.2-2'}}
                                             </div>
                                         </td>
                                     </tr>
@@ -324,8 +324,8 @@
                                             <div class="d-inline-block px-1">{{product?.selected_currency?.symbol}}
                                             </div>
                                             <div class="d-inline-block">
-                                                {{product?.price_details?.selectedPrice?.totalGst | convertToExchange:
-                                                product?.selected_currency | number : '1.2-2'}}</div>
+                                                {{$safeNavigationMigration(product?.price_details?.selectedPrice?.totalGst) | convertToExchange:
+                                                $safeNavigationMigration(product?.selected_currency) | number : '1.2-2'}}</div>
                                         </td>
                                     </tr>
                                     <tr class="border-top">
@@ -335,8 +335,8 @@
                                                 <div class="d-inline-block px-1">{{product?.selected_currency?.symbol}}
                                                 </div>
                                                 <div class="d-inline-block">
-                                                    {{product?.price_details?.selectedPrice?.grandTotal |
-                                                    convertToExchange: product?.selected_currency | number : '1.2-2'}}
+                                                    {{$safeNavigationMigration(product?.price_details?.selectedPrice?.grandTotal) |
+                                                    convertToExchange: $safeNavigationMigration(product?.selected_currency) | number : '1.2-2'}}
                                                 </div>
                                             </strong>
                                         </td>

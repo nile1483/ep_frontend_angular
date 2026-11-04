@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { AppURL } from 'src/app/app-url';
 import { MetaInformation } from '@app-shared-model';
 import { META_DATA } from '@app-shared-constants';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
     selector: 'app-media-insights-list-page',
     templateUrl: './media-insights-list-page.component.html',
     styleUrl: './media-insights-list-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class MediaInsightsListPageComponent {

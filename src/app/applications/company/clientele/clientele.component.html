@@ -11,7 +11,7 @@
             <div class="col-6">
                 <select class="form-select" (change)="changeCategory($event)" >
                     <option selected [value] = "0"> Select category </option>
-                    <option *ngFor="let category of categoryList" [value]="category?.id">{{category?.name}}</option>
+                    <option *ngFor="let category of categoryList" [value]="$safeNavigationMigration(category?.id)">{{category?.name}}</option>
                 </select>
             </div>
         </div>

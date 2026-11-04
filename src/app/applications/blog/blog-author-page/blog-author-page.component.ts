@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogParams } from 'src/app/shared/model';
 import { BlogService } from '../blog.service';
@@ -12,6 +12,7 @@ import { APP_SVG_ICON_LIST } from '@app-shared-constants';
     selector: 'app-blog-author-page',
     templateUrl: './blog-author-page.component.html',
     styleUrls: ['./blog-author-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class BlogAuthorPageComponent implements OnInit {

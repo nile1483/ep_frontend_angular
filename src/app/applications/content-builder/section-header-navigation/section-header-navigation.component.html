@@ -1,7 +1,7 @@
 <section class="header-menu d-flex justify-content-center align-items-center">
     <div class="container">
         <div class="menucontainer">
-            <div class="left-menu-icon carousel-menu-previous" role="button" aria-label="Previous slide" [innerHTML]="app_svg_icon_list?.['angle-left'] | safeHtml">
+            <div class="left-menu-icon carousel-menu-previous" role="button" aria-label="Previous slide" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['angle-left']) | safeHtml">
                 <!-- <i class="fa-regular fa-angle-left"></i> -->
 
             </div>
@@ -10,12 +10,12 @@
                 <swiper [config]="config">
                     <ng-template swiperSlide *ngFor="let block of pageBlock?.header_navigation_block_data">
                         <a aria-label="Link" [href]="block.link" [routerLinkActive]="['active']">
-                            <span class="menu-icon-svg" [innerHTML]="block?.icon?.code | safeHtml"> </span> {{block?.label}}
+                            <span class="menu-icon-svg" [innerHTML]="$safeNavigationMigration(block?.icon?.code) | safeHtml"> </span> {{block?.label}}
                         </a>
                     </ng-template>
                 </swiper>
             </div>
-            <div class="right-menu-icon carousel-menu-next" role="button" aria-label="Next slide" [innerHTML]="app_svg_icon_list?.['angle-right'] | safeHtml">
+            <div class="right-menu-icon carousel-menu-next" role="button" aria-label="Next slide" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['angle-right']) | safeHtml">
                 <!-- <i class="fa-regular fa-angle-right" ></i> -->
             </div>
         </div>

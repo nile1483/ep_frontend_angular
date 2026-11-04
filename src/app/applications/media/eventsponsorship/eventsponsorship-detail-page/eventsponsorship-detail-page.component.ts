@@ -1,4 +1,4 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, OnInit, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventsponsorshipService } from '@app-media-services';
@@ -15,6 +15,7 @@ import { Meta } from '@angular/platform-browser';
     selector: 'app-eventsponsorship-detail-page',
     templateUrl: './eventsponsorship-detail-page.component.html',
     styleUrls: ['./eventsponsorship-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class EventsponsorshipDetailPageComponent implements OnInit {

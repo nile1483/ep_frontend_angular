@@ -45,7 +45,7 @@
                                             <span class="starting-text">Starting from</span>
                                             <div class="starting-price">
                                                 <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div>
-                                                <div class="d-inline-block"> {{media?.price | convertToExchange:
+                                                <div class="d-inline-block"> {{$safeNavigationMigration(media?.price) | convertToExchange:
                                                     selectedCurrency | number: '1.2-2' }}</div>
                                             </div>
                                         </div>
@@ -63,12 +63,12 @@
 
                     <div class="swiper-slider-action">
                         <div class="left-swiper tranding-previous swiper-button" role="button"
-                            aria-label="Previous slide" [innerHTML]="app_svg_icon_list?.['angle-left'] | safeHtml">
+                            aria-label="Previous slide" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['angle-left']) | safeHtml">
                             <!-- <i class="fa-regular fa-angle-left"></i> -->
                         </div>
                         <div class="tranding-pagination"></div>
                         <div class="right-swiper tranding-next swiper-button" role="button" aria-label="Next slide"
-                            [innerHTML]="app_svg_icon_list?.['angle-right'] | safeHtml">
+                            [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['angle-right']) | safeHtml">
                             <!-- <i class="fa-regular fa-angle-right" ></i> -->
                         </div>
                     </div>
@@ -139,7 +139,7 @@
             <div class="row counter-row g-0">
                 <div class="col-12 col-md-4 col-lg-4 counter-col">
                     <div class="colunter-block">
-                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['user-tie'] | safeHtml">
+                        <div class="colunter-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['user-tie']) | safeHtml">
                             <!-- <i class="fa-solid fa-user-tie"></i> -->
                         </div>
                         <div class="colunter-numbers">5,000+</div>
@@ -149,7 +149,7 @@
 
                 <div class="col-12 col-md-4 col-lg-4 counter-col">
                     <div class="colunter-block">
-                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['people-group'] | safeHtml">
+                        <div class="colunter-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['people-group']) | safeHtml">
                             <!-- <i class="fa-solid fa-people-group"></i> -->
                         </div>
                         <div class="colunter-numbers">100+</div>
@@ -158,7 +158,7 @@
                 </div>
                 <div class="col-12 col-md-4 col-lg-4 counter-col">
                     <div class="colunter-block">
-                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['photo-film-music'] | safeHtml">
+                        <div class="colunter-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['photo-film-music']) | safeHtml">
                             <!-- <i class="fa-solid fa-photo-film-music"></i> -->
                         </div>
                         <div class="colunter-numbers">5,00,000+</div>
@@ -170,7 +170,7 @@
             <div class="row counter-row g-0">
                 <div class="col-12 col-md-4 col-lg-4 counter-col">
                     <div class="colunter-block">
-                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['people'] | safeHtml">
+                        <div class="colunter-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['people']) | safeHtml">
                             <!-- <i class="fa-solid fa-people"></i> -->
                         </div>
                         <div class="colunter-numbers">50,000+</div>
@@ -179,7 +179,7 @@
                 </div>
                 <div class="col-12 col-md-4 col-lg-4 counter-col">
                     <div class="colunter-block">
-                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['bullhorn'] | safeHtml">
+                        <div class="colunter-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['bullhorn']) | safeHtml">
                             <!-- <i class="fa-solid fa-bullhorn"></i> -->
                         </div>
                         <div class="colunter-numbers">3,00,000+</div>
@@ -189,7 +189,7 @@
 
                 <div class="col-12 col-md-4 col-lg-4 counter-col">
                     <div class="colunter-block">
-                        <div class="colunter-icon" [innerHTML]="app_svg_icon_list?.['chart-column'] | safeHtml">
+                        <div class="colunter-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['chart-column']) | safeHtml">
                             <!-- <i class="fa-solid fa-chart-column"></i> -->
                         </div>
                         <div class="colunter-numbers">4</div>
@@ -202,7 +202,7 @@
         <div class="about-link text-center mt-5">
             <a aria-label="Link" [routerLink]="['/about']" class="more-link white-link">
                 <span class="more-text">About us</span>
-                <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
                     <!-- <i class="fa-light fa-arrow-right-long"></i> -->
                 </span>
             </a>
@@ -316,7 +316,7 @@
                         class="more-link orange-link d-md-inline-block d-none">
                         <!-- Hide For Mobile -->
                         <span class="more-text"> Clientele </span>
-                        <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                        <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
                             <!-- <i class="fa-light fa-arrow-right-long"></i> -->
                         </span>
                     </a>
@@ -409,7 +409,7 @@
                 <a aria-label="Link" [routerLink]="['clientele']" class="more-link orange-link">
                     <!-- Hide For Mobile -->
                     <span class="more-text">Clientele</span>
-                    <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                    <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
                         <!-- <i class="fa-light fa-arrow-right-long"></i> -->
                     </span>
                 </a>
@@ -437,14 +437,14 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     [attr.data-bs-target]="'#collapse'+i" aria-expanded="false"
                                     aria-controls="collapse{{i}}">
-                                    <p itemprop="name" class="m-0" [innerHTML]="item?.question"></p>
+                                    <p itemprop="name" class="m-0" [innerHTML]="$safeNavigationMigration(item?.question)"></p>
                                 </button>
                             </h6>
                             <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
                                 data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer"
                                 itemtype="https://schema.org/Answer">
                                 <div class="accordion-body default-content" itemprop="text">
-                                    <p [innerHTML]="item?.answer"></p>
+                                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
                                 </div>
                                 <div class="text-center">
                                     <button *ngIf="item?.buttonname" class="btn btn-primary mb-4" type="submit"><a

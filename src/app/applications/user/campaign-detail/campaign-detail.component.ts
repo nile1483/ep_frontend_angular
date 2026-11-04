@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShoppingCartService } from '@app-media-services';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
     selector: 'app-campaign-detail',
     templateUrl: './campaign-detail.component.html',
     styleUrls: ['./campaign-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CampaignDetailComponent implements OnInit {

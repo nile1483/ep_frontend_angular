@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SERVICE_LIST_WITH_SVG_ICON } from '@app-shared-constants';
 @Component({
     selector: 'section-highlight',
     templateUrl: './section-highlight.component.html',
     styleUrls: ['./section-highlight.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SectionHighlightComponent implements OnInit {

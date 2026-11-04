@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,6 +14,7 @@ import { META_DATA } from '@app-shared-constants';
     selector: 'app-corporate-gifting-detail',
     templateUrl: './corporate-gifting-detail.component.html',
     styleUrls: ['./corporate-gifting-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CorporateGiftingDetailComponent implements OnInit {
@@ -114,6 +115,7 @@ export class CorporateGiftingDetailComponent implements OnInit {
     selector: 'catalog-download-inquiry-dialog',
     templateUrl: 'catalog-download-inquiry-dialog.html',
     styles: ['.mat-mdc-dialog-actions { padding-top: 0px !important; }'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 

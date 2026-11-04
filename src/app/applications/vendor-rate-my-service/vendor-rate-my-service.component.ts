@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderService } from 'src/app/shared/services/loader.service';
@@ -10,6 +10,7 @@ import { CommonService } from '@app-shared-services';
     selector: 'app-vendor-rate-my-service',
     templateUrl: './vendor-rate-my-service.component.html',
     styleUrl: './vendor-rate-my-service.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class VendorRateMyServiceComponent {

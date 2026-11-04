@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LandingPageService } from '../landingpage.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { AppURL } from 'src/app/app-url';
     selector: 'app-landing-page-list',
     templateUrl: './landing-page-list.component.html',
     styleUrls: ['./landing-page-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class LandingPageListComponent implements OnInit {

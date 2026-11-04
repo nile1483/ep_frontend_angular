@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { META_DATA } from 'src/app/shared/constants/metadata';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
@@ -8,6 +8,7 @@ import { TestimonialsService} from "@app-company-services";
     selector: 'app-testimonials',
     templateUrl: './testimonials.component.html',
     styleUrls: ['./testimonials.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TestimonialsComponent implements OnInit {

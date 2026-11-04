@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, DOCUMENT } from '@angular/core';
+import { Component, Inject, OnInit, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DigitalprService } from '@app-media-services';
@@ -14,6 +14,7 @@ import { Meta } from '@angular/platform-browser';
     selector: 'app-digitalpr-detail-page',
     templateUrl: './digitalpr-detail-page.component.html',
     styleUrls: ['./digitalpr-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DigitalprDetailPageComponent implements OnInit {

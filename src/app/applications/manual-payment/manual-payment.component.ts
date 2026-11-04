@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, ChangeDetectionStrategy } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -11,6 +11,7 @@ import { APP_SVG_ICON_LIST } from '@app-shared-constants';
     selector: 'app-manual-payment',
     templateUrl: './manual-payment.component.html',
     styleUrl: './manual-payment.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ManualPaymentComponent {

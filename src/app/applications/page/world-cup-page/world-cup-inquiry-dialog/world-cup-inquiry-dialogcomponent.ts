@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '@app-shared-services';
@@ -29,6 +29,7 @@ export function isPersonalEmailValidatorWorldCup(control: UntypedFormControl): V
     selector: 'app-world-cup-inquiry-dialog',
     templateUrl: './world-cup-inquiry-dialog.component.html',
     styleUrls: ['./world-cup-inquiry-dialog.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 

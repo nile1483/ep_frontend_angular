@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, OnInit, QueryList, ViewChildren, DOCUMENT } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, QueryList, ViewChildren, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -19,6 +19,7 @@ import { APP_SVG_ICON_LIST, C2A_TITLE_DATA} from '@app-shared-constants';
     selector: 'app-transit-list-page',
     templateUrl: './transit-list-page.component.html',
     styleUrls: ['./transit-list-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class TransitListPageComponent implements OnInit {

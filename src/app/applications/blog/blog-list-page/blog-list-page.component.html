@@ -45,14 +45,14 @@
                         <div class="blog-owner-name d-flex align-items-center justify-content-between mt-auto">
                             <div class="blog-own-image me-2">
                                 <strong> 
-                                    <a [routerLink]="['/',linkName,'author',blog?.author_slug]" style="color: #0F2240;"> 
+                                    <a [routerLink]="['/',linkName,'author',$safeNavigationMigration(blog?.author_slug)]" style="color: #0F2240;"> 
                                         {{blog?.author_name}} 
                                     </a> 
                                 </strong>
-                                <span class="ps-1">{{blog?.publish_date | date:'mediumDate'}}</span>
+                                <span class="ps-1">{{$safeNavigationMigration(blog?.publish_date) | date:'mediumDate'}}</span>
                                 <span class="read-time d-block">5 min read</span>
                             </div>
-                            <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]" class="more-link more-link-with-text orange-link"><span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                            <a aria-label="Link" [routerLink]="['/',linkName,blog.slug]" class="more-link more-link-with-text orange-link"><span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
                                 <!-- <i class="fa-light fa-arrow-right-long"></i> -->
                             </span> </a>
                         </div>
@@ -65,7 +65,7 @@
         <div class="row mt-5" *ngIf="isShowViewMore">
             <div class="col-12 text-center">
                 <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreBlogs()" class="more-link more-link-with-text orange-link">
-                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
                         <!-- <i class="fa-light fa-arrow-right-long"></i> -->
                         </span>
                 </a>

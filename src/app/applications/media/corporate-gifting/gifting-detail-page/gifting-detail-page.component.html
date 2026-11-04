@@ -81,40 +81,40 @@
                         <p *ngIf="mediaDetail?.review_stars">
                             <!-- 1 star  -->
                             <!-- <i [class]="(mediaDetail?.review_stars == 0) ? 'far fa-star' : (mediaDetail?.review_stars > 0 && mediaDetail?.review_stars < 1) ? 'fa-solid fa-star-half-stroke' : 'fa-solid fa-star'"></i> -->
-                            <i *ngIf="(mediaDetail?.review_stars == 0)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
-                            <i *ngIf="(mediaDetail?.review_stars > 0 && mediaDetail?.review_stars < 1)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
-                            <i *ngIf="!(mediaDetail?.review_stars == 0) && !(mediaDetail?.review_stars > 0 && mediaDetail?.review_stars < 1)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars == 0)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['full-star']) | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars > 0 && mediaDetail?.review_stars < 1)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['half-star']) | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars == 0) && !(mediaDetail?.review_stars > 0 && mediaDetail?.review_stars < 1)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['empty-star']) | safeHtml"> </i>
 
                             <!-- 2 star  -->
                             <!-- <i [class]="(mediaDetail?.review_stars > 1 && mediaDetail?.review_stars < 2) ? 'fa-solid fa-star-half-stroke' : (mediaDetail?.review_stars >= 2) ? 'fa-solid fa-star' : 'far fa-star'"></i> -->
-                            <i *ngIf="(mediaDetail?.review_stars > 1 && mediaDetail?.review_stars < 2)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
-                            <i *ngIf="(mediaDetail?.review_stars >= 2)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
-                            <i *ngIf="!(mediaDetail?.review_stars > 1 && mediaDetail?.review_stars < 2) && !(mediaDetail?.review_stars >= 2)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars > 1 && mediaDetail?.review_stars < 2)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['half-star']) | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars >= 2)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['empty-star']) | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars > 1 && mediaDetail?.review_stars < 2) && !(mediaDetail?.review_stars >= 2)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['full-star']) | safeHtml"> </i>
                             
                             <!-- 3 star  -->
                             <!-- <i [class]="(mediaDetail?.review_stars > 2 && mediaDetail?.review_stars < 3) ? 'fa-solid fa-star-half-stroke' : (mediaDetail?.review_stars >= 3) ? 'fa-solid fa-star' : 'far fa-star'"></i> -->
-                            <i *ngIf="(mediaDetail?.review_stars > 2 && mediaDetail?.review_stars < 3)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
-                            <i *ngIf="(mediaDetail?.review_stars >= 3)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
-                            <i *ngIf="!(mediaDetail?.review_stars > 2 && mediaDetail?.review_stars < 3) && !(mediaDetail?.review_stars >= 3)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars > 2 && mediaDetail?.review_stars < 3)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['half-star']) | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars >= 3)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['empty-star']) | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars > 2 && mediaDetail?.review_stars < 3) && !(mediaDetail?.review_stars >= 3)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['full-star']) | safeHtml"> </i>
 
                             <!-- 4 star  -->
                             <!-- <i [class]="(mediaDetail?.review_stars > 3 && mediaDetail?.review_stars < 4) ? 'fa-solid fa-star-half-stroke' : (mediaDetail?.review_stars >= 4) ? 'fa-solid fa-star' : 'far fa-star'"></i>  -->
-                            <i *ngIf="(mediaDetail?.review_stars > 3 && mediaDetail?.review_stars < 4)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
-                            <i *ngIf="(mediaDetail?.review_stars >= 4)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
-                            <i *ngIf="!(mediaDetail?.review_stars > 3 && mediaDetail?.review_stars < 4) && !(mediaDetail?.review_stars >= 4)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars > 3 && mediaDetail?.review_stars < 4)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['half-star']) | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars >= 4)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['empty-star']) | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars > 3 && mediaDetail?.review_stars < 4) && !(mediaDetail?.review_stars >= 4)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['full-star']) | safeHtml"> </i>
 
                             <!-- 5 star  -->
                             <!-- <i [class]="(mediaDetail?.review_stars > 4 && mediaDetail?.review_stars < 5) ? 'fa-solid fa-star-half-stroke' : (mediaDetail?.review_stars >= 5) ? 'fa-solid fa-star' : 'far fa-star'"></i>  -->
-                            <i *ngIf="(mediaDetail?.review_stars > 4 && mediaDetail?.review_stars < 5)" [innerHTML]="app_svg_icon_list?.['half-star'] | safeHtml"> </i>
-                            <i *ngIf="(mediaDetail?.review_stars >= 5)" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"> </i>
-                            <i *ngIf="!(mediaDetail?.review_stars > 4 && mediaDetail?.review_stars < 5) && !(mediaDetail?.review_stars >= 5)" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars > 4 && mediaDetail?.review_stars < 5)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['half-star']) | safeHtml"> </i>
+                            <i *ngIf="(mediaDetail?.review_stars >= 5)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['empty-star']) | safeHtml"> </i>
+                            <i *ngIf="!(mediaDetail?.review_stars > 4 && mediaDetail?.review_stars < 5) && !(mediaDetail?.review_stars >= 5)" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['full-star']) | safeHtml"> </i>
                           </p>
 
                             <p *ngIf="mediaDetail?.item_code != null"> <Strong>Item Code : </Strong> {{mediaDetail?.item_code}}  </p>
                             <p *ngIf="mediaDetail?.brand != null"> <Strong>Brand : </Strong> {{mediaDetail?.brand}}  </p>
                             <p *ngIf="mediaDetail?.delivery_time_period != null"> <Strong>Delivery Time Period : </Strong> {{mediaDetail?.delivery_time_period}}  </p>
                             <p> <Strong>Availability : </Strong> In stock  </p>
-                            <p [innerHTML]="mediaDetail?.short_description"> {{mediaDetail?.short_description}} </p>
+                            <p [innerHTML]="$safeNavigationMigration(mediaDetail?.short_description)"> {{mediaDetail?.short_description}} </p>
 
 
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" *ngFor="let price of mediaDetail?.price">
@@ -124,7 +124,7 @@
                                      <span>
                                          <div class="price-week-currency d-inline-block px-1">
                                              {{selectedCurrency?.symbol}}</div>
-                                         <div class="price-week-currency d-inline-block"> {{price?.offer_rate |
+                                         <div class="price-week-currency d-inline-block"> {{$safeNavigationMigration(price?.offer_rate) |
                                              convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                                      </span>
                                      <span> {{price?.unit}} </span>
@@ -133,7 +133,7 @@
                                      <span>
                                          <div class="price-bill-currency d-inline-block px-1">
                                              {{selectedCurrency?.symbol}}</div>
-                                         <div class="price-bill-currency d-inline-block"> {{price?.minimum_billing |
+                                         <div class="price-bill-currency d-inline-block"> {{$safeNavigationMigration(price?.minimum_billing) |
                                              convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                                      </span>
                                      <span> Minimum Billing </span>
@@ -141,7 +141,7 @@
                                  <div *ngIf="price?.price_break != false">
                                      <span *ngFor="let priceBreak of price?.price_break">Buy <span
                                          class="text-color">{{priceBreak?.quantity}}</span> for {{selectedCurrency?.symbol}} <span
-                                         class="text-color">{{priceBreak?.price | convertToExchange: selectedCurrency | number : '1.2-2'}}</span> each; <br>
+                                         class="text-color">{{$safeNavigationMigration(priceBreak?.price) | convertToExchange: selectedCurrency | number : '1.2-2'}}</span> each; <br>
                                      </span>
                                      <!-- <span *ngFor="let priceBreak of price?.price_break">Buy <span
                                          class="text-color">{{priceBreak?.quantity}}</span> for {{selectedCurrency?.symbol}} <span
@@ -164,7 +164,7 @@
                                     <button type="button" class="btn btn-primary view-price"
                                         [attr.data-item-name]="mediaDetail.name"
                                         [attr.data-item-price-name]="mediaDetailPrice.name"
-                                        (click)="openUserLoginDialog(mediaDetail?.name)">Login to View Price </button>
+                                        (click)="openUserLoginDialog($safeNavigationMigration(mediaDetail?.name))">Login to View Price </button>
                                 </div>
                             </div>
      

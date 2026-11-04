@@ -8,7 +8,7 @@
                 <swiper [config]="config">
                     <ng-template swiperSlide *ngFor="let item of headerData">
                         <a aria-label="" [href]="[item.url]" [routerLinkActive]="['active']">
-                            <span class="menu-icon-svg" [innerHTML]="app_svg_icon_list?.[item.icon] | safeHtml "> </span>
+                            <span class="menu-icon-svg" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.[item.icon]) | safeHtml "> </span>
                              {{item?.label}}
                         </a>
                     </ng-template>

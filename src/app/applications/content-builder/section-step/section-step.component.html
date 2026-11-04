@@ -21,7 +21,7 @@
                         <span class="timeline-block-number">{{i+1}}</span>
                         <div class="card border-0">
                             <h5>{{value?.title}}</h5>
-                            <p  [innerHTML]="value?.sub_title"></p>
+                            <p  [innerHTML]="$safeNavigationMigration(value?.sub_title)"></p>
                         </div>
                     </div>
 

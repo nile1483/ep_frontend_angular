@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 mb-4 mb-md-0">
                     <h6> Order Details </h6>
-                    <p class="mb-1"><strong> Order Placed on {{orderData?.order_date | date:'medium'}} </strong></p>
+                    <p class="mb-1"><strong> Order Placed on {{$safeNavigationMigration(orderData?.order_date) | date:'medium'}} </strong></p>
 
                     <table class="w-auto">
                         <tr>
@@ -90,23 +90,23 @@
                         <tr>
                             <td>Item(s) Subtotal</td>
                             <td>: </td>
-                            <td> ₹ {{orderData?.order_total | number : '1.2-2'}} </td>
+                            <td> ₹ {{$safeNavigationMigration(orderData?.order_total) | number : '1.2-2'}} </td>
                         </tr>
                         <tr>
                             <td>Order Tax</td>
                             <td>: </td>
-                            <td> ₹ {{orderData?.order_tax | number : '1.2-2'}} </td>
+                            <td> ₹ {{$safeNavigationMigration(orderData?.order_tax) | number : '1.2-2'}} </td>
                         </tr>
                         <tr *ngIf="orderData?.discount">
                             <td>Discount <br>
                                 <strong>(Code: {{orderData?.ap?.code}})</strong> </td>
                             <td>: </td>
-                            <td> ₹ {{orderData?.discount | number : '1.2-2'}} </td>
+                            <td> ₹ {{$safeNavigationMigration(orderData?.discount) | number : '1.2-2'}} </td>
                         </tr>
                         <tr>
                             <th>Grand Total</th>
                             <td>: </td>
-                            <th> ₹ {{orderData?.order_grand_total | number : '1.2-2'}} </th>
+                            <th> ₹ {{$safeNavigationMigration(orderData?.order_grand_total) | number : '1.2-2'}} </th>
                         </tr>
                     </table>
                 </div>
@@ -232,7 +232,7 @@
                             <tr>
                                 <td>Rate</td>
                                 <td>: </td>
-                                <td> ₹ {{item?.price | number : '1.2-2'}} </td>
+                                <td> ₹ {{$safeNavigationMigration(item?.price) | number : '1.2-2'}} </td>
                             </tr>
                             <tr>
                                 <td>Quantity</td>
@@ -242,28 +242,28 @@
                             <tr>
                                 <td>Sub Total</td>
                                 <td>: </td>
-                                <td> ₹ {{item?.extended_price | number : '1.2-2'}} </td>
+                                <td> ₹ {{$safeNavigationMigration(item?.extended_price) | number : '1.2-2'}} </td>
                             </tr>
 
                             <tr *ngFor="let option of item?.applied_options">
                                 <td> {{option?.name}} ( {{option?.value}}) </td>
                                 <td>: </td>
-                                <td> ₹ {{option?.price | number : '1.2-2'}} </td>
+                                <td> ₹ {{$safeNavigationMigration(option?.price) | number : '1.2-2'}} </td>
                             </tr>
                             <tr *ngIf="item?.applied_options?.length > 0">
                                 <td>Total</td>
                                 <td>: </td>
-                                <td> ₹ {{item?.total | number : '1.2-2'}} </td>
+                                <td> ₹ {{$safeNavigationMigration(item?.total) | number : '1.2-2'}} </td>
                             </tr>
                             <tr>
                                 <td>GST ({{item?.gst}}%)</td>
                                 <td>: </td>
-                                <td> ₹ {{item?.tax_amount | number : '1.2-2'}} </td>
+                                <td> ₹ {{$safeNavigationMigration(item?.tax_amount) | number : '1.2-2'}} </td>
                             </tr>
                             <tr class="border-top">
                                 <td><strong>Item Total</strong></td>
                                 <td>: </td>
-                                <td> <strong> ₹ {{item?.line_total | number : '1.2-2'}} </strong>
+                                <td> <strong> ₹ {{$safeNavigationMigration(item?.line_total) | number : '1.2-2'}} </strong>
                                 </td>
                             </tr>
                         </table>

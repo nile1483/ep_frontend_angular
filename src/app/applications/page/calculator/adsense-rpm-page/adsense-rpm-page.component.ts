@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
@@ -6,6 +6,7 @@ import { APP_SVG_ICON_LIST } from '@app-shared-constants';
     selector: 'app-adsense-rpm-page',
     templateUrl: './adsense-rpm-page.component.html',
     styleUrl: './adsense-rpm-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AdsenseRpmPageComponent {

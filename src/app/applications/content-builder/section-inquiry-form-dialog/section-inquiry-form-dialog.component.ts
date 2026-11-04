@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -27,6 +27,7 @@ export function isPersonalEmailValidatorDownload(control: UntypedFormControl): V
     selector: 'section-inquiry-form-dialog',
     templateUrl: './section-inquiry-form-dialog.component.html',
     styleUrl: './section-inquiry-form-dialog.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SectionInquiryFormDialogComponent {

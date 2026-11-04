@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { APP_SVG_ICON_LIST} from '@app-shared-constants';
 @Component({
     selector: 'section-clientele',
     templateUrl: './section-clientele.component.html',
     styleUrls: ['./section-clientele.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SectionClienteleComponent implements OnInit {

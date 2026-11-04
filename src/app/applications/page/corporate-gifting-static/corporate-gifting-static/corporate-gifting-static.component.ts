@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '@app-shared-services';
 import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
@@ -32,6 +32,7 @@ export function isPersonalEmailValidatorStatic(control: UntypedFormControl): Val
     selector: 'app-corporate-gifting-static',
     templateUrl: './corporate-gifting-static.component.html',
     styleUrls: ['./corporate-gifting-static.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CorporateGiftingStaticComponent implements OnInit {

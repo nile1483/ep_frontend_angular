@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, DOCUMENT } from '@angular/core';
+import { Component, Inject, OnInit, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LandingPageService } from '../landingpage.service';
@@ -11,6 +11,7 @@ import { AppURL } from 'src/app/app-url';
     selector: 'app-landing-page-detail',
     templateUrl: './landing-page-detail.component.html',
     styleUrls: ['./landing-page-detail.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class LandingPageDetailComponent implements OnInit {

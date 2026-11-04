@@ -34,7 +34,7 @@
                             <td>: </td>
                             <td>
                                 <div class="d-inline-block px-1">{{total?.symbol}}</div> 
-                                <div class="d-inline-block"> {{total?.amount | number : '1.2-2'}}</div>
+                                <div class="d-inline-block"> {{$safeNavigationMigration(total?.amount) | number : '1.2-2'}}</div>
                             </td>
                         </tr>
                         <tr *ngIf="campaignCurrencyTotals.length > 0 && campaignData.discount_amount > 0">
@@ -186,7 +186,7 @@
                                 <td>: </td>
                                 <td> 
                                     <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
-                                    <div class="d-inline-block"> {{item?.price | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                    <div class="d-inline-block"> {{$safeNavigationMigration(item?.price) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -199,7 +199,7 @@
                                 <td>: </td>
                                 <td>
                                     <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
-                                    <div class="d-inline-block"> {{item?.extended_price | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                    <div class="d-inline-block"> {{$safeNavigationMigration(item?.extended_price) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
                                 </td>
                             </tr>
                              
@@ -208,7 +208,7 @@
                                 <td>: </td>
                                 <td>
                                     <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
-                                    <div class="d-inline-block"> {{option?.price | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                    <div class="d-inline-block"> {{$safeNavigationMigration(option?.price) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
                                 </td>
                             </tr>
                             <tr *ngIf="item?.applied_options?.length > 0">
@@ -216,7 +216,7 @@
                                 <td>: </td>
                                 <td>
                                     <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
-                                    <div class="d-inline-block"> {{option?.total | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                    <div class="d-inline-block"> {{$safeNavigationMigration(option?.total) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -224,7 +224,7 @@
                                 <td>: </td>
                                 <td>
                                     <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
-                                    <div class="d-inline-block"> {{item?.tax_amount | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                    <div class="d-inline-block"> {{$safeNavigationMigration(item?.tax_amount) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
                                 </td>
                             </tr>
                             <tr class="border-top">
@@ -232,7 +232,7 @@
                                 <td>: </td>
                                 <td> <strong> 
                                     <div class="d-inline-block px-1">{{item?.selected_currency?.symbol}}</div> 
-                                    <div class="d-inline-block"> {{item?.line_total | convertToExchange: item?.selected_currency | number : '1.2-2'}}</div>
+                                    <div class="d-inline-block"> {{$safeNavigationMigration(item?.line_total) | convertToExchange: $safeNavigationMigration(item?.selected_currency) | number : '1.2-2'}}</div>
                                 </strong>
                                 </td>
                             </tr>

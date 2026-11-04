@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { META_DATA } from '@app-shared-constants';
@@ -29,6 +29,7 @@ export function isPersonalEmailValidatGarbaPage(control: UntypedFormControl): Va
     selector: 'app-garba-sponsorships-page',
     templateUrl: './garba-sponsorships-page.component.html',
     styleUrls: ['./garba-sponsorships-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class GarbaSponsorshipsPageComponent implements OnInit {

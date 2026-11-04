@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormArray, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { UserService } from '@app-shared-services';
 import { META_DATA } from 'src/app/shared/constants/metadata';
@@ -28,6 +28,7 @@ export function isPersonalEmailValidatorHireAPlanner(control: UntypedFormControl
     selector: 'app-hire-a-planner',
     templateUrl: './hire-a-planner.component.html',
     styleUrls: ['./hire-a-planner.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class HireAPlannerComponent implements OnInit {

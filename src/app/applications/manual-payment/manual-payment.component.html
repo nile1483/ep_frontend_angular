@@ -13,14 +13,14 @@
                 <div class="card border-0 billing-address-card">
                     <div class="card-header px-0 bg-white">
                         <h6 class="mb-0">Order Amount : 
-                            ₹ {{paymentDetails?.amount | number : '1.2-2'}}/-
+                            ₹ {{$safeNavigationMigration(paymentDetails?.amount) | number : '1.2-2'}}/-
                         </h6>
                         <h6 class="mb-0 mt-2">Online Payment Charge (2.36%) : 
-                            ₹ {{paymentDetails?.charge_amount | number : '1.2-2'}}/-
+                            ₹ {{$safeNavigationMigration(paymentDetails?.charge_amount) | number : '1.2-2'}}/-
                         </h6>
                         <hr>
                         <h4 class="mb-0 mt-2">Total Payment:  : 
-                            ₹ {{paymentDetails?.final_amount | number : '1.2-2'}}/-
+                            ₹ {{$safeNavigationMigration(paymentDetails?.final_amount) | number : '1.2-2'}}/-
                         </h4>
 
                         <hr>

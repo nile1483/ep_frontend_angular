@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
 import { BillingInfo } from 'src/app/shared/model/shopping-cart';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
@@ -16,6 +16,7 @@ import { APP_SVG_ICON_LIST } from '@app-shared-constants';
     selector: 'app-billing',
     templateUrl: './billing.component.html',
     styleUrls: ['./billing.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class BillingComponent implements OnInit {

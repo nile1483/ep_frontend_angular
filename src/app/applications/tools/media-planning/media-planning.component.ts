@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MEDIA_ICON_LIST } from 'src/app/shared/constants/common';
 import { MediaplanningService } from 'src/app/applications/tools/mediaplanning.service';
@@ -12,6 +12,7 @@ import { CommonService } from '@app-shared-services';
     selector: 'app-media-planning',
     templateUrl: './media-planning.component.html',
     styleUrls: ['./media-planning.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class MediaPlanningComponent implements OnInit {

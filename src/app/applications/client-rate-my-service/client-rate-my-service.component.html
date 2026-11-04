@@ -127,10 +127,10 @@
                             <div class="ms-md-5 ms-0 mt-md-0 mt-2">
                                 <button class="star-rating-btn" mat-icon-button *ngFor="let ratingId of ratingArr; index as i" [id]="'star_' + i" (click)="onClickStarRating(i+1,'overall_rating')">
                                     <ng-container *ngIf="i < rateMyServiceForm.controls['overall_rating'].value; else emptyStar">
-                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['empty-star'] | safeHtml"></p>
+                                        <p class="star-rating" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['empty-star']) | safeHtml"></p>
                                     </ng-container>
                                     <ng-template #emptyStar>
-                                        <p class="star-rating" [innerHTML]="app_svg_icon_list?.['full-star'] | safeHtml"></p>
+                                        <p class="star-rating" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['full-star']) | safeHtml"></p>
                                     </ng-template>
                                 </button>
                             </div>
