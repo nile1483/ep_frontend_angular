@@ -58,7 +58,7 @@
                             <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
                             <div class="d-inline-block"> {{campaign?.grand_total | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                         </td>  -->
-                        <td class="campaign-date"><span>Created Date:</span> {{ campaign?.created_at | date:'medium' }} </td> 
+                        <td class="campaign-date"><span>Created Date:</span> {{ $safeNavigationMigration(campaign?.created_at) | date:'medium' }} </td> 
                       </tr>
                        
                     </tbody>

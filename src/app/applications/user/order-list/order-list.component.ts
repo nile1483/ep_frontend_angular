@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from 'src/app/shared/services/user.service';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
@@ -7,9 +7,11 @@ import { AppURL } from 'src/app/app-url';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-order-list',
-  templateUrl: './order-list.component.html',
-  styleUrls: ['./order-list.component.css']
+    selector: 'app-order-list',
+    templateUrl: './order-list.component.html',
+    styleUrls: ['./order-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class OrderListComponent implements OnInit {
 

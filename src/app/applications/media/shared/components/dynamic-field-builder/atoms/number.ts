@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 // text,email,tel,textarea,password, 
@@ -16,7 +16,9 @@ import { FormGroup } from '@angular/forms';
         </mat-form-field>
         </div>
       </div>
-      `
+      `,
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class NumberComponent {
     @Input() field:any = {};

@@ -38,7 +38,7 @@
                 </div>
                 <div class="services-header-bottom-content" *ngIf="mediaDetail?.keyInsights">
                     <h5> Key Insights </h5>
-                    <span class="badge m-1" *ngFor="let item of mediaDetail?.keyInsights | keyvalue">
+                    <span class="badge m-1" *ngFor="let item of $safeNavigationMigration(mediaDetail?.keyInsights) | keyvalue">
                         <strong> {{item.value}} </strong> {{item.key}}
                     </span>
                 </div>
@@ -63,21 +63,21 @@
                         <div class="services-detail-card-body">
                             <p class="services-detail-card-title"> {{price?.name}} </p>
 
-                            <div class="pb-3 price-description" [innerHTML]="price?.description"></div>
+                            <div class="pb-3 price-description" [innerHTML]="$safeNavigationMigration(price?.description)"></div>
 
                             <div class="services-card-price-row d-flex"
                                 *ngIf="isAuthenticated && price.price_on_request == 0">
                                 <div class="services-card-price-col price-week">
                                     <span>
                                         <div class="price-week-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                        <div class="price-week-currency d-inline-block"> {{price?.offer_rate | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                        <div class="price-week-currency d-inline-block"> {{$safeNavigationMigration(price?.offer_rate) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                                     </span>
                                     <span> {{price?.unit}} </span>
                                 </div>
                                 <div class="services-card-price-col price-bill">
                                     <span>
                                         <div class="price-bill-currency d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                        <div class="price-bill-currency d-inline-block"> {{price?.minimum_billing | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                        <div class="price-bill-currency d-inline-block"> {{$safeNavigationMigration(price?.minimum_billing) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                                     </span>
                                     <span> Minimum Billing </span>
                                 </div>
@@ -96,7 +96,7 @@
                                     <button type="button" class="btn btn-primary view-price"
                                         [attr.data-item-name]="mediaDetail.name"
                                         [attr.data-item-price-name]="price.name"
-                                        (click)="openUserLoginDialog(mediaDetail?.name)">Login to View Price </button>
+                                        (click)="openUserLoginDialog($safeNavigationMigration(mediaDetail?.name))">Login to View Price </button>
                                 </div>
                             </div>
 

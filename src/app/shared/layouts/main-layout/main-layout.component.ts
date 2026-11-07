@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { CookieService, UserService } from '@app-shared-services';
 import { MatDialog } from '@angular/material/dialog';
 import { ShoppingCartService } from '@app-media-services';
@@ -13,10 +13,12 @@ import { map } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-main-layout',
-  templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.css'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-main-layout',
+    templateUrl: './main-layout.component.html',
+    styleUrls: ['./main-layout.component.css'],
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 
 export class MainLayoutComponent implements OnInit {

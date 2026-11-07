@@ -56,8 +56,8 @@
                         <td><span class="order-no-table">Order No:</span> <a aria-label="Order Detail Link" [routerLink]="['/user','order',order.id]" > {{order?.order_no}} </a> </td>
                         <td><span>Campaign Name:</span> {{order?.campaign_name}} </td>
                         <td><span>Item Count:</span> {{order?.item_count}} </td>
-                        <td><span>Total:</span> ₹ {{order?.order_grand_total | number : '1.2-2'}} </td> 
-                        <td><span>Created Date:</span> {{ order?.order_date | date:'medium' }} </td> 
+                        <td><span>Total:</span> ₹ {{$safeNavigationMigration(order?.order_grand_total) | number : '1.2-2'}} </td> 
+                        <td><span>Created Date:</span> {{ $safeNavigationMigration(order?.order_date) | date:'medium' }} </td> 
                         <!-- <td> {{ order?.created_by }} </td>  -->
                       </tr>
                     </tbody>

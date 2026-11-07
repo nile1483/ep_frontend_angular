@@ -19,7 +19,7 @@
                     <h5 class="mb-3">Ahmedabad</h5>
                     <div class="contact-card-detail w-100">
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['location-dot'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['location-dot']) | safeHtml">
                                 <!-- <i class="fa-solid fa-location-dot"></i> -->
                             </div>
                             <div class="contact-item-content">
@@ -36,7 +36,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml">
                             </div>
                             <div class="contact-item-content email-list">
                                 <p class="mb-0 email-link">
@@ -56,7 +56,7 @@
                     <h5 class="mb-3">Mumbai</h5>
                     <div class="contact-card-detail w-100">
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['location-dot'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['location-dot']) | safeHtml">
                                 <!-- <i class="fa-solid fa-location-dot"></i> -->
                             </div>
                             <div class="contact-item-content">
@@ -73,7 +73,7 @@
                         </div>
                        
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml">
                             </div>
                             <div class="contact-item-content email-list">
                                 <p class="mb-0 email-link"><a aria-label="Link"
@@ -92,7 +92,7 @@
                     <h5 class="mb-3">Pune</h5>
                     <div class="contact-card-detail w-100">
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['location-dot'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['location-dot']) | safeHtml">
                                 <!-- <i class="fa-solid fa-location-dot"></i> -->
                             </div>
                             <div class="contact-item-content">
@@ -106,7 +106,7 @@
                         </div>
                        
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml">
                             </div>
                             <div class="contact-item-content email-list">
                                 <p class="mb-0 email-link"><a aria-label="Link"
@@ -126,7 +126,7 @@
                     <h5 class="mb-3">Delhi – NCR</h5>
                     <div class="contact-card-detail w-100">
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['location-dot'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['location-dot']) | safeHtml">
                             </div>
                             <div class="contact-item-content">
                                 <p class="mb-0">
@@ -140,7 +140,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml">
                             </div>
                             <div class="contact-item-content email-list">
                                 <p class="mb-0 email-link">
@@ -161,7 +161,7 @@
                     <h5 class="mb-3">Dubai</h5>
                     <div class="contact-card-detail w-100">
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['location-dot'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['location-dot']) | safeHtml">
                                 <!-- <i class="fa-solid fa-location-dot"></i> -->
                             </div>
                             <div class="contact-item-content">
@@ -182,7 +182,7 @@
                             </div>
                         </div> -->
                         <div class="contact-item mt-5">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml">
                                 <!-- <i class="fa-solid fa-envelope"></i> -->
                             </div>
                             <div class="contact-item-content email-list">
@@ -209,7 +209,7 @@
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['phone'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['phone']) | safeHtml">
                             </div>
                             <div class="contact-item-content">
                                 <p class="mb-0">
@@ -230,11 +230,11 @@
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-item-icon" [innerHTML]="app_svg_icon_list?.['phone'] | safeHtml">
+                            <div class="contact-item-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['phone']) | safeHtml">
                             </div>
                             <div class="contact-item-content">
                                 <p class="mb-0">
-                                    <a aria-label="Telephone Link" href="tel:+919898946420">+971 55 468 7667</a>
+                                    <a aria-label="Telephone Link" href="tel:+971554687667">+971 55 468 7667</a>
                                 </p>
                             </div>
                         </div>

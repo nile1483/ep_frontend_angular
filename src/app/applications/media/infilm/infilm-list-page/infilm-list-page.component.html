@@ -53,7 +53,7 @@
                             <div class="accordion-body">
                                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchInFilmType">
                                 <ul class="list-unstyled mt-3 filter-data">
-                                    <li *ngFor="let value of filterList?.in_film_type?.values | filter:{name : searchInFilmType}">
+                                    <li *ngFor="let value of $safeNavigationMigration(filterList?.in_film_type?.values) | filter:{name : searchInFilmType}">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="in-film-type-{{value?.id}}" (change)="filterValueChange($event,'in_film_type', value.name)">
                                             <label class="form-check-label" for="in-film-type-{{value?.id}}">
@@ -82,7 +82,7 @@
                             <div class="accordion-body">
                                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchGenre">
                                 <ul class="list-unstyled mt-3 filter-data">
-                                    <li *ngFor="let value of filterList?.genre?.values | filter:{name : searchGenre}">
+                                    <li *ngFor="let value of $safeNavigationMigration(filterList?.genre?.values) | filter:{name : searchGenre}">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="genre-{{value?.id}}" (change)="filterValueChange($event,'genre', value.name)">
                                             <label class="form-check-label" for="genre-{{value?.id}}">
@@ -111,7 +111,7 @@
                             <div class="accordion-body">
                                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchLanguage">
                                 <ul class="list-unstyled mt-3 filter-data">
-                                    <li *ngFor="let value of filterList?.language?.values | filter:{name : searchLanguage}">
+                                    <li *ngFor="let value of $safeNavigationMigration(filterList?.language?.values) | filter:{name : searchLanguage}">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="language-{{value?.id}}" (change)="filterValueChange($event,'language', value.name)">
                                             <label class="form-check-label" for="language-{{value?.id}}">
@@ -147,11 +147,11 @@
 <div class="media-filter-mobile d-lg-none d-flex align-items-cente">
     <div class="media-sorting-button flex-fill" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort">
         Sort
-        <span [innerHTML]="app_svg_icon_list?.['arrow-down-wide-short'] | safeHtml"></span>
+        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-down-wide-short']) | safeHtml"></span>
         <!-- <i class="fa-light fa-arrow-down-wide-short"></i> -->
     </div>
     <div class="media-sorting-button flex-fill" (click)="setTempApplyedValue()" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter">
-        <span [innerHTML]="app_svg_icon_list?.['filter'] | safeHtml"></span> Filters
+        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['filter']) | safeHtml"></span> Filters
         <!-- <i class="fa-light fa-filter"></i> -->
     </div>
 </div>
@@ -193,7 +193,7 @@
                         <p> Language: <b>{{((item?.language).split(',')).join(', ')}}</b> </p>
                         <div class="media-button">
                             <a aria-label="Button" type="button" *ngIf="isAuthenticated" data-item-link-type="View More" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" [routerLink]="['/',media,item.slug]" class="btn btn-outline-primary w-100 view-item-button"> View More</a>
-                            <a aria-label="Button" type="button" href="javascript:void(0)" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" (click)="openUserLoginDialog(item?.name)" class="btn btn-outline-primary w-100 view-price" *ngIf="!isAuthenticated"> Login to View Price</a>
+                            <a aria-label="Button" type="button" href="javascript:void(0)" [attr.data-item-name]="item.name" [attr.data-item-order]="i+1" (click)="openUserLoginDialog($safeNavigationMigration(item?.name))" class="btn btn-outline-primary w-100 view-price" *ngIf="!isAuthenticated"> Login to View Price</a>
                         </div>
                     </div>
                 </div>
@@ -205,7 +205,7 @@
         <div class="row mt-5" *ngIf="isShowViewMore">
             <div class="col-12 text-center" *ngIf="(isLoadingMore != true); else loadingMoreData">
                 <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreItems()" class="more-link more-link-with-text orange-link">
-                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
                         <!-- <i class="fa-light fa-arrow-right-long"></i> -->
                     </span>
                 </a>
@@ -281,7 +281,7 @@
                     <div class="tab-pane-body">
                         <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchInFilmType">
                         <ul class="list-unstyled mt-3 filter-data ps-1">
-                            <li *ngFor="let value of filterList?.in_film_type?.values | filter:{name : searchInFilmType}">
+                            <li *ngFor="let value of $safeNavigationMigration(filterList?.in_film_type?.values) | filter:{name : searchInFilmType}">
                                 <div class="form-check">
                                     <input class="form-check-input small-check" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="mf-in-film-type-{{value?.id}}" (change)="mobileFilterValueChange($event,'in_film_type', value.name)">
                                     <label class="form-check-label m-filter-label" for="mf-in-film-type-{{value?.id}}">
@@ -299,7 +299,7 @@
                     <div class="tab-pane-body">
                         <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchGenre">
                         <ul class="list-unstyled mt-3 filter-data ps-1">
-                            <li *ngFor="let value of filterList?.genre?.values | filter:{name : searchGenre}">
+                            <li *ngFor="let value of $safeNavigationMigration(filterList?.genre?.values) | filter:{name : searchGenre}">
                                 <div class="form-check">
                                     <input class="form-check-input small-check" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="mf-genre-{{value?.id}}" (change)="mobileFilterValueChange($event,'genre', value.name)">
                                     <label class="form-check-label m-filter-label" for="mf-genre-{{value?.id}}">
@@ -317,7 +317,7 @@
                     <div class="tab-pane-body">
                         <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchLanguage">
                         <ul class="list-unstyled mt-3 filter-data ps-1">
-                            <li *ngFor="let value of filterList?.language?.values | filter:{name : searchLanguage}">
+                            <li *ngFor="let value of $safeNavigationMigration(filterList?.language?.values) | filter:{name : searchLanguage}">
                                 <div class="form-check">
                                     <input class="form-check-input small-check" type="checkbox" [checked]="value.checked" value="{{value?.name}}" id="mf-language-{{value?.id}}" (change)="mobileFilterValueChange($event,'language', value.name)">
                                     <label class="form-check-label m-filter-label" for="mf-language-{{value?.id}}">
@@ -351,7 +351,7 @@
         <ul class="list-unstyled m-0">
             <li *ngFor="let item of sortingList; let i=index">
                 <div class="form-check">
-                    <input class="form-check-input small-check" type="radio" name="sortfilter" id="sort{{i}}" (click)="changeSortByValue(item)" [checked]="item?.isDefault">
+                    <input class="form-check-input small-check" type="radio" name="sortfilter" id="sort{{i}}" (click)="changeSortByValue(item)" [checked]="$safeNavigationMigration(item?.isDefault)">
                     <label class="form-check-label ps-2" for="sort{{i}}">
                         {{item?.label}}
                     </label>

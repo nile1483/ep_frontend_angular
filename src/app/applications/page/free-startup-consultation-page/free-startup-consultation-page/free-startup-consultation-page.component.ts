@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '@app-shared-services';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
@@ -27,9 +27,11 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
 }
 
 @Component({
-  selector: 'app-free-startup-consultation-page',
-  templateUrl: './free-startup-consultation-page.component.html',
-  styleUrl: './free-startup-consultation-page.component.css'
+    selector: 'app-free-startup-consultation-page',
+    templateUrl: './free-startup-consultation-page.component.html',
+    styleUrl: './free-startup-consultation-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class FreeStartupConsultationPageComponent {
 

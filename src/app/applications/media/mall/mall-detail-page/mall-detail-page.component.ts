@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MallService } from '@app-media-services';
@@ -9,11 +9,13 @@ import { MetaInformation } from '@app-shared-model';
 import { C2A_TITLE_DATA } from '@app-shared-constants';
 import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
-import { DOCUMENT } from '@angular/common';
+
 @Component({
-  selector: 'app-mall-detail-page',
-  templateUrl: './mall-detail-page.component.html',
-  styleUrls: ['./mall-detail-page.component.css']
+    selector: 'app-mall-detail-page',
+    templateUrl: './mall-detail-page.component.html',
+    styleUrls: ['./mall-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class MallDetailPageComponent implements OnInit {
 

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Utilities } from '@app-shared-helpers';
 import { CommonService } from '@app-shared-services';
 import { ShoppingCartService } from '@app-media-services';
@@ -12,9 +12,11 @@ import { Subscription } from 'rxjs';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+    selector: 'shopping-cart',
+    templateUrl: './shopping-cart.component.html',
+    styleUrls: ['./shopping-cart.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ShoppingCartComponent implements OnInit {
   shoppingCartData: any = [];

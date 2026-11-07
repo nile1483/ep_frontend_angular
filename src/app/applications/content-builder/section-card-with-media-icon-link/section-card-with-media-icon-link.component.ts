@@ -1,12 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SectionInquiryFormDialogComponent } from './../section-inquiry-form-dialog/section-inquiry-form-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'section-card-with-media-icon-link',
-  templateUrl: './section-card-with-media-icon-link.component.html',
-  styleUrl: './section-card-with-media-icon-link.component.css'
+    selector: 'section-card-with-media-icon-link',
+    templateUrl: './section-card-with-media-icon-link.component.html',
+    styleUrl: './section-card-with-media-icon-link.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class SectionCardWithMediaIconLinkComponent {
 

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AbstractControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '@app-shared-services';
@@ -43,9 +43,11 @@ export function emailValidator(control: AbstractControl) {
 
 
 @Component({
-  selector: 'app-ipl-advertising-page-inquiry-dialog',
-  templateUrl: './ipl-advertising-page-inquiry-dialog.component.html',
-  styleUrls: ['./ipl-advertising-page-inquiry-dialog.component.css']
+    selector: 'app-ipl-advertising-page-inquiry-dialog',
+    templateUrl: './ipl-advertising-page-inquiry-dialog.component.html',
+    styleUrls: ['./ipl-advertising-page-inquiry-dialog.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 
 export class IPLAdvertisingPageInquiryDialogComponent implements OnInit {

@@ -32,7 +32,7 @@
                             <td><strong>: </strong> </td>
                             <td>
                                 <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.optionPrice | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.optionPrice) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                             </td>
                         </tr>
                         <tr>
@@ -40,15 +40,15 @@
                             <td><strong>: </strong></td>
                             <td> 
                                 <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.subTotal | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.subTotal) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                             </td>
                         </tr>
-                        <tr [ngClass]="{'min-billing': product?.selectedPrice?.minPriceFlag}">
+                        <tr [ngClass]="{'min-billing': $safeNavigationMigration(product?.selectedPrice?.minPriceFlag)}">
                             <td><abbr title="Minimum Billing Sub Total" class="">Min Billing</abbr></td>
                             <td><strong>: </strong></td>
                             <td>
                                 <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.minimum_billing | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.minimum_billing) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                             </td>
                         </tr>
                         <tr *ngFor="let option of product?.selectedPrice?.option">
@@ -56,7 +56,7 @@
                             <td><strong>: </strong></td>
                             <td>
                                 <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{option?.value?.price | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                <div class="d-inline-block"> {{$safeNavigationMigration(option?.value?.price) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                             </td>
                         </tr>
                         <tr *ngIf="product?.selectedPrice?.option?.length > 0">
@@ -64,7 +64,7 @@
                             <td><strong>: </strong></td>
                             <td>
                                 <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.total | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.total) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                             </td>
                         </tr>
                         <tr>
@@ -72,7 +72,7 @@
                             <td><strong>: </strong></td>
                             <td>
                                 <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.totalGst | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.totalGst) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                             </td>
                         </tr>
                         <tr class="border-top">
@@ -80,7 +80,7 @@
                             <td class="pt-2"><strong>: </strong></td>
                             <td class="pt-2"><strong>
                                 <div class="d-inline-block px-1">{{selectedCurrency?.symbol}}</div> 
-                                <div class="d-inline-block"> {{product?.selectedPrice?.grandTotal | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
+                                <div class="d-inline-block"> {{$safeNavigationMigration(product?.selectedPrice?.grandTotal) | convertToExchange: selectedCurrency | number : '1.2-2'}}</div>
                             </strong>
                             </td>
                         </tr>

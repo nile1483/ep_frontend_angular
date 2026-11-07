@@ -235,7 +235,7 @@
                 <div id="collapse{{i}}" class="accordion-collapse collapse" aria-labelledby="heading{{i}}"
                   data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                   <div class="accordion-body default-content" itemprop="text">
-                    <p [innerHTML]="item?.answer"></p>
+                    <p [innerHTML]="$safeNavigationMigration(item?.answer)"></p>
                   </div>
                 </div>
               </div>

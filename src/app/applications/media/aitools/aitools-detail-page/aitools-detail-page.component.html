@@ -43,7 +43,7 @@
                         type="button"
                         target="_blank"
                         data-item-link-type="View More"
-                        [href]="mediaDetail?.website_url"
+                        [href]="$safeNavigationMigration(mediaDetail?.website_url)"
                         class="btn btn-outline-primary view-item-button"
                     >
                         View More
@@ -52,7 +52,7 @@
 
                 <div class="services-header-bottom-content" *ngIf="mediaDetail?.keyInsights">
                     <h5> Key Insights </h5>
-                    <span class="badge m-1" *ngFor="let item of mediaDetail?.keyInsights | keyvalue">
+                    <span class="badge m-1" *ngFor="let item of $safeNavigationMigration(mediaDetail?.keyInsights) | keyvalue">
                         {{item.key}} <strong> {{item.value}} </strong> 
                     </span>
                 </div>

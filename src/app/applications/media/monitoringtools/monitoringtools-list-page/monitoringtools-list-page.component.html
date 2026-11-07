@@ -60,7 +60,7 @@
 <div class="media-filter-mobile d-lg-none d-flex align-items-cente">
     <div class="media-sorting-button flex-fill" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileSort" aria-controls="CategoryMobileSort">
         Sort
-        <span [innerHTML]="app_svg_icon_list?.['arrow-down-wide-short'] | safeHtml"></span>
+        <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-down-wide-short']) | safeHtml"></span>
     </div>
     <!-- <div class="media-sorting-button flex-fill" (click)="setTempApplyedValue()" data-bs-toggle="offcanvas" data-bs-target="#CategoryMobileFilter" aria-controls="CategoryMobileFilter">
         <span [innerHTML]="app_svg_icon_list?.['filter'] | safeHtml"></span> Filters
@@ -112,7 +112,7 @@
         <div class="row mt-5" *ngIf="isShowViewMore">
             <div class="col-12 text-center" *ngIf="(isLoadingMore != true); else loadingMoreData">
                 <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreItems()" class="more-link more-link-with-text orange-link">
-                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="app_svg_icon_list?.['arrow-right-long'] | safeHtml">
+                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
                         <!-- <i class="fa-light fa-arrow-right-long"></i> -->
                     </span>
                 </a>
@@ -203,7 +203,7 @@
         <ul class="list-unstyled m-0">
             <li *ngFor="let item of sortingList; let i=index">
                 <div class="form-check">
-                    <input class="form-check-input small-check" type="radio" name="sortfilter" id="sort{{i}}" (click)="changeSortByValue(item)" [checked]="item?.isDefault">
+                    <input class="form-check-input small-check" type="radio" name="sortfilter" id="sort{{i}}" (click)="changeSortByValue(item)" [checked]="$safeNavigationMigration(item?.isDefault)">
                     <label class="form-check-label ps-2" for="sort{{i}}">
                         {{item?.label}}
                     </label>

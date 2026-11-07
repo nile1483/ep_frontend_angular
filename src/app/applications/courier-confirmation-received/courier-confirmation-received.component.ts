@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ShoppingCartService } from '@app-media-services';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CommonService } from '@app-shared-services';
 
 @Component({
-  selector: 'app-courier-confirmation-received',
-  templateUrl: './courier-confirmation-received.component.html',
-  styleUrl: './courier-confirmation-received.component.css'
+    selector: 'app-courier-confirmation-received',
+    templateUrl: './courier-confirmation-received.component.html',
+    styleUrl: './courier-confirmation-received.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class CourierConfirmationReceivedComponent {
 

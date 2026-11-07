@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'dropdown-attribute',
-  template: `
+    selector: 'dropdown-attribute',
+    template: `
       <div [formGroup]="form">
         <div [formGroupName]="'attribute'" >
         
@@ -11,15 +11,17 @@ import { FormGroup } from '@angular/forms';
           <a class="reset-attribute" (click)="resetAttribute(field)">Reset</a>
           <mat-label>{{field.name}}   </mat-label> 
             <mat-select [formControlName]="field.code"  [(value)]="field.selected" (selectionChange)="changeAttributeValue(field)">
-                <mat-option *ngFor="let opt of field.values;let i=index" [value]="opt" [disabled]="field?.isOptionDisabled[i]" >{{opt}} </mat-option>
+                <mat-option *ngFor="let opt of field.values;let i=index" [value]="opt" [disabled]="$safeNavigationMigration(field?.isOptionDisabled[i])" >{{opt}} </mat-option>
             </mat-select>
           </mat-form-field>
         </div> 
       </div> 
     `,
-  styles: [
-    '::ng-deep ::-webkit-scrollbar {width: 5px;} ::ng-deep ::-webkit-scrollbar-thumb { background: var(--bs-primary); }'
-  ]     
+    styles: [
+        '::ng-deep ::-webkit-scrollbar {width: 5px;} ::ng-deep ::-webkit-scrollbar-thumb { background: var(--bs-primary); }'
+    ],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class DropDownAttributeComponent {
   @Input() field: any = {};

@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'radio-attribute',
-  template: `
+    selector: 'radio-attribute',
+    template: `
       <div [formGroup]="form"> 
         <div [formGroupName]="'attribute'" >       
         <mat-label>{{field.name}}</mat-label><br> 
@@ -15,7 +15,9 @@ import { FormGroup } from '@angular/forms';
           <mat-error *ngIf="isRequired"> This is required</mat-error>
         </div> 
       </div> 
-    `
+    `,
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class RadioAttributeComponent { 
   @Input() field: any = {};

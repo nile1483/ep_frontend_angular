@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { META_DATA } from '@app-shared-constants';
@@ -25,9 +25,11 @@ export function isPersonalEmailValidatorOtherServicesPage(control: UntypedFormCo
 }
 
 @Component({
-  selector: 'app-other-services-page',
-  templateUrl: './other-services-page.component.html',
-  styleUrls: ['./other-services-page.component.css']
+    selector: 'app-other-services-page',
+    templateUrl: './other-services-page.component.html',
+    styleUrls: ['./other-services-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class OtherServicesPageComponent implements OnInit {
   webURL: string = AppURL.webURL;

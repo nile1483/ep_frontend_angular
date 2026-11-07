@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CareerService } from "@app-company-services";
 import { AppURL } from 'src/app/app-url';
@@ -10,9 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../../page/page.service';
 
 @Component({
-  selector: 'app-career-questions-form',
-  templateUrl: './career-questions-form.component.html',
-  styleUrl: './career-questions-form.component.css'
+    selector: 'app-career-questions-form',
+    templateUrl: './career-questions-form.component.html',
+    styleUrl: './career-questions-form.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class CareerQuestionsFormComponent {
 

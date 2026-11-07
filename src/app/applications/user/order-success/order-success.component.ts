@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
 import { CommonService } from '@app-shared-services';
@@ -8,9 +8,11 @@ import { AppURL } from 'src/app/app-url';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-order-success',
-  templateUrl: './order-success.component.html',
-  styleUrls: ['./order-success.component.css']
+    selector: 'app-order-success',
+    templateUrl: './order-success.component.html',
+    styleUrls: ['./order-success.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class OrderSuccessComponent implements OnInit {
 

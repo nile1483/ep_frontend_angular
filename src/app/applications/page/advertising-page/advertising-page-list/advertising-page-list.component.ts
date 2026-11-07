@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AdvertisingPageService } from '../advertising-page.service';
 import { AppURL } from 'src/app/app-url';
 import { META_DATA } from '@app-shared-constants';
@@ -7,9 +7,11 @@ import { CommonService } from '@app-shared-services';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-advertising-page-list',
-  templateUrl: './advertising-page-list.component.html',
-  styleUrls: ['./advertising-page-list.component.css']
+    selector: 'app-advertising-page-list',
+    templateUrl: './advertising-page-list.component.html',
+    styleUrls: ['./advertising-page-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class AdvertisingPageListComponent implements OnInit {
 

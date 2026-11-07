@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APP_SVG_ICON_LIST } from '@app-shared-constants';
 
 @Component({
-  selector: 'app-ecpm-page',
-  templateUrl: './ecpm-page.component.html',
-  styleUrl: './ecpm-page.component.css'
+    selector: 'app-ecpm-page',
+    templateUrl: './ecpm-page.component.html',
+    styleUrl: './ecpm-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class EcpmPageComponent {
   growthForm: FormGroup;

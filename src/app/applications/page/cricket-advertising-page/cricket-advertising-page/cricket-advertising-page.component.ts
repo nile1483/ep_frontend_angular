@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
 import { CommonService, UserService } from '@app-shared-services';
@@ -25,9 +25,11 @@ export function isPersonalEmailValidatoMediaPage(control: UntypedFormControl): V
 }
 
 @Component({
-  selector: 'app-cricket-advertising-page',
-  templateUrl: './cricket-advertising-page.component.html',
-  styleUrl: './cricket-advertising-page.component.css'
+    selector: 'app-cricket-advertising-page',
+    templateUrl: './cricket-advertising-page.component.html',
+    styleUrl: './cricket-advertising-page.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class CricketAdvertisingPageComponent {
 

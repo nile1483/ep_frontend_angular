@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
@@ -6,9 +6,11 @@ import { PageService } from '../../page.service';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-  selector: 'app-country-page-detail',
-  templateUrl: './country-page-detail.component.html',
-  styleUrl: './country-page-detail.component.css'
+    selector: 'app-country-page-detail',
+    templateUrl: './country-page-detail.component.html',
+    styleUrl: './country-page-detail.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class CountryPageDetailComponent {
 

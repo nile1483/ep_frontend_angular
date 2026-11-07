@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { C2A_TITLE_DATA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
@@ -10,9 +10,11 @@ import { PageService } from '../../page.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-world-cup-page',
-  templateUrl: './world-cup-page.component.html',
-  styleUrls: ['./world-cup-page.component.css']
+    selector: 'app-world-cup-page',
+    templateUrl: './world-cup-page.component.html',
+    styleUrls: ['./world-cup-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class WorldCupPageComponent implements OnInit {
 

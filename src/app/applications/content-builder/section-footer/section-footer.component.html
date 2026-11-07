@@ -54,7 +54,7 @@
                         <ul class="list-unstyled list-inline-mob">
                             <ng-container *ngFor="let footer of pageBlock?.footer_block_data; let i=index">
                                 <li *ngIf="i < pageBlock?.footer_block_data.length / 2">
-                                    <a aria-label="Link" [href]="footer?.link">{{footer?.label}}</a>
+                                    <a aria-label="Link" [href]="$safeNavigationMigration(footer?.link)">{{footer?.label}}</a>
                                 </li>
                             </ng-container>
                         </ul>
@@ -63,7 +63,7 @@
                         <ul class="list-unstyled list-inline-mob">
                             <ng-container *ngFor="let footer of pageBlock?.footer_block_data; let i=index">
                                 <li *ngIf="i >= pageBlock?.footer_block_data.length / 2">
-                                    <a aria-label="Link" [href]="footer?.link">{{footer?.label}}</a>
+                                    <a aria-label="Link" [href]="$safeNavigationMigration(footer?.link)">{{footer?.label}}</a>
                                 </li>
                             </ng-container>
                         </ul>
@@ -91,23 +91,23 @@
                 </ul>
                 <ul class="social-links d-flex align-items-center justify-content-center justify-content-lg-start mt-3">
                     <li>
-                        <a aria-label="Link" href="https://www.youtube.com/channel/UCy0nXadAHsfLsDxWuThbz4A" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['youtube'] | safeHtml">
+                        <a aria-label="Link" href="https://www.youtube.com/channel/UCy0nXadAHsfLsDxWuThbz4A" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['youtube']) | safeHtml">
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://x.com/EP_TALKIES" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['twitter'] | safeHtml">
+                        <a aria-label="Link" href="https://x.com/EP_TALKIES" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['twitter']) | safeHtml">
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://in.linkedin.com/company/excellent-publicity" rel="noreferrer" target="_blank" [innerHTML]="app_svg_icon_list?.['linkedin-in'] | safeHtml">
+                        <a aria-label="Link" href="https://in.linkedin.com/company/excellent-publicity" rel="noreferrer" target="_blank" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['linkedin-in']) | safeHtml">
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://www.facebook.com/ExcellentPublicity/" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['facebook-f'] | safeHtml">
+                        <a aria-label="Link" href="https://www.facebook.com/ExcellentPublicity/" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['facebook-f']) | safeHtml">
                         </a>
                     </li>
                     <li>
-                        <a aria-label="Link" href="https://www.instagram.com/excellentpublicity" target="_blank" rel="noreferrer" [innerHTML]="app_svg_icon_list?.['instagram'] | safeHtml">
+                        <a aria-label="Link" href="https://www.instagram.com/excellentpublicity" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['instagram']) | safeHtml">
                         </a>
                     </li>
                 </ul>
@@ -136,22 +136,22 @@
         <div class="row">
             <div class="col text-center border-end">
                 <a aria-label="Link" href="/">
-                    <span [innerHTML]="app_svg_icon_list?.['house'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['house']) | safeHtml"></span>
                 </a>
             </div>
             <div class="col text-center border-end">
                 <a aria-label="Link" href="tel:{{removeSpaces(pageBlock.footer_contact_info.contact)}}" class="c2atracking" [attr.data-c2a-type]="'Phone'" [attr.data-c2a-value]="removeSpaces(pageBlock.footer_contact_info.contact)" [attr.data-c2a-placement]="'Mobile Static'">
-                    <span [innerHTML]="app_svg_icon_list?.['phone'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['phone']) | safeHtml"></span>
                 </a>
             </div>
             <div class="col text-center border-end">
                 <a aria-label="Link" href="https://wa.me/{{pageBlock.footer_contact_info.contact_dialcode}}{{removeSpaces(pageBlock.footer_contact_info.contact)}}?text=Hello%2C%20I'm%20interested%20in%20advertising." class="c2atracking" [attr.data-c2a-type]="'Whatsapp'" [attr.data-c2a-value]="removeSpaces(pageBlock.footer_contact_info.contact)" [attr.data-c2a-placement]="'Mobile Static'">
-                    <span [innerHTML]="app_svg_icon_list?.['whatsapp'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['whatsapp']) | safeHtml"></span>
                 </a>
             </div>
             <div class="col text-center">
                 <a aria-label="Link" href="mailto:{{pageBlock.footer_contact_info.email}}" class="c2atracking" [attr.data-c2a-type]="'Email'" [attr.data-c2a-value]="pageBlock.footer_contact_info.email" [attr.data-c2a-placement]="'Mobile Static'">
-                    <span [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml"></span>
+                    <span [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml"></span>
                 </a>
             </div>
         </div>
@@ -161,7 +161,7 @@
 <div class="chat d-lg-block d-none " style="margin-right: 195px; min-width: 285px; padding: 0 7px">
     <h3>
         <a aria-label="Link" href="mailto:pageBlock.footer_contact_info.email" class="c2atracking" [attr.data-c2a-type]="'Email'" [attr.data-c2a-placement]="'Desktop Static'">
-            <span class="svg-icon-footer" [innerHTML]="app_svg_icon_list?.['envelope'] | safeHtml"></span> 
+            <span class="svg-icon-footer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['envelope']) | safeHtml"></span> 
             {{pageBlock.footer_contact_info.email}}
         </a>
     </h3>
@@ -169,7 +169,7 @@
 <div class="chat d-lg-block d-none" style="min-width: 165px; padding: 0 7px">
     <h3 style="font-family: arial;">
         <a aria-label="Link" href="tel:pageBlock.footer_contact_info.contact" class="c2atracking" [attr.data-c2a-type]="'Phone'" [attr.data-c2a-placement]="'Desktop Static'" [attr.data-c2a-value]="pageBlock.footer_contact_info.contact">
-            <span class="svg-icon-footer" [innerHTML]="app_svg_icon_list?.['phone'] | safeHtml"></span> 
+            <span class="svg-icon-footer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['phone']) | safeHtml"></span> 
             +{{pageBlock?.footer_contact_info?.contact_dialcode}} {{pageBlock?.footer_contact_info?.contact}}
         </a>
     </h3>

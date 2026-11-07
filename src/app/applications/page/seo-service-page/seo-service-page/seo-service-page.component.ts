@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '@app-shared-services';
 import { C2A_TITLE_DATA } from '@app-shared-constants';
 import { META_DATA } from '@app-shared-constants';
@@ -30,9 +30,11 @@ export function isPersonalEmailValidatoSeoServicePage(control: UntypedFormContro
 
 
 @Component({
-  selector: 'app-seo-service-page',
-  templateUrl: './seo-service-page.component.html',
-  styleUrls: ['./seo-service-page.component.css']
+    selector: 'app-seo-service-page',
+    templateUrl: './seo-service-page.component.html',
+    styleUrls: ['./seo-service-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class SeoServicePageComponent implements OnInit {
 

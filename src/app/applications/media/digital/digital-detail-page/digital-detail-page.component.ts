@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DigitalService } from '@app-media-services';
@@ -12,9 +12,11 @@ import { Subscription } from 'rxjs';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-digital-detail-page',
-  templateUrl: './digital-detail-page.component.html',
-  styleUrls: ['./digital-detail-page.component.css']
+    selector: 'app-digital-detail-page',
+    templateUrl: './digital-detail-page.component.html',
+    styleUrls: ['./digital-detail-page.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class DigitalDetailPageComponent implements OnInit {
 

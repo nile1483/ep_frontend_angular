@@ -10,12 +10,12 @@
 
     <!-- simple description -->
     <div *ngSwitchCase="'simple_description'">
-        <div class="section-heading text-center" *ngIf="content?.simple_description != null" [innerHTML]="content?.simple_description"> </div>
+        <div class="section-heading text-center" *ngIf="content?.simple_description != null" [innerHTML]="$safeNavigationMigration(content?.simple_description)"> </div>
     </div>
 
     <!-- description -->
     <div *ngSwitchCase="'description'">
-        <div class="default-content" *ngIf="content?.description != null" [innerHTML]="content?.description | safeHtml"> </div>
+        <div class="default-content" *ngIf="content?.description != null" [innerHTML]="$safeNavigationMigration(content?.description) | safeHtml"> </div>
     </div>
 
 </div>

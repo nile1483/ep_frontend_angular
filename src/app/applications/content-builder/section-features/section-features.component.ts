@@ -1,9 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'section-features',
-  templateUrl: './section-features.component.html',
-  styleUrls: ['./section-features.component.css']
+    selector: 'section-features',
+    templateUrl: './section-features.component.html',
+    styleUrls: ['./section-features.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class SectionFeaturesComponent implements OnInit {
 

@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="text-center mb-5" *ngSwitchCase="'simple_description'">            
-        <div class="centre-line"  *ngIf="content?.simple_description" [innerHTML]="content?.simple_description" ></div>
+        <div class="centre-line"  *ngIf="content?.simple_description" [innerHTML]="$safeNavigationMigration(content?.simple_description)" ></div>
     </div>
     <div  class="row justify-content-center " *ngSwitchCase="'link'">
          
