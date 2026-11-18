@@ -41,7 +41,8 @@ export class CorporateGiftingDetailComponent implements OnInit {
     this.route.params.subscribe((x) => {
       this.downloadType = x['downloadType'] || '';
 
-      this.metaData = CORPORATE_META_DATA[this.downloadType]
+      this.metaData = CORPORATE_META_DATA[this.downloadType];
+
       this.setMetaData();
     });
   }
@@ -63,7 +64,7 @@ export class CorporateGiftingDetailComponent implements OnInit {
     //   Google Tag Manager   //
     //************************//
 
-    this.commonService.gtmPageEvents('Company', 'Company');
+    this.commonService.gtmPageEvents('Company', 'Corporate Gifting');
   }
 
 

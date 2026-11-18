@@ -84,7 +84,7 @@ export class InfilmDetailPageComponent {
       }
 
       //************ GTM ************//
-      this.commonService.gtmPageEvents('Product Detail', 'In-Film-Advertising-And-Cobranding');
+      this.commonService.gtmPageEvents('Product Detail', 'In Film Advertising And Cobranding');
 
     })
   }

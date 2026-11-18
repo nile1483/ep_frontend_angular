@@ -109,9 +109,9 @@ export const META_DATA: any = {
   },
 
   "corporate-gifting": {
-    "meta_title": "Explore Best Corporate Gifts For Employees And Clients | With Excellent Publicity",
-    "meta_description": "Find the best corporate gifts for employees at Excellent Publicity, with a wide selection of thoughtful gifts. | Inquire Now And Get Quote",
-    "meta_keywords": "Best Corporate Gifts For Clients, Corporate Gift Ideas, Corporate Gift Ideas For Clients, Corporate Gift Ideas For Employees Corporate Gifts For Clients, Corporate Gifts For Employees"
+    "meta_title": "Corporate Gifts Solutions | Excellent Publicity",
+    "meta_description": "Explore branded corporate gifts for clients, teams and events. Compare budgets and request bulk gifting ideas from Excellent Publicity.",
+    "meta_keywords": ""
   },
 
   "agency-partnership-program": {
@@ -121,8 +121,8 @@ export const META_DATA: any = {
   },
 
   "mediapage": {
-    "meta_title": "List Your Advertising Media | Excellent Publicity",
-    "meta_description": "Submit your media assets for listing on Excellent Publicity's media buying platform. Showcase your advertising opportunities and expand your visibility.",
+    "meta_title": "Advertising Media Options | Excellent Publicity",
+    "meta_description": "Explore advertising media categories, channel formats and planning options. Discuss a tailored brand campaign with Excellent Publicity.",
     "meta_keywords": ""
   },
 
@@ -139,14 +139,14 @@ export const META_DATA: any = {
   },
 
   "free-startup-consultation": {
-    "meta_title": "Free Startup Marketing Consultation | Excellent Publicity",
-    "meta_description": "Book a free marketing consultation for startups and small businesses with revenue below ₹1 crore. Get practical ideas and a personalized publicity action plan.",
+    "meta_title": "Startup Advertising Consultation | Excellent Publicity",
+    "meta_description": "Launching a business? Discuss media channels, advertising budgets and campaign goals with Excellent Publicity. Request a startup consultation.",
     "meta_keywords": ""
   },
 
   "community": {
-    "meta_title": "Business & Marketing Community | Excellent Publicity",
-    "meta_description": "Request an invite to Excellent Publicity's professional community. Connect with peers and access AI tools, marketing insights and business opportunities.",
+    "meta_title": "Advertising & Marketing Community | Excellent Publicity",
+    "meta_description": "Explore advertising ideas, industry discussions and community resources curated by Excellent Publicity.",
     "meta_keywords": ""
   },
 
@@ -158,14 +158,14 @@ export const META_DATA: any = {
 
   "cricket-advertising": {
     "meta_title": "Cricket Advertising | Excellent Publicity",
-    "meta_description": "Cricket Advertising | Excellent Publicity",
+    "meta_description": "Explore cricket advertising opportunities with Excellent Publicity. Reach cricket fans with targeted campaigns across media channels during cricket tournaments.",
     "meta_keywords": ""
   },
 
   "world-cup": {
-    "meta_title": "World Cup 2023 Advertising Rates | Excellent Publicity",
-    "meta_description": "",
-    "meta_keywords": "World Cup 2023 Advertising Rates | advertisement in world cup | World Cup Ads"
+    "meta_title": "Cricket World Cup Advertising Ideas | Excellent Publicity",
+    "meta_description": "Plan cricket World Cup advertising across relevant media channels. Explore sponsorship and campaign ideas with Excellent Publicity.",
+    "meta_keywords": ""
   },
 
   "seo-service": {
@@ -187,20 +187,20 @@ export const META_DATA: any = {
   },
 
   "calculators": {
-    "meta_title": "Marketing & Business Calculators | Excellent Publicity",
-    "meta_description": "Calculate marketing ROI, ad costs, customer acquisition costs, profit margins and business growth with Excellent Publicity's online calculators.",
+    "meta_title": "Advertising Cost Calculators | Excellent Publicity",
+    "meta_description": "Use advertising calculators to estimate costs and plan media budgets. Explore planning tools from Excellent Publicity.",
     "meta_keywords": ""
   },
 
   "industry-insights": {
-    "meta_title": "Industry Advertising Insights | Excellent Publicity",
-    "meta_description": "Explore industry advertising reports covering sector-wise ad spend, media trends and market activity to make informed marketing and media planning decisions.",
+    "meta_title": "Advertising Industry Insights & Trends | Excellent Publicity",
+    "meta_description": "Explore advertising industry insights, media trends and marketing data from Excellent Publicity to plan smarter campaigns.",
     "meta_keywords": ""
   },
 
   "media-insights": {
-    "meta_title": "Media Insights & Ad Spend Reports | Excellent Publicity",
-    "meta_description": "Explore print, TV, radio and digital advertising reports. Compare ad spend trends, leading advertisers and media activity to plan your next campaign.",
+    "meta_title": "Media Buying Insights & Trends | Excellent Publicity",
+    "meta_description": "Research advertising media and campaign trends with insights from Excellent Publicity. Compare channels before planning your media mix.",
     "meta_keywords": ""
   },
 
@@ -261,6 +261,12 @@ export const META_DATA: any = {
   "profile": {
     "meta_title": "User Profile | Excellent Publicity",
     "meta_description": "User Profile | Excellent Publicity",
+    "meta_keywords": ""
+  },
+
+  "schedule-a-call": {
+    "meta_title": "Book an Advertising Strategy Call | Excellent Publicity",
+    "meta_description": "Planning an ad campaign? Discuss your target audience, location, budget and media options. Schedule a call with Excellent Publicity.",
     "meta_keywords": ""
   },
 
@@ -455,6 +461,55 @@ export const CORPORATE_META_DATA: any = {
     "meta_title": "Explore Premium Corporate Stationery Gifts | With Excellent Publicity",
     "meta_description": "Experience elevated corporate gifting with our curated stationery selection. Discover impactful presents in our thoughtful collection. | Inquire Now And Get Quote",
     "meta_keywords": ""
-  }
+  },
 
+
+  "gift-range-250-500": {
+    "meta_title": "Corporate Gifts ₹250 to ₹500 | Excellent Publicity",
+    "meta_description": "Find corporate gifts from ₹250 to ₹500 for employees, clients and events. Compare branding and bulk-order options with Excellent Publicity.",
+    "meta_keywords": ""
+  },
+  "gift-range-500-1000": {
+    "meta_title": "Corporate Gifts ₹500 to ₹1000 | Excellent Publicity",
+    "meta_description": "Find corporate gifts from ₹500 to ₹1000 for employees, clients and events. Compare branding and bulk-order options with Excellent Publicity.",
+    "meta_keywords": ""
+  },
+  "gift-range-1000-2500": {
+    "meta_title": "Corporate Gifts ₹1000 to ₹2500 | Excellent Publicity",
+    "meta_description": "Find corporate gifts from ₹1000 to ₹2500 for employees, clients and events. Compare branding and bulk-order options with Excellent Publicity.",
+    "meta_keywords": ""
+  },
+  "gift-range-2500-5000": {
+    "meta_title": "Corporate Gifts ₹2500 to ₹5000 | Excellent Publicity",
+    "meta_description": "Find corporate gifts from ₹2500 to ₹5000 for employees, clients and events. Compare branding and bulk-order options with Excellent Publicity.",
+    "meta_keywords": ""
+  },
+  "gift-range-5000-and-above": {
+    "meta_title": "Corporate Gifts Above ₹5,000 | Excellent Publicity",
+    "meta_description": "Explore premium corporate gifts above ₹5,000 for clients, employees and events. Get bulk gifting options from Excellent Publicity.",
+    "meta_keywords": ""
+  }
+};
+
+
+
+
+export const SEO_SERVICE_META_DATA: any = {
+
+  "basic": {
+    "meta_title": "Basic SEO Services & Pricing | Excellent Publicity",
+    "meta_description": "Explore basic SEO services, deliverables and plan options. Discuss website visibility and request package details from Excellent Publicity.",
+    "meta_keywords": ""
+  },
+  "standard": {
+    "meta_title": "Standard SEO Services & Pricing | Excellent Publicity",
+    "meta_description": "Explore standard SEO services, deliverables and plan options. Discuss website visibility and request package details from Excellent Publicity.",
+    "meta_keywords": ""
+  },
+  "premium": {
+    "meta_title": "Premium SEO Services & Pricing | Excellent Publicity",
+    "meta_description": "Explore premium SEO services, deliverables and plan options. Discuss website visibility and request package details from Excellent Publicity.",
+    "meta_keywords": ""
+  }
+ 
 };

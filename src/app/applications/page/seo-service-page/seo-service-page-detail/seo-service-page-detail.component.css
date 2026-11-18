@@ -188,3 +188,9 @@ th {
   text-align: start;
   padding: 6px 15px
 }
+
+.price-box-heading {
+  font-weight: normal;
+  margin: 0;
+  padding: 8px;
+}

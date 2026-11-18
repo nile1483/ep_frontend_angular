@@ -102,7 +102,7 @@ export class MediaPlanningComponent implements OnInit {
     metaInfo.meta_title = this.metaData?.meta_title ?? '';
     metaInfo.meta_description = this.metaData?.meta_description ?? '';
     metaInfo.meta_keywords = this.metaData?.meta_keywords ?? '';
-    metaInfo.canonical_url = `${this.webURL}` + `tools/media-planning`;
+    metaInfo.canonical_url = `${this.webURL}` + `/tools/media-planning`;
     this.commonService.setMetaData(metaInfo);
   }
 

@@ -10,11 +10,11 @@ import { PageService } from '../../page/page.service';
 import { log } from 'node:console';
 
 @Component({
-    selector: 'app-blog-detail-page',
-    templateUrl: './blog-detail-page.component.html',
-    styleUrls: ['./blog-detail-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-blog-detail-page',
+  templateUrl: './blog-detail-page.component.html',
+  styleUrls: ['./blog-detail-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class BlogDetailPageComponent implements OnInit {
 
@@ -105,7 +105,7 @@ export class BlogDetailPageComponent implements OnInit {
 
         this.blogDescription = result.description;
         this.relatedPosts = result.relatedPosts;
-        
+
       }
       else {
         this.commonService.subSearchsite.next(this.search_string);
@@ -124,7 +124,7 @@ export class BlogDetailPageComponent implements OnInit {
   setMetaData() {
 
     this.url = `${this.webURL}` + `${this.router.url}`,
-      this.description = this.blogData?.meta_description;
+    this.description = this.blogData?.meta_description;
     this.tags = this.blogData?.meta_title;
     this.image = this.blogData?.image ?? `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
 
@@ -140,7 +140,6 @@ export class BlogDetailPageComponent implements OnInit {
     metaInfo.og_description = this.blogData?.meta_description ?? null;
     metaInfo.og_image = this.blogData?.image ?? `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
 
-
     //twitter data 
     metaInfo.twitter_url = `${this.webURL}` + `${this.router.url}`;
     metaInfo.twitter_title = this.blogData?.meta_title ?? null;
@@ -153,7 +152,20 @@ export class BlogDetailPageComponent implements OnInit {
     //   Google Tag Manager   //
     //************************//
 
-    this.commonService.gtmPageEvents('Blog Detail', 'Blog');
+    this.linkName = this.router.url.split('/')[1];
+
+    let type = 'blog';
+
+    if (this.linkName === 'news') {
+      type = 'news';
+    } else if (this.linkName === 'casestudy') {
+      type = 'casestudy';
+    }
+
+    this.commonService.gtmPageEvents(
+      `${type.charAt(0).toUpperCase() + type.slice(1)} Detail`,
+      type.charAt(0).toUpperCase() + type.slice(1)
+    );
   }
 
 

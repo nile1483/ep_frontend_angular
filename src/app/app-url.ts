@@ -1,9 +1,9 @@
 export class AppURL {
 
-    public static webURL = 'https://www.excellentpublicity.com';
-    public static prefix  =`${AppURL.webURL}/api`;
-    // public static webURL = '';
-    // public static prefix = 'api';
+    // public static webURL = 'https://www.excellentpublicity.com';
+    // public static prefix  =`${AppURL.webURL}/api`;
+    public static webURL = '';
+    public static prefix = 'api';
     public static version_1 = 'v1';
     public static version_2 = 'v2';
     

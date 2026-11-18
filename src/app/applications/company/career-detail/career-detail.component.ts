@@ -84,7 +84,8 @@ export class CareerDetailComponent implements OnInit {
     metaInfo.meta_title = this.metaData?.meta_title ?? '';
     metaInfo.meta_description = this.metaData?.meta_description ?? '';
     metaInfo.meta_keywords = this.metaData?.meta_keywords ?? '';
-    metaInfo.canonical_url = `${this.webURL}` + `/${this.page}`;
+    metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
+
     //og data          
     metaInfo.og_url = `${this.webURL}` + `/${this.page}`;
     metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';

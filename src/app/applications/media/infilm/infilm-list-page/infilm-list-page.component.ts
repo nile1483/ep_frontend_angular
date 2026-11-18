@@ -497,7 +497,7 @@ export class InfilmListPageComponent {
     //************************// 
     //   Google Tag Manager   //
     //************************//
-    this.commonService.gtmPageEvents('Product Listing', 'Infilm');
+    this.commonService.gtmPageEvents('Product Listing', 'In Film Advertising And Cobranding');
 
     this.gtmFilterApplied.forEach(element => {
       this.commonService.gtmCustomMediaFilterEvents(element);

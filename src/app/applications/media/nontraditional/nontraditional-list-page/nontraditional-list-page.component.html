@@ -18,9 +18,9 @@
             </ol>
         </nav>
 
-        <div class="media-filter-title d-flex align-items-center justify-content-between mb-4" *ngIf="!isStaticData">
+        <div class="media-filter-title d-flex align-items-center justify-content-between mb-4">
             <h1> Non Traditional </h1>
-            <div class="dropdown">
+            <div class="dropdown" *ngIf="!isStaticData">
                 <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="pe-1 sort-label"> Sort By: </span>
                     <span class="dropdown-label"> {{selectedSortBy.label}} </span>
