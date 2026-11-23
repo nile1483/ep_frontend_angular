@@ -249,7 +249,7 @@ export class UserService {
   * @param placement Header, Product Listing, Product Detail etc...  * 
   * @param item  productName or null
   */
-  openUserLoginDialog(placement: 'Header' | 'Product Listing' | 'Product Detail', productName: any): void {
+  openUserLoginDialog(placement: 'Header' | 'Product Listing' | 'Product Detail' | 'Static Page', productName: any): void {
 
     const dialogRef = this.dialog.open(UserLoginDialogComponent, {
       panelClass: 'custom-dialog-container',

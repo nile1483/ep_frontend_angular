@@ -11,11 +11,11 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-realestate-advertising-page',
-    templateUrl: './realestate-advertising-page.component.html',
-    styleUrl: './realestate-advertising-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-realestate-advertising-page',
+  templateUrl: './realestate-advertising-page.component.html',
+  styleUrl: './realestate-advertising-page.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class RealEstateAdvertisingPageComponent {
 
@@ -90,36 +90,24 @@ export class RealEstateAdvertisingPageComponent {
 
   faqList = [
     {
-      "question": "What are the latest trends in the real estate sector?",
-      "answer": "Sustainable housing, smart homes, co-living spaces, and digital property transactions are shaping the industry."
+      "question": "Which advertising medium had the highest share of real estate advertising in September 2026?",
+      "answer": "Radio had the highest share, accounting for 20.4% of all radio advertising seconds in September 2026. Digital followed with a 2% share, while print accounted for 3.6% and television for 0.4% of their respective advertising volumes."
     },
     {
-      "question": "How has real estate advertising evolved over the years?",
-      "answer": "From print and outdoor ads to digital, influencer marketing, and AI-driven campaigns, real estate promotions have gone digital-first."
+      "question": "Which digital platforms were most preferred for real estate advertising?",
+      "answer": "Facebook Display led with 43.7% of estimated digital spend, followed by Mobile Video at 32.3%, Mobile Display at 15.8%, Twitter Display at 3% and Desktop Video at 3.8%."
     },
     {
-      "question": "Which advertising medium works best for real estate marketing?",
-      "answer": "A mix of digital ads, print, outdoor billboards, and television ensures maximum visibility and lead generation."
+      "question": "How has video advertising grown in the real estate sector?",
+      "answer": "Mobile video impressions increased significantly, rising from 11.9% in September 2025 to 28.5% in September 2026. This indicates a growing preference for video-led digital campaigns among real estate advertisers."
     },
     {
-      "question": "What role does digital marketing play in real estate?",
-      "answer": "It enhances reach, builds credibility, and generates high-intent leads through SEO, PPC, and social media campaigns."
+      "question": "Which Indian states recorded the highest real estate radio advertising activity?",
+      "answer": "Rajasthan led with 21.4% of real estate radio advertising seconds, followed by Maharashtra at 16.9% and Gujarat at 16.2%."
     },
     {
-      "question": "Why is branding important in the real estate industry?",
-      "answer": "Strong branding builds trust, attracts investors, and differentiates a property from competitors."
-    },
-    {
-      "question": "What are the key challenges in real estate advertising?",
-      "answer": "High competition, buyer skepticism, regulatory compliance, and balancing traditional vs. digital marketing strategies."
-    },
-    {
-      "question": "How does transit media help in real estate promotions?",
-      "answer": "Bus wraps, metro ads, and airport displays provide high visibility and reach potential buyers on the go."
-    },
-    {
-      "question": "How important is video marketing in real estate?",
-      "answer": "Virtual tours, drone shots, and walkthrough videos help buyers visualize properties, boosting engagement and conversions."
+      "question": "How did print advertising perform in the real estate sector?",
+      "answer": "Print advertising declined by 46.2% in terms of column space compared to August 2026. The Times of India led with a 19.3% share of real estate print advertising, followed by Dainik Bhaskar at 13.7%."
     }
   ];
 

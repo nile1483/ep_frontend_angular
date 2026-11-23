@@ -11,11 +11,11 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-fmcg-advertising-page',
-    templateUrl: './fmcg-advertising-page.component.html',
-    styleUrl: './fmcg-advertising-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-fmcg-advertising-page',
+  templateUrl: './fmcg-advertising-page.component.html',
+  styleUrl: './fmcg-advertising-page.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class FmcgAdvertisingPageComponent {
 
@@ -90,32 +90,24 @@ export class FmcgAdvertisingPageComponent {
 
   faqList = [
     {
-      "question": "How to choose the right media for my FMCG brand's advertising campaign?",
-      "answer": "Focus on a mix of traditional and digital platforms, ensuring your message reaches both mass and tech-savvy audiences."
+      "question": "Which FMCG segment saw the biggest growth in digital advertising?",
+      "answer": "Hair care was a major growth segment. Its share of FMCG digital spending increased from 4.1% to 14.3%, driven by brands such as Indulekha and Streax."
     },
     {
-      "question": "What role does seasonality play in FMCG advertising?",
-      "answer": "Seasonal peaks, like festivals and summer months, are ideal for boosting reach and sales, especially during high-demand periods."
+      "question": "Which FMCG category led digital advertising?",
+      "answer": "Perfumes and deodorants topped the digital sub-category rankings with 10.3% of FMCG digital spending, up from 6.2% a year earlier."
     },
     {
-      "question": "How can FMCG brands benefit from influencer marketing?",
-      "answer": "Influencers help amplify brand awareness and build trust with specific consumer groups, driving engagement and product interest."
+      "question": "Which digital platform received the highest FMCG advertising activity?",
+      "answer": "Facebook Display accounted for 81.1% of FMCG digital impressions, compared to 58.3% a year earlier. This shows how strongly FMCG digital advertising depends on one platform."
     },
     {
-      "question": "Is print media still effective for FMCG advertising?",
-      "answer": "Yes, print remains valuable for reaching a wide audience, particularly in local and regional markets, and is effective for sales promotions."
+      "question": "Which states led FMCG radio advertising?",
+      "answer": "Uttar Pradesh led with 26.7% of FMCG radio ad seconds, followed by Gujarat at 24.5%. Together, the two states accounted for just over half of FMCG radio advertising."
     },
     {
-      "question": "How important is digital advertising for the FMCG sector?",
-      "answer": "Digital advertising is key for connecting with younger, digitally-savvy consumers and helps in precise targeting and measurable outcomes."
-    },
-    {
-      "question": "What type of content works best for FMCG campaigns?",
-      "answer": "Informative, engaging, and relatable content—like product demonstrations, user reviews, and promotions works well with consumers."
-    },
-    {
-      "question": "How can FMCG brands measure the success of their ad campaigns?",
-      "answer": "Track metrics like brand awareness, consumer engagement, sales growth, and return on investment (ROI) to measure the effectiveness of campaigns."
+      "question": "Why was September 2026 different from September 2025 for FMCG advertising?",
+      "answer": "September 2025 coincided with the start of Navratri and GST 2.0 price cuts on several FMCG products. In 2026, Navratri began in October, making September a pre-festive month rather than a festive one."
     }
   ];
 

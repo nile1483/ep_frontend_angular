@@ -25,6 +25,7 @@ import { AgricultureFarmingAdvertisingPageComponent } from './agriculture-farmin
 import { FoodSectorPageComponent } from './food-sector-page/food-sector-page.component';
 import { PetcareTamPageComponent } from './petcare-tam-page/petcare-tam-page.component';
 import { IplAdvertisingPageComponent } from './ipl-advertising-page/ipl-advertising-page.component';
+import { BankingFinancialServicesAdvertisingPageComponent } from './banking-financial-services-advertising-page/banking-financial-services-advertising-page.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { IplAdvertisingPageComponent } from './ipl-advertising-page/ipl-advertis
     AgricultureFarmingAdvertisingPageComponent,
     FoodSectorPageComponent,
     PetcareTamPageComponent,
-    IplAdvertisingPageComponent
+    IplAdvertisingPageComponent,
+    BankingFinancialServicesAdvertisingPageComponent
   ],
   imports: [
     CommonModule,

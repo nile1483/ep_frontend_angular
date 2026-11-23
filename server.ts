@@ -56,21 +56,39 @@ export function app(): express.Express {
     return res.redirect(301, '/contact');
   });
 
+  server.get(/^\/monitoringtools\/(.+)$/, (req, res) => {
+
+    const path = req.originalUrl
+      .split('?')[0]
+      .replace(/^\/monitoringtools\//, '');
+
+    return res.redirect(
+      301,
+      `/monitoring-tools/${path}`
+    );
+  });
+
   server.get('/monitoringtools/', (req, res) => {
     return res.redirect(301, '/monitoring-tools');
   });
+ 
 
-  server.get('/monitoringtools/*', (req, res) => {
-    return res.redirect(301, '/monitoring-tools');
+  server.get(/^\/aitools\/(.+)$/, (req, res) => {
+
+    const path = req.originalUrl
+      .split('?')[0]
+      .replace(/^\/aitools\//, '');
+
+    return res.redirect(
+      301,
+      `/ai-tools/${path}`
+    );
   });
 
   server.get('/aitools/', (req, res) => {
     return res.redirect(301, '/ai-tools');
   });
 
-  server.get('/aitools/*', (req, res) => {
-    return res.redirect(301, '/ai-tools');
-  });
 
   server.get(/^\/infilm\/(.+)$/, (req, res) => {
 
@@ -87,6 +105,7 @@ export function app(): express.Express {
   server.get('/infilm/', (req, res) => {
     return res.redirect(301, '/in-film-advertising-and-cobranding');
   });
+
 
   server.get('/eventsponsorship/', (req, res) => {
     return res.redirect(301, '/events-and-sponsorship');

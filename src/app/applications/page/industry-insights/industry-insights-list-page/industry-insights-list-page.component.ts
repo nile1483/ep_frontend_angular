@@ -6,11 +6,11 @@ import { CommonService } from '@app-shared-services';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-industry-insights-list-page',
-    templateUrl: './industry-insights-list-page.component.html',
-    styleUrl: './industry-insights-list-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-industry-insights-list-page',
+  templateUrl: './industry-insights-list-page.component.html',
+  styleUrl: './industry-insights-list-page.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class IndustryInsightsListPageComponent {
 
@@ -154,6 +154,12 @@ export class IndustryInsightsListPageComponent {
       title: 'IPL TAM',
       description: ''
     },
+    {
+      link: '/industry-insights/banking-financial-services-advertising-report',
+      image: 'assets/page/industry-insights/list/banking-financial-services.png',
+      title: 'BFSI Industry',
+      description: ''
+    }
   ];
 
   constructor(
@@ -181,7 +187,7 @@ export class IndustryInsightsListPageComponent {
     //   Google Tag Manager   //
     //************************//
 
-    this.commonService.gtmPageEvents('Company', 'Industry Insights');
+    this.commonService.gtmPageEvents('Static Page', 'Industry Insights');
   }
 
 }

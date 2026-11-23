@@ -29,9 +29,11 @@ export class ClienteleService {
       );
   }
 
-  getClienteleList(): Observable<any> {
 
-    const url = `${this.clientelelistUrl}`;
+  getClienteleList(params: any): Observable<any> {
+
+    let options = encodeURIComponent(JSON.stringify(params));
+    let url = `${this.clientelelistUrl}?params=${options}`; // Default value
 
     return this.http.get<any>(url)
       .pipe(

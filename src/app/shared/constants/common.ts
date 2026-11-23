@@ -77,5 +77,6 @@ export const C2A_TITLE_DATA: any = {
   "budgetestimator"                     : "Reach out to our Budget Estimator Expert for more details about Budget Estimator",
   "monitoring-tools"                    : "Reach out to our AI Expert for more details about Monitoring Tools",
   "imsreport"                           : "Reach out to our Expert for more details about IMS Report",
+  "bankingfinancialservicesadvertising" : "Reach out to our Media Expert for more details about Banking Financial Services Advertising",
 
 } 

@@ -76,6 +76,9 @@ export class GiftingListPageComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    console.log('gifting-list-page component');
+    
     //Currency
     this.selectedCurrency = this.commonService.getSelectedCurrency();
     this.commonService.getCurrency().subscribe(currency => {

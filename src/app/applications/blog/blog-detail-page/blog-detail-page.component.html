@@ -61,8 +61,8 @@
                 </div>
             </div>
 
-            <img loading="lazy" src="assets/blog/rectangle-509.webp" class="mb-lg-4 mb-3 w-100 blog-single-main-image" alt="Product Image" title="{{blogData?.name}}" *ngIf="blogData?.image == null">
-            <img loading="lazy" src="{{blogData?.image}}" class="mb-lg-4 mb-3 w-100 blog-single-main-image" alt="Product Image" title="{{blogData?.name}}" *ngIf="blogData?.image != null">
+            <img loading="lazy" src="assets/blog/rectangle-509.webp" class="mb-lg-4 mb-3 w-100 blog-single-main-image" alt="{{blogData?.name}}" *ngIf="blogData?.image == null">
+            <img loading="lazy" src="{{blogData?.image}}" class="mb-lg-4 mb-3 w-100 blog-single-main-image" alt="{{blogData?.name}}" *ngIf="blogData?.image != null">
 
             <!-- For Mobile Hide On Desktop-->
             <div class="blog-sub-title d-flex d-lg-none align-items-center justify-content-between mb-lg-4 mb-1">

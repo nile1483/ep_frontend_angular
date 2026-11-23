@@ -12,6 +12,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { LocationParm } from '@app-media-models';
+import { Router } from '@angular/router';
 
 declare var Chart: any;
 
@@ -48,6 +49,7 @@ export class BudgetEstimatorPageComponent implements AfterViewInit {
     metaInfo.meta_title = this.metaData?.meta_title ?? '';
     metaInfo.meta_description = this.metaData?.meta_description ?? '';
     metaInfo.meta_keywords = this.metaData?.meta_keywords ?? '';
+    metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
     //og data          
     metaInfo.og_url = `${this.webURL}`;
     metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
@@ -111,6 +113,7 @@ export class BudgetEstimatorPageComponent implements AfterViewInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private commonService: CommonService,
     private pageService: PageService,
+    private router: Router,
   ) {
 
     this.filteredVerticals = this.verticalCtrl.valueChanges.pipe(

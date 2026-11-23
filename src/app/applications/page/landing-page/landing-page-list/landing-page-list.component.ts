@@ -7,11 +7,11 @@ import { MetaInformation } from '@app-shared-model';
 import { AppURL } from 'src/app/app-url';
 
 @Component({
-    selector: 'app-landing-page-list',
-    templateUrl: './landing-page-list.component.html',
-    styleUrls: ['./landing-page-list.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-landing-page-list',
+  templateUrl: './landing-page-list.component.html',
+  styleUrls: ['./landing-page-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class LandingPageListComponent implements OnInit {
 
@@ -53,31 +53,41 @@ export class LandingPageListComponent implements OnInit {
 
   setMetaData() {
 
-    let title = "Landing Page";
-    let mediagt = "mix";
-    if (this.param?.media) {
-      title = this.param?.media[0].toUpperCase() + this.param?.media.substr(1).toLowerCase();
-      mediagt = title;
-      this.lpMedia = title;
-    }
+    let title = "Explore Advertising Media Options | Excellent Publicity";
+    let description = "Explore advertising media options across digital, outdoor, radio, cinema, print and more. Find the right channels for your campaign with Excellent Publicity.";
 
-    if (this.param?.media && this.param?.segment) {
-      let media = this.param?.media[0].toUpperCase() + this.param?.media.substr(1).toLowerCase();
-      let segment = this.param?.segment[0].toUpperCase() + this.param?.segment.substr(1).toLowerCase();
-      title = media + " " + segment;
-      mediagt = media;
-      this.lpMedia = media;
-    }
-
-    title = title + " : Excellent Publicity";
     let metaInfo = new MetaInformation();
     metaInfo.meta_title = title;
-    metaInfo.meta_description = title;
+    metaInfo.meta_description = description;
     metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
     this.commonService.setMetaData(metaInfo);
 
-    let media = mediagt[0].toUpperCase() + mediagt.slice(1).toLowerCase();
-    this.commonService.gtmPageEvents('LP Listing', media);
+    this.commonService.gtmPageEvents('LP Listing', 'Landing Page');
+
+
+    // let mediagt = "mix";
+    // if (this.param?.media) {
+    //   title = this.param?.media[0].toUpperCase() + this.param?.media.substr(1).toLowerCase();
+    //   mediagt = title;
+    //   this.lpMedia = title;
+    // }
+
+    // if (this.param?.media && this.param?.segment) {
+    //   let media = this.param?.media[0].toUpperCase() + this.param?.media.substr(1).toLowerCase();
+    //   let segment = this.param?.segment[0].toUpperCase() + this.param?.segment.substr(1).toLowerCase();
+    //   title = media + " " + segment;
+    //   mediagt = media;
+    //   this.lpMedia = media;
+    // }
+
+    // let metaInfo = new MetaInformation();
+    // metaInfo.meta_title = title;
+    // metaInfo.meta_description = description;
+    // metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
+    // this.commonService.setMetaData(metaInfo);
+
+    // let media = mediagt[0].toUpperCase() + mediagt.slice(1).toLowerCase();
+    // this.commonService.gtmPageEvents('LP Listing', media);
 
   }
 }

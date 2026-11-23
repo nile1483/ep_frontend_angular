@@ -66,6 +66,12 @@ export const META_DATA: any = {
     "meta_keywords": ""
   },
 
+  "nontraditional": {
+    "meta_title": "Non-Traditional Advertising in India | Excellent Publicity",
+    "meta_description": "Explore non-traditional advertising options in India with Excellent Publicity. Find creative ways to reach your audience beyond conventional media.",
+    "meta_keywords": ""
+  },
+
   "casestudy": {
     "meta_title": "Case Studies | Excellent Publicity",
     "meta_description": "Case Studies | Excellent Publicity",
@@ -282,7 +288,7 @@ export const META_DATA: any = {
   "jewelleryadvertising": {
     "meta_title": "Jewellery Advertising in India | Excellent Publicity",
     "meta_description": "Discover innovative jewellery advertising services with Excellent Publicity. Showcase your brand, attract customers, and stay ahead with the latest trends and insights. Boost visibility with tailored strategies for the jewellery industry",
-    "meta_keywords": "Jewellery Advertising Trends 2024, Jewellery Marketing Insights, Jewellery Ad Spend Analysis, Jewellery Advertising Report, Jewellery Marketing Strategies"
+    "meta_keywords": "Jewellery Advertising Trends 2026, Jewellery Marketing Insights, Jewellery Ad Spend Analysis, Jewellery Advertising Report, Jewellery Marketing Strategies"
   },
   "educationadvertising": {
     "meta_title": "Education Advertising in 2024: Trends, Insights, and Regional Dominance",
@@ -290,14 +296,14 @@ export const META_DATA: any = {
     "meta_keywords": "education advertising 2024, education marketing trends, student engagement strategies, educator outreach, regional advertising insights, innovative education campaigns, brand marketing in education, digital advertising for schools, education sector promotions, Excellent Publicity."
   },
   "realestateadvertising": {
-    "meta_title": "Real Estate Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping real estate advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "real estate advertising 2024, real estate marketing trends, regional advertising insights, brand marketing in real estate, real estate sector promotions, Excellent Publicity."
+    "meta_title": "Real Estate Advertising in 2026: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping real estate advertising in 2026. Learn more on Excellent Publicity.",
+    "meta_keywords": "real estate advertising 2026, real estate marketing trends, regional advertising insights, brand marketing in real estate, real estate sector promotions, Excellent Publicity."
   },
   "fmcgadvertising": {
-    "meta_title": "FMCG Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping FMCG advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "FMCG advertising 2024, FMCG marketing trends, regional advertising insights, brand marketing in FMCG, FMCG sector promotions, Excellent Publicity."
+    "meta_title": "FMCG Advertising in 2026: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping FMCG advertising in 2026. Learn more on Excellent Publicity.",
+    "meta_keywords": "FMCG advertising 2026, FMCG marketing trends, regional advertising insights, brand marketing in FMCG, FMCG sector promotions, Excellent Publicity."
   },
   "gamingadvertising": {
     "meta_title": "Gaming Advertising in 2024: Trends, Insights, and Regional Dominance",
@@ -409,6 +415,11 @@ export const META_DATA: any = {
     "meta_description": "IMS Report | Excellent Publicity",
     "meta_keywords": ""
   },
+  "bankingfinancialservicesadvertising": {
+    "meta_title": "Banking & Financial Services Advertising Trends 2026",
+    "meta_description": "Discover banking and financial services advertising trends in 2026, key industry insights, regional growth, and marketing strategies.",
+    "meta_keywords": "Banking advertising 2026, financial services advertising, financial marketing trends, banking industry marketing, financial brand promotion, regional advertising trends"
+  },
 
 
 
@@ -511,5 +522,5 @@ export const SEO_SERVICE_META_DATA: any = {
     "meta_description": "Explore premium SEO services, deliverables and plan options. Discuss website visibility and request package details from Excellent Publicity.",
     "meta_keywords": ""
   }
- 
+
 };

@@ -11,11 +11,11 @@ import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-jewellery-advertising-page',
-    templateUrl: './jewellery-advertising-page.component.html',
-    styleUrl: './jewellery-advertising-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-jewellery-advertising-page',
+  templateUrl: './jewellery-advertising-page.component.html',
+  styleUrl: './jewellery-advertising-page.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class JewelleryAdvertisingPageComponent {
 
@@ -48,7 +48,7 @@ export class JewelleryAdvertisingPageComponent {
     this.isAuthenticated = this.userService.isAuthenticated;
     this.userDataObs = this.userService.userData.subscribe(data => {
       this.isAuthenticated = this.userService.isAuthenticated;
-      
+
       if (this.isAuthenticated && this.router.url == '/industry-insights/jewellery-advertising') {
         this.download();
       }
@@ -90,32 +90,24 @@ export class JewelleryAdvertisingPageComponent {
 
   faqList = [
     {
-      "question": "How to choose the right media for my jewellery brand's advertising campaign?",
-      "answer": "Focus on platforms where your target audience engages most, blending digital and traditional."
+      "question": "Why did digital ad spend decline in September 2026?",
+      "answer": "Advertising slowed between festival periods, as September 2025 had included the start of Navratri."
     },
     {
-      "question": "What role does seasonality play in jewellery advertising?",
-      "answer": "Festivals and wedding seasons are key for maximized reach and ROI."
+      "question": "How did rising gold prices affect jewellery advertising?",
+      "answer": "Gold prices were around 41% higher than a year earlier. During this period, Tanishq promoted its Gold Exchange programme on television."
     },
     {
-      "question": "How can jewellery brands benefit from influencer marketing?",
-      "answer": "Influencers add authenticity and expand reach to niche, loyal audiences."
+      "question": "Which Accessories brand made a strong return to digital advertising?",
+      "answer": "Reebok accounted for 7.5% of industry digital ad spend as it re-entered Indian football as a kit partner."
     },
     {
-      "question": "Is print media still effective for jewellery advertising?",
-      "answer": "Yes, print remains a strong choice for premium and traditional audiences."
+      "question": "Which category saw a sharp decline in digital advertising?",
+      "answer": "Luggage advertising dropped sharply, with its share of industry digital spend falling from 19% to 2.1%."
     },
     {
-      "question": "How important is digital advertising for the jewellery sector?",
-      "answer": "Digital is crucial for connecting with younger, tech-savvy buyers."
-    },
-    {
-      "question": "What type of content works best for jewellery campaigns?",
-      "answer": "Emotional storytelling, aspirational visuals, and product-focused videos perform best."
-    },
-    {
-      "question": "How can jewellery brands measure the success of their ad campaigns?",
-      "answer": "Use metrics like engagement, website traffic, and sales conversions to track ROI."
+      "question": "How did jewellery advertising perform on television?",
+      "answer": "Jewellery brands accounted for 82.2% of the industry's TV airtime, up from 80.9%."
     }
   ];
 
