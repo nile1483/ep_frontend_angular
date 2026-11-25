@@ -1,33 +1,27 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA, C2A_TITLE_DATA } from '@app-shared-constants';
-import { META_DATA } from '@app-shared-constants';
+import { C2A_TITLE_DATA, INDUSTRY_INSIGHTS_META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
-import { CommonService } from '@app-shared-services';
+import { CommonService, UserService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { MatDialog } from '@angular/material/dialog';
 import { PageService } from '../../page.service';
 import { Router } from '@angular/router';
-import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-lifestyle-apparel-advertising-page',
-    templateUrl: './lifestyle-apparel-advertising-page.component.html',
-    styleUrl: './lifestyle-apparel-advertising-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-lifestyle-apparel-advertising-page',
+  templateUrl: './lifestyle-apparel-advertising-page.component.html',
+  styleUrl: './lifestyle-apparel-advertising-page.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class LifestyleApparelAdvertisingPageComponent {
 
   media: string = 'lifestyleandappareladvertising';
+
   webURL: string = AppURL.webURL;
   industryInsightsUrl: string = AppURL.industryInsightsUrl;
-  media_icons: any = SVG_ICON_FOR_MEDIA
-  serviceList: any = SERVICE_LIST_WITH_SVG_ICON;
-  app_svg_icon_list = APP_SVG_ICON_LIST;
-  metaData: any = META_DATA['lifestyleandappareladvertising'];
-  selectedCurrency: any;
-  pageContentData: any;
+  metaData: any = INDUSTRY_INSIGHTS_META_DATA['lifestyleandappareladvertising'];
 
   callToActionData: CallToAction = { title: C2A_TITLE_DATA['lifestyleandappareladvertising'], inquiryUser: {} };
 
@@ -62,7 +56,6 @@ export class LifestyleApparelAdvertisingPageComponent {
     this.pageService.getIndustryInsightsAdvertisingPageData(this.media).subscribe(result => {
       if (result.status == true) {
         this.callToActionData.inquiryUser = result.data?.inquiryUser;
-        this.pageContentData = result.data;
       }
     });
   }
@@ -85,7 +78,6 @@ export class LifestyleApparelAdvertisingPageComponent {
 
     this.commonService.gtmPageEvents('Company', 'Company');
   }
-
 
 
   faqList = [

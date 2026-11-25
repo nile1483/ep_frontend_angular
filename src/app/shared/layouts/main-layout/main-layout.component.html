@@ -13,21 +13,31 @@
                 <div class="header-right-link">
                     <ul class="right-links ps-4">
                         <li>
-                            <a aria-label="Link" target="_blank" href="https://excellentpublicity.ai" class="cart-link parent-link">
-                                <span class="d-xl-inline-block">AI Portal</span>
-                            </a>
-                        </li>
-                        <li>
-                            <span style="cursor: pointer;" id="currencyDropdown" data-bs-toggle="dropdown"
-                                aria-expanded="false" class="login-link parent-link">
-                                <p class="d-xl-inline-block mt-3" *ngIf="selectedCurrency"> {{selectedCurrency?.code}}
-                                    ({{ selectedCurrency?.symbol}})</p>
-                            </span>
-                            <ul class="dropdown-menu currency-dropdown-menu" aria-labelledby="currencyDropdown ">
-                                <li *ngFor="let currency of currencies; ">
-                                    <button class="dropdown-item "
-                                        (click)="changeCurrency(currency) ">
-                                        <span> {{currency?.code}} ({{currency?.symbol}})</span>
+                            <button
+                                type="button"
+                                id="currencyDropdown"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                aria-label="Select currency"
+                                class="login-link parent-link">
+
+                                <span class="d-xl-inline-block mt-3" *ngIf="selectedCurrency">
+                                    {{selectedCurrency?.code}} ({{selectedCurrency?.symbol}})
+                                </span>
+                            </button>
+
+                            <ul class="dropdown-menu currency-dropdown-menu"
+                                aria-labelledby="currencyDropdown">
+
+                                <li *ngFor="let currency of currencies">
+                                    <button
+                                        type="button"
+                                        class="dropdown-item"
+                                        (click)="changeCurrency(currency)">
+
+                                        <span>
+                                            {{currency?.code}} ({{currency?.symbol}})
+                                        </span>
                                     </button>
                                 </li>
                             </ul>
@@ -74,53 +84,98 @@
                         </li>
                         <li>
                             <div class="d-lg-block d-none">
-                                <span style="cursor: pointer;" id="currencyDropdown" data-bs-toggle="dropdown"
-                                    aria-expanded="false" class="login-link parent-link">
-                                    <p class="d-xl-inline-block mt-3" *ngIf="selectedCurrency">
-                                        {{selectedCurrency?.code}} ({{ selectedCurrency?.symbol}})</p>
-                                </span>
-                                <ul class="dropdown-menu currency-dropdown-menu" aria-labelledby="currencyDropdown ">
-                                    <li *ngFor="let currency of currencies; ">
-                                        <button class="dropdown-item " 
-                                            (click)="changeCurrency(currency) ">
-                                            <span> {{currency?.code}} ({{currency?.symbol}})</span>
+
+                                <button
+                                    type="button"
+                                    id="currencyDropdown"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                    aria-label="Select currency"
+                                    class="login-link parent-link">
+
+                                    <span class="d-xl-inline-block mt-3" *ngIf="selectedCurrency">
+                                        {{selectedCurrency?.code}} ({{selectedCurrency?.symbol}})
+                                    </span>
+                                </button>
+
+                                <ul class="dropdown-menu currency-dropdown-menu"
+                                    aria-labelledby="currencyDropdown">
+
+                                    <li *ngFor="let currency of currencies">
+                                        <button
+                                            type="button"
+                                            class="dropdown-item"
+                                            (click)="changeCurrency(currency)">
+
+                                            <span>
+                                                {{currency?.code}} ({{currency?.symbol}})
+                                            </span>
                                         </button>
                                     </li>
+
                                 </ul>
                             </div>
                         </li>
                         <li>
-                            <a aria-label="Link" href="javascript:void(0)" (click)="openLoginDialog()"
-                                *ngIf="!isAuthenticated" class="cart-link parent-link">
+                            <button
+                                type="button"
+                                aria-label="Open login dialog to view cart"
+                                (click)="openLoginDialog()"
+                                *ngIf="!isAuthenticated"
+                                class="cart-link parent-link">
+
                                 <span class="svg-icon"
-                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['cart-shopping']) | safeHtml"></span>
+                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['cart-shopping']) | safeHtml">
+                                </span>
+
                                 <span class="d-xl-inline-block d-none">Cart</span>
-                            </a>
-                            <a class="cart-link parent-link" [routerLink]="['/user/cart']" *ngIf="isAuthenticated">
+                            </button>
+
+                            <a
+                                class="cart-link parent-link"
+                                [routerLink]="['/user/cart']"
+                                *ngIf="isAuthenticated">
+
                                 <span class="svg-icon"
-                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['cart-shopping']) | safeHtml"></span>
+                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['cart-shopping']) | safeHtml">
+                                </span>
+
                                 <span class="header-cart-item">{{totalCartItem}}</span>
+
                                 <span class="d-xl-inline-block d-none">Cart</span>
                             </a>
                         </li>
                         <li>
                             <div class="dropdown">
-                                <a aria-label="Link" href="javascript:void(0)" (click)="openLoginDialog()"
-                                    *ngIf="!isAuthenticated" class="parent-link">
-                                    <!-- <i class="fa-solid fa-circle-user"></i> -->
+                                <button
+                                    type="button"
+                                    aria-label="Login"
+                                    (click)="openLoginDialog()"
+                                    *ngIf="!isAuthenticated"
+                                    class="parent-link">
+
                                     <span class="svg-icon"
-                                        [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['circle-user']) | safeHtml"></span>
-                                    <span class="d-xl-inline-block d-none"> Login </span>
-                                </a>
-                                <a aria-label="Link" href="javascript:void(0)" *ngIf="isAuthenticated"
-                                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"
-                                    class="login-link parent-link">
-                                    <!-- <i class="fa-solid fa-circle-user"></i> -->
-                                    <span class="svg-icon"
-                                        [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['circle-user']) | safeHtml"></span>
-                                    <span *ngIf="isAuthenticated" class="d-xl-inline-block d-none"> {{userInfo?.name}}
+                                        [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['circle-user']) | safeHtml">
                                     </span>
-                                </a>
+
+                                    <span class="d-xl-inline-block d-none">Login</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    *ngIf="isAuthenticated"
+                                    id="dropdownMenuLink"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                    class="login-link parent-link">
+
+                                    <span class="svg-icon"
+                                        [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['circle-user']) | safeHtml">
+                                    </span>
+
+                                    <span class="d-xl-inline-block d-none">
+                                        {{userInfo?.name}}
+                                    </span>
+                                </button>
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
@@ -148,12 +203,12 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:void(0)" (click)="signout()">
+                                        <button type="button" class="dropdown-item" (click)="signout()">
                                             <span class="svg-icon"
-                                                [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-from-bracket']) | safeHtml"></span>
-                                            <!-- <i class="fa-solid fa-arrow-right-from-bracket"></i> -->
+                                                [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-from-bracket']) | safeHtml">
+                                            </span>
                                             <span>Sign Out</span>
-                                        </a>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -161,11 +216,18 @@
 
                         <li class="d-lg-inline-block d-none">
                             <!-- Hide in Mobile-->
-                            <a aria-label="Link" href="javascript:void(0)" data-bs-toggle="offcanvas"
-                                href="#offcanvasMenu" role="button" class="parent-link" aria-controls="offcanvasMenu">
-                                <span class="svg-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['bars']) | safeHtml"></span>
-                                <!-- <i class="fa-light fa-bars"></i> -->
-                            </a>
+                            <button
+                                type="button"
+                                aria-label="Open navigation menu"
+                                data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasMenu"
+                                aria-controls="offcanvasMenu"
+                                class="parent-link">
+
+                                <span class="svg-icon"
+                                    [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['bars']) | safeHtml">
+                                </span>
+                            </button>
                         </li>
                     </ul>
                 </div>

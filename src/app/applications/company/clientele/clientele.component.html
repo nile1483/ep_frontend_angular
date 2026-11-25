@@ -9,9 +9,17 @@
         </div>
         <div class="row justify-content-center mt-4 pt-2">
             <div class="col-6">
+                <label for="categorySelect" class="visually-hidden">
+                    Select Category
+                </label>
                 <select class="form-select" (change)="changeCategory($event)" >
-                    <option selected [value] = "0"> Select category </option>
-                    <option *ngFor="let category of categoryList" [value]="$safeNavigationMigration(category?.id)">{{category?.name}}</option>
+                    <option selected [value]="0">
+                        Select category
+                    </option>
+
+                    <option *ngFor="let category of categoryList" [value]="$safeNavigationMigration(category?.id)">
+                        {{category?.name}}
+                    </option>
                 </select>
             </div>
         </div>
@@ -31,13 +39,20 @@
         <!-- view More Clienteles -->
         <div class="row mt-5" *ngIf="isShowViewMore">
             <div class="col-12 text-center">
-                <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreClienteles()" class="more-link more-link-with-text orange-link">
+                <button
+                    type="button"
+                    (click)="viewMoreClienteles()"
+                    aria-label="View more clienteles"
+                    class="more-link more-link-with-text orange-link">
+
                     <span class="more-text">
                         View More
-                    </span> 
-                    <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
                     </span>
-                </a>
+
+                    <span class="more-icon"
+                        [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
+                    </span>
+                </button>
             </div>
         </div>
     </div>

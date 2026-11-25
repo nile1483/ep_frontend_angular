@@ -51,8 +51,15 @@
                     </div>
 
                     <div class="text-center col-md-6 mx-auto">
-                        <label class="form-label fw-bolder">YOY</label>
-                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                        <label for="yoy" class="form-label fw-bolder">YOY</label>
+
+                        <input
+                            type="text"
+                            id="yoy"
+                            [value]="growthResult"
+                            readonly
+                            class="form-control text-center border-danger"
+                        />
                     </div>
                 </form>
 

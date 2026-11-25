@@ -120,12 +120,12 @@
                 <!-- DATE & TIME -->
                 <div class="match-info">
                     <div class="info-item">
-                        <img src="/assets/page/ipl/icons/calendar.png" class="icon">
+                        <img src="/assets/page/ipl/icons/calendar.png" class="icon" alt="Calendar">
                         <span>{{match.date}}</span>
                     </div>
                     <div class="divider"></div>
                     <div class="info-item">
-                        <img src="/assets/page/ipl/icons/time.png" class="icon">
+                        <img src="/assets/page/ipl/icons/time.png" class="icon" alt="Time">
                         <span>{{match.time}}</span>
                     </div>
                 </div>
@@ -133,19 +133,19 @@
                 <!-- TEAMS -->
                 <div class="team-row">
                     <div class="team">
-                        <img img [src]="match.team1_logo" class="team-logo">
+                        <img [src]="match.team1_logo" class="team-logo" alt="Team Logo">
                         <h5>{{match.team1}}</h5>
                     </div>
-                    <img src="/assets/page/ipl/icons/vs.png" class="vs-icon">
+                    <img src="/assets/page/ipl/icons/vs.png" class="vs-icon" alt="Logo">
                     <div class="team">
-                        <img [src]="match.team2_logo" class="team-logo">
+                        <img [src]="match.team2_logo" class="team-logo" alt="Team Logo">
                         <h5>{{match.team2}}</h5>
                     </div>
                 </div>
 
                 <!-- LOCATION -->
                 <div class="location">
-                    <img src="/assets/page/ipl/icons/map-icon.png" class="pin-icon">
+                    <img src="/assets/page/ipl/icons/map-icon.png" class="pin-icon" alt="Map Logo">
                     <span>{{match.stadium}}</span>
                 </div>
 

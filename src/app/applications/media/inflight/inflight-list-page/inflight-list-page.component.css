@@ -36,8 +36,6 @@ button.accordion-button,
   background-repeat: no-repeat;
 }
 
-
-
 /* CASE STUDIES */
 
 .separator-blue,
@@ -87,4 +85,11 @@ flip-container {
   outline: 0;
   box-shadow: none;
   color: #fff;
+}
+
+button.more-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }

@@ -51,8 +51,17 @@
                     </div>
 
                     <div class="text-center col-md-6 mx-auto">
-                        <label class="form-label fw-bolder">Google Ads Revenue</label>
-                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                        <label for="googleAdsRevenue" class="form-label fw-bolder">
+                            Google Ads Revenue
+                        </label>
+
+                        <input
+                            type="text"
+                            id="googleAdsRevenue"
+                            [value]="growthResult"
+                            readonly
+                            class="form-control text-center border-danger"
+                        />
                     </div>
                 </form>
 

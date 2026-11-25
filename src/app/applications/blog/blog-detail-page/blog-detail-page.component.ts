@@ -124,7 +124,7 @@ export class BlogDetailPageComponent implements OnInit {
   setMetaData() {
 
     this.url = `${this.webURL}` + `${this.router.url}`,
-    this.description = this.blogData?.meta_description;
+      this.description = this.blogData?.meta_description;
     this.tags = this.blogData?.meta_title;
     this.image = this.blogData?.image ?? `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
 
@@ -209,24 +209,20 @@ export class BlogDetailPageComponent implements OnInit {
   // whatsappLink  = `https://wa.me?text=${this.shareData?.url}`;
 
 
-  setFacebookLink() {
-    var url = `https://www.facebook.com/sharer.php?u=${this.url}`;
-    return window.open(url);
+  get facebookShareUrl(): string {
+    return `https://www.facebook.com/sharer.php?u=${encodeURIComponent(this.url)}`;
   }
 
-  setTwitterLink() {
-    var url = `https://twitter.com/intent/tweet?url=${this.url}&text=${this.description}&hashtags=${this.tags}`;
-    return window.open(url, 'TwitterWindow');
+  get twitterShareUrl(): string {
+    return `https://twitter.com/intent/tweet?url=${encodeURIComponent(this.url)}&text=${encodeURIComponent(this.description || '')}&hashtags=${encodeURIComponent(this.tags || '')}`;
   }
 
-  setLinkedinLink() {
-    var url = `https://www.linkedin.com/sharing/share-offsite/?url=${this.url}&text=${this.description}&hashtags=${this.tags}`;
-    return window.open(url);
+  get linkedinShareUrl(): string {
+    return `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(this.url)}`;
   }
 
-  setWhatsappLink() {
-    var url = `https://wa.me?text=${this.url}`;
-    return window.open(url);
+  get whatsappShareUrl(): string {
+    return `https://wa.me/?text=${encodeURIComponent(this.url)}`;
   }
 
 

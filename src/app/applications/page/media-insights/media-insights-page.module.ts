@@ -12,7 +12,6 @@ import { PrintAdvertisingPageComponent } from './print-advertising-page/print-ad
 import { OutdoorAdvertisingPageComponent } from './outdoor-advertising-page/outdoor-advertising-page.component';
 import { ImsReportPageComponent } from './ims-report-page/ims-report-page.component';
 
-
 @NgModule({
   declarations: [
     MediaInsightsListPageComponent,

@@ -196,7 +196,7 @@
                             <div class="col-md-12 m-0">
                                 <label class="form-label">Professional Email Address <span>*</span></label>
                                 <input type="email" class="form-control" [formControl]="userInquiryForm.controls['email']"
-                                    placeholder="Write your email address">
+                                    placeholder="Enter your email address">
                                 <div class="text-danger form-error">
                                     <span
                                         *ngIf="userInquiryForm.controls['email'].hasError('required') && userInquiryForm.controls['email'].touched">
@@ -214,9 +214,15 @@
                                 <div class="phone-number-with-country">
                                     <div class="d-flex">
                                         <div class="dropdown">
-                                            <a class="drop-down-link dropdown-toggle" href="#" role="button"
-                                                id="countruCodeDropdown" data-bs-toggle="dropdown"
-                                                aria-expanded="false">{{selectedCountry?.dialCode}}</a>
+                                            <a
+                                                class="drop-down-link dropdown-toggle"
+                                                href="#"
+                                                role="button"
+                                                id="countruCodeDropdown"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                {{selectedCountry?.dialCode}}
+                                            </a>
             
                                             <ul class="dropdown-menu" aria-labelledby="countruCodeDropdown">
                                                 <div class="country-list-search mb-2">

@@ -6,17 +6,45 @@ import { CommonService } from '@app-shared-services';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-media-insights-list-page',
-    templateUrl: './media-insights-list-page.component.html',
-    styleUrl: './media-insights-list-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-media-insights-list-page',
+  templateUrl: './media-insights-list-page.component.html',
+  styleUrl: './media-insights-list-page.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class MediaInsightsListPageComponent {
 
   webURL: string = AppURL.webURL;
-
   metaData: any = META_DATA['media-insights'];
+
+  constructor(
+    private router: Router,
+    private commonService: CommonService,
+  ) { }
+
+  ngOnInit(): void {
+    this.setMetaData();
+  }
+
+  setMetaData() {
+    let metaInfo = new MetaInformation();
+    metaInfo.meta_title = this.metaData?.meta_title ?? '';
+    metaInfo.meta_description = this.metaData?.meta_description ?? '';
+    metaInfo.meta_keywords = this.metaData?.meta_keywords ?? '';
+    metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
+    //og data          
+    metaInfo.og_url = `${this.webURL}`;
+    metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
+
+    this.commonService.setMetaData(metaInfo);
+
+    //************************// 
+    //   Google Tag Manager   //
+    //************************//
+
+    this.commonService.gtmPageEvents('Company', 'Media Insights');
+  }
+
 
   faqList = [
     {
@@ -32,7 +60,8 @@ export class MediaInsightsListPageComponent {
       "answer": "Reports that map engagement across platforms, guides brands in their opportunity identification, optimizes campaigns, and yields measurable results.",
     },
   ];
-  
+
+
   cards = [
     {
       link: '/media-insights/print-advertising-report',
@@ -65,33 +94,5 @@ export class MediaInsightsListPageComponent {
       description: ''
     },
   ];
-
-  constructor(
-    private router: Router,
-    private commonService: CommonService,
-  ) { }
-
-  ngOnInit(): void {
-    this.setMetaData();
-  }
-
-  setMetaData() {
-    let metaInfo = new MetaInformation();
-    metaInfo.meta_title = this.metaData?.meta_title ?? '';
-    metaInfo.meta_description = this.metaData?.meta_description ?? '';
-    metaInfo.meta_keywords = this.metaData?.meta_keywords ?? '';
-    metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
-    //og data          
-    metaInfo.og_url = `${this.webURL}`;
-    metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
-
-    this.commonService.setMetaData(metaInfo);
-
-    //************************// 
-    //   Google Tag Manager   //
-    //************************//
-
-    this.commonService.gtmPageEvents('Company', 'Media Insights');
-  }
 
 }

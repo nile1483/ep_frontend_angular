@@ -1,25 +1,36 @@
 /* CTA section Start */
-.cta-section{
-background-color: var(--gray-3);
+.cta-section {
+    background-color: var(--gray-3);
 }
-.cta-section .section-heading{
+
+.cta-section .section-heading {
     max-width: 650px;
 }
-.cta-section .section-heading h2{
-color: var(--bs-white);
-margin-bottom: 25px;
+
+.cta-section .section-heading h2 {
+    color: var(--bs-white);
+    margin-bottom: 25px;
 }
 
 h2 {
     font-size: 1.7rem;
 }
 
-@media (max-width:991px){
-    .cta-section .section-heading{
+@media (max-width:991px) {
+    .cta-section .section-heading {
         max-width: 325px;
     }
 }
 
-.highlight-yellow{
-    color:yellow;
+.highlight-yellow {
+    color: yellow;
+}
+
+.contact-link {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
 }

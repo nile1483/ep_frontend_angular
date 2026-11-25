@@ -139,3 +139,12 @@ a.schedule-link::after {
 a.schedule-link:hover::after {
     width: 100%;
 }
+
+.contact-link {
+    border: none;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}

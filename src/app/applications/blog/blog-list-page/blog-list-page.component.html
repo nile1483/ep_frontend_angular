@@ -64,11 +64,22 @@
         <!-- view More Blogs -->
         <div class="row mt-5" *ngIf="isShowViewMore">
             <div class="col-12 text-center">
-                <a aria-label="Link" href="javascript:void(0)" (click)="viewMoreBlogs()" class="more-link more-link-with-text orange-link">
-                    <span class="more-text">View More</span> <span class="more-icon" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
-                        <!-- <i class="fa-light fa-arrow-right-long"></i> -->
-                        </span>
-                </a>
+
+                <button
+                    type="button"
+                    (click)="viewMoreBlogs()"
+                    class="more-link more-link-with-text orange-link">
+
+                    <span class="more-text">
+                        View More Blogs
+                    </span>
+
+                    <span class="more-icon"
+                        [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['arrow-right-long']) | safeHtml">
+                    </span>
+
+                </button>
+
             </div>
         </div>
 

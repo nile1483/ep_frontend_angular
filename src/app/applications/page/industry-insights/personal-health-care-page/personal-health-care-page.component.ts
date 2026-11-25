@@ -1,32 +1,27 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { SERVICE_LIST_WITH_SVG_ICON, APP_SVG_ICON_LIST, SVG_ICON_FOR_MEDIA, C2A_TITLE_DATA } from '@app-shared-constants';
-import { META_DATA } from '@app-shared-constants';
+import { C2A_TITLE_DATA, INDUSTRY_INSIGHTS_META_DATA } from '@app-shared-constants';
 import { AppURL } from 'src/app/app-url';
-import { CommonService } from '@app-shared-services';
+import { CommonService, UserService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
 import { MatDialog } from '@angular/material/dialog';
 import { PageService } from '../../page.service';
 import { Router } from '@angular/router';
-import { UserService } from '@app-shared-services';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-personal-health-care-page',
-    templateUrl: './personal-health-care-page.component.html',
-    styleUrl: './personal-health-care-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-personal-health-care-page',
+  templateUrl: './personal-health-care-page.component.html',
+  styleUrl: './personal-health-care-page.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class PersonalHealthCarePageComponent {
+
   media: string = 'personalhealthcareadvertising';
+
   webURL: string = AppURL.webURL;
   industryInsightsUrl: string = AppURL.industryInsightsUrl;
-  media_icons: any = SVG_ICON_FOR_MEDIA
-  serviceList: any = SERVICE_LIST_WITH_SVG_ICON;
-  app_svg_icon_list = APP_SVG_ICON_LIST;
-  metaData: any = META_DATA['personalhealthcareadvertising'];
-  selectedCurrency: any;
-  pageContentData: any;
+  metaData: any = INDUSTRY_INSIGHTS_META_DATA['personalhealthcareadvertising'];
 
   callToActionData: CallToAction = { title: C2A_TITLE_DATA['personalhealthcareadvertising'], inquiryUser: {} };
 
@@ -47,7 +42,7 @@ export class PersonalHealthCarePageComponent {
     this.isAuthenticated = this.userService.isAuthenticated;
     this.userDataObs = this.userService.userData.subscribe(data => {
       this.isAuthenticated = this.userService.isAuthenticated;
-      
+
       if (this.isAuthenticated && this.router.url == '/industry-insights/personal-health-care') {
         this.download();
       }
@@ -61,7 +56,6 @@ export class PersonalHealthCarePageComponent {
     this.pageService.getIndustryInsightsAdvertisingPageData(this.media).subscribe(result => {
       if (result.status == true) {
         this.callToActionData.inquiryUser = result.data?.inquiryUser;
-        this.pageContentData = result.data;
       }
     });
   }
@@ -84,7 +78,6 @@ export class PersonalHealthCarePageComponent {
 
     this.commonService.gtmPageEvents('Company', 'Company');
   }
-
 
 
   faqList = [

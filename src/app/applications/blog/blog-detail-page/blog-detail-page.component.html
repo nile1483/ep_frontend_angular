@@ -158,22 +158,24 @@
                     <ul class="social-links d-flex align-items-center justify-content-center my-3">
                         <li>
                             <!-- facebook -->
-                            <a class="facebook" aria-label="Link" href="javascript:void(0)" (click)="setFacebookLink()" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['facebook-f']) | safeHtml">
+                            <!-- <a class="facebook" aria-label="Link" href="javascript:void(0)" (click)="setFacebookLink()" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['facebook-f']) | safeHtml">
+                            </a> -->
+                            <a class="facebook" aria-label="Share on Facebook" [href]="facebookShareUrl" target="_blank" rel="noopener noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['facebook-f']) | safeHtml">
                             </a>
                         </li>
                         <li>
                             <!-- twitter -->
-                        <a class="twitter" aria-label="Link" href="javascript:void(0)" (click)="setTwitterLink()" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['twitter']) | safeHtml">
-                        </a>
+                            <a class="twitter" aria-label="Share on X (Twitter)" [href]="twitterShareUrl" target="_blank" rel="noopener noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['twitter']) | safeHtml">
+                            </a>
                         </li>
                         <li>
                             <!-- linkedin -->
-                            <a class="linkedin" aria-label="Link" href="javascript:void(0)" (click)="setLinkedinLink()" rel="noreferrer" target="_blank" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['linkedin-in']) | safeHtml">
+                            <a class="linkedin" aria-label="Share on LinkedIn" [href]="linkedinShareUrl" target="_blank" rel="noopener noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['linkedin-in']) | safeHtml">
                             </a>
                         </li>
                         <li>
                             <!-- whatsapp -->
-                            <a class="whatsapp" aria-label="Link" href="javascript:void(0)" (click)="setWhatsappLink()" target="_blank" rel="noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['whatsapp']) | safeHtml">
+                            <a class="whatsapp" aria-label="Share on WhatsApp" [href]="whatsappShareUrl" target="_blank" rel="noopener noreferrer" [innerHTML]="$safeNavigationMigration(app_svg_icon_list?.['whatsapp']) | safeHtml">
                             </a>
                         </li>
                     </ul>

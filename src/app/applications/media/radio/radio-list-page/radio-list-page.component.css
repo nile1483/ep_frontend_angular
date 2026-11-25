@@ -87,8 +87,6 @@ flip-container {
   color: #fff;
 }
 
-
-
 /* Footer Link Data */
 
 .footer-dropdown .btn {
@@ -201,4 +199,11 @@ flip-container {
   .btn.footer-dropdown-toggle::after {
     right: 0rem;
   }
+}
+
+button.more-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }

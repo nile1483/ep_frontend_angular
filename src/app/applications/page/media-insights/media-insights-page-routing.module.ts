@@ -28,11 +28,11 @@ const routes: Routes = [
   {
     path: 'ims-report', component: ImsReportPageComponent
   },
-  
+
   // {
   //   path: 'outdoor-advertising', component: OutdoorAdvertisingPageComponent
   // },
- 
+
 ];
 
 @NgModule({

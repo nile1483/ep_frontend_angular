@@ -1,26 +1,58 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { APP_SVG_ICON_LIST } from '@app-shared-constants';
+import { Router } from '@angular/router';
+import { CALCULATOR_META_DATA } from '@app-shared-constants';
+import { MetaInformation } from '@app-shared-model';
+import { CommonService } from '@app-shared-services';
+import { AppURL } from 'src/app/app-url';
 
 @Component({
-    selector: 'app-customer-acquisition-cost-page',
-    templateUrl: './customer-acquisition-cost-page.component.html',
-    styleUrl: './customer-acquisition-cost-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-customer-acquisition-cost-page',
+  templateUrl: './customer-acquisition-cost-page.component.html',
+  styleUrl: './customer-acquisition-cost-page.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class CustomerAcquisitionCostPageComponent {
 
   growthForm: FormGroup;
   growthResult: string = '';
 
-  app_svg_icon_list = APP_SVG_ICON_LIST;
+  webURL: string = AppURL.webURL;
+  metaData: any = CALCULATOR_META_DATA['customer-acquisition-cost-calculator'];
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private commonService: CommonService,
+  ) {
     this.growthForm = this.fb.group({
       conversionRevenue: ['', [Validators.required, Validators.min(0.01)]],
       adSpend: ['', [Validators.required, Validators.min(0.01)]]
     });
+  }
+
+  ngOnInit(): void {
+    this.setMetaData();
+  }
+
+  setMetaData() {
+    let metaInfo = new MetaInformation();
+    metaInfo.meta_title = this.metaData?.meta_title ?? '';
+    metaInfo.meta_description = this.metaData?.meta_description ?? '';
+    metaInfo.meta_keywords = this.metaData?.meta_keywords ?? '';
+    metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
+    //og data          
+    metaInfo.og_url = `${this.webURL}`;
+    metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
+
+    this.commonService.setMetaData(metaInfo);
+
+    //************************// 
+    //   Google Tag Manager   //
+    //************************//
+
+    this.commonService.gtmPageEvents('Company', 'Customer Acquisition Cost Calculator');
   }
 
   get conversionRevenue() {
@@ -82,5 +114,5 @@ export class CustomerAcquisitionCostPageComponent {
       description: 'Assess investment opportunities with our Profitability Index Calculator. Input cash flows and initial investment to determine project viability, aiding in informed decision-making for business investments.'
     }
   ]
-  
+
 }

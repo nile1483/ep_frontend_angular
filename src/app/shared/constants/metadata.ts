@@ -279,151 +279,6 @@ export const META_DATA: any = {
 
 
 
-  "ipladvertising": {
-    "meta_title": "IPL Tam Advertising in 2025",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping IPL Tam Advertising in 2025. Learn more on Excellent Publicity.",
-    "meta_keywords": "IPL Tam Advertising 2025, IPL Tam Advertising marketing trends, regional advertising insights, brand marketing in IPL Tam Advertising, IPL Tam Advertising sector promotions, Excellent Publicity."
-  },
-
-  "jewelleryadvertising": {
-    "meta_title": "Jewellery Advertising in India | Excellent Publicity",
-    "meta_description": "Discover innovative jewellery advertising services with Excellent Publicity. Showcase your brand, attract customers, and stay ahead with the latest trends and insights. Boost visibility with tailored strategies for the jewellery industry",
-    "meta_keywords": "Jewellery Advertising Trends 2026, Jewellery Marketing Insights, Jewellery Ad Spend Analysis, Jewellery Advertising Report, Jewellery Marketing Strategies"
-  },
-  "educationadvertising": {
-    "meta_title": "Education Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping education advertising in 2024. Discover how brands are leveraging innovative strategies to connect with students and educators. Learn more on Excellent Publicity.",
-    "meta_keywords": "education advertising 2024, education marketing trends, student engagement strategies, educator outreach, regional advertising insights, innovative education campaigns, brand marketing in education, digital advertising for schools, education sector promotions, Excellent Publicity."
-  },
-  "realestateadvertising": {
-    "meta_title": "Real Estate Advertising in 2026: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping real estate advertising in 2026. Learn more on Excellent Publicity.",
-    "meta_keywords": "real estate advertising 2026, real estate marketing trends, regional advertising insights, brand marketing in real estate, real estate sector promotions, Excellent Publicity."
-  },
-  "fmcgadvertising": {
-    "meta_title": "FMCG Advertising in 2026: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping FMCG advertising in 2026. Learn more on Excellent Publicity.",
-    "meta_keywords": "FMCG advertising 2026, FMCG marketing trends, regional advertising insights, brand marketing in FMCG, FMCG sector promotions, Excellent Publicity."
-  },
-  "gamingadvertising": {
-    "meta_title": "Gaming Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Gaming advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Gaming advertising 2024, Gaming marketing trends, regional advertising insights, brand marketing in Gaming, Gaming sector promotions, Excellent Publicity."
-  },
-  "automobileadvertising": {
-    "meta_title": "Auto Mobile Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Auto Mobile advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Auto Mobile advertising 2024, Auto Mobile marketing trends, regional advertising insights, brand marketing in Auto Mobile, Auto Mobile sector promotions, Excellent Publicity."
-  },
-  "ecommerceadvertising": {
-    "meta_title": "E-Commerce Advertising in 2025: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping E-Commerce advertising in 2025. Learn more on Excellent Publicity.",
-    "meta_keywords": "E-Commerce advertising 2025, E-Commerce marketing trends, regional advertising insights, brand marketing in E-Commerce, E-Commerce sector promotions, Excellent Publicity."
-  },
-  "digitaladvertising": {
-    "meta_title": "Digital Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Digital advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Digital advertising 2024, Digital marketing trends, regional advertising insights, brand marketing in Digital, Digital sector promotions, Excellent Publicity."
-  },
-  "radioadvertising": {
-    "meta_title": "Radio Advertising in 2025: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Radio advertising in 2025. Learn more on Excellent Publicity.",
-    "meta_keywords": "Radio advertising 2025, Radio marketing trends, regional advertising insights, brand marketing in Radio, Radio sector promotions, Excellent Publicity."
-  },
-  "lifestyleandappareladvertising": {
-    "meta_title": "Lifestyle & Apparel Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Lifestyle & Apparel advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Lifestyle & Apparel advertising 2024, Lifestyle & Apparel marketing trends, regional advertising insights, brand marketing in Lifestyle & Apparel, Lifestyle & Apparel sector promotions, Excellent Publicity."
-  },
-  "financialservicesadvertising": {
-    "meta_title": "Financial Services Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Financial Services advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Financial Services advertising 2024, Financial Services marketing trends, regional advertising insights, brand marketing in Financial Services, Financial Services sector promotions, Excellent Publicity."
-  },
-  "televisionadvertising": {
-    "meta_title": "Television Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Television advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Television advertising 2024, Television marketing trends, regional advertising insights, brand marketing in Television, Television sector promotions, Excellent Publicity."
-  },
-  "printadvertising": {
-    "meta_title": "Print Advertising in 2025: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Print advertising in 2025. Learn more on Excellent Publicity.",
-    "meta_keywords": "Print advertising 2025, Print marketing trends, regional advertising insights, brand marketing in Print, Print sector promotions, Excellent Publicity."
-  },
-  "outdooradvertising": {
-    "meta_title": "Outdoor Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Outdoor advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Outdoor advertising 2024, Outdoor marketing trends, regional advertising insights, brand marketing in Outdoor, Outdoor sector promotions, Excellent Publicity."
-  },
-  "ricepackagedadvertising": {
-    "meta_title": "Rice Packaged Advertising in 2024: Trends, Insights, and Regional Dominance",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Rice Packaged advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Rice Packaged advertising 2024, Rice Packaged marketing trends, regional advertising insights, brand marketing in Rice Packaged, Rice Packaged sector promotions, Excellent Publicity."
-  },
-  "renewableenergyadvertising": {
-    "meta_title": "Renewable Energy Advertising in 2024",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Renewable Energy advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Renewable Energy advertising 2024, Renewable Energy marketing trends, regional advertising insights, brand marketing in Renewable Energy, Renewable Energy sector promotions, Excellent Publicity."
-  },
-  "tourismadvertising": {
-    "meta_title": "Travel & Tourism Advertising Advertising in 2024",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Travel & Tourism Advertising advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Travel & Tourism Advertising advertising 2024, Travel & Tourism Advertising marketing trends, regional advertising insights, brand marketing in Travel & Tourism Advertising, Travel & Tourism Advertising sector promotions, Excellent Publicity."
-  },
-  "hospitalityadvertising": {
-    "meta_title": "Hospitality Advertising Advertising in 2024",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Hospitality Advertising advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Hospitality Advertising advertising 2024, Hospitality Advertising marketing trends, regional advertising insights, brand marketing in Hospitality Advertising, Hospitality Advertising sector promotions, Excellent Publicity."
-  },
-  "personalcareadvertising": {
-    "meta_title": "Personal Care Advertising Advertising in 2024",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Personal Care Advertising advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Personal Care Advertising advertising 2024, Personal Care Advertising marketing trends, regional advertising insights, brand marketing in Personal Care Advertising, Personal Care Advertising sector promotions, Excellent Publicity."
-  },
-  "personalhealthcareadvertising": {
-    "meta_title": "Personal Healthcare Advertising Advertising in 2024",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Personal Healthcare Advertising advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Personal Healthcare Advertising advertising 2024, Personal Healthcare Advertising marketing trends, regional advertising insights, brand marketing in Personal Healthcare Advertising, Personal Care Advertising sector promotions, Excellent Publicity."
-  },
-  "pharmaceuticalsadvertising": {
-    "meta_title": "Pharmaceuticals Advertising Advertising in 2024",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Pharmaceuticals Advertising advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Pharmaceuticals Advertising advertising 2024, Pharmaceuticals Advertising marketing trends, regional advertising insights, brand marketing in Pharmaceuticals Advertising, Personal Care Advertising sector promotions, Excellent Publicity."
-  },
-  "agriculturefarmingadvertising": {
-    "meta_title": "Agriculture Farming Advertising Advertising in 2024",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Agriculture Farming Advertising advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Agriculture Farming Advertising advertising 2024, Agriculture Farming Advertising marketing trends, regional advertising insights, brand marketing in Agriculture Farming Advertising, Personal Care Advertising sector promotions, Excellent Publicity."
-  },
-  "foodsectoradvertising": {
-    "meta_title": "Food Sector Advertising in 2024",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Food Sector Advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Food Sector Advertising 2024, Food Sector Advertising marketing trends, regional advertising insights, brand marketing in Food Sector Advertising, Food Sector Advertising sector promotions, Excellent Publicity."
-  },
-  "ecomshoppingadvertising": {
-    "meta_title": "Ecom Shopping Advertising in 2024",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Ecom Shopping Advertising in 2024. Learn more on Excellent Publicity.",
-    "meta_keywords": "Ecom Shopping Advertising 2024, Ecom Shopping Advertising marketing trends, regional advertising insights, brand marketing in Ecom Shopping Advertising, Ecom Shopping Advertising sector promotions, Excellent Publicity."
-  },
-  "petcaretamadvertising": {
-    "meta_title": "Petcare Tam Advertising in 2025",
-    "meta_description": "Explore the key trends, insights, and regional dominance shaping Petcare Tam Advertising in 2025. Learn more on Excellent Publicity.",
-    "meta_keywords": "Petcare Tam Advertising 2025, Petcare Tam Advertising marketing trends, regional advertising insights, brand marketing in Petcare Tam Advertising, Petcare Tam Advertising sector promotions, Excellent Publicity."
-  },
-  "imsreport": {
-    "meta_title": "IMS Report | Excellent Publicity",
-    "meta_description": "IMS Report | Excellent Publicity",
-    "meta_keywords": ""
-  },
-  "bankingfinancialservicesadvertising": {
-    "meta_title": "Banking & Financial Services Advertising Trends 2026",
-    "meta_description": "Discover banking and financial services advertising trends in 2026, key industry insights, regional growth, and marketing strategies.",
-    "meta_keywords": "Banking advertising 2026, financial services advertising, financial marketing trends, banking industry marketing, financial brand promotion, regional advertising trends"
-  },
-
-
-
-
 
   "test": {
     "meta_title": "",
@@ -433,28 +288,25 @@ export const META_DATA: any = {
 };
 
 
-
-
-
 export const CORPORATE_META_DATA: any = {
 
   "electronics": {
-    "meta_title": "Premium Electronic Corporate Gifts | Excellent Publicity",
+    "meta_title": "Premium Electronic Corporate Gifts | With Excellent Publicity",
     "meta_description": "Elevate Your Corporate Gifting With our Premium collection Electronics gifts, discover elegant electronics gifts that enhance the business connections | Inquire Now and Get Quote.",
     "meta_keywords": ""
   },
   "food-beverages": {
-    "meta_title": "Explore Corporate Food And Beverage Gifting |With Excellent Publicity",
+    "meta_title": "Explore Corporate Food And Beverage Gifting | With Excellent Publicity",
     "meta_description": "Delight your employees with our premium corporate food and beverage gifts. Choose from our custom hampers to elevate your business relationships. | Inquire Now And Get Quote",
     "meta_keywords": ""
   },
   "grooming": {
-    "meta_title": "Explore Personalize Grooming Gifts |With Excellent Publicity",
+    "meta_title": "Explore Personalize Grooming Gifts | With Excellent Publicity",
     "meta_description": "Enhance corporate gifting with premium grooming essentials. Explore our collection of sophisticated gifts for your employees | Inquire Now And Get Quote",
     "meta_keywords": ""
   },
   "home-kitchen": {
-    "meta_title": "Kitchen Appliances For Business Gifting |With Excellent Publicity",
+    "meta_title": "Kitchen Appliances For Business Gifting | With Excellent Publicity",
     "meta_description": "Elevate corporate gifting with home & kitchen essentials. Discover curated collection for memorable gifts, fostering business bonds. | Inquire Now And Get Quote",
     "meta_keywords": ""
   },
@@ -464,7 +316,7 @@ export const CORPORATE_META_DATA: any = {
     "meta_keywords": ""
   },
   "travel": {
-    "meta_title": "Explore Corporate Travel Accessories |With Excellent Publicity",
+    "meta_title": "Explore Corporate Travel Accessories | With Excellent Publicity",
     "meta_description": "Discover exciting Travel-inspired Corporate Gifts. Explore our collection for memorable presents that evoke a spirit of adventure| Inquire Now And Get Quote",
     "meta_keywords": ""
   },
@@ -503,8 +355,6 @@ export const CORPORATE_META_DATA: any = {
 };
 
 
-
-
 export const SEO_SERVICE_META_DATA: any = {
 
   "basic": {
@@ -512,15 +362,308 @@ export const SEO_SERVICE_META_DATA: any = {
     "meta_description": "Explore basic SEO services, deliverables and plan options. Discuss website visibility and request package details from Excellent Publicity.",
     "meta_keywords": ""
   },
+
   "standard": {
     "meta_title": "Standard SEO Services & Pricing | Excellent Publicity",
     "meta_description": "Explore standard SEO services, deliverables and plan options. Discuss website visibility and request package details from Excellent Publicity.",
     "meta_keywords": ""
   },
+
   "premium": {
     "meta_title": "Premium SEO Services & Pricing | Excellent Publicity",
     "meta_description": "Explore premium SEO services, deliverables and plan options. Discuss website visibility and request package details from Excellent Publicity.",
     "meta_keywords": ""
   }
+};
+
+
+export const MEDIA_INSIGHTS_META_DATA: any = {
+
+  "printadvertising": {
+    "meta_title": "Print Advertising in 2025: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Print advertising in 2025. Learn more on Excellent Publicity.",
+    "meta_keywords": "Print advertising 2025, Print marketing trends, regional advertising insights, brand marketing in Print, Print sector promotions, Excellent Publicity."
+  },
+
+  "digitaladvertising": {
+    "meta_title": "Digital Advertising in 2026: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Digital advertising in 2026. Learn more on Excellent Publicity.",
+    "meta_keywords": "Digital advertising 2026, Digital marketing trends, regional advertising insights, brand marketing in Digital, Digital sector promotions, Excellent Publicity."
+  },
+
+  "radioadvertising": {
+    "meta_title": "Radio Advertising in 2025: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Radio advertising in 2025. Learn more on Excellent Publicity.",
+    "meta_keywords": "Radio advertising 2025, Radio marketing trends, regional advertising insights, brand marketing in Radio, Radio sector promotions, Excellent Publicity."
+  },
+
+  "televisionadvertising": {
+    "meta_title": "Television Advertising in 2026: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Television advertising in 2026. Learn more on Excellent Publicity.",
+    "meta_keywords": "Television advertising 2026, Television marketing trends, regional advertising insights, brand marketing in Television, Television sector promotions, Excellent Publicity."
+  },
+
+  "outdooradvertising": {
+    "meta_title": "Outdoor Advertising in 2024: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Outdoor advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Outdoor advertising 2024, Outdoor marketing trends, regional advertising insights, brand marketing in Outdoor, Outdoor sector promotions, Excellent Publicity."
+  },
+
+  "imsreport": {
+    "meta_title": "IMS Report | Excellent Publicity",
+    "meta_description": "Explore IMS reports to analyze media performance, advertising insights and campaign data. Access key information to support reporting, tracking and informed business decisions.",
+    "meta_keywords": ""
+  },
+
+};
+
+
+export const INDUSTRY_INSIGHTS_META_DATA: any = {
+
+  "jewelleryadvertising": {
+    "meta_title": "Jewellery Advertising in 2026 | Excellent Publicity",
+    "meta_description": "Discover innovative jewellery advertising services with Excellent Publicity. Showcase your brand, attract customers, and stay ahead with the latest trends and insights. Boost visibility with tailored strategies for the jewellery industry",
+    "meta_keywords": "Jewellery Advertising Trends 2026, Jewellery Marketing Insights, Jewellery Ad Spend Analysis, Jewellery Advertising Report, Jewellery Marketing Strategies"
+  },
+
+  "educationadvertising": {
+    "meta_title": "Education Advertising in 2024: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping education advertising in 2024. Discover how brands are leveraging innovative strategies to connect with students and educators. Learn more on Excellent Publicity.",
+    "meta_keywords": "education advertising 2024, education marketing trends, student engagement strategies, educator outreach, regional advertising insights, innovative education campaigns, brand marketing in education, digital advertising for schools, education sector promotions, Excellent Publicity."
+  },
+
+  "realestateadvertising": {
+    "meta_title": "Real Estate Advertising in 2026: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping real estate advertising in 2026. Learn more on Excellent Publicity.",
+    "meta_keywords": "real estate advertising 2026, real estate marketing trends, regional advertising insights, brand marketing in real estate, real estate sector promotions, Excellent Publicity."
+  },
+
+  "fmcgadvertising": {
+    "meta_title": "FMCG Advertising in 2026: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping FMCG advertising in 2026. Learn more on Excellent Publicity.",
+    "meta_keywords": "FMCG advertising 2026, FMCG marketing trends, regional advertising insights, brand marketing in FMCG, FMCG sector promotions, Excellent Publicity."
+  },
+
+  "gamingadvertising": {
+    "meta_title": "Gaming Advertising in 2024: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Gaming advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Gaming advertising 2024, Gaming marketing trends, regional advertising insights, brand marketing in Gaming, Gaming sector promotions, Excellent Publicity."
+  },
+
+  "automobileadvertising": {
+    "meta_title": "Auto Mobile Advertising in 2024: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Auto Mobile advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Auto Mobile advertising 2024, Auto Mobile marketing trends, regional advertising insights, brand marketing in Auto Mobile, Auto Mobile sector promotions, Excellent Publicity."
+  },
+
+  "ecommerceadvertising": {
+    "meta_title": "E-Commerce Advertising in 2025: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping E-Commerce advertising in 2025. Learn more on Excellent Publicity.",
+    "meta_keywords": "E-Commerce advertising 2025, E-Commerce marketing trends, regional advertising insights, brand marketing in E-Commerce, E-Commerce sector promotions, Excellent Publicity."
+  },
+
+  "lifestyleandappareladvertising": {
+    "meta_title": "Lifestyle & Apparel Advertising in 2024: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Lifestyle & Apparel advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Lifestyle & Apparel advertising 2024, Lifestyle & Apparel marketing trends, regional advertising insights, brand marketing in Lifestyle & Apparel, Lifestyle & Apparel sector promotions, Excellent Publicity."
+  },
+
+  "financialservicesadvertising": {
+    "meta_title": "Financial Services Advertising in 2024: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Financial Services advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Financial Services advertising 2024, Financial Services marketing trends, regional advertising insights, brand marketing in Financial Services, Financial Services sector promotions, Excellent Publicity."
+  },
+
+  "packagedriceadvertising": {
+    "meta_title": "Packaged Rice Advertising in 2024: Trends, Insights, and Regional Dominance",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Packaged Rice advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Packaged Rice advertising 2024, Packaged Rice marketing trends, regional advertising insights, brand marketing in Packaged Rice, Packaged Rice sector promotions, Excellent Publicity."
+  },
+
+  "renewableenergyadvertising": {
+    "meta_title": "Renewable Energy Advertising in 2024",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Renewable Energy advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Renewable Energy advertising 2024, Renewable Energy marketing trends, regional advertising insights, brand marketing in Renewable Energy, Renewable Energy sector promotions, Excellent Publicity."
+  },
+
+  "tourismadvertising": {
+    "meta_title": "Travel & Tourism Advertising Advertising in 2024",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Travel & Tourism Advertising advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Travel & Tourism Advertising advertising 2024, Travel & Tourism Advertising marketing trends, regional advertising insights, brand marketing in Travel & Tourism Advertising, Travel & Tourism Advertising sector promotions, Excellent Publicity."
+  },
+
+  "hospitalityadvertising": {
+    "meta_title": "Hospitality Advertising Advertising in 2024",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Hospitality Advertising advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Hospitality Advertising advertising 2024, Hospitality Advertising marketing trends, regional advertising insights, brand marketing in Hospitality Advertising, Hospitality Advertising sector promotions, Excellent Publicity."
+  },
+
+  "personalcareadvertising": {
+    "meta_title": "Personal Care Advertising Advertising in 2024",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Personal Care Advertising advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Personal Care Advertising advertising 2024, Personal Care Advertising marketing trends, regional advertising insights, brand marketing in Personal Care Advertising, Personal Care Advertising sector promotions, Excellent Publicity."
+  },
+
+  "personalhealthcareadvertising": {
+    "meta_title": "Personal Healthcare Advertising Advertising in 2024",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Personal Healthcare Advertising advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Personal Healthcare Advertising advertising 2024, Personal Healthcare Advertising marketing trends, regional advertising insights, brand marketing in Personal Healthcare Advertising, Personal Care Advertising sector promotions, Excellent Publicity."
+  },
+
+  "pharmaceuticalsadvertising": {
+    "meta_title": "Pharmaceuticals Advertising Advertising in 2024",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Pharmaceuticals Advertising advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Pharmaceuticals Advertising advertising 2024, Pharmaceuticals Advertising marketing trends, regional advertising insights, brand marketing in Pharmaceuticals Advertising, Personal Care Advertising sector promotions, Excellent Publicity."
+  },
+
+  "agriculturefarmingadvertising": {
+    "meta_title": "Agriculture Farming Advertising Advertising in 2024",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Agriculture Farming Advertising advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Agriculture Farming Advertising advertising 2024, Agriculture Farming Advertising marketing trends, regional advertising insights, brand marketing in Agriculture Farming Advertising, Personal Care Advertising sector promotions, Excellent Publicity."
+  },
+
+  "foodsectoradvertising": {
+    "meta_title": "Food Sector Advertising in 2024",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Food Sector Advertising in 2024. Learn more on Excellent Publicity.",
+    "meta_keywords": "Food Sector Advertising 2024, Food Sector Advertising marketing trends, regional advertising insights, brand marketing in Food Sector Advertising, Food Sector Advertising sector promotions, Excellent Publicity."
+  },
+
+  "petcaretamadvertising": {
+    "meta_title": "Petcare Tam Advertising in 2025",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping Petcare Tam Advertising in 2025. Learn more on Excellent Publicity.",
+    "meta_keywords": "Petcare Tam Advertising 2025, Petcare Tam Advertising marketing trends, regional advertising insights, brand marketing in Petcare Tam Advertising, Petcare Tam Advertising sector promotions, Excellent Publicity."
+  },
+
+  "ipltamadvertising": {
+    "meta_title": "IPL Tam Advertising in 2025 | Excellent Publicity",
+    "meta_description": "Explore the key trends, insights, and regional dominance shaping IPL Tam Advertising in 2025. Learn more on Excellent Publicity.",
+    "meta_keywords": "IPL Tam Advertising 2025, IPL Tam Advertising marketing trends, regional advertising insights, brand marketing in IPL Tam Advertising, IPL Tam Advertising sector promotions, Excellent Publicity."
+  },
+
+  "bankingfinancialservicesadvertising": {
+    "meta_title": "Banking & Financial Services Advertising Trends 2026",
+    "meta_description": "Discover banking and financial services advertising trends in 2026, key industry insights, regional growth, and marketing strategies.",
+    "meta_keywords": "Banking advertising 2026, financial services advertising, financial marketing trends, banking industry marketing, financial brand promotion, regional advertising trends"
+  },
+
+
+};
+
+
+export const CALCULATOR_META_DATA: any = {
+
+  "week-on-week-calculator": {
+    "meta_title": "Week on Week Calculator | Excellent Publicity",
+    "meta_description": "Calculate week on week growth, compare weekly performance and track percentage changes easily with our week on week calculator.",
+    "meta_keywords": ""
+  },
+
+  "ecpm-calculator": {
+    "meta_title": "ECPM Calculator | Excellent Publicity",
+    "meta_description": "Calculate ECPM, measure ad revenue per 1,000 impressions and evaluate advertising performance with our ECPM calculator.",
+    "meta_keywords": ""
+  },
+
+  "net-profit-margin-calculator": {
+    "meta_title": "Net Profit Margin Calculator | Excellent Publicity",
+    "meta_description": "Calculate net profit margin easily with our net profit margin calculator. Measure profitability, compare revenue and expenses, and understand your business's financial performance.",
+    "meta_keywords": ""
+  },
+
+  "profitability-index-calculator": {
+    "meta_title": "Profitability Index Calculator | Excellent Publicity",
+    "meta_description": "Calculate the profitability index of an investment with our profitability index calculator. Evaluate investment returns, compare project value and assess financial viability.",
+    "meta_keywords": ""
+  },
+
+  "sustainable-growth-rate-calculator": {
+    "meta_title": "Sustainable Growth Rate Calculator | Excellent Publicity",
+    "meta_description": "Calculate your sustainable growth rate with our sustainable growth rate calculator. Estimate business growth potential based on profitability, retention rate and financial performance.",
+    "meta_keywords": ""
+  },
+
+  "month-on-month-growth-calculator": {
+    "meta_title": "Month on Month Growth Calculator | Excellent Publicity",
+    "meta_description": "Calculate month on month growth with our calculator. Compare monthly performance, measure percentage growth and track changes in revenue, sales or business metrics.",
+    "meta_keywords": ""
+  },
+
+  "year-on-year-growth-calculator": {
+    "meta_title": "Year on Year Growth Calculator | Excellent Publicity",
+    "meta_description": "Calculate year on year growth with our calculator. Compare annual performance, measure percentage changes and track growth in revenue, sales or business metrics.",
+    "meta_keywords": ""
+  },
+
+  "influencer-marketing-roi-calculator": {
+    "meta_title": "Influencer Marketing ROI Calculator | Excellent Publicity",
+    "meta_description": "Calculate influencer marketing ROI with our calculator. Measure campaign profitability, compare influencer costs with revenue generated and evaluate marketing performance.",
+    "meta_keywords": ""
+  },
+
+  "lead-to-customer-conversion-rate-calculator": {
+    "meta_title": "Lead to Customer Conversion Rate Calculator | Excellent Publicity",
+    "meta_description": "Calculate your lead to customer conversion rate with our calculator. Measure how effectively leads turn into customers and evaluate your sales and marketing performance.",
+    "meta_keywords": ""
+  },
+
+  "bounce-rate-calculator": {
+    "meta_title": "Bounce Rate Calculator | Excellent Publicity",
+    "meta_description": "Calculate your website bounce rate with our bounce rate calculator. Measure visitor engagement, analyze website performance and understand how many visitors leave without further interaction.",
+    "meta_keywords": ""
+  },
+
+  "adsense-rpm-calculator": {
+    "meta_title": "AdSense RPM Calculator | Excellent Publicity",
+    "meta_description": "Calculate AdSense RPM with our calculator. Estimate revenue per 1,000 page views, analyze ad performance and understand how effectively your website generates advertising revenue.",
+    "meta_keywords": ""
+  },
+
+  "sales-forecast-calculator": {
+    "meta_title": "Sales Forecast Calculator | Excellent Publicity",
+    "meta_description": "Forecast future sales with our sales forecast calculator. Estimate revenue, analyze sales trends and plan business growth using historical sales data and growth rates.",
+    "meta_keywords": ""
+  },
+
+  "email-open-rate-calculator": {
+    "meta_title": "Email Open Rate Calculator | Excellent Publicity",
+    "meta_description": "Calculate your email open rate with our email open rate calculator. Measure email engagement, analyze campaign performance and understand how effectively your emails reach and engage subscribers.",
+    "meta_keywords": ""
+  },
+
+  "customer-acquisition-cost-calculator": {
+    "meta_title": "Customer Acquisition Cost Calculator | Excellent Publicity",
+    "meta_description": "Calculate customer acquisition cost (CAC) with our calculator. Measure marketing and sales expenses, evaluate acquisition efficiency and understand how much it costs to gain new customers.",
+    "meta_keywords": ""
+  },
+
+  "google-ads-revenue-calculator": {
+    "meta_title": "Google Ads Revenue Calculator | Excellent Publicity",
+    "meta_description": "Estimate revenue generated from Google Ads with our calculator. Analyze ad performance, estimate earnings and evaluate the potential return from your Google Ads campaigns.",
+    "meta_keywords": ""
+  },
+
+  "gross-margin-calculator": {
+    "meta_title": "Gross Margin Calculator | Excellent Publicity",
+    "meta_description": "Calculate gross margin with our gross margin calculator. Measure profitability, compare revenue with cost of goods sold and evaluate your business's financial performance.",
+    "meta_keywords": ""
+  },
+
+  "radio-ad-cost-calculator": {
+    "meta_title": "Radio Ad Cost Calculator | Excellent Publicity",
+    "meta_description": "Estimate radio advertising costs with our radio ad cost calculator. Calculate campaign expenses, compare advertising rates and plan your radio advertising budget effectively.",
+    "meta_keywords": ""
+  },
+
+  "facebook-ads-roi-calculator": {
+    "meta_title": "Facebook Ads ROI Calculator | Excellent Publicity",
+    "meta_description": "Calculate Facebook Ads ROI with our calculator. Measure campaign profitability, compare ad spend with revenue generated and evaluate the performance of your Facebook advertising campaigns.",
+    "meta_keywords": ""
+  },
+
+  "ctor-calculator": {
+    "meta_title": "CTOR Calculator | Excellent Publicity",
+    "meta_description": "Calculate click to open rate (CTOR) with our CTOR calculator. Measure email engagement, analyze clicks against email opens and evaluate the effectiveness of your email campaigns.",
+    "meta_keywords": ""
+  },
 
 };

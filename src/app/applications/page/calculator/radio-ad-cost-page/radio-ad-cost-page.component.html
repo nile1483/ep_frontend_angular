@@ -51,8 +51,17 @@
                     </div>
 
                     <div class="text-center col-md-6 mx-auto">
-                        <label class="form-label fw-bolder">Gross Profit Margin</label>
-                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                        <label for="grossProfitMargin" class="form-label fw-bolder">
+                            Gross Profit Margin
+                        </label>
+
+                        <input
+                            type="text"
+                            id="grossProfitMargin"
+                            [value]="growthResult"
+                            readonly
+                            class="form-control text-center border-danger"
+                        />
                     </div>
                 </form>
 

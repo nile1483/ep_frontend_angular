@@ -6,7 +6,7 @@
   background-repeat: no-repeat
 }
 
-.channel-partner-background .partner-btn{
+.channel-partner-background .partner-btn {
   text-align: center;
   margin-top: -170px;
   padding: 15px 30px;
@@ -21,7 +21,7 @@
     background-repeat: no-repeat
   }
 
-  .channel-partner-background .partner-btn{
+  .channel-partner-background .partner-btn {
     margin-top: -50px !important;
   }
 
@@ -35,7 +35,7 @@
     background-repeat: no-repeat
   }
 
-  .channel-partner-background .partner-btn{
+  .channel-partner-background .partner-btn {
     margin-top: -70px !important;
   }
 }
@@ -45,7 +45,7 @@
     padding: 20rem 0 0 0
   }
 
-  .channel-partner-background .partner-btn{
+  .channel-partner-background .partner-btn {
     margin-top: -55px !important;
     padding: 10px 25px;
     font-size: 20px;
@@ -57,7 +57,7 @@
     padding: 15rem 0 0 0
   }
 
-  .channel-partner-background .partner-btn{
+  .channel-partner-background .partner-btn {
     margin-top: -35px !important;
     padding: 10px 25px;
     font-size: 20px;
@@ -69,7 +69,8 @@
     padding: 10rem 0 0 0;
     background-position: center
   }
-  .channel-partner-background .partner-btn{
+
+  .channel-partner-background .partner-btn {
     margin-top: -5px !important;
   }
 }
@@ -80,8 +81,8 @@
     background-position: center center
   }
 
-  .channel-partner-background .partner-btn{
-    margin-top:  15px !important;
+  .channel-partner-background .partner-btn {
+    margin-top: 15px !important;
     padding: 10px 20px;
     font-size: 15px;
   }
@@ -211,16 +212,20 @@ h3.title {
   border-radius: 25px;
 }
 
-.justify-text{
+.justify-text {
   text-align: justify;
 }
 
 @media (max-width:767px) {
-  .side-card .card{
+  .side-card .card {
     flex-direction: column !important;
   }
 
-  .side-card .card img{
+  .side-card .card img {
     width: 35% !important;
   }
+}
+
+.get-in-touch {
+  color: #b02a37 !important;
 }

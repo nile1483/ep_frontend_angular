@@ -175,7 +175,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-2",
-      title_background: "#a39b31",
+      title_background: "#706800",
       card_background: "#441e49",
       date: "29 Mar 2026, Sun",
       time: "7:30 pm IST",
@@ -199,7 +199,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-4",
-      title_background: "#e26447",
+      title_background: "#a83218",
       card_background: "#750000",
       date: "31 Mar 2026, Tue",
       time: "7:30 pm IST",
@@ -211,7 +211,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-5",
-      title_background: "#936d0f",
+      title_background: "#674900",
       card_background: "#0a4256",
       date: "01 April 2026, Wed",
       time: "7:30 pm IST",
@@ -223,7 +223,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-6",
-      title_background: "#1b8c7c",
+      title_background: "#12665a",
       card_background: "#382d63",
       date: "02 April 2026, Thu",
       time: "7:30 pm IST",
@@ -259,7 +259,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-9",
-      title_background: "#a8823f",
+      title_background: "#75551e",
       card_background: "#492039",
       date: "04 April 2026, Sat",
       time: "7:30 pm IST",
@@ -283,7 +283,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-11",
-      title_background: "#a39b31",
+      title_background: "#706800",
       card_background: "#441e49",
       date: "05 April 2026, Sun",
       time: "7:30 pm IST",
@@ -307,7 +307,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-13",
-      title_background: "#e26447",
+      title_background: "#a83218",
       card_background: "#750000",
       date: "07 April 2026, Tue",
       time: "7:30 pm IST",
@@ -319,7 +319,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-14",
-      title_background: "#936d0f",
+      title_background: "#674900",
       card_background: "#0a4246",
       date: "08 April 2026, Wed",
       time: "7:30 pm IST",
@@ -331,7 +331,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-15",
-      title_background: "#ab8c7c",
+      title_background: "#765748",
       card_background: "#382d63",
       date: "09 April 2026, Thu",
       time: "7:30 pm IST",
@@ -367,7 +367,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-18",
-      title_background: "#a8823f",
+      title_background: "#75551e",
       card_background: "#492039",
       date: "11 April 2026, Sat",
       time: "7:30 pm IST",
@@ -391,7 +391,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-20",
-      title_background: "#a39b31",
+      title_background: "#706800",
       card_background: "#441e49",
       date: "12 April 2026, Sun",
       time: "7:30 pm IST",
@@ -418,7 +418,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-35",
-      title_background: "#a39b31",
+      title_background: "#706800",
       card_background: "#441e49",
       date: "25 April 2026, Sat",
       time: "3:30 pm IST",
@@ -442,7 +442,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-37",
-      title_background: "#e26447",
+      title_background: "#a83218",
       card_background: "#750000",
       date: "26 April 2026, Sun",
       time: "3:30 pm IST",
@@ -454,7 +454,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-38",
-      title_background: "#936d0f",
+      title_background: "#674900",
       card_background: "#0a4256",
       date: "26 April 2026, Sun",
       time: "7:30 pm IST",
@@ -466,7 +466,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-39",
-      title_background: "#1b8c7c",
+      title_background: "#12665a",
       card_background: "#382d63",
       date: "27 April 2026, Mon",
       time: "7:30 pm IST",
@@ -502,7 +502,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-42",
-      title_background: "#a8823f",
+      title_background: "#75551e",
       card_background: "#492039",
       date: "30 April 2026, Thu",
       time: "7:30 pm IST",
@@ -528,7 +528,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-44",
-      title_background: "#a39b31",
+      title_background: "#706800",
       card_background: "#441e49",
       date: "02 May 2026, Sat",
       time: "7:30 pm IST",
@@ -552,7 +552,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-46",
-      title_background: "#e26447",
+      title_background: "#a83218",
       card_background: "#750000",
       date: "03 May 2026, Sun",
       time: "7:30 pm IST",
@@ -564,7 +564,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-47",
-      title_background: "#936d0f",
+      title_background: "#674900",
       card_background: "#0a4256",
       date: "04 May 2026, Mon",
       time: "7:30 pm IST",
@@ -576,7 +576,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-48",
-      title_background: "#1b8c7c",
+      title_background: "#12665a",
       card_background: "#382d63",
       date: "05 May 2026, Tue",
       time: "7:30 pm IST",
@@ -612,7 +612,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-51",
-      title_background: "#a8823f",
+      title_background: "#75551e",
       card_background: "#492039",
       date: "08 May 2026, Fri",
       time: "7:30 pm IST",
@@ -636,7 +636,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-53",
-      title_background: "#a39b31",
+      title_background: "#706800",
       card_background: "#441e49",
       date: "10 May 2026, Sun",
       time: "3:30 pm IST",
@@ -674,7 +674,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
 
     {
       match_no: "MATCH-56",
-      title_background: "#e26447",
+      title_background: "#a83218",
       card_background: "#750000",
       date: "12 May 2026, Tue",
       time: "7:30 pm IST",
@@ -686,7 +686,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-57",
-      title_background: "#1b8c7c",
+      title_background: "#12665a",
       card_background: "#382d63",
       date: "13 May 2026, Wed",
       time: "7:30 pm IST",
@@ -698,7 +698,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-58",
-      title_background: "#e26447",
+      title_background: "#a83218",
       card_background: "#750000",
       date: "14 May 2026, Thu",
       time: "7:30 pm IST",
@@ -710,7 +710,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-59",
-      title_background: "#936d0f",
+      title_background: "#674900",
       card_background: "#0a4256",
       date: "15 May 2026, Fri",
       time: "7:30 pm IST",
@@ -734,7 +734,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-61",
-      title_background: "#a39b31",
+      title_background: "#706800",
       card_background: "#441e49",
       date: "17 May 2026, Sun",
       time: "3:30 pm IST",
@@ -758,7 +758,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-63",
-      title_background: "#a8823f",
+      title_background: "#75551e",
       card_background: "#492039",
       date: "18 May 2026, Mon",
       time: "7:30 pm IST",
@@ -770,7 +770,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-64",
-      title_background: "#e26447",
+      title_background: "#a83218",
       card_background: "#750000",
       date: "19 May 2026, Tue",
       time: "7:30 pm IST",
@@ -782,7 +782,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-65",
-      title_background: "#936d0f",
+      title_background: "#674900",
       card_background: "#0a4256",
       date: "20 May 2026, Wed",
       time: "7:30 pm IST",
@@ -794,7 +794,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-66",
-      title_background: "#a39b31",
+      title_background: "#706800",
       card_background: "#441e49",
       date: "21 May 2026, Thu",
       time: "7:30 pm IST",
@@ -830,7 +830,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-69",
-      title_background: "#a8823f",
+      title_background: "#75551e",
       card_background: "#492039",
       date: "24 May 2026, Sun",
       time: "3:30 pm IST",
@@ -842,7 +842,7 @@ export class IPLAdvertisingPageComponent implements OnInit, AfterViewInit {
     },
     {
       match_no: "MATCH-70",
-      title_background: "#e26447",
+      title_background: "#a83218",
       card_background: "#750000",
       date: "24 May 2026, Sun",
       time: "7:30 pm IST",

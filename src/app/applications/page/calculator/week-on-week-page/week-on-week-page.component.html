@@ -12,25 +12,44 @@
     <div class="container get-section">
         <div class="row justify-content-center">
             <div class="col-12">
-                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()"
-                    class="roas-form p-4 border custom-border mx-auto">
+                <form [formGroup]="growthForm" (ngSubmit)="calculateWOWGrowth()" class="roas-form p-4 border custom-border mx-auto">
                     <div class="row mb-3">
                         <div class="col-md-6 mb-3 mb-md-0 text-center">
-                            <label class="form-label fw-bolder">Conversion Revenue</label>
-                            <input type="number" formControlName="conversionRevenue" class="form-control border-danger" placeholder="Enter Value" />
+                            <label for="conversionRevenue" class="form-label fw-bolder">
+                                Conversion Revenue
+                            </label>
+
+                            <input
+                                type="number"
+                                id="conversionRevenue"
+                                formControlName="conversionRevenue"
+                                class="form-control border-danger"
+                                placeholder="Enter Value"
+                            />
+
                             <div *ngIf="conversionRevenue?.invalid && conversionRevenue?.touched" class="text-danger small">
-                              <div *ngIf="conversionRevenue?.errors?.['required']">
-                                Conversion Revenue is required.
-                              </div>
-                              <div *ngIf="conversionRevenue?.errors?.['min']">
-                                Conversion Revenue must be greater than 0.
-                              </div>
+                                <div *ngIf="conversionRevenue?.errors?.['required']">
+                                    Conversion Revenue is required.
+                                </div>
+                                <div *ngIf="conversionRevenue?.errors?.['min']">
+                                    Conversion Revenue must be greater than 0.
+                                </div>
                             </div>
-                          </div>
+                        </div>
 
                         <div class="col-md-6 text-center">
-                            <label class="form-label fw-bolder">Advertising Spend</label>
-                            <input type="number" formControlName="adSpend" class="form-control border-danger" placeholder="Enter Value" />
+                            <label for="adSpend" class="form-label fw-bolder">
+                                Advertising Spend
+                            </label>
+
+                            <input
+                                type="number"
+                                id="adSpend"
+                                formControlName="adSpend"
+                                class="form-control border-danger"
+                                placeholder="Enter Value"
+                            />
+
                             <div *ngIf="adSpend?.invalid && adSpend?.touched" class="text-danger small">
                                 <div *ngIf="adSpend?.errors?.['required']">
                                     Advertising Spend is required.
@@ -46,9 +65,16 @@
                         <button type="submit" [disabled]="growthForm.invalid" class="btn btn-danger fw-bold px-4"> Calculate Now </button>
                     </div>
 
-                    <div class="text-center col-md-6 mx-auto">
-                        <label class="form-label fw-bolder">ROAS %</label>
-                        <input type="text" [value]="growthResult" readonly class="form-control text-center border-danger" />
+                   <div class="text-center col-md-6 mx-auto">
+                    <label for="growthResult" class="form-label fw-bolder">ROAS %</label>
+
+                    <input
+                        type="text"
+                        id="growthResult"
+                        [value]="growthResult"
+                        readonly
+                        class="form-control text-center border-danger"
+                    />
                     </div>
                 </form>
 

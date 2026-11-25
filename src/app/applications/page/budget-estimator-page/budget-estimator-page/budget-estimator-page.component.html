@@ -62,10 +62,26 @@
         <h6 class="fw-bold mb-2">Tell Us About Your Brand</h6>
         <p class="mb-2">Align your brand with the right budget.</p>
         <div class="mb-4" *ngFor="let slider of sliderConfigs; let i = index">
-            <label class="fw-semibold">{{ slider.label }}</label>
-            <mat-slider min="0" max="5" step="1" class="w-100 red-slider" showTickMarks discrete [displayWith]="slider.formatter">
-                <input matSliderThumb [(ngModel)]="sliders[slider.key]" (ngModelChange)="updateBudget()" />
+            <label class="fw-semibold">
+                {{ slider.label }}
+            </label>
+
+            <mat-slider
+                min="0"
+                max="5"
+                step="1"
+                class="w-100 red-slider"
+                showTickMarks
+                discrete
+                [displayWith]="slider.formatter">
+
+                <input
+                    matSliderThumb
+                    [(ngModel)]="sliders[slider.key]"
+                    (ngModelChange)="updateBudget()"
+                    [attr.aria-label]="slider.label" />
             </mat-slider>
+
             <div class="d-flex justify-content-between small text-muted">
                 <span>{{ slider.minLabel }}</span>
                 <span>{{ slider.maxLabel }}</span>
@@ -74,7 +90,10 @@
     </div>
 
     <div class="shadow-sm p-3 rounded-3 text-center mb-3" style="background-color: #f4f4f4;">
-        <h6 class="fw-bold mb-2"> Suggested Budget: <span class="text-danger">{{ suggestedBudget | currency:'INR':'symbol':'1.2-2'}}</span> </h6>
+        <h6 class="fw-bold mb-2"> 
+            Suggested Budget: 
+            <span class="text-danger currency">{{ suggestedBudget | currency:'INR':'symbol':'1.2-2'}}</span>
+        </h6>
 
         <div class="chart-container" style="position: relative; height: 40vh; width: 100%;">
             <canvas id="budgetChart"></canvas>

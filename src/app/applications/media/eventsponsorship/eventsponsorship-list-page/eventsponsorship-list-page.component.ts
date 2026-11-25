@@ -5,32 +5,32 @@ import { forkJoin, Subscription } from 'rxjs';
 
 import { Utilities } from '@app-shared-helpers';
 import { UserService } from '@app-shared-services';
-import { EventsponsorshipService } from '@app-media-services'; 
+import { EventsponsorshipService } from '@app-media-services';
 import { LocationParm } from '@app-media-models';
 import { EventsponsorshipParams, EventsponsorshipFilters } from '@app-media-models';
 import { AppURL } from 'src/app/app-url';
 import { CommonService } from '@app-shared-services';
 import { MetaInformation } from '@app-shared-model';
-import { APP_SVG_ICON_LIST, C2A_TITLE_DATA} from '@app-shared-constants';
+import { APP_SVG_ICON_LIST, C2A_TITLE_DATA } from '@app-shared-constants';
 
 @Component({
-    selector: 'app-eventsponsorship-list-page',
-    templateUrl: './eventsponsorship-list-page.component.html',
-    styleUrls: ['./eventsponsorship-list-page.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-eventsponsorship-list-page',
+  templateUrl: './eventsponsorship-list-page.component.html',
+  styleUrls: ['./eventsponsorship-list-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class EventsponsorshipListPageComponent implements OnInit {
 
   media: string = 'events-and-sponsorship';
-  webURL : string = AppURL.webURL;
-  callToActionData: CallToAction = { title: C2A_TITLE_DATA[this.media], inquiryUser: {}};
+  webURL: string = AppURL.webURL;
+  callToActionData: CallToAction = { title: C2A_TITLE_DATA[this.media], inquiryUser: {} };
   app_svg_icon_list = APP_SVG_ICON_LIST;
   userDataObs!: Subscription;
-  
+
   params: any = new EventsponsorshipParams();
 
-  isCollapseFilter = true; 
+  isCollapseFilter = true;
   pageDescription: any = false;
   tempMobileParams: any = new EventsponsorshipParams();
 
@@ -56,11 +56,11 @@ export class EventsponsorshipListPageComponent implements OnInit {
   // search filter value
   searchCategory: any = '';
   searchLanguage: any = '';
-  
+
   selectedCurrency: any;
 
   @ViewChildren('accordionRef') accordions !: QueryList<ElementRef>;
-  
+
   constructor(
     private _srCurrentMedia: EventsponsorshipService,
     private activeRoute: ActivatedRoute,
@@ -70,8 +70,8 @@ export class EventsponsorshipListPageComponent implements OnInit {
     private commonService: CommonService,
     private elementRef: ElementRef
   ) { }
-   
-  ngOnInit(): void {   
+
+  ngOnInit(): void {
     //Currency
     this.selectedCurrency = this.commonService.getSelectedCurrency();
     this.commonService.getCurrency().subscribe(currency => {
@@ -109,12 +109,12 @@ export class EventsponsorshipListPageComponent implements OnInit {
     }
   }
   // filter dropdown outside close end------------------------
-  
+
 
   // set api query parms for get data on page load
   setApiQueryParams() {
 
-    const queryParams = this.activeRoute.snapshot.queryParams;     
+    const queryParams = this.activeRoute.snapshot.queryParams;
     if (!(Object.keys(queryParams).length === 0)) {
       Object.keys(queryParams).forEach(parm => {
         if (this.params.filters.hasOwnProperty(parm)) {
@@ -127,44 +127,44 @@ export class EventsponsorshipListPageComponent implements OnInit {
         }
       })
     }
- 
+
     this.getMediaConfigAndList();
   }
 
   // getting Config data and media List
-  getMediaConfigAndList(){
-    
+  getMediaConfigAndList() {
+
     forkJoin({
-      mediaList : this._srCurrentMedia.getMediaList(this.params), // getting
+      mediaList: this._srCurrentMedia.getMediaList(this.params), // getting
       configData: this._srCurrentMedia.getMediaConfig(),  // getting Config data
     })
-      .subscribe(({ mediaList, configData  }) => {
+      .subscribe(({ mediaList, configData }) => {
         this.setMediaData(mediaList);
-        this.setConfigData(configData);        
+        this.setConfigData(configData);
       });
   }
 
   // set media filters, inquiryUser data, sorting column list, footer inquiry data
-  setConfigData(result:any){
+  setConfigData(result: any) {
     if (result.status == true) {
       this.filterList = result.data.filters;
       this.callToActionData.inquiryUser = result.data?.inquiryUser;
-      
+
       // sorting
       this.sortingList = result.data.sorting;
       if (this.sortingList.length > 0) {
-        var sort = this.sortingList.filter((sort:any) => {
+        var sort = this.sortingList.filter((sort: any) => {
           return sort.isDefault == true;
         });
-         
-        this.selectedSortBy = (sort.length > 0)? sort[0] : this.sortingList[0];
+
+        this.selectedSortBy = (sort.length > 0) ? sort[0] : this.sortingList[0];
         this.params.sortBy = this.selectedSortBy.value;
-      }      
+      }
       this.setCheckedFilterValue();
     }
   }
 
-  setMediaData(result:any){
+  setMediaData(result: any) {
     this.isDataLoaded = true;
     this.isLoadingMore = false;
     if (result.status == true) {
@@ -173,12 +173,11 @@ export class EventsponsorshipListPageComponent implements OnInit {
       this.pageDescription = result.description;
       this.setMetaData();
     }
-    else 
-    {
+    else {
       this.isShowViewMore = false;
       this.dataList = (this.dataList.length > 0) ? this.dataList : [];
-    } 
-    
+    }
+
     this.gtmEvents();
   }
 
@@ -197,7 +196,7 @@ export class EventsponsorshipListPageComponent implements OnInit {
     this.isShowViewMore = false;
     this.getMediaList();
   }
-  
+
   // load more data from api
   viewMoreItems() {
     this.params.offset = this.params.offset + this.params.limit;
@@ -206,7 +205,7 @@ export class EventsponsorshipListPageComponent implements OnInit {
   }
 
   //changeSortByValue 
-  
+
   changeSortByValue(item: any) {
     this.selectedSortBy = item;
     this.params.sortBy = this.selectedSortBy.value;
@@ -229,7 +228,7 @@ export class EventsponsorshipListPageComponent implements OnInit {
       this.filterList[filter].values[index]['checked'] = false;
       this.params.filters[filter].splice(this.params.filters[filter].findIndex((x: any) => x === value), 1);
     }
-    
+
     this.setQueryParams();
 
   }
@@ -251,27 +250,27 @@ export class EventsponsorshipListPageComponent implements OnInit {
 
       this.params.filters[filterName].splice(this.params.filters[filterName].findIndex((x: any) => x == filter.value), 1);
 
-      this.setQueryParams(); 
+      this.setQueryParams();
     }
-    
-    
+
+
   }
 
   // clear All Filters
   clearAllFilters() {
-      
-    this.selectedFilterValues.forEach(f => {       
+
+    this.selectedFilterValues.forEach(f => {
       if (f.name != 'location') {
         let vindex = Utilities.findIndexOfFilterValue(this.filterList, f.name, f.value);;
-        let filterName = f.name; 
+        let filterName = f.name;
         this.filterList[filterName].values[vindex]['checked'] = false;
       }
     });
 
     this.params.filters = new EventsponsorshipFilters();
-    this.selectedFilterValues = []; 
+    this.selectedFilterValues = [];
     this.gtmFilterApplied = [];
-    this.setQueryParams(true); 
+    this.setQueryParams(true);
   }
 
   // set Applied Filters
@@ -289,7 +288,7 @@ export class EventsponsorshipListPageComponent implements OnInit {
 
       });
     });
-     
+
   }
 
   // set Checked Filter Value
@@ -320,7 +319,7 @@ export class EventsponsorshipListPageComponent implements OnInit {
 
 
   //set Query Parms In url
-  setQueryParams(isDelete:Boolean = false) {
+  setQueryParams(isDelete: Boolean = false) {
     let params: any = {};
     if (isDelete == false) {
       Object.keys(this.params.filters).forEach(param => {
@@ -331,9 +330,9 @@ export class EventsponsorshipListPageComponent implements OnInit {
     } else {
       Object.keys(this.activeRoute.snapshot.queryParams).forEach(param => {
         params[param] = null;
-      }); 
+      });
     }
-    
+
     this.setAppliedFilters();
 
     this.router.navigate(['/', this.media], { relativeTo: this.activeRoute, queryParams: params });
@@ -341,7 +340,7 @@ export class EventsponsorshipListPageComponent implements OnInit {
     this.params.path = this.serializer.serialize(tree);
     this.getFilteredMediaList();
   }
- 
+
 
   // geography Data Search from api
   geographyDataSearch(value: any) {
@@ -364,13 +363,13 @@ export class EventsponsorshipListPageComponent implements OnInit {
         }
       });
     }
-  } 
+  }
 
   // set Primary Data
   setPrimaryData() {
     // set isAuthenticated user 
     this.isAuthenticated = this.userService.isAuthenticated;
-    this.userDataObs =  this.userService.userData.subscribe(data => {
+    this.userDataObs = this.userService.userData.subscribe(data => {
       this.isAuthenticated = this.userService.isAuthenticated;
     });
 
@@ -388,7 +387,7 @@ export class EventsponsorshipListPageComponent implements OnInit {
 
 
   // open User Login Dialog 
-  openUserLoginDialog(productName:any): void {
+  openUserLoginDialog(productName: any): void {
     this.userService.openUserLoginDialog('Product Listing', productName);
   }
 
@@ -403,12 +402,12 @@ export class EventsponsorshipListPageComponent implements OnInit {
     }
     else {
 
-      this.tempMobileParams.filters['location'].push(location.search_string);     
+      this.tempMobileParams.filters['location'].push(location.search_string);
     }
-    
+
   }
 
-  
+
   // filter Value Change 
   mobileFilterValueChange(event: any, filter: string, value: string) {
 
@@ -424,29 +423,29 @@ export class EventsponsorshipListPageComponent implements OnInit {
     }
   }
 
-  setTempApplyedValue(){
+  setTempApplyedValue() {
     this.tempMobileParams.filters = this.params.filters;
   }
 
   applyMobileFilter(isApply: boolean) {
 
     if (isApply) {
-      Object.keys(this.tempMobileParams.filters).forEach((filter: any) => {        
-        this.tempMobileParams.filters[filter].forEach((value:any) => {
+      Object.keys(this.tempMobileParams.filters).forEach((filter: any) => {
+        this.tempMobileParams.filters[filter].forEach((value: any) => {
           let filterString = this.commonService.getGtmFilterString(filter, value)
           this.gtmFilterApplied.push(filterString);
         });
 
         if (this.tempMobileParams.filters[filter].length > 0) {
-            if (this.params.filters[filter].length > 0) {
+          if (this.params.filters[filter].length > 0) {
 
-              this.params.filters[filter] = [...new Set([...this.params.filters[filter] ,...this.tempMobileParams.filters[filter]])]; //merge two array
+            this.params.filters[filter] = [...new Set([...this.params.filters[filter], ...this.tempMobileParams.filters[filter]])]; //merge two array
 
-            } else {
-              this.params.filters[filter] = this.tempMobileParams.filters[filter];
-            }
+          } else {
+            this.params.filters[filter] = this.tempMobileParams.filters[filter];
+          }
         }
-        else{
+        else {
           this.params.filters[filter] = this.tempMobileParams.filters[filter];
         }
 
@@ -468,36 +467,36 @@ export class EventsponsorshipListPageComponent implements OnInit {
         }
       });
     }
- 
-    this.tempMobileParams = new EventsponsorshipParams();    
+
+    this.tempMobileParams = new EventsponsorshipParams();
 
   }
 
   setMetaData() {
     let metaInfo = new MetaInformation();
-    metaInfo.meta_title = this.pageDescription?.meta_title ?? ''; 
-    metaInfo.meta_description = this.pageDescription?.meta_description ?? ''; 
-    metaInfo.meta_keywords = this.pageDescription?.meta_keywords ?? ''; 
-    // metaInfo.canonical_url = `${this.webURL}` + `${this.router.url}`;
-    metaInfo.canonical_url = `${this.webURL}` + `/${this.media}`; 
-    
+    metaInfo.meta_title = this.pageDescription?.meta_title ?? '';
+    metaInfo.meta_description = this.pageDescription?.meta_description ?? '';
+    metaInfo.meta_keywords = this.pageDescription?.meta_keywords ?? '';
+    metaInfo.canonical_url = `${this.webURL}` + `/${this.media}`;
+
     //og data           
-    metaInfo.og_url = `${this.webURL}`+ `${this.media}`;       
-    metaInfo.og_image = `${this.webURL}`+ '/assets/logo/excellent-logo-footer.webp';     
-    this.commonService.setMetaData(metaInfo); 
+    metaInfo.og_url = `${this.webURL}` + `${this.media}`;
+    metaInfo.og_image = `${this.webURL}` + '/assets/logo/excellent-logo-footer.webp';
+
+    this.commonService.setMetaData(metaInfo);
   }
 
-  gtmEvents(){
-       //************************// 
-      //   Google Tag Manager   //
-     //************************//
-     this.commonService.gtmPageEvents('Product Listing','Events & Sponsorship');
+  gtmEvents() {
+    //************************// 
+    //   Google Tag Manager   //
+    //************************//
+    this.commonService.gtmPageEvents('Product Listing', 'Events & Sponsorship');
 
-     this.gtmFilterApplied.forEach(element => {
+    this.gtmFilterApplied.forEach(element => {
       this.commonService.gtmCustomMediaFilterEvents(element);
-     });
+    });
 
-     this.gtmFilterApplied = [];
+    this.gtmFilterApplied = [];
   }
 
 
