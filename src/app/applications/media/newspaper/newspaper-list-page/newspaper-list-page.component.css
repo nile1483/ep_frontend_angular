@@ -444,3 +444,11 @@ button.more-link {
   padding: 0;
   cursor: pointer;
 }
+
+span.more-text {
+  color: #c01624 !important;
+}
+
+::ng-deep .more-icon svg {
+  fill: #c01624 !important;
+}

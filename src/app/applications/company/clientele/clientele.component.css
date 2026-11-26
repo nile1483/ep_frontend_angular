@@ -1,6 +1,21 @@
-.clientele-page-header .section-heading{
-    max-width: 750px;
+.clientele-page-header .section-heading {
+  max-width: 750px;
 }
-.clientele-page-header .form-select{
-    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+.clientele-page-header .form-select {
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+}
+
+button.more-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+span.more-text {
+  color: #c01624 !important;
+}
+
+::ng-deep .more-icon svg {
+  fill: #c01624 !important;
 }

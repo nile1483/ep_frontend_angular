@@ -722,10 +722,6 @@ body {
   min-width: 0;
 }
 
-.adtech-content h5 {
-  margin-bottom: 12px;
-}
-
 .adtech-content p {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -777,4 +773,26 @@ body {
   .adtech-image img {
     max-width: 240px;
   }
+}
+
+.adtech-content h3 {
+  color: var(--gray-3);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 767px) {
+  .adtech-content h3 {
+    font-size: 16px;
+  }
+}
+
+span.more-text {
+  color: #c01624 !important;
+}
+
+::ng-deep .more-icon svg {
+  fill: #c01624 !important;
 }

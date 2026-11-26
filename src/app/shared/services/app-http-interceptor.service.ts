@@ -1,5 +1,5 @@
-import { Inject, Injectable, Injector, Optional } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse, HttpResponse } from '@angular/common/http'
+import { Injectable, Injector, Optional } from '@angular/core';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -31,11 +31,9 @@ export class AppHttpInterceptorService implements HttpInterceptor {
     return next.handle(modifiedReq).pipe(
 
       catchError((response: HttpErrorResponse) => {
-        let errorMessage = '';
         if (response.status == 401) {
-          // Resolved lazily: UserService issues an HTTP request in its constructor, so injecting it
-          // here creates a DI cycle (NG0200) that Angular 19 enforces in production builds.
           const userService = this.injector.get(UserService);
+
           userService.setUserAuthenticated(false);
           userService.userData.next(false);
         }
@@ -48,7 +46,7 @@ export class AppHttpInterceptorService implements HttpInterceptor {
           this.statusCodeResponseService?.setNotFound();
         }
 
-        return throwError(response);
+        return throwError(() => response);
       })
 
     );
